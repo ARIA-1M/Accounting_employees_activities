@@ -1,0 +1,107 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="AccountingEmployeesActivities.MainWindow"
+        Title="Учёт деятельности сотрудников - Вход"
+        WindowStartupLocation="CenterScreen"
+        CanResize="False">
+
+	<!-- Основная сетка с двумя колонками -->
+	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="1*"/>
+			<ColumnDefinition Width="400"/>
+		</Grid.ColumnDefinitions>
+
+		<!-- ЛЕВАЯ ПАНЕЛЬ (синяя, информационная) -->
+		<Border Grid.Column="0" Background="#0f172a">
+			<StackPanel Margin="40" VerticalAlignment="Center">
+
+				<!-- Логотип -->
+				<TextBlock Text="Учёт деятельности сотрудников"
+                           FontSize="24" FontWeight="Bold"
+                           Foreground="White"/>
+				<TextBlock Text="Система управления задачами отдела"
+                           FontSize="13" Foreground="#94a3b8"
+                           Margin="0,8,0,0"/>
+
+				<!-- Приветствие -->
+				<TextBlock Text="Добро пожаловать"
+                           FontSize="22" FontWeight="SemiBold"
+                           Foreground="White" Margin="0,40,0,0"/>
+				<TextBlock Text="Войдите в систему, чтобы управлять задачами, отслеживать статусы и получать актуальную статистику по сотрудникам."
+                           FontSize="13" Foreground="#cbd5e1"
+                           TextWrapping="Wrap" Margin="0,12,0,0"/>
+
+				<!-- Список возможностей (галочки) -->
+				<StackPanel Margin="0,32,0,0" Spacing="12">
+					<TextBlock Text="○ Создание и управление задачами" Foreground="#e2e8f0" FontSize="13"/>
+					<TextBlock Text="○ Отслеживание статусов выполнения" Foreground="#e2e8f0" FontSize="13"/>
+					<TextBlock Text="○ Статистика и отчёты в Excel/PDF" Foreground="#e2e8f0" FontSize="13"/>
+					<TextBlock Text="○ Вложения до 15 файлов на задачу" Foreground="#e2e8f0" FontSize="13"/>
+					<TextBlock Text="○ Делегирование задач с указанием причины" Foreground="#e2e8f0" FontSize="13"/>
+				</StackPanel>
+			</StackPanel>
+		</Border>
+
+		<!-- ПРАВАЯ ПАНЕЛЬ (форма входа) -->
+		<StackPanel Grid.Column="1" Margin="40" VerticalAlignment="Center">
+
+			<!-- Заголовок формы -->
+			<TextBlock Text="Вход в систему"
+                       FontSize="24" FontWeight="SemiBold"
+                       HorizontalAlignment="Center"/>
+			<TextBlock Text="Введите ваши учётные данные"
+                       FontSize="13" Foreground="#64748b"
+                       HorizontalAlignment="Center" Margin="0,8,0,0"/>
+
+			<!-- Поле Логин -->
+			<TextBlock Text="Логин" Margin="0,24,0,6" FontSize="13" FontWeight="Medium"/>
+			<TextBox Name="LoginTextBox"
+                     Watermark="Введите логин"
+                     Height="40"
+                     CornerRadius="8"/>
+
+			<!-- Поле Пароль -->
+			<TextBlock Text="Пароль" Margin="0,16,0,6" FontSize="13" FontWeight="Medium"/>
+			<TextBox Name="PasswordTextBox"
+                     Watermark="Введите пароль"
+                     Height="40"
+                     PasswordChar="*"
+                     CornerRadius="8"/>
+
+			<!-- Чекбокс "Запомнить меня" -->
+			<Grid Margin="0,16,0,0">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="*"/>
+					<ColumnDefinition Width="Auto"/>
+				</Grid.ColumnDefinitions>
+				<CheckBox Grid.Column="0" Content="Запомнить меня" Foreground="#475569"/>
+			</Grid>
+
+			<!-- Кнопка входа -->
+			<Button Name="LoginButton"
+			   Content="Войти"
+			   Height="50"
+			   Width="200"
+			   HorizontalAlignment="Center"
+			   HorizontalContentAlignment="Center"
+			   VerticalContentAlignment="Center"
+			   Margin="0,24,0,0"
+			   Background="#3b82f6"
+			   Foreground="White"
+			   CornerRadius="25"
+			   FontSize="16"
+			   FontWeight="SemiBold"/>
+
+			<!-- Сообщение об ошибке -->
+			<TextBlock Name="ErrorText"
+                       Foreground="Red"
+                       HorizontalAlignment="Center"
+                       Margin="0,16,0,0"
+                       IsVisible="False"/>
+		</StackPanel>
+	</Grid>
+</Window>
