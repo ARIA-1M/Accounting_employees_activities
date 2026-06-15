@@ -1,3 +1,4 @@
+using AccountingEmployeesActivities.Views;
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
@@ -15,7 +16,7 @@ namespace AccountingEmployeesActivities
         {
             if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
             {
-                desktop.MainWindow = new MainWindow();
+                desktop.MainWindow = new LoginWindow();
             }
 
             base.OnFrameworkInitializationCompleted();
