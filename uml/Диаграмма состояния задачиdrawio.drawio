@@ -50,11 +50,12 @@
             <mxPoint x="25" y="-8" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="4ICLMKMlqyyxZQTssYSh-19" edge="1" parent="1" source="4ICLMKMlqyyxZQTssYSh-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0;entryDx=0;entryDy=0;strokeColor=light-dark(#ff0000, #ededed);" target="4ICLMKMlqyyxZQTssYSh-29">
+        <mxCell id="4ICLMKMlqyyxZQTssYSh-19" edge="1" parent="1" source="4ICLMKMlqyyxZQTssYSh-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0;entryDx=0;entryDy=0;strokeColor=light-dark(#ff0000, #ededed);">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
               <mxPoint x="574" y="460" />
             </Array>
+            <mxPoint x="370" y="460" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="4ICLMKMlqyyxZQTssYSh-26" connectable="0" parent="4ICLMKMlqyyxZQTssYSh-19" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="взяли в работу" vertex="1">
@@ -112,15 +113,15 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="4ICLMKMlqyyxZQTssYSh-15" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=middle;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=0;resizeLast=1;container=0;fontColor=#000000;collapsible=0;rounded=1;arcSize=30;strokeColor=#ff0000;fillColor=#ffffc0;swimlaneFillColor=#ffffc0;dropTarget=0;" value="Решена" vertex="1">
-          <mxGeometry height="80" width="160" x="334" y="610" as="geometry" />
+          <mxGeometry height="120" width="160" x="334" y="610" as="geometry" />
         </mxCell>
-        <mxCell id="4ICLMKMlqyyxZQTssYSh-21" edge="1" parent="1" source="4ICLMKMlqyyxZQTssYSh-29" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.75;entryY=1;entryDx=0;entryDy=0;strokeColor=light-dark(#ff0000, #ededed);exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="4ICLMKMlqyyxZQTssYSh-9">
+        <mxCell id="4ICLMKMlqyyxZQTssYSh-21" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.75;entryY=1;entryDx=0;entryDy=0;strokeColor=light-dark(#ff0000, #ededed);exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="4ICLMKMlqyyxZQTssYSh-9">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
               <mxPoint x="290" y="540" />
               <mxPoint x="614" y="540" />
             </Array>
-            <mxPoint x="260" y="520" as="sourcePoint" />
+            <mxPoint x="290" y="490" as="sourcePoint" />
             <mxPoint x="614" y="430" as="targetPoint" />
           </mxGeometry>
         </mxCell>
@@ -129,11 +130,8 @@
             <mxPoint x="182" y="-9" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="4ICLMKMlqyyxZQTssYSh-29" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;spacingLeft=4;spacingRight=4;whiteSpace=wrap;overflow=hidden;rotatable=0;fontColor=#000000;" value="exit/присвоение даты закрытия" vertex="1">
-          <mxGeometry height="30" width="160" x="210" y="460" as="geometry" />
-        </mxCell>
-        <mxCell id="4ICLMKMlqyyxZQTssYSh-32" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;spacingLeft=4;spacingRight=4;whiteSpace=wrap;overflow=hidden;rotatable=0;fontColor=#000000;" value="&lt;div&gt;exit/&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(237, 237, 237));&quot;&gt;присвоение даты создания и удаление даты закрытия&lt;/span&gt;&lt;/div&gt;" vertex="1">
-          <mxGeometry height="50" width="160" x="334" y="640" as="geometry" />
+        <mxCell id="4ICLMKMlqyyxZQTssYSh-32" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;spacingLeft=4;spacingRight=4;whiteSpace=wrap;overflow=hidden;rotatable=0;fontColor=#000000;" value="&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(237, 237, 237));&quot;&gt;entry/присвоение даты закрытия&lt;/span&gt;&lt;/div&gt;&lt;div&gt;exit/&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(237, 237, 237));&quot;&gt;присвоение даты создания и удаление даты закрытия&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="90" width="160" x="334" y="640" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
