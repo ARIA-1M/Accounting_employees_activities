@@ -1,0 +1,127 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.3.0 Chrome/140.0.7339.249 Electron/38.7.2 Safari/537.36" version="29.3.0">
+  <diagram name="Страница-1" id="BPcF6DLw5jpiPRJxzuHv">
+    <mxGraphModel dx="693" dy="413" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2Tna-V4hAOLTlYeoTvkl-5" edge="1" parent="1" source="2Tna-V4hAOLTlYeoTvkl-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;" target="2Tna-V4hAOLTlYeoTvkl-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2Tna-V4hAOLTlYeoTvkl-10" connectable="0" parent="2Tna-V4hAOLTlYeoTvkl-5" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="1. Нажатие кнопки создать задачу&lt;div&gt;3. Заполнение формы задачи и &quot;сохранить&quot;&lt;/div&gt;" vertex="1">
+          <mxGeometry relative="1" x="-0.5313" y="-3" as="geometry">
+            <mxPoint x="122" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2Tna-V4hAOLTlYeoTvkl-1" parent="1" style="html=1;whiteSpace=wrap;" value=":Интерфейс" vertex="1">
+          <mxGeometry height="50" width="110" x="240" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="2Tna-V4hAOLTlYeoTvkl-7" edge="1" parent="1" source="2Tna-V4hAOLTlYeoTvkl-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=none;endFill=0;" target="2Tna-V4hAOLTlYeoTvkl-6">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="300" y="445" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2Tna-V4hAOLTlYeoTvkl-9" edge="1" parent="1" source="2Tna-V4hAOLTlYeoTvkl-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;" value="4. Создать запрос на создание с данными">
+          <mxGeometry relative="1" x="-0.1699" y="15" as="geometry">
+            <mxPoint as="offset" />
+            <mxPoint x="580" y="299.9999999999999" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2Tna-V4hAOLTlYeoTvkl-16" connectable="0" parent="2Tna-V4hAOLTlYeoTvkl-9" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="5. Запрос к БД" vertex="1">
+          <mxGeometry relative="1" x="-0.0481" as="geometry">
+            <mxPoint x="4" y="15" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2Tna-V4hAOLTlYeoTvkl-2" parent="1" style="html=1;whiteSpace=wrap;" value=":Модуль управления" vertex="1">
+          <mxGeometry height="50" width="110" x="240" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="2Tna-V4hAOLTlYeoTvkl-3" parent="1" style="html=1;whiteSpace=wrap;" value=":База данных" vertex="1">
+          <mxGeometry height="50" width="110" x="660" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="2Tna-V4hAOLTlYeoTvkl-4" parent="1" style="html=1;whiteSpace=wrap;" value=":Модуль запросов" vertex="1">
+          <mxGeometry height="50" width="110" x="530" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="2Tna-V4hAOLTlYeoTvkl-8" edge="1" parent="1" source="2Tna-V4hAOLTlYeoTvkl-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;" target="2Tna-V4hAOLTlYeoTvkl-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2Tna-V4hAOLTlYeoTvkl-6" parent="1" style="html=1;whiteSpace=wrap;" value=":API" vertex="1">
+          <mxGeometry height="50" width="110" x="380" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="2Tna-V4hAOLTlYeoTvkl-11" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="300" y="220" as="sourcePoint" />
+            <mxPoint x="300" y="250" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2Tna-V4hAOLTlYeoTvkl-12" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="280" y="300" as="sourcePoint" />
+            <mxPoint x="280" y="270" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2Tna-V4hAOLTlYeoTvkl-13" connectable="0" parent="2Tna-V4hAOLTlYeoTvkl-12" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="2. Вывод формы задачи&lt;div&gt;10. Вывод сообщения:&amp;nbsp;&lt;/div&gt;&lt;div&gt;&quot;задача успешно создана&quot;&lt;/div&gt;" vertex="1">
+          <mxGeometry relative="1" x="-0.146" as="geometry">
+            <mxPoint x="-80" y="-12" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2Tna-V4hAOLTlYeoTvkl-14" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="370" y="330" as="sourcePoint" />
+            <mxPoint x="410" y="330" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2Tna-V4hAOLTlYeoTvkl-15" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="480" y="340" as="sourcePoint" />
+            <mxPoint x="440" y="340" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2Tna-V4hAOLTlYeoTvkl-17" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="310" y="380" as="sourcePoint" />
+            <mxPoint x="310" y="410" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2Tna-V4hAOLTlYeoTvkl-20" connectable="0" parent="2Tna-V4hAOLTlYeoTvkl-17" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="6. Создать задачу" vertex="1">
+          <mxGeometry relative="1" x="-0.1778" as="geometry">
+            <mxPoint x="50" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2Tna-V4hAOLTlYeoTvkl-18" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="294.71" y="440" as="sourcePoint" />
+            <mxPoint x="294.71" y="410" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2Tna-V4hAOLTlYeoTvkl-19" connectable="0" parent="2Tna-V4hAOLTlYeoTvkl-18" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="9. &quot;Задача успешно создана&quot;" vertex="1">
+          <mxGeometry relative="1" x="-0.146" as="geometry">
+            <mxPoint x="-85" y="-7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2Tna-V4hAOLTlYeoTvkl-21" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="550" y="440" as="sourcePoint" />
+            <mxPoint x="590" y="440" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2Tna-V4hAOLTlYeoTvkl-22" connectable="0" parent="2Tna-V4hAOLTlYeoTvkl-21" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="7. Создать задачу" vertex="1">
+          <mxGeometry relative="1" x="-0.1778" as="geometry">
+            <mxPoint x="13" y="-10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2Tna-V4hAOLTlYeoTvkl-23" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="565" y="450" as="sourcePoint" />
+            <mxPoint x="530" y="450" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2Tna-V4hAOLTlYeoTvkl-24" connectable="0" parent="2Tna-V4hAOLTlYeoTvkl-23" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="8. &quot;Задача успешно создана&quot;" vertex="1">
+          <mxGeometry relative="1" x="-0.1778" as="geometry">
+            <mxPoint x="19" y="10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
