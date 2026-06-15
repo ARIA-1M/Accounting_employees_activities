@@ -1,0 +1,127 @@
+<mxfile host="Electron">
+  <diagram name="Страница-1" id="rsIQ82SEyrync7_Ftss2">
+    <mxGraphModel dx="926" dy="722" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="OsAmnjhs0jXwtr-Ss-WU-1" edge="1" parent="1" source="OsAmnjhs0jXwtr-Ss-WU-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;" target="OsAmnjhs0jXwtr-Ss-WU-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="OsAmnjhs0jXwtr-Ss-WU-2" connectable="0" parent="OsAmnjhs0jXwtr-Ss-WU-1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="1. Нажатие кнопки создать пользователя&lt;div&gt;3. Заполнение формы пользователя и &quot;сохранить&quot;&lt;/div&gt;" vertex="1">
+          <mxGeometry relative="1" x="-0.5313" y="-3" as="geometry">
+            <mxPoint x="143" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OsAmnjhs0jXwtr-Ss-WU-3" parent="1" style="html=1;whiteSpace=wrap;" value=":Интерфейс" vertex="1">
+          <mxGeometry height="50" width="110" x="260" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="OsAmnjhs0jXwtr-Ss-WU-4" edge="1" parent="1" source="OsAmnjhs0jXwtr-Ss-WU-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=none;endFill=0;" target="OsAmnjhs0jXwtr-Ss-WU-11">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="320" y="505" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OsAmnjhs0jXwtr-Ss-WU-5" edge="1" parent="1" source="OsAmnjhs0jXwtr-Ss-WU-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;" value="4. Создать запрос на создание с данными">
+          <mxGeometry relative="1" x="-0.1699" y="15" as="geometry">
+            <mxPoint as="offset" />
+            <mxPoint x="600" y="359.9999999999999" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OsAmnjhs0jXwtr-Ss-WU-6" connectable="0" parent="OsAmnjhs0jXwtr-Ss-WU-5" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="5. Запрос к БД" vertex="1">
+          <mxGeometry relative="1" x="-0.0481" as="geometry">
+            <mxPoint x="4" y="15" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OsAmnjhs0jXwtr-Ss-WU-7" parent="1" style="html=1;whiteSpace=wrap;" value=":Модуль управления" vertex="1">
+          <mxGeometry height="50" width="110" x="260" y="370" as="geometry" />
+        </mxCell>
+        <mxCell id="OsAmnjhs0jXwtr-Ss-WU-8" parent="1" style="html=1;whiteSpace=wrap;" value=":База данных" vertex="1">
+          <mxGeometry height="50" width="110" x="680" y="480" as="geometry" />
+        </mxCell>
+        <mxCell id="OsAmnjhs0jXwtr-Ss-WU-9" parent="1" style="html=1;whiteSpace=wrap;" value=":Модуль запросов" vertex="1">
+          <mxGeometry height="50" width="110" x="550" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="OsAmnjhs0jXwtr-Ss-WU-10" edge="1" parent="1" source="OsAmnjhs0jXwtr-Ss-WU-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;" target="OsAmnjhs0jXwtr-Ss-WU-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="OsAmnjhs0jXwtr-Ss-WU-11" parent="1" style="html=1;whiteSpace=wrap;" value=":API" vertex="1">
+          <mxGeometry height="50" width="110" x="391" y="480" as="geometry" />
+        </mxCell>
+        <mxCell id="OsAmnjhs0jXwtr-Ss-WU-12" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="320" y="280" as="sourcePoint" />
+            <mxPoint x="320" y="310" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OsAmnjhs0jXwtr-Ss-WU-13" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="300" y="360" as="sourcePoint" />
+            <mxPoint x="300" y="330" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OsAmnjhs0jXwtr-Ss-WU-14" connectable="0" parent="OsAmnjhs0jXwtr-Ss-WU-13" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="2. Вывод формы пользователя&lt;div&gt;10. Вывод сообщения:&amp;nbsp;&lt;/div&gt;&lt;div&gt;&quot;пользователь успешно создан&quot;&lt;/div&gt;" vertex="1">
+          <mxGeometry relative="1" x="-0.146" as="geometry">
+            <mxPoint x="-90" y="-12" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OsAmnjhs0jXwtr-Ss-WU-15" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="390" y="390" as="sourcePoint" />
+            <mxPoint x="430" y="390" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OsAmnjhs0jXwtr-Ss-WU-16" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="500" y="400" as="sourcePoint" />
+            <mxPoint x="460" y="400" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OsAmnjhs0jXwtr-Ss-WU-17" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="330" y="440" as="sourcePoint" />
+            <mxPoint x="330" y="470" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OsAmnjhs0jXwtr-Ss-WU-18" connectable="0" parent="OsAmnjhs0jXwtr-Ss-WU-17" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="6. Создать пользователя" vertex="1">
+          <mxGeometry relative="1" x="-0.1778" as="geometry">
+            <mxPoint x="70" y="-2" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OsAmnjhs0jXwtr-Ss-WU-19" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="314.71" y="500" as="sourcePoint" />
+            <mxPoint x="314.71" y="470" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OsAmnjhs0jXwtr-Ss-WU-20" connectable="0" parent="OsAmnjhs0jXwtr-Ss-WU-19" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="9. &quot;Пользователь успешно создан&quot;" vertex="1">
+          <mxGeometry relative="1" x="-0.146" as="geometry">
+            <mxPoint x="-95" y="-7" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OsAmnjhs0jXwtr-Ss-WU-21" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="570" y="500" as="sourcePoint" />
+            <mxPoint x="610" y="500" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OsAmnjhs0jXwtr-Ss-WU-22" connectable="0" parent="OsAmnjhs0jXwtr-Ss-WU-21" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="7. Создать пользователя" vertex="1">
+          <mxGeometry relative="1" x="-0.1778" as="geometry">
+            <mxPoint x="13" y="-10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OsAmnjhs0jXwtr-Ss-WU-23" edge="1" parent="1" style="endArrow=classic;html=1;rounded=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="585" y="510" as="sourcePoint" />
+            <mxPoint x="550" y="510" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OsAmnjhs0jXwtr-Ss-WU-24" connectable="0" parent="OsAmnjhs0jXwtr-Ss-WU-23" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="8. &quot;Пользователь успешно создан&quot;" vertex="1">
+          <mxGeometry relative="1" x="-0.1778" as="geometry">
+            <mxPoint x="19" y="10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
