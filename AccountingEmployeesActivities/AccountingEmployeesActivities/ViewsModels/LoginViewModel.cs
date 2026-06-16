@@ -1,6 +1,7 @@
 ﻿using AccountingEmployeesActivities.Models;
 using Avalonia.OpenGL;
 using Microsoft.EntityFrameworkCore;
+using AccountingEmployeesActivities.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,6 +10,8 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading;
 using Task = System.Threading.Tasks.Task;
+
+// Обработка логики для авторизации
 
 namespace AccountingEmployeesActivities.ViewModels
 {
@@ -20,6 +23,8 @@ namespace AccountingEmployeesActivities.ViewModels
         private bool _isErrorVisible;
         private bool _isLoggedIn;
         private User _currentUser;
+        private bool _rememberMe;
+        private readonly SettingsService _settingsService;
 
         public event EventHandler<User> LoginSuccess;
 
@@ -59,12 +64,33 @@ namespace AccountingEmployeesActivities.ViewModels
             set { _currentUser = value; OnPropertyChanged(); }
         }
 
+        public bool RememberMe
+        {
+            get => _rememberMe;
+            set { _rememberMe = value; OnPropertyChanged(); }
+        }
+
         public AsyncRelayCommand LoginCommand { get; }
 
         public LoginViewModel()
         {
+            _settingsService = new SettingsService();
             LoginCommand = new AsyncRelayCommand(LoginAsync);
             IsLoggedIn = false;
+
+            LoadSavedCredentials();
+        }
+
+        private void LoadSavedCredentials()
+        {
+            var settings = _settingsService.LoadCredentials();
+
+            if (!string.IsNullOrEmpty(settings.Login))
+            {
+                Login = settings.Login;
+                Password = settings.Password;
+                RememberMe = true;
+            }
         }
 
         private async Task LoginAsync()
@@ -97,6 +123,11 @@ namespace AccountingEmployeesActivities.ViewModels
                 ErrorMessage = "Неверный логин или пароль";
                 IsErrorVisible = true;
                 return;
+            }
+
+            if (RememberMe)
+            {
+                _settingsService.SaveCredentials(Login, Password);
             }
 
 

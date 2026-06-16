@@ -6,6 +6,8 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
+// Связь между Views и ViewModels для авторизации
+
 namespace AccountingEmployeesActivities.Views
 {
     public partial class LoginWindow : Window
