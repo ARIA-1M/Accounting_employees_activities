@@ -1,11 +1,13 @@
 ﻿using AccountingEmployeesActivities.Models;
 using Avalonia.OpenGL;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Threading;
 using Task = System.Threading.Tasks.Task;
 
 namespace AccountingEmployeesActivities.ViewModels
@@ -18,6 +20,8 @@ namespace AccountingEmployeesActivities.ViewModels
         private bool _isErrorVisible;
         private bool _isLoggedIn;
         private User _currentUser;
+
+        public event EventHandler<User> LoginSuccess;
 
         public string Login
         {
@@ -72,10 +76,11 @@ namespace AccountingEmployeesActivities.ViewModels
                 return;
             }
 
+           
             using var db = new PostgresContext();
 
-            var user = db.Users
-                .FirstOrDefault(u => u.Login == Login && u.Password == Password);
+            var user = await db.Users
+                .FirstOrDefaultAsync<User>(u => u.Login == Login);
 
             if (user == null)
             {
@@ -84,9 +89,21 @@ namespace AccountingEmployeesActivities.ViewModels
                 return;
             }
 
+            bool isPasswordValid = BCrypt.Net.BCrypt.Verify(Password, user.Password);
+            
+
+            if (!isPasswordValid)
+            {
+                ErrorMessage = "Неверный логин или пароль";
+                IsErrorVisible = true;
+                return;
+            }
+
+
             CurrentUser = user;
             IsErrorVisible = false;
             IsLoggedIn = true;
+            LoginSuccess?.Invoke(this, user);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
