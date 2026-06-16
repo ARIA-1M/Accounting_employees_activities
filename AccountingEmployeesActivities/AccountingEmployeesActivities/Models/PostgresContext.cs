@@ -79,6 +79,9 @@ public partial class PostgresContext : DbContext
                 .HasColumnName("first_name");
             entity.Property(e => e.IdBoss).HasColumnName("id_boss");
             entity.Property(e => e.IdUser).HasColumnName("id_user");
+            entity.Property(e => e.IsActive)
+                .HasDefaultValue(true)
+                .HasColumnName("is_active");
             entity.Property(e => e.LastName)
                 .HasMaxLength(255)
                 .HasColumnName("last_name");
@@ -138,9 +141,6 @@ public partial class PostgresContext : DbContext
             entity.Property(e => e.Name)
                 .HasMaxLength(255)
                 .HasColumnName("name");
-            entity.Property(e => e.Path)
-                .HasMaxLength(500)
-                .HasColumnName("path");
 
             entity.HasOne(d => d.IdTaskNavigation).WithMany(p => p.Files)
                 .HasForeignKey(d => d.IdTask)
