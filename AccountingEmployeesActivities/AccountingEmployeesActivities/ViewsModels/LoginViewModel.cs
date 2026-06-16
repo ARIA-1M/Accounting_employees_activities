@@ -12,12 +12,12 @@ namespace AccountingEmployeesActivities.ViewModels
 {
     public class LoginViewModel : INotifyPropertyChanged
     {
-        private string _login;
-        private string _password;
-        private string _errorMessage;
+        private string _login = string.Empty;
+        private string _password = string.Empty;
+        private string _errorMessage = string.Empty;
         private bool _isErrorVisible;
         private bool _isLoggedIn;
-        private User _currentUser;
+        private User? _currentUser;
 
         public string Login
         {
@@ -55,6 +55,8 @@ namespace AccountingEmployeesActivities.ViewModels
             set { _currentUser = value; OnPropertyChanged(); }
         }
 
+        public event EventHandler<User>? LoginSuccess;
+
         public AsyncRelayCommand LoginCommand { get; }
 
         public LoginViewModel()
@@ -87,6 +89,8 @@ namespace AccountingEmployeesActivities.ViewModels
             CurrentUser = user;
             IsErrorVisible = false;
             IsLoggedIn = true;
+
+            LoginSuccess?.Invoke(this, user);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
