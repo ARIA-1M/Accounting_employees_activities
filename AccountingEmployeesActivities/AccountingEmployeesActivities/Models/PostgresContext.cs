@@ -95,7 +95,6 @@ public partial class PostgresContext : DbContext
 
             entity.HasOne(d => d.IdUserNavigation).WithOne(p => p.Employee)
                 .HasForeignKey<Employee>(d => d.IdUser)
-                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("employee_id_user_fkey");
         });
 

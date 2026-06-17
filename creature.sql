@@ -1,4 +1,4 @@
-- таблица ролей
+-- таблица ролей
 create table role (
     id_role int primary key,
     name varchar(255) not null,
