@@ -61,7 +61,7 @@
 			<!-- Поле Логин -->
 			<TextBlock Text="Логин" Margin="0,24,0,6" FontSize="13" FontWeight="Medium"/>
 			<TextBox Name="LoginTextBox"
-                     PlaceholderText="Введите логин"
+                     Watermark="Введите логин"
                      Height="40"
                      CornerRadius="8"
                      Text="{Binding Login, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
@@ -69,7 +69,7 @@
 			<!-- Поле Пароль -->
 			<TextBlock Text="Пароль" Margin="0,16,0,6" FontSize="13" FontWeight="Medium"/>
 			<TextBox Name="PasswordTextBox"
-                     PlaceholderText="Введите пароль"
+                     Watermark="Введите пароль"
                      Height="40"
                      PasswordChar="*"
                      CornerRadius="8"

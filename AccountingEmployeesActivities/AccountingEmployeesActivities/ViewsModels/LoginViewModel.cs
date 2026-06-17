@@ -12,9 +12,9 @@ namespace AccountingEmployeesActivities.ViewModels
 {
     public class LoginViewModel : INotifyPropertyChanged
     {
-        private string _login = string.Empty;
-        private string _password = string.Empty;
-        private string _errorMessage = string.Empty;
+        private string _login;
+        private string _password;
+        private string _errorMessage;
         private bool _isErrorVisible;
         private bool _isLoggedIn;
         private User? _currentUser;
