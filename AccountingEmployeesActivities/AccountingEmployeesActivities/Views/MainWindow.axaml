@@ -6,6 +6,7 @@
         x:Class="AccountingEmployeesActivities.Views.MainWindow"
         Title="Учёт деятельности сотрудников"
         Width="1024" Height="768"
+		x:CompileBindings="False"
         Background="#F5F5F5">
 	<Window.DataTemplates>
 		<DataTemplate DataType="{x:Type pagesVm:MyTasksViewModel}">

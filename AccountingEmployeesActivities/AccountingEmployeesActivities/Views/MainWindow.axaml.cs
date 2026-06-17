@@ -8,6 +8,8 @@ namespace AccountingEmployeesActivities.Views
 {
     public partial class MainWindow : Window
     {
+
+        public MainWindow() : this(null) { }
         public MainWindow(User user)
         {
             InitializeComponent();
