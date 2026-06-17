@@ -106,6 +106,7 @@ namespace AccountingEmployeesActivities.ViewModels
             using var db = new PostgresContext();
 
             var user = await db.Users
+                .Include(u => u.Employee)
                 .FirstOrDefaultAsync<User>(u => u.Login == Login);
 
             if (user == null)
@@ -121,6 +122,13 @@ namespace AccountingEmployeesActivities.ViewModels
             if (!isPasswordValid)
             {
                 ErrorMessage = "Неверный логин или пароль";
+                IsErrorVisible = true;
+                return;
+            }
+
+            if (user.Employee.IsActive == false)
+            {
+                ErrorMessage = "Учётная запись заблокирована. Обратитесь к администратору.";
                 IsErrorVisible = true;
                 return;
             }

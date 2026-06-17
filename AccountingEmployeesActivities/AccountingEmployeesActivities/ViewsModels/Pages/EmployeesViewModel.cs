@@ -1,6 +1,9 @@
 using AccountingEmployeesActivities.Models;
+using AccountingEmployeesActivities.Views.Dialogs;
+using Avalonia.Controls;
 using Microsoft.EntityFrameworkCore;
 using System;
+using Avalonia;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
@@ -50,10 +53,10 @@ namespace AccountingEmployeesActivities.ViewModels.Pages
         {
             _currentUserId = currentUser.IdUser;
 
-            CreateEmployeeCommand = new RelayCommand(CreateEmployee);
-            EditEmployeeCommand = new RelayCommand<Employee>(EditEmployee);
-            DeleteEmployeeCommand = new RelayCommand<Employee>(DeleteEmployee);
-            ApplyFiltersCommand = new RelayCommand(ApplyFilters);
+            // ← RelayCommand ждёт Action<object>, поэтому передаём методы через лямбды
+            CreateEmployeeCommand = new RelayCommand(_ => CreateEmployee());
+            EditEmployeeCommand = new RelayCommand(param => EditEmployee(param as Employee));
+            ApplyFiltersCommand = new RelayCommand(_ => ApplyFilters());
 
             ApplyFilters();
         }
@@ -87,54 +90,26 @@ namespace AccountingEmployeesActivities.ViewModels.Pages
 
         private void CreateEmployee()
         {
-            // TODO: Открыть модальное окно для создания
+            var dialog = new EmployeeDialog(_currentUserId);
+            dialog.Show();  
+            ApplyFilters();
         }
 
         private void EditEmployee(Employee employee)
         {
             if (employee == null) return;
-            // TODO: Открыть модальное окно для редактирования
+            var dialog = new EmployeeDialog(employee, _currentUserId);
+            dialog.Show();  
+            ApplyFilters();
         }
 
-        private void DeleteEmployee(Employee employee)
+        private Window GetMainWindow()
         {
-            if (employee == null) return;
-            // TODO: Удалить сотрудника
+            if (Application.Current?.ApplicationLifetime is Avalonia.Controls.ApplicationLifetimes.IClassicDesktopStyleApplicationLifetime desktop)
+            {
+                return desktop.MainWindow;
+            }
+            return null;
         }
-    }
-
-
-
-    // ========== RelayCommand ==========
-    public class RelayCommand : ICommand
-    {
-        private readonly Action _execute;
-        private readonly Func<bool> _canExecute;
-
-        public RelayCommand(Action execute, Func<bool> canExecute = null)
-        {
-            _execute = execute ?? throw new ArgumentNullException(nameof(execute));
-            _canExecute = canExecute;
-        }
-
-        public bool CanExecute(object parameter) => _canExecute == null || _canExecute();
-        public void Execute(object parameter) => _execute();
-        public event EventHandler CanExecuteChanged;
-    }
-
-    public class RelayCommand<T> : ICommand
-    {
-        private readonly Action<T> _execute;
-        private readonly Func<T, bool> _canExecute;
-
-        public RelayCommand(Action<T> execute, Func<T, bool> canExecute = null)
-        {
-            _execute = execute ?? throw new ArgumentNullException(nameof(execute));
-            _canExecute = canExecute;
-        }
-
-        public bool CanExecute(object parameter) => _canExecute == null || _canExecute((T)parameter);
-        public void Execute(object parameter) => _execute((T)parameter);
-        public event EventHandler CanExecuteChanged;
     }
 }
