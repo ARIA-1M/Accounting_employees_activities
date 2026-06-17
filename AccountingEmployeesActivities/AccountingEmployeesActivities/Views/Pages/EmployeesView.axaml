@@ -1,0 +1,110 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:pagesVm="clr-namespace:AccountingEmployeesActivities.ViewModels.Pages"
+             x:Class="AccountingEmployeesActivities.Views.Pages.EmployeesView"
+             x:CompileBindings="False">
+	<StackPanel Margin="20" Spacing="16">
+
+		<Grid ColumnDefinitions="*, Auto" Margin="0,0,0,12">
+			<!-- Заголовок -->
+			<TextBlock Grid.Column="0"
+					   Text="Сотрудники"
+					   FontSize="24"
+					   FontWeight="Bold"
+					   VerticalAlignment="Center"/>
+
+			<!-- Кнопка "Создать сотрудника" -->
+			<Button Grid.Column="1"
+					Content="+ Создать сотрудника"
+					Background="#2196F3"
+					Foreground="White"
+					FontWeight="SemiBold"
+					Padding="16,10"
+					CornerRadius="6"
+					HorizontalAlignment="Right"
+					VerticalAlignment="Center"/>
+		</Grid>
+
+		<!-- Фильтры -->
+		<Border Background="White" CornerRadius="8" Padding="16" BorderBrush="#E0E0E0" BorderThickness="1">
+			<StackPanel Spacing="12">
+
+				<!-- Фильтры с одним полем поиска -->
+				<Grid ColumnDefinitions="*, Auto, Auto">
+
+					<!-- Поле "Поиск" -->
+					<TextBox Grid.Column="0"
+							 Watermark="Поиск по имени или фамилии..."
+							 Height="36"
+							 Margin="0,0,12,0"/>
+
+					<!-- Чекбокс "Без уволенных" -->
+					<CheckBox Grid.Column="1"
+							  Content="Без уволенных"
+							  VerticalAlignment="Center"
+							  Margin="0,0,12,0"/>
+
+					<!-- Кнопка "Применить" -->
+					<Button Grid.Column="2"
+							Content="Применить"
+							Background="Transparent"
+							Foreground="#2196F3"
+							BorderBrush="#2196F3"
+							BorderThickness="2"
+							Padding="16,8"
+							CornerRadius="6"/>
+					
+				</Grid>
+			</StackPanel>
+		</Border>
+
+		<!-- Список карточек сотрудников -->
+		<ScrollViewer MaxHeight="500">
+			<ItemsControl ItemsSource="{Binding Employees}">
+				<ItemsControl.ItemTemplate>
+					<DataTemplate>
+						<Border Background="White" CornerRadius="8" Padding="16" BorderBrush="#E0E0E0" BorderThickness="1" Margin="0,4,0,0">
+							<Grid ColumnDefinitions="*, Auto">
+
+								<StackPanel Grid.Column="0">
+									<TextBlock Text="{Binding LastName} {Binding FirstName} {Binding MiddleName}"
+                                               FontSize="16" FontWeight="SemiBold"/>
+
+									<TextBlock Text="{Binding IdUserNavigation.IdRoleNavigation.Name}"
+                                               FontSize="13" Foreground="#666666"/>
+
+									<StackPanel Orientation="Horizontal" Spacing="16" Margin="0,4,0,0">
+										<TextBlock Text="{Binding IdUserNavigation.Login}"
+                                                   FontSize="12" Foreground="#888888"/>
+										<TextBlock Text="{Binding BirthDate, StringFormat='{}{0:dd.MM.yyyy}'}"
+                                                   FontSize="12" Foreground="#888888"/>
+									</StackPanel>
+
+									<TextBlock Text="Активен"
+                                               FontSize="11" Foreground="#4CAF50" Margin="0,4,0,0"/>
+								</StackPanel>
+
+								<Button Grid.Column="1"
+                                        Content="✎ Редактировать"
+                                        Background="Transparent"
+                                        Foreground="#FF6F00"
+                                        BorderBrush="#FF6F00"
+                                        BorderThickness="1"
+                                        Padding="12,8"
+                                        CornerRadius="6"
+                                        VerticalAlignment="Center"
+                                        Command="{Binding DataContext.EditEmployeeCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                        CommandParameter="{Binding}"/>
+							</Grid>
+						</Border>
+					</DataTemplate>
+				</ItemsControl.ItemTemplate>
+			</ItemsControl>
+		</ScrollViewer>
+
+
+		<!-- Подвал: информация о количестве -->
+		<TextBlock Text="Всего: 5 сотрудников" FontSize="12" Foreground="#888888" HorizontalAlignment="Center"/>
+
+	</StackPanel>
+</UserControl>

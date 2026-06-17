@@ -79,9 +79,11 @@ public partial class PostgresContext : DbContext
                 .HasColumnName("first_name");
             entity.Property(e => e.IdBoss).HasColumnName("id_boss");
             entity.Property(e => e.IdUser).HasColumnName("id_user");
+
             entity.Property(e => e.IsActive)
                 .HasDefaultValue(true)
                 .HasColumnName("is_active");
+
             entity.Property(e => e.LastName)
                 .HasMaxLength(255)
                 .HasColumnName("last_name");
@@ -95,6 +97,7 @@ public partial class PostgresContext : DbContext
 
             entity.HasOne(d => d.IdUserNavigation).WithOne(p => p.Employee)
                 .HasForeignKey<Employee>(d => d.IdUser)
+                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("employee_id_user_fkey");
         });
 

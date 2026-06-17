@@ -6,7 +6,6 @@ namespace AccountingEmployeesActivities.Models;
 public partial class Employee
 {
     public int IdEmployee { get; set; }
-
     public int? IdUser { get; set; }
 
     public string FirstName { get; set; } = null!;
@@ -26,6 +25,7 @@ public partial class Employee
     public virtual Employee? IdBossNavigation { get; set; }
 
     public virtual User? IdUserNavigation { get; set; }
+
 
     public virtual ICollection<Employee> InverseIdBossNavigation { get; set; } = new List<Employee>();
 

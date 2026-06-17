@@ -102,7 +102,7 @@ namespace AccountingEmployeesActivities.ViewModels
                 return;
             }
 
-           
+
             using var db = new PostgresContext();
 
             var user = await db.Users
@@ -116,7 +116,7 @@ namespace AccountingEmployeesActivities.ViewModels
             }
 
             bool isPasswordValid = BCrypt.Net.BCrypt.Verify(Password, user.Password);
-            
+
 
             if (!isPasswordValid)
             {
