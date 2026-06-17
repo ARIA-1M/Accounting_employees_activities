@@ -17,7 +17,7 @@ namespace AccountingEmployeesActivities.ViewModels
         private string _errorMessage;
         private bool _isErrorVisible;
         private bool _isLoggedIn;
-        private User _currentUser;
+        private User? _currentUser;
 
         public string Login
         {
@@ -55,6 +55,8 @@ namespace AccountingEmployeesActivities.ViewModels
             set { _currentUser = value; OnPropertyChanged(); }
         }
 
+        public event EventHandler<User>? LoginSuccess;
+
         public AsyncRelayCommand LoginCommand { get; }
 
         public LoginViewModel()
@@ -87,6 +89,8 @@ namespace AccountingEmployeesActivities.ViewModels
             CurrentUser = user;
             IsErrorVisible = false;
             IsLoggedIn = true;
+
+            LoginSuccess?.Invoke(this, user);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

@@ -9,15 +9,25 @@ namespace AccountingEmployeesActivities.Views
 {
     public partial class LoginWindow : Window
     {
+        private LoginViewModel _viewModel;
+
         public LoginWindow()
         {
             InitializeComponent();
             DataContext = new LoginViewModel();
+            _viewModel = new LoginViewModel();
+            _viewModel.LoginSuccess += OnLoginSuccess;
+            DataContext = _viewModel;
         }
 
         private void InitializeComponent()
+
+        private void OnLoginSuccess(object sender, Models.User user)
         {
             AvaloniaXamlLoader.Load(this);
+            var mainWindow = new MainWindow(user);
+            mainWindow.Show();
+            Close();
         }
     }
 }
