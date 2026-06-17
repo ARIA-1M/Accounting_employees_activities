@@ -21,10 +21,12 @@ namespace AccountingEmployeesActivities.Views
         }
 
         private void InitializeComponent()
+        {
+            AvaloniaXamlLoader.Load(this);
+        }
 
         private void OnLoginSuccess(object sender, Models.User user)
         {
-            AvaloniaXamlLoader.Load(this);
             var mainWindow = new MainWindow(user);
             mainWindow.Show();
             Close();

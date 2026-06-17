@@ -1,10 +1,135 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:pagesVm="clr-namespace:AccountingEmployeesActivities.ViewModels.Pages"
-             x:Class="AccountingEmployeesActivities.Views.Pages.HistoryView"
-             x:DataType="pagesVm:HistoryViewModel">
-	<StackPanel Margin="20">
-		<TextBlock Text="{Binding Title}" FontSize="24" FontWeight="Bold" Margin="0,0,0,20"/>
-		<TextBlock Text="История выполненных задач." FontSize="16"/>
+             x:Class="AccountingEmployeesActivities.Views.Pages.HistoryView">
+	<StackPanel Margin="20" Background="White">
+		<TextBlock Text="{Binding Title}" FontSize="24" FontWeight="Bold" Margin="0,0,0,24"/>
+
+		<ItemsControl ItemsSource="{Binding CompletedTasks}">
+			<ItemsControl.ItemTemplate>
+				<DataTemplate>
+					<!-- Карточка задачи -->
+					<Border Background="White"
+                            BorderBrush="#E2E8F0"
+                            BorderThickness="1"
+                            CornerRadius="20"
+                            Margin="0,0,0,16">
+						<Border.Styles>
+							<Style Selector="Border:pointerover">
+								<Setter Property="BoxShadow" Value="0 8 20 rgba(0,0,0,0.05)"/>
+								<Setter Property="BorderBrush" Value="#CBD5E1"/>
+							</Style>
+						</Border.Styles>
+						<StackPanel>
+							<!-- Заголовок -->
+							<Border Background="#FAFCFF"
+                                    Padding="16,12,16,12"
+                                    BorderBrush="#E2E8F0"
+                                    BorderThickness="0,0,0,1"
+                                    CornerRadius="20,20,0,0">
+								<DockPanel>
+									<!-- Статус "Решена" с исправленными цветами -->
+									<Border Background="#F0FBF5"
+                                            BorderBrush="#E2EFE6"
+                                            BorderThickness="1"
+                                            CornerRadius="30"
+                                            Padding="8,2,8,2"
+                                            DockPanel.Dock="Right"
+                                            Margin="10,0,0,0">
+										<TextBlock Text="Решена"
+                                                   Foreground="#16A34A"
+                                                   FontSize="11"
+                                                   FontWeight="600"/>
+									</Border>
+									<TextBlock Text="{Binding Name}"
+                                               FontSize="16"
+                                               FontWeight="SemiBold"
+                                               Foreground="#0F172A"/>
+								</DockPanel>
+							</Border>
+
+							<!-- Тело -->
+							<StackPanel Margin="16">
+								<TextBlock Text="{Binding Description}"
+										   Foreground="#475569"
+										   FontSize="14"
+										   Margin="0,0,0,12"/>
+
+								<!-- Даты -->
+								<StackPanel Orientation="Horizontal" Margin="0,0,0,8">
+									<TextBlock Foreground="#94A3B8" FontSize="12">
+										<TextBlock.Text>
+											<Binding Path="CreationDate" StringFormat="Создана: {0:dd.MM.yyyy}"/>
+										</TextBlock.Text>
+									</TextBlock>
+									<TextBlock Text=" | " Foreground="#94A3B8" FontSize="12" Margin="4,0"/>
+									<TextBlock Foreground="#94A3B8" FontSize="12">
+										<TextBlock.Text>
+											<Binding Path="CompletionDate" StringFormat="Завершена: {0:dd.MM.yyyy}"/>
+										</TextBlock.Text>
+									</TextBlock>
+								</StackPanel>
+
+								<!-- ИСПОЛНИТЕЛЬ (только для начальника) -->
+								<TextBlock Foreground="#64748B" FontSize="13" Margin="0,0,0,8"
+										   IsVisible="{Binding IsBoss}">
+									<TextBlock.Text>
+										<MultiBinding StringFormat="Исполнитель: {0}">
+											<Binding Path="Executors"/>
+										</MultiBinding>
+									</TextBlock.Text>
+								</TextBlock>
+
+								<!-- Файлы -->
+								<ItemsControl ItemsSource="{Binding Files}" Margin="0,0,0,12">
+									<ItemsControl.ItemTemplate>
+										<DataTemplate>
+											<Border Background="#F1F5F9"
+                                                    BorderBrush="#E2E8F0"
+                                                    BorderThickness="1"
+                                                    CornerRadius="20"
+                                                    Padding="6,4,6,4"
+                                                    Margin="0,2,8,2">
+												<TextBlock Text="{Binding}"
+                                                           Foreground="#475569"
+                                                           FontSize="11"
+                                                           FontFamily="Consolas, monospace"/>
+											</Border>
+										</DataTemplate>
+									</ItemsControl.ItemTemplate>
+									<ItemsControl.ItemsPanel>
+										<ItemsPanelTemplate>
+											<WrapPanel/>
+										</ItemsPanelTemplate>
+									</ItemsControl.ItemsPanel>
+								</ItemsControl>
+
+								<!-- Кнопка комментариев -->
+								<Button Command="{Binding DataContext.OpenCommentsCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
+										CommandParameter="{Binding}"
+										Background="#F8FAFC"
+                                        BorderBrush="#E2E8F0"
+                                        BorderThickness="1"
+                                        CornerRadius="40"
+                                        Padding="12,6"
+                                        FontSize="13"
+                                        FontWeight="500"
+                                        Foreground="#0f172a"
+                                        HorizontalAlignment="Left">
+									<Button.Styles>
+										<Style Selector="Button:pointerover">
+											<Setter Property="Background" Value="#EEF2FF"/>
+											<Setter Property="BorderBrush" Value="#3B82F6"/>
+										</Style>
+									</Button.Styles>
+									<Button.Content>
+										<TextBlock Text="{Binding CommentsCount, StringFormat='Комментарии ({0})'}" />
+									</Button.Content>
+								</Button>
+							</StackPanel>
+						</StackPanel>
+					</Border>
+				</DataTemplate>
+			</ItemsControl.ItemTemplate>
+		</ItemsControl>
 	</StackPanel>
 </UserControl>
