@@ -103,6 +103,8 @@ namespace AccountingEmployeesActivities.ViewModels.Pages
         }
     }
 
+
+
     // ========== RelayCommand ==========
     public class RelayCommand : ICommand
     {
