@@ -1,5 +1,6 @@
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
+using AccountingEmployeesActivities.Models;
 
 namespace AccountingEmployeesActivities.Views.Pages
 {
@@ -8,7 +9,11 @@ namespace AccountingEmployeesActivities.Views.Pages
         public EmployeesView()
         {
             InitializeComponent();
-            DataContext = new ViewModels.Pages.EmployeesViewModel();
+        }
+        public EmployeesView(User currentUser)  
+        {
+            InitializeComponent();
+            DataContext = new ViewModels.Pages.EmployeesViewModel(currentUser);  
         }
         private void InitializeComponent() => AvaloniaXamlLoader.Load(this);
     }

@@ -115,7 +115,7 @@ namespace AccountingEmployeesActivities.ViewModels
                 PageType.Delegation => new DelegationViewModel(),
                 PageType.Statistics => new StatisticsViewModel(),
                 PageType.Tasks => new TasksViewModel(),
-                PageType.Employees => new EmployeesViewModel(),
+                PageType.Employees => new EmployeesViewModel(_currentUser),
                 PageType.Settings => new SettingsViewModel(),
                 _ => new MyTasksViewModel()
             };
