@@ -24,6 +24,7 @@ create table employee (
     middle_name varchar(255),
     birth_date date,
     id_boss int default null,
+    is_active bool DEFAULT true NOT NULL,
     foreign key (id_user) references "user"(id_user),
     foreign key (id_boss) references employee(id_employee)
 );
@@ -76,7 +77,6 @@ create table file (
     id_file int primary key,
     id_task int not null,
     name varchar(255) not null,
-    path varchar(500) not null,
     add_date date not null,
     foreign key (id_task) references task(id_task)
 );
