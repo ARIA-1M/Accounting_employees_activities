@@ -102,10 +102,11 @@ namespace AccountingEmployeesActivities.ViewModels
                 return;
             }
 
-           
+
             using var db = new PostgresContext();
 
             var user = await db.Users
+                .Include(u => u.Employee)
                 .FirstOrDefaultAsync<User>(u => u.Login == Login);
 
             if (user == null)
@@ -116,11 +117,18 @@ namespace AccountingEmployeesActivities.ViewModels
             }
 
             bool isPasswordValid = BCrypt.Net.BCrypt.Verify(Password, user.Password);
-            
+
 
             if (!isPasswordValid)
             {
                 ErrorMessage = "Неверный логин или пароль";
+                IsErrorVisible = true;
+                return;
+            }
+
+            if (user.Employee.IsActive == false)
+            {
+                ErrorMessage = "Учётная запись заблокирована. Обратитесь к администратору.";
                 IsErrorVisible = true;
                 return;
             }

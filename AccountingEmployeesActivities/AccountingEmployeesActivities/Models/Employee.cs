@@ -15,8 +15,6 @@ public partial class Employee
 
     public string? MiddleName { get; set; }
 
-    public DateOnly? BirthDate { get; set; }
-
     public int? IdBoss { get; set; }
 
     public bool? IsActive { get; set; }

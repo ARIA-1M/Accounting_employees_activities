@@ -73,7 +73,6 @@ public partial class PostgresContext : DbContext
             entity.Property(e => e.IdEmployee)
                 .ValueGeneratedNever()
                 .HasColumnName("id_employee");
-            entity.Property(e => e.BirthDate).HasColumnName("birth_date");
             entity.Property(e => e.FirstName)
                 .HasMaxLength(255)
                 .HasColumnName("first_name");
