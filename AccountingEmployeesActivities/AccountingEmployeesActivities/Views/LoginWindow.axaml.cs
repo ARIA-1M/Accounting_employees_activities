@@ -1,7 +1,10 @@
-using AccountingEmployeesActivities.ViewModels;
+
+﻿using AccountingEmployeesActivities.ViewModels;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
 using System;
+using System.Collections.Generic;
+using System.Text;
 
 namespace AccountingEmployeesActivities.Views
 {
@@ -12,8 +15,8 @@ namespace AccountingEmployeesActivities.Views
         public LoginWindow()
         {
             InitializeComponent();
+            DataContext = new LoginViewModel();
             _viewModel = new LoginViewModel();
-
             _viewModel.LoginSuccess += OnLoginSuccess;
             DataContext = _viewModel;
         }

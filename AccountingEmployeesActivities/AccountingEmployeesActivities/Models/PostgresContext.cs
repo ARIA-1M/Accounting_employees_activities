@@ -73,14 +73,21 @@ public partial class PostgresContext : DbContext
             entity.Property(e => e.IdEmployee)
                 .ValueGeneratedNever()
                 .HasColumnName("id_employee");
+<<<<<<< HEAD
+            entity.Property(e => e.BirthDate).HasColumnName("birth_date");
+=======
+>>>>>>> main
             entity.Property(e => e.FirstName)
                 .HasMaxLength(255)
                 .HasColumnName("first_name");
             entity.Property(e => e.IdBoss).HasColumnName("id_boss");
             entity.Property(e => e.IdUser).HasColumnName("id_user");
+<<<<<<< HEAD
+=======
             entity.Property(e => e.IsActive)
                 .HasDefaultValue(true)
                 .HasColumnName("is_active");
+>>>>>>> main
             entity.Property(e => e.LastName)
                 .HasMaxLength(255)
                 .HasColumnName("last_name");
@@ -94,6 +101,10 @@ public partial class PostgresContext : DbContext
 
             entity.HasOne(d => d.IdUserNavigation).WithOne(p => p.Employee)
                 .HasForeignKey<Employee>(d => d.IdUser)
+<<<<<<< HEAD
+                .OnDelete(DeleteBehavior.ClientSetNull)
+=======
+>>>>>>> main
                 .HasConstraintName("employee_id_user_fkey");
         });
 
@@ -139,6 +150,12 @@ public partial class PostgresContext : DbContext
             entity.Property(e => e.Name)
                 .HasMaxLength(255)
                 .HasColumnName("name");
+<<<<<<< HEAD
+            entity.Property(e => e.Path)
+                .HasMaxLength(500)
+                .HasColumnName("path");
+=======
+>>>>>>> main
 
             entity.HasOne(d => d.IdTaskNavigation).WithMany(p => p.Files)
                 .HasForeignKey(d => d.IdTask)

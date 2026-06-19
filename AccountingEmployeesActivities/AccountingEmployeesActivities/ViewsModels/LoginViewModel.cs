@@ -8,8 +8,8 @@ using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
-using System.Threading;
 using Task = System.Threading.Tasks.Task;
+using System.Threading;
 
 // Обработка логики для авторизации
 
@@ -22,10 +22,9 @@ namespace AccountingEmployeesActivities.ViewModels
         private string _errorMessage;
         private bool _isErrorVisible;
         private bool _isLoggedIn;
-        private User _currentUser;
+        private User? _currentUser;
         private bool _rememberMe;
         private readonly SettingsService _settingsService;
-
         public event EventHandler<User> LoginSuccess;
 
         public string Login
@@ -64,6 +63,7 @@ namespace AccountingEmployeesActivities.ViewModels
             set { _currentUser = value; OnPropertyChanged(); }
         }
 
+        public event EventHandler<User>? LoginSuccess;
         public bool RememberMe
         {
             get => _rememberMe;
@@ -102,6 +102,10 @@ namespace AccountingEmployeesActivities.ViewModels
                 return;
             }
 
+            using var db = new PostgresContext();
+
+            var user = db.Users
+                .FirstOrDefault(u => u.Login == Login && u.Password == Password);
 
             using var db = new PostgresContext();
 
@@ -115,6 +119,10 @@ namespace AccountingEmployeesActivities.ViewModels
                 IsErrorVisible = true;
                 return;
             }
+
+            CurrentUser = user;
+            IsErrorVisible = false;
+            IsLoggedIn = true;
 
             bool isPasswordValid = BCrypt.Net.BCrypt.Verify(Password, user.Password);
 

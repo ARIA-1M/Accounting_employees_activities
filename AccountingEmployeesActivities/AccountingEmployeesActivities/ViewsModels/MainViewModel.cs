@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
+using System.Globalization;
 
 namespace AccountingEmployeesActivities.ViewModels
 {
@@ -62,6 +63,27 @@ namespace AccountingEmployeesActivities.ViewModels
                 if (!string.IsNullOrEmpty(_currentEmployee.MiddleName))
                     fullName += $" {_currentEmployee.MiddleName}";
 
+                var role = db.Roles.FirstOrDefault(r => r.IdRole == _currentUser.IdRole);
+                var roleName = role?.Name ?? "Сотрудник";
+                FullNameWithRole = $"{ToTitleCase(fullName)} · {ToTitleCase(roleName)}"; // ФИО и роль – каждое слово с большой
+                FirstNameOnly = ToTitleCase(_currentEmployee.FirstName);
+            }
+            else
+            {
+                FullNameWithRole = ToTitleCase(_currentUser.Login);
+                FirstNameOnly = ToTitleCase(_currentUser.Login);
+            }
+        }
+
+        private string ToTitleCase(string str)
+        {
+            if (string.IsNullOrWhiteSpace(str)) return str;
+            return CultureInfo.CurrentCulture.TextInfo.ToTitleCase(str.ToLower());
+        }
+
+        private void BuildMenu()
+        {
+            bool isBoss = _currentUser.IdRole == 1 || _currentUser.IdRole == 2; // администратор или руководитель
                 // Получаем название роли
                 var role = db.Roles.FirstOrDefault(r => r.IdRole == _currentUser.IdRole);
                 var roleName = role?.Name ?? "Сотрудник";
@@ -94,7 +116,9 @@ namespace AccountingEmployeesActivities.ViewModels
                 MenuItems.Add(new MenuItem { Header = "Делегирование", PageType = PageType.Delegation });
                 MenuItems.Add(new MenuItem { Header = "Статистика", PageType = PageType.Statistics });
             }
+
             // Добавляем Настройки для всех
+
             MenuItems.Add(new MenuItem { Header = "Настройки", PageType = PageType.Settings });
         }
 
@@ -111,11 +135,11 @@ namespace AccountingEmployeesActivities.ViewModels
             return pageType switch
             {
                 PageType.MyTasks => new MyTasksViewModel(),
-                PageType.History => new HistoryViewModel(),
+                PageType.History => new HistoryViewModel(_currentUser, _currentUser.IdRole == 1 || _currentUser.IdRole == 2),
                 PageType.Delegation => new DelegationViewModel(),
                 PageType.Statistics => new StatisticsViewModel(),
                 PageType.Tasks => new TasksViewModel(),
-                PageType.Employees => new EmployeesViewModel(_currentUser),
+                PageType.Employees => new EmployeesViewModel(),
                 PageType.Settings => new SettingsViewModel(),
                 _ => new MyTasksViewModel()
             };

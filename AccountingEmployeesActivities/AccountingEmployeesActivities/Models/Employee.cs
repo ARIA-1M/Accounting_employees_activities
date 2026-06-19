@@ -15,6 +15,9 @@ public partial class Employee
 
     public string? MiddleName { get; set; }
 
+
+    public DateOnly? BirthDate { get; set; }
+
     public int? IdBoss { get; set; }
 
     public bool? IsActive { get; set; }
@@ -23,7 +26,7 @@ public partial class Employee
 
     public virtual Employee? IdBossNavigation { get; set; }
 
-    public virtual User? IdUserNavigation { get; set; }
+    public virtual User? IdUserNavigation { get; set; } = null!;
 
     public virtual ICollection<Employee> InverseIdBossNavigation { get; set; } = new List<Employee>();
 

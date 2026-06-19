@@ -1,11 +1,11 @@
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
 
-namespace AccountingEmployeesActivities.Views.Pages
+namespace AccountingEmployeesActivities.Views
 {
-    public partial class HistoryView : UserControl
+    public partial class CommentWindow : Window
     {
-        public HistoryView()
+        public CommentWindow()
         {
             InitializeComponent();
         }

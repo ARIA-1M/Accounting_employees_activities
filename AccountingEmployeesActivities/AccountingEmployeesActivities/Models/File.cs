@@ -11,6 +11,8 @@ public partial class File
 
     public string Name { get; set; } = null!;
 
+    public string Path { get; set; } = null!;
+
     public DateOnly AddDate { get; set; }
 
     public virtual Task IdTaskNavigation { get; set; } = null!;
