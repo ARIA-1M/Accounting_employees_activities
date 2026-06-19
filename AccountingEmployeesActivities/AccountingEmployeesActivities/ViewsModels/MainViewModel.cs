@@ -84,23 +84,6 @@ namespace AccountingEmployeesActivities.ViewModels
         private void BuildMenu()
         {
             bool isBoss = _currentUser.IdRole == 1 || _currentUser.IdRole == 2; // администратор или руководитель
-                // Получаем название роли
-                var role = db.Roles.FirstOrDefault(r => r.IdRole == _currentUser.IdRole);
-                var roleName = role?.Name ?? "Сотрудник";
-                // Переводим название роли в более читаемый вид (можно оставить как есть)
-                FullNameWithRole = $"{fullName} · {roleName}";
-                FirstNameOnly = _currentEmployee.FirstName;
-            }
-            else
-            {
-                FullNameWithRole = _currentUser.Login;
-                FirstNameOnly = _currentUser.Login;
-            }
-        }
-
-        private void BuildMenu()
-        {
-            bool isBoss = _currentUser.IdRole == 1; // начальник
 
             if (isBoss)
             {
@@ -116,9 +99,6 @@ namespace AccountingEmployeesActivities.ViewModels
                 MenuItems.Add(new MenuItem { Header = "Делегирование", PageType = PageType.Delegation });
                 MenuItems.Add(new MenuItem { Header = "Статистика", PageType = PageType.Statistics });
             }
-
-            // Добавляем Настройки для всех
-
             MenuItems.Add(new MenuItem { Header = "Настройки", PageType = PageType.Settings });
         }
 
@@ -139,7 +119,7 @@ namespace AccountingEmployeesActivities.ViewModels
                 PageType.Delegation => new DelegationViewModel(),
                 PageType.Statistics => new StatisticsViewModel(),
                 PageType.Tasks => new TasksViewModel(),
-                PageType.Employees => new EmployeesViewModel(),
+                PageType.Employees => new EmployeesViewModel(_currentUser),
                 PageType.Settings => new SettingsViewModel(),
                 _ => new MyTasksViewModel()
             };

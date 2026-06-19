@@ -2,11 +2,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:pagesVm="clr-namespace:AccountingEmployeesActivities.ViewModels.Pages"
              x:Class="AccountingEmployeesActivities.Views.Pages.EmployeesView"
-			 x:CompileBindings="False">
-		<TextBlock Text="{Binding Title}" FontSize="24" FontWeight="Bold" Margin="0,0,0,20"/>
-		<TextBlock Text="Список сотрудников (для начальника)." FontSize="16"/>
-
-
+             x:CompileBindings="False">
 
 	<StackPanel Margin="20" Spacing="16">
 
@@ -120,5 +116,6 @@
 
 		<!-- Подвал -->
 		<TextBlock Text="{Binding EmployeesCount}" FontSize="12" Foreground="#888888" HorizontalAlignment="Center"/>
+
 	</StackPanel>
 </UserControl>
