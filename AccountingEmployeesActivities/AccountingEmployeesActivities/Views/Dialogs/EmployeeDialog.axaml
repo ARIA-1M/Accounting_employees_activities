@@ -1,0 +1,99 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="clr-namespace:AccountingEmployeesActivities.ViewModels.Dialogs"
+        x:Class="AccountingEmployeesActivities.Views.Dialogs.EmployeeDialog"
+        Title="{Binding DialogTitle}"
+        Width="500" Height="650"
+        WindowStartupLocation="CenterOwner"
+        CanResize="False"
+        x:CompileBindings="False">
+
+	<ScrollViewer VerticalScrollBarVisibility="Auto">
+		<StackPanel Margin="20" Spacing="12">
+
+			<!-- Заголовок -->
+			<TextBlock Text="{Binding DialogTitle}"
+                       FontSize="20"
+                       FontWeight="Bold"
+                       HorizontalAlignment="Center"
+                       Margin="0,0,0,12"/>
+
+			
+			<TextBlock Text="Логин" FontWeight="SemiBold"/>
+			<TextBox Text="{Binding EmployeeForm.Login}"
+                     Watermark="Введите логин"/>
+
+			<!-- Пароль: виден ТОЛЬКО при создании -->
+			<TextBlock Text="Пароль" FontWeight="SemiBold"
+                       IsVisible="{Binding IsNewEmployee}"/>
+			<TextBox Text="{Binding EmployeeForm.Password}"
+                     Watermark="Введите пароль"
+                     PasswordChar="*"
+                     IsVisible="{Binding IsNewEmployee}"/>
+
+			<!-- При редактировании показываем заглушку -->
+			<TextBlock Text="Пароль (оставьте пустым, если не менять)"
+                       FontWeight="SemiBold"
+                       FontSize="12"
+                       Foreground="#888888"
+                       IsVisible="{Binding !IsNewEmployee}"/>
+			<TextBox Text="{Binding EmployeeForm.Password}"
+                     Watermark="Введите новый пароль"
+                     PasswordChar="*"
+                     IsVisible="{Binding !IsNewEmployee}"/>
+
+			<TextBlock Text="Роль" FontWeight="SemiBold"/>
+			<ComboBox ItemsSource="{Binding Roles}"
+                  SelectedItem="{Binding SelectedRole, Mode=TwoWay}"
+                  DisplayMemberBinding="{Binding Name}"/>
+
+
+			<TextBlock Text="Фамилия" FontWeight="SemiBold"/>
+			<TextBox Text="{Binding EmployeeForm.LastName}"
+                     Watermark="Введите фамилию"/>
+
+			<TextBlock Text="Имя" FontWeight="SemiBold"/>
+			<TextBox Text="{Binding EmployeeForm.FirstName}"
+                     Watermark="Введите имя"/>
+
+			<TextBlock Text="Отчество" FontWeight="SemiBold"/>
+			<TextBox Text="{Binding EmployeeForm.MiddleName}"
+                     Watermark="Введите отчество"/>
+
+			<!-- Статус активности -->
+			<CheckBox Content="Активен"
+                      IsChecked="{Binding EmployeeForm.IsActive}"
+                      Margin="0,8,0,0"/>
+
+			<!-- При редактировании показываем ID -->
+			<TextBlock Text="{Binding EmployeeIdInfo}"
+                       FontSize="11"
+                       Foreground="#888888"
+                       HorizontalAlignment="Center"
+                       IsVisible="{Binding !IsNewEmployee}"/>
+
+
+			<!-- Кнопки -->
+			<StackPanel Orientation="Horizontal"
+                        Spacing="12"
+                        HorizontalAlignment="Right"
+                        Margin="0,8,0,0">
+				<Button Content="Отмена"
+                        Background="Transparent"
+						Foreground="#E74C3C"
+						BorderBrush="#E74C3C"
+                        BorderThickness="1"
+                        Padding="20,10"
+                        CornerRadius="6"
+                        Command="{Binding CancelCommand}"/>
+				<Button Content="Сохранить"
+                       Background="#2196F3"
+                       Foreground="White"
+                       Padding="20,10"
+                       CornerRadius="6"
+                       Command="{Binding SaveCommand}"/>
+			</StackPanel>
+
+		</StackPanel>
+	</ScrollViewer>
+</Window>

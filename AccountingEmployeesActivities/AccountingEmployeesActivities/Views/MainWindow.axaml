@@ -5,7 +5,9 @@
         xmlns:pagesVm="clr-namespace:AccountingEmployeesActivities.ViewModels.Pages"
         x:Class="AccountingEmployeesActivities.Views.MainWindow"
         Title="Учёт деятельности сотрудников"
-        Width="1024" Height="768"
+        Width="900" Height="550"
+		WindowState="Maximized"
+		x:CompileBindings="False"
         Background="#F5F5F5">
 	<Window.DataTemplates>
 		<DataTemplate DataType="{x:Type pagesVm:MyTasksViewModel}">
@@ -43,7 +45,22 @@
 				<!-- Правая часть -->
 				<DockPanel HorizontalAlignment="Right">
 					<TextBlock Text="{Binding FirstNameOnly}" Foreground="#2C3E50" FontSize="16" VerticalAlignment="Center" Margin="0,0,15,0"/>
-					<Button Content="Выйти" Command="{Binding LogoutCommand}" Background="#E74C3C" Foreground="White" BorderThickness="0" Padding="12,6" CornerRadius="4"/>
+					<Button Content="Выйти"
+						Command="{Binding LogoutCommand}"
+						Background="Transparent"
+						Foreground="#E74C3C"
+						BorderBrush="#E74C3C"
+						BorderThickness="1"
+						Padding="12,6"
+						CornerRadius="4">
+						<Button.Styles>
+							<Style Selector="Button:pointerover">
+								<Setter Property="Background" Value="#E74C3C"/>
+								<Setter Property="Foreground" Value="White"/>
+								<Setter Property="BorderBrush" Value="#E74C3C"/>
+							</Style>
+						</Button.Styles>
+					</Button>
 				</DockPanel>
 			</DockPanel>
 		</Border>

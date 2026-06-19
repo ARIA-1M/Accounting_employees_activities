@@ -1,5 +1,7 @@
 ﻿using AccountingEmployeesActivities.Models;
 using Avalonia.OpenGL;
+using Microsoft.EntityFrameworkCore;
+using AccountingEmployeesActivities.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -7,6 +9,9 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using Task = System.Threading.Tasks.Task;
+using System.Threading;
+
+// Обработка логики для авторизации
 
 namespace AccountingEmployeesActivities.ViewModels
 {
@@ -18,6 +23,9 @@ namespace AccountingEmployeesActivities.ViewModels
         private bool _isErrorVisible;
         private bool _isLoggedIn;
         private User? _currentUser;
+        private bool _rememberMe;
+        private readonly SettingsService _settingsService;
+        public event EventHandler<User> LoginSuccess;
 
         public string Login
         {
@@ -56,13 +64,33 @@ namespace AccountingEmployeesActivities.ViewModels
         }
 
         public event EventHandler<User>? LoginSuccess;
+        public bool RememberMe
+        {
+            get => _rememberMe;
+            set { _rememberMe = value; OnPropertyChanged(); }
+        }
 
         public AsyncRelayCommand LoginCommand { get; }
 
         public LoginViewModel()
         {
+            _settingsService = new SettingsService();
             LoginCommand = new AsyncRelayCommand(LoginAsync);
             IsLoggedIn = false;
+
+            LoadSavedCredentials();
+        }
+
+        private void LoadSavedCredentials()
+        {
+            var settings = _settingsService.LoadCredentials();
+
+            if (!string.IsNullOrEmpty(settings.Login))
+            {
+                Login = settings.Login;
+                Password = settings.Password;
+                RememberMe = true;
+            }
         }
 
         private async Task LoginAsync()
@@ -79,6 +107,12 @@ namespace AccountingEmployeesActivities.ViewModels
             var user = db.Users
                 .FirstOrDefault(u => u.Login == Login && u.Password == Password);
 
+            using var db = new PostgresContext();
+
+            var user = await db.Users
+                .Include(u => u.Employee)
+                .FirstOrDefaultAsync<User>(u => u.Login == Login);
+
             if (user == null)
             {
                 ErrorMessage = "Неверный логин или пароль";
@@ -90,6 +124,32 @@ namespace AccountingEmployeesActivities.ViewModels
             IsErrorVisible = false;
             IsLoggedIn = true;
 
+            bool isPasswordValid = BCrypt.Net.BCrypt.Verify(Password, user.Password);
+
+
+            if (!isPasswordValid)
+            {
+                ErrorMessage = "Неверный логин или пароль";
+                IsErrorVisible = true;
+                return;
+            }
+
+            if (user.Employee.IsActive == false)
+            {
+                ErrorMessage = "Учётная запись заблокирована. Обратитесь к администратору.";
+                IsErrorVisible = true;
+                return;
+            }
+
+            if (RememberMe)
+            {
+                _settingsService.SaveCredentials(Login, Password);
+            }
+
+
+            CurrentUser = user;
+            IsErrorVisible = false;
+            IsLoggedIn = true;
             LoginSuccess?.Invoke(this, user);
         }
 

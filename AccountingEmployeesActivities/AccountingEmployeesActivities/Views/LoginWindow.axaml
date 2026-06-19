@@ -1,3 +1,6 @@
+
+<!-- Окно авторизации -->
+
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:vm="clr-namespace:AccountingEmployeesActivities.ViewModels"
@@ -81,7 +84,10 @@
 					<ColumnDefinition Width="*"/>
 					<ColumnDefinition Width="Auto"/>
 				</Grid.ColumnDefinitions>
-				<CheckBox Grid.Column="0" Content="Запомнить меня" Foreground="#475569"/>
+				<CheckBox Grid.Column="0"
+					Content="Запомнить меня" 
+					Foreground="#475569"
+					IsChecked="{Binding RememberMe}"/>
 			</Grid>
 
 			<!-- Кнопка входа -->

@@ -33,7 +33,7 @@ public partial class PostgresContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseNpgsql("Host=localhost;Port=5433;Database=postgres;Username=postgres;Password=123");
+        => optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=postgres;Username=postgres;Password=123");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -73,12 +73,21 @@ public partial class PostgresContext : DbContext
             entity.Property(e => e.IdEmployee)
                 .ValueGeneratedNever()
                 .HasColumnName("id_employee");
+<<<<<<< HEAD
             entity.Property(e => e.BirthDate).HasColumnName("birth_date");
+=======
+>>>>>>> main
             entity.Property(e => e.FirstName)
                 .HasMaxLength(255)
                 .HasColumnName("first_name");
             entity.Property(e => e.IdBoss).HasColumnName("id_boss");
             entity.Property(e => e.IdUser).HasColumnName("id_user");
+<<<<<<< HEAD
+=======
+            entity.Property(e => e.IsActive)
+                .HasDefaultValue(true)
+                .HasColumnName("is_active");
+>>>>>>> main
             entity.Property(e => e.LastName)
                 .HasMaxLength(255)
                 .HasColumnName("last_name");
@@ -92,7 +101,10 @@ public partial class PostgresContext : DbContext
 
             entity.HasOne(d => d.IdUserNavigation).WithOne(p => p.Employee)
                 .HasForeignKey<Employee>(d => d.IdUser)
+<<<<<<< HEAD
                 .OnDelete(DeleteBehavior.ClientSetNull)
+=======
+>>>>>>> main
                 .HasConstraintName("employee_id_user_fkey");
         });
 
@@ -138,9 +150,12 @@ public partial class PostgresContext : DbContext
             entity.Property(e => e.Name)
                 .HasMaxLength(255)
                 .HasColumnName("name");
+<<<<<<< HEAD
             entity.Property(e => e.Path)
                 .HasMaxLength(500)
                 .HasColumnName("path");
+=======
+>>>>>>> main
 
             entity.HasOne(d => d.IdTaskNavigation).WithMany(p => p.Files)
                 .HasForeignKey(d => d.IdTask)
