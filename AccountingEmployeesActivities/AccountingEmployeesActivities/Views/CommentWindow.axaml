@@ -1,0 +1,131 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="AccountingEmployeesActivities.Views.CommentWindow"
+        Title="Комментарии"
+		Width="500"
+		SizeToContent="Height"
+		MinHeight="200"
+		MaxHeight="600"
+        WindowStartupLocation="CenterOwner"
+        Background="White"
+        CornerRadius="16">
+	<Window.Styles>
+		<!-- Стиль для сообщения начальника (серый фон, слева) -->
+		<Style Selector="Border.BossMessage">
+			<Setter Property="Background" Value="#E2E8F0"/>
+			<Setter Property="CornerRadius" Value="12 12 12 4"/>
+			<Setter Property="Padding" Value="12,8"/>
+			<Setter Property="Margin" Value="0,0,40,8"/>
+			<Setter Property="HorizontalAlignment" Value="Left"/>
+		</Style>
+		<!-- Стиль для сообщения сотрудника (синий фон, справа) -->
+		<Style Selector="Border.EmployeeMessage">
+			<Setter Property="Background" Value="#3B82F6"/>
+			<Setter Property="CornerRadius" Value="12 12 4 12"/>
+			<Setter Property="Padding" Value="12,8"/>
+			<Setter Property="Margin" Value="40,0,0,8"/>
+			<Setter Property="HorizontalAlignment" Value="Right"/>
+		</Style>
+
+		<!-- Имя пользователя (начальник) -->
+		<Style Selector="TextBlock.BossName">
+			<Setter Property="Foreground" Value="#64748B"/>
+			<Setter Property="FontSize" Value="11"/>
+			<Setter Property="FontWeight" Value="600"/>
+			<Setter Property="Margin" Value="0,0,0,2"/>
+		</Style>
+		<!-- Имя пользователя (сотрудник) -->
+		<Style Selector="TextBlock.EmployeeName">
+			<Setter Property="Foreground" Value="#DBEAFE"/>
+			<Setter Property="FontSize" Value="11"/>
+			<Setter Property="FontWeight" Value="600"/>
+			<Setter Property="Margin" Value="0,0,0,2"/>
+		</Style>
+
+		<!-- Текст сообщения (начальник) -->
+		<Style Selector="TextBlock.BossText">
+			<Setter Property="Foreground" Value="#1E293B"/>
+			<Setter Property="FontSize" Value="13"/>
+		</Style>
+		<!-- Текст сообщения (сотрудник) -->
+		<Style Selector="TextBlock.EmployeeText">
+			<Setter Property="Foreground" Value="White"/>
+			<Setter Property="FontSize" Value="13"/>
+		</Style>
+
+		<!-- Дата (общий стиль) -->
+		<Style Selector="TextBlock.MessageDate">
+			<Setter Property="Foreground" Value="#94A3B8"/>
+			<Setter Property="FontSize" Value="9"/>
+			<Setter Property="Margin" Value="0,4,0,0"/>
+			<Setter Property="HorizontalAlignment" Value="Right"/>
+		</Style>
+
+		<!-- Поле ввода -->
+		<Style Selector="TextBox.CommentInput">
+			<Setter Property="Background" Value="#F1F5F9"/>
+			<Setter Property="BorderBrush" Value="#E2E8F0"/>
+			<Setter Property="BorderThickness" Value="1"/>
+			<Setter Property="CornerRadius" Value="20"/>
+			<Setter Property="Height" Value="34"/>
+			<Setter Property="Padding" Value="12,6"/>
+			<Setter Property="FontSize" Value="12"/>
+			<Setter Property="Margin" Value="0,0,8,0"/>
+		</Style>
+
+		<!-- Кнопка отправки -->
+		<Style Selector="Button.SendButton">
+			<Setter Property="Background" Value="#3B82F6"/>
+			<Setter Property="Foreground" Value="White"/>
+			<Setter Property="BorderThickness" Value="0"/>
+			<Setter Property="CornerRadius" Value="20"/>
+			<Setter Property="Height" Value="34"/>
+			<Setter Property="Padding" Value="12,6"/>
+			<Setter Property="FontSize" Value="12"/>
+			<Setter Property="FontWeight" Value="500"/>
+			<Setter Property="Cursor" Value="Hand"/>
+		</Style>
+		<Style Selector="Button.SendButton:pointerover">
+			<Setter Property="Background" Value="#2563EB"/>
+		</Style>
+	</Window.Styles>
+
+	<DockPanel Margin="16">
+		<!-- Заголовок -->
+		<TextBlock Text="Комментарии" FontSize="22" FontWeight="Bold" DockPanel.Dock="Top" Margin="0,0,0,16"/>
+
+		<!-- Список комментариев -->
+		<ScrollViewer DockPanel.Dock="Top" VerticalScrollBarVisibility="Auto" MaxHeight="300" Margin="0,0,0,16">
+			<ItemsControl ItemsSource="{Binding Comments}">
+				<ItemsControl.ItemTemplate>
+					<DataTemplate>
+						<StackPanel>
+							<!-- Сообщение начальника -->
+							<Border Classes="BossMessage" IsVisible="{Binding IsBoss}">
+								<StackPanel>
+									<TextBlock Text="{Binding UserName}" Classes="BossName"/>
+									<TextBlock Text="{Binding Text}" Classes="BossText"/>
+									<TextBlock Text="{Binding AddDate, StringFormat='dd.MM.yyyy'}" Classes="MessageDate"/>
+								</StackPanel>
+							</Border>
+							<!-- Сообщение сотрудника -->
+							<Border Classes="EmployeeMessage" IsVisible="{Binding !IsBoss}">
+								<StackPanel>
+									<TextBlock Text="{Binding UserName}" Classes="EmployeeName"/>
+									<TextBlock Text="{Binding Text}" Classes="EmployeeText"/>
+									<TextBlock Text="{Binding AddDate, StringFormat='dd.MM.yyyy'}" Classes="MessageDate"/>
+								</StackPanel>
+							</Border>
+						</StackPanel>
+					</DataTemplate>
+				</ItemsControl.ItemTemplate>
+			</ItemsControl>
+		</ScrollViewer>
+
+		<!-- Нижняя панель: ввод + кнопка -->
+		<DockPanel DockPanel.Dock="Bottom">
+			<Button Content="Отправить" Command="{Binding SendCommentCommand}" Classes="SendButton" DockPanel.Dock="Right"/>
+			<TextBox Text="{Binding NewComment}" Classes="CommentInput" PlaceholderText="Написать комментарий..." DockPanel.Dock="Left" />
+		</DockPanel>
+	</DockPanel>
+</Window>

@@ -1,0 +1,83 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:pages="clr-namespace:AccountingEmployeesActivities.Views.Pages"
+        xmlns:vm="clr-namespace:AccountingEmployeesActivities.ViewModels"
+        xmlns:pagesVm="clr-namespace:AccountingEmployeesActivities.ViewModels.Pages"
+        x:Class="AccountingEmployeesActivities.Views.MainWindow"
+        Title="Учёт деятельности сотрудников"
+        Width="1024" Height="768"
+        Background="#F5F5F5">
+	<Window.DataTemplates>
+		<DataTemplate DataType="{x:Type pagesVm:MyTasksViewModel}">
+			<pages:MyTasksView />
+		</DataTemplate>
+		<DataTemplate DataType="{x:Type pagesVm:HistoryViewModel}">
+			<pages:HistoryView />
+		</DataTemplate>
+		<DataTemplate DataType="{x:Type pagesVm:DelegationViewModel}">
+			<pages:DelegationView />
+		</DataTemplate>
+		<DataTemplate DataType="{x:Type pagesVm:StatisticsViewModel}">
+			<pages:StatisticsView />
+		</DataTemplate>
+		<DataTemplate DataType="{x:Type pagesVm:TasksViewModel}">
+			<pages:TasksView />
+		</DataTemplate>
+		<DataTemplate DataType="{x:Type pagesVm:EmployeesViewModel}">
+			<pages:EmployeesView />
+		</DataTemplate>
+		<DataTemplate DataType="{x:Type pagesVm:SettingsViewModel}">
+			<pages:SettingsView />
+		</DataTemplate>
+	</Window.DataTemplates>
+
+	<DockPanel>
+		<!-- Верхняя панель (белая) -->
+		<Border DockPanel.Dock="Top" Background="White" Padding="20,15" BorderBrush="#E0E0E0" BorderThickness="0,0,0,1">
+			<DockPanel>
+				<!-- Левая часть -->
+				<StackPanel DockPanel.Dock="Left">
+					<TextBlock Text="Учёт деятельности сотрудников" Foreground="#2C3E50" FontSize="22" FontWeight="Bold"/>
+					<TextBlock Text="{Binding FullNameWithRole}" Foreground="#7F8C8D" FontSize="14" Margin="0,2,0,0"/>
+				</StackPanel>
+				<!-- Правая часть -->
+				<DockPanel HorizontalAlignment="Right">
+					<TextBlock Text="{Binding FirstNameOnly}" Foreground="#2C3E50" FontSize="16" VerticalAlignment="Center" Margin="0,0,15,0"/>
+					<Button Content="Выйти" Command="{Binding LogoutCommand}" Background="#E74C3C" Foreground="White" BorderThickness="0" Padding="12,6" CornerRadius="4"/>
+				</DockPanel>
+			</DockPanel>
+		</Border>
+
+		<!-- Боковое меню (светло-серое) -->
+		<StackPanel DockPanel.Dock="Left" Width="220" Background="#F0F0F0" Margin="0,0,1,0">
+			<ItemsControl ItemsSource="{Binding MenuItems}">
+				<ItemsControl.ItemTemplate>
+					<DataTemplate>
+						<Button Content="{Binding Header}"
+                                Command="{Binding DataContext.NavigateCommand, RelativeSource={RelativeSource AncestorType=ItemsControl}}"
+                                CommandParameter="{Binding PageType}"
+                                Background="Transparent"
+                                Foreground="#2C3E50"
+                                BorderThickness="0"
+                                Padding="20,12"
+                                HorizontalContentAlignment="Left"
+                                FontSize="14"
+                                Margin="0"
+                                FontWeight="SemiBold">
+							<Button.Styles>
+								<Style Selector="Button:pointerover">
+									<Setter Property="Background" Value="#D5D8DC"/>
+								</Style>
+							</Button.Styles>
+						</Button>
+					</DataTemplate>
+				</ItemsControl.ItemTemplate>
+			</ItemsControl>
+		</StackPanel>
+
+		<!-- Основная область (белая) -->
+		<ScrollViewer Background="White" Padding="20">
+			<ContentControl Content="{Binding CurrentPage}" />
+		</ScrollViewer>
+	</DockPanel>
+</Window>
