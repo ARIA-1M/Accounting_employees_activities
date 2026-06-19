@@ -6,7 +6,7 @@ insert into role (id_role, name, description) values
 
 -- данные для таблицы user (пользователи)
 insert into "user" (id_user, id_role, login, password) values
-(1, 1, 'admin', 'admin123'),
+(1, 1, 'admin', '$2a$10$SzEA9ilW1hnue6W6hnht9OAWfvNvV836WuKTvQrV7IxXWvTiTXIni'),
 (2, 2, 'ivanov', 'pass123'),
 (3, 2, 'petrov', 'pass123'),
 (4, 3, 'sidorov', 'pass123'),
@@ -80,13 +80,13 @@ insert into comment (id_comment, id_task, id_user, text, add_date) values
 
 -- данные для таблицы file (файлы)
 insert into file (id_file, id_task, name, path, add_date) values
-(1, 1, 'тз_проекта.doc', '/files/tasks/1/tz.doc', '2024-01-10'),
-(2, 3, 'er_diagram.png', '/files/tasks/3/er.png', '2024-01-12'),
-(3, 3, 'db_schema.sql', '/files/tasks/3/schema.sql', '2024-01-12'),
-(4, 4, 'doc_project.pdf', '/files/tasks/4/doc.pdf', '2024-01-15'),
-(5, 5, 'main_mockup.fig', '/files/tasks/5/mockup.fig', '2024-01-13'),
-(6, 7, 'tests.zip', '/files/tasks/7/tests.zip', '2024-01-15'),
-(7, 8, 'review_report.txt', '/files/tasks/8/review.txt', '2024-01-16'),
-(8, 9, 'sprint_report.xlsx', '/files/tasks/9/report.xlsx', '2024-01-16'),
-(9, 10, 'doc_updated.pdf', '/files/tasks/10/doc.pdf', '2024-01-17'),
-(10, 2, 'executors_list.xlsx', '/files/tasks/2/executors.xlsx', '2024-01-11');
+(1, 1, 'тз_проекта.doc', '2024-01-10'),
+(2, 3, 'er_diagram.png', '2024-01-12'),
+(3, 3, 'db_schema.sql', '2024-01-12'),
+(4, 4, 'doc_project.pdf', '2024-01-15'),
+(5, 5, 'main_mockup.fig', '2024-01-13'),
+(6, 7, 'tests.zip', '2024-01-15'),
+(7, 8, 'review_report.txt', '2024-01-16'),
+(8, 9, 'sprint_report.xlsx', '2024-01-16'),
+(9, 10, 'doc_updated.pdf', '2024-01-17'),
+(10, 2, 'executors_list.xlsx', '2024-01-11');
