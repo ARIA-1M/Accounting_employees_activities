@@ -37,19 +37,16 @@ namespace AccountingEmployeesActivities
         }
         private void ConfigureServices(IServiceCollection services)
         {
-            // Регистрация DbContext
+            //AddDbContext уже регистрирует как Scoped по умолчанию
             services.AddDbContext<PostgresContext>(options =>
             {
-                // Подключение
                 options.UseNpgsql("Host=localhost;Port=5432;Database=postgres;Username=postgres;Password=123");
-
             });
 
-            // Регистрация сервисов
+            // Сервисы
             services.AddScoped<IStatisticsService, StatisticsService>();
             services.AddTransient<StatisticsViewModel>();
             services.AddTransient<StatisticsView>();
-
         }
     }
 }

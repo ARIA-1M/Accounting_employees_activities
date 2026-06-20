@@ -4,13 +4,14 @@ using AccountingEmployeesActivities.Models;
 using AccountingEmployeesActivities.Services.Interfaces;
 using AccountingEmployeesActivities.Services.Interfaces;
 using ReactiveUI;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
-using SystemTask = System.Threading.Tasks.Task;
 using System.Windows.Input;
+using SystemTask = System.Threading.Tasks.Task;
 
 namespace AccountingEmployeesActivities.ViewModels.Pages
 {
@@ -127,35 +128,47 @@ namespace AccountingEmployeesActivities.ViewModels.Pages
 
         private async SystemTask LoadStatisticsAsync()
         {
-            if (SelectedEmployee == null) return;
+            if (SelectedEmployee == null)
+                return;
 
             IsLoading = true;
 
             try
             {
-                int? employeeId = SelectedEmployee.Id == -1 ? null : SelectedEmployee.Id;
+                int? employeeId = SelectedEmployee.Id == -1 || SelectedEmployee.Id == -2
+                    ? SelectedEmployee.Id
+                    : SelectedEmployee.Id;
 
-                // Загрузить основную статистику
+                // 1. Загрузить основную статистику
                 var stats = await _statisticsService.GetStatisticsAsync(employeeId);
                 TotalTasks = stats.TotalTasks;
                 CompletedTasks = stats.CompletedTasks;
                 InProgressTasks = stats.InProgressTasks;
                 ProgressPercentage = stats.ProgressPercentage;
 
-                // Загрузить распределение по статусам
+                // 2. Загрузить распределение по статусам
                 var distribution = await _statisticsService
                     .GetStatusDistributionAsync(employeeId);
-                StatusDistribution = new ObservableCollection<StatusDistributionDto>(distribution);
+                StatusDistribution = new ObservableCollection<StatusDistributionDto>(
+                    distribution ?? new List<StatusDistributionDto>()
+                );
 
-                // Загрузить задачи по сотрудникам
+                // 3. Загрузить задачи по сотрудникам
                 var empTasks = await _statisticsService
                     .GetEmployeeTasksAsync(employeeId);
-                EmployeeTasks = new ObservableCollection<EmployeeTasksDto>(empTasks);
+                EmployeeTasks = new ObservableCollection<EmployeeTasksDto>(
+                    empTasks ?? new List<EmployeeTasksDto>()
+                );
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"Error loading statistics: {ex.Message}");
             }
             finally
             {
                 IsLoading = false;
             }
         }
+
     }
 }

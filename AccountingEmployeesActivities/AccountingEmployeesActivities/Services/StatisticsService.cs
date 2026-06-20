@@ -44,11 +44,9 @@ namespace AccountingEmployeesActivities.Services.Implementations
 
             // Предполагаем, что статус "Решена" имеет определенный ID
             // Это нужно адаптировать под вашу БД
-            var completedTasks = await query.CountAsync(t =>
-                t.IdStatus == GetCompletedStatusId());
+            var completedTasks = await GetCompletedStatusIdAsync();
 
-            var inProgressTasks = await query.CountAsync(t =>
-                t.IdStatus == GetInProgressStatusId());
+            var inProgressTasks = await GetInProgressStatusIdAsync();
 
             var progressPercentage = totalTasks > 0
                 ? (int)Math.Round((double)completedTasks / totalTasks * 100)
@@ -87,7 +85,81 @@ namespace AccountingEmployeesActivities.Services.Implementations
 
             return distribution;
         }
+        public async Task<List<EmployeeFilterDto>> GetEmployeesForFilterAsync(int currentUserId)
+        {
+            // Получить текущего сотрудника
+            var currentEmployee = await _context.Employees
+                .Include(e => e.IdUserNavigation)
+                    .ThenInclude(u => u.IdRoleNavigation)
+                .FirstOrDefaultAsync(e => e.IdUser == currentUserId);
 
+            if (currentEmployee == null)
+            {
+                return new List<EmployeeFilterDto>();
+            }
+
+            var employees = new List<EmployeeFilterDto>();
+
+            var hasSubordinates = await _context.Employees
+                .AnyAsync(e => e.IdBoss == currentEmployee.IdEmployee && e.IsActive);
+
+            bool isManager = hasSubordinates;
+
+            if (isManager)
+            {
+                // Для руководителя: показать всех подчиненных + себя
+                var subordinates = await _context.Employees
+                    .Where(e => e.IdBoss == currentEmployee.IdEmployee && e.IsActive)
+                    .OrderBy(e => e.LastName)
+                        .ThenBy(e => e.FirstName)
+                    .Select(e => new EmployeeFilterDto
+                    {
+                        Id = e.IdEmployee,
+                        FullName = e.LastName + " " + e.FirstName +
+                                  (e.MiddleName != null ? " " + e.MiddleName : "")
+                    })
+                    .ToListAsync();
+
+                employees.AddRange(subordinates);
+
+                // Добавить опцию "Весь отдел"
+                employees.Insert(0, new EmployeeFilterDto
+                {
+                    Id = -1,
+                    FullName = "Весь отдел"
+                });
+
+                // Добавить опцию "Только я"
+                employees.Insert(1, new EmployeeFilterDto
+                {
+                    Id = currentEmployee.IdEmployee,
+                    FullName = $"Только я ({currentEmployee.FirstName})"
+                });
+            }
+            else
+            {
+                // Для обычного сотрудника: только две опции
+
+                // 1. Только я
+                employees.Add(new EmployeeFilterDto
+                {
+                    Id = currentEmployee.IdEmployee,
+                    FullName = $"Только я ({currentEmployee.FirstName})"
+                });
+
+                // 2. Весь отдел (все сотрудники с тем же руководителем)
+                if (currentEmployee.IdBoss.HasValue)
+                {
+                    employees.Add(new EmployeeFilterDto
+                    {
+                        Id = -2,  // Специальный ID для "весь отдел"
+                        FullName = "Весь отдел"
+                    });
+                }
+            }
+
+            return employees;
+        }
         public async Task<List<EmployeeTasksDto>> GetEmployeeTasksAsync(int? employeeId = null)
         {
             var query = _context.Executors
@@ -122,43 +194,6 @@ namespace AccountingEmployeesActivities.Services.Implementations
             return employeeTasks;
         }
 
-        public async Task<List<EmployeeFilterDto>> GetEmployeesForFilterAsync(int currentUserId)
-        {
-            var currentEmployee = await _context.Employees
-                .Include(e => e.IdUserNavigation)
-                .FirstOrDefaultAsync(e => e.IdUser == currentUserId);
-
-            var employees = await _context.Employees
-                .Where(e => e.IsActive)
-                .Select(e => new EmployeeFilterDto
-                {
-                    Id = e.IdEmployee,
-                    FullName = e.LastName + " " + e.FirstName +
-                              (e.MiddleName != null ? " " + e.MiddleName : "")
-                })
-                .OrderBy(e => e.FullName)
-                .ToListAsync();
-
-            // Добавить опцию "Все сотрудники отдела"
-            employees.Insert(0, new EmployeeFilterDto
-            {
-                Id = -1,
-                FullName = "Все сотрудники отдела"
-            });
-
-            // Добавить "Только я"
-            if (currentEmployee != null)
-            {
-                employees.Insert(1, new EmployeeFilterDto
-                {
-                    Id = currentEmployee.IdEmployee,
-                    FullName = $"Только я ({currentEmployee.FirstName})"
-                });
-            }
-
-            return employees;
-        }
-
         // Вспомогательные методы
         private int GetCompletedStatusId()
         {
@@ -167,10 +202,18 @@ namespace AccountingEmployeesActivities.Services.Implementations
                 .FirstOrDefault(s => s.Name == "Решена")?.IdStatus ?? 0;
         }
 
-        private int GetInProgressStatusId()
+        private async Task<int> GetInProgressStatusIdAsync()
         {
-            return _context.Statuses
-                .FirstOrDefault(s => s.Name == "В работе")?.IdStatus ?? 0;
+            var status = await _context.Statuses
+                .FirstOrDefaultAsync(s => s.Name == "В работе");
+            return status?.IdStatus ?? 0;
+        }
+
+        private async Task<int> GetCompletedStatusIdAsync()
+        {
+            var status = await _context.Statuses
+                .FirstOrDefaultAsync(s => s.Name == "Решена");
+            return status?.IdStatus ?? 0;
         }
 
         private string GetStatusColor(string statusName)
