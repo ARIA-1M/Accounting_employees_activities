@@ -30,81 +30,99 @@
                     </ComboBox>
                 </StackPanel>
             </Border>
+			            
+			<!-- Индикатор загрузки -->
+            <ProgressBar IsIndeterminate="True" 
+                         IsVisible="{Binding IsLoading}"
+                         Height="4"/>
 
-			<!-- Карточки со статистикой -->
-			<Grid ColumnDefinitions="*,*,*,*" ColumnSpacing="15">
+			<!-- Карточки статистики -->
+            <Grid ColumnDefinitions="*,*,*,*" ColumnSpacing="15">
 				<!-- Всего задач -->
-				<Border Grid.Column="0" 
+                <Border Grid.Column="0" 
 						Background="White" 
 						CornerRadius="8" 
 						Padding="30"
-						BoxShadow="0 2 8 0 #10000000">
-					<StackPanel HorizontalAlignment="Center" Spacing="10">
-						<TextBlock Text="12" 
+						BoxShadow="0 2 8 0 #10000000"
+						Classes="StatCard">
+                    <StackPanel HorizontalAlignment="Center" Spacing="10">
+                        <TextBlock Text="{Binding TotalTasks}" 
+								   Classes="StatNumber"
 								   FontSize="36" 
 								   FontWeight="Bold" 
 								   HorizontalAlignment="Center"/>
-						<TextBlock Text="Всего задач" 
+                        <TextBlock Text="Всего задач" 
+								   Classes="StatLabel"
 								   FontSize="14" 
 								   Foreground="Gray"
 								   HorizontalAlignment="Center"/>
-					</StackPanel>
-				</Border>
+                    </StackPanel>
+                </Border>
 
 				<!-- Выполнено -->
-				<Border Grid.Column="1" 
+                <Border Grid.Column="1" 
+						Classes="StatCard"
 						Background="White" 
 						CornerRadius="8" 
 						Padding="30"
 						BoxShadow="0 2 8 0 #10000000">
-					<StackPanel HorizontalAlignment="Center" Spacing="10">
-						<TextBlock Text="7" 
+                    <StackPanel HorizontalAlignment="Center" Spacing="10">
+                        <TextBlock Text="{Binding CompletedTasks}" 
+								   Classes="StatNumber"
 								   FontSize="36" 
 								   FontWeight="Bold" 
 								   HorizontalAlignment="Center"/>
-						<TextBlock Text="Выполнено" 
+                        <TextBlock Text="Выполнено" 
+								   Classes="StatLabel"
 								   FontSize="14" 
 								   Foreground="Gray"
 								   HorizontalAlignment="Center"/>
-					</StackPanel>
-				</Border>
+                    </StackPanel>
+                </Border>
 
 				<!-- В работе -->
-				<Border Grid.Column="2" 
+                <Border Grid.Column="2"
 						Background="White" 
 						CornerRadius="8" 
 						Padding="30"
-						BoxShadow="0 2 8 0 #10000000">
-					<StackPanel HorizontalAlignment="Center" Spacing="10">
-						<TextBlock Text="3" 
+						BoxShadow="0 2 8 0 #10000000"
+						Classes="StatCard">
+                    <StackPanel HorizontalAlignment="Center" Spacing="10">
+                        <TextBlock Text="{Binding InProgressTasks}" 
+								   Classes="StatNumber"
 								   FontSize="36" 
 								   FontWeight="Bold" 
 								   HorizontalAlignment="Center"/>
-						<TextBlock Text="В работе" 
+                        <TextBlock Text="В работе" 
+								   Classes="StatLabel"
 								   FontSize="14" 
 								   Foreground="Gray"
 								   HorizontalAlignment="Center"/>
-					</StackPanel>
-				</Border>
+                    </StackPanel>
+                </Border>
 
 				<!-- Прогресс -->
-				<Border Grid.Column="3" 
+                <Border Grid.Column="3" 
 						Background="White" 
 						CornerRadius="8" 
 						Padding="30"
-						BoxShadow="0 2 8 0 #10000000">
-					<StackPanel HorizontalAlignment="Center" Spacing="10">
-						<TextBlock Text="58%" 
+						BoxShadow="0 2 8 0 #10000000"
+						Classes="StatCard">
+                    <StackPanel HorizontalAlignment="Center" Spacing="10">
+                        <TextBlock Text="{Binding ProgressPercentage, 
+								   StringFormat='{}{0}%'}" 
+                                   Classes="StatNumber"
 								   FontSize="36" 
 								   FontWeight="Bold" 
 								   HorizontalAlignment="Center"/>
-						<TextBlock Text="Прогресс" 
+                        <TextBlock Text="Прогресс" 
+								   Classes="StatLabel"
 								   FontSize="14" 
 								   Foreground="Gray"
 								   HorizontalAlignment="Center"/>
-					</StackPanel>
-				</Border>
-			</Grid>
+                    </StackPanel>
+                </Border>
+            </Grid>
 
 			<!-- Графики -->
 			<Grid ColumnDefinitions="*,*" ColumnSpacing="15">
