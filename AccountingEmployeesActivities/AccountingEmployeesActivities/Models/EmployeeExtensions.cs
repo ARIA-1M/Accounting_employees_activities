@@ -2,8 +2,8 @@
 {
     public partial class Employee
     {
-        public string StatusText => IsActive.GetValueOrDefault() ? "Активен" : "Уволен";
-        public string StatusColor => IsActive.GetValueOrDefault() ? "#4CAF50" : "#F44336";
-        public string CardBackground => IsActive.GetValueOrDefault() ? "#FFFFFF" : "#F0F0F0";
+        public string StatusText => IsActive ? "Активен" : "Уволен";
+        public string StatusColor => IsActive ? "#4CAF50" : "#F44336";
+        public string CardBackground => IsActive ? "#FFFFFF" : "#F0F0F0";
     }
 }
