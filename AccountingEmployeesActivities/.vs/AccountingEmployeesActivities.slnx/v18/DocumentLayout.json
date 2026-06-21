@@ -46,8 +46,7 @@
               "RelativeToolTip": "AccountingEmployeesActivities\\App.axaml.cs",
               "ViewState": "AgIAABkAAAAAAAAAAAAgwCwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-20T11:38:24.796Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-20T11:38:24.796Z"
             },
             {
               "$type": "Document",
@@ -57,7 +56,7 @@
               "RelativeDocumentMoniker": "AccountingEmployeesActivities\\Services\\StatisticsService.cs",
               "ToolTip": "C:\\projeckt\\Accounting_employees_activities\\AccountingEmployeesActivities\\AccountingEmployeesActivities\\Services\\StatisticsService.cs",
               "RelativeToolTip": "AccountingEmployeesActivities\\Services\\StatisticsService.cs",
-              "ViewState": "AgIAACIAAAAAAAAAAAAwwDUAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABkAAAAAAAAAAAAQwCsAAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-06-20T11:33:14.619Z",
               "EditorCaption": ""
@@ -72,8 +71,7 @@
               "RelativeToolTip": "AccountingEmployeesActivities\\Services\\SettingsService.cs",
               "ViewState": "AgIAABkAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-20T11:33:13.719Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-20T11:33:13.719Z"
             },
             {
               "$type": "Document",
@@ -85,8 +83,7 @@
               "RelativeToolTip": "AccountingEmployeesActivities\\ViewsModels\\Pages\\StatisticsViewModel.cs",
               "ViewState": "AgIAAIMAAAAAAAAAAAAmwIwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-20T10:27:45.383Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-20T10:27:45.383Z"
             },
             {
               "$type": "Document",
@@ -97,8 +94,7 @@
               "ToolTip": "C:\\projeckt\\Accounting_employees_activities\\AccountingEmployeesActivities\\AccountingEmployeesActivities\\Views\\Pages\\StatisticsView.axaml",
               "RelativeToolTip": "AccountingEmployeesActivities\\Views\\Pages\\StatisticsView.axaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-06-19T14:27:32.997Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-19T14:27:32.997Z"
             }
           ]
         },

@@ -5,52 +5,103 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
+using SystemTask = System.Threading.Tasks.Task;
 
 namespace AccountingEmployeesActivities.Services.Implementations
 {
     public class StatisticsService : IStatisticsService
     {
-        private readonly PostgresContext _context; // Ваш DbContext
+        private readonly PostgresContext _context;
+        private int _currentUserId;
+
+        // Кэш для ID статусов
+        private int? _completedStatusId;
+        private int? _inProgressStatusId;
 
         public StatisticsService(PostgresContext context)
         {
             _context = context;
         }
 
+        //  Инициализация кэша статусов один раз
+        private async SystemTask InitializeStatusIdsAsync()
+        {
+            if (_completedStatusId.HasValue && _inProgressStatusId.HasValue)
+                return;
+
+            var statuses = await _context.Statuses.ToListAsync();
+            _completedStatusId = statuses.FirstOrDefault(s => s.Name == "Решена")?.IdStatus ?? 0;
+            _inProgressStatusId = statuses.FirstOrDefault(s => s.Name == "В работе")?.IdStatus ?? 0;
+        }
+
         public async Task<StatisticsDto> GetStatisticsAsync(int? employeeId = null)
         {
-            var query = _context.Tasks.AsQueryable();
+            //  Инициализируем кэш в начале
+            await InitializeStatusIdsAsync();
 
-            // Фильтрация по сотруднику
+            var query = _context.Tasks
+                .Include(t => t.IdStatusNavigation)
+                .Include(t => t.Executors)
+                .AsQueryable();
+
             if (employeeId.HasValue)
             {
-                query = query.Where(t => t.Executors.Any(e =>
-                    e.IdEmployee == employeeId.Value && e.IsActive));
-            }
-            else
-            {
-                // Получить задачи всего отдела текущего пользователя
-                // Это зависит от вашей бизнес-логики
-                var currentEmployee = await GetCurrentEmployeeAsync();
-                var departmentEmployees = await GetDepartmentEmployeesAsync(currentEmployee.IdBoss);
+                if (employeeId.Value == -1)
+                {
+                    // "Весь отдел" для РУКОВОДИТЕЛЯ
+                    var currentEmployee = await _context.Employees
+                        .FirstOrDefaultAsync(e => e.IdUser == _currentUserId);
 
-                query = query.Where(t => t.Executors.Any(e =>
-                    departmentEmployees.Contains(e.IdEmployee) && e.IsActive));
+                    if (currentEmployee == null)
+                        return new StatisticsDto();
+
+                    var subordinateIds = await _context.Employees
+                        .Where(e => e.IdBoss == currentEmployee.IdEmployee && e.IsActive)
+                        .Select(e => e.IdEmployee)
+                        .ToListAsync();
+
+                    subordinateIds.Add(currentEmployee.IdEmployee);
+
+                    query = query.Where(t => t.Executors.Any(e =>
+                        subordinateIds.Contains(e.IdEmployee) && e.IsActive));
+                }
+                else if (employeeId.Value == -2)
+                {
+                    // "Весь отдел" для ОБЫЧНОГО СОТРУДНИКА
+                    var currentEmployee = await _context.Employees
+                        .FirstOrDefaultAsync(e => e.IdUser == _currentUserId);
+
+                    if (currentEmployee == null || !currentEmployee.IdBoss.HasValue)
+                        return new StatisticsDto();
+
+                    var departmentIds = await _context.Employees
+                        .Where(e => e.IdBoss == currentEmployee.IdBoss && e.IsActive)
+                        .Select(e => e.IdEmployee)
+                        .ToListAsync();
+
+                    query = query.Where(t => t.Executors.Any(e =>
+                        departmentIds.Contains(e.IdEmployee) && e.IsActive));
+                }
+                else if (employeeId.Value > 0)
+                {
+                    // Конкретный сотрудник
+                    query = query.Where(t => t.Executors.Any(e =>
+                        e.IdEmployee == employeeId.Value && e.IsActive));
+                }
             }
 
             var totalTasks = await query.CountAsync();
 
-            // Предполагаем, что статус "Решена" имеет определенный ID
-            // Это нужно адаптировать под вашу БД
-            var completedTasks = await GetCompletedStatusIdAsync();
-
-            var inProgressTasks = await GetInProgressStatusIdAsync();
+            //  Используем закэшированные значения
+            var completedTasks = await query.CountAsync(t => t.IdStatus == _completedStatusId);
+            var inProgressTasks = await query.CountAsync(t => t.IdStatus == _inProgressStatusId);
 
             var progressPercentage = totalTasks > 0
                 ? (int)Math.Round((double)completedTasks / totalTasks * 100)
                 : 0;
+
+            System.Diagnostics.Debug.WriteLine($"Stats - Total: {totalTasks}, Completed: {completedTasks}, InProgress: {inProgressTasks}");
 
             return new StatisticsDto
             {
@@ -63,18 +114,56 @@ namespace AccountingEmployeesActivities.Services.Implementations
 
         public async Task<List<StatusDistributionDto>> GetStatusDistributionAsync(int? employeeId = null)
         {
-            var query = _context.Set<AccountingEmployeesActivities.Models.Task>()
-                .Include(t => t.Status)
+            await InitializeStatusIdsAsync();
+
+            var query = _context.Tasks
+                .Include(t => t.IdStatusNavigation)
+                .Include(t => t.Executors)
                 .AsQueryable();
 
             if (employeeId.HasValue)
             {
-                query = query.Where(t => t.Executors.Any(e =>
-                    e.IdEmployee == employeeId.Value && e.IsActive));
+                if (employeeId.Value == -1 || employeeId.Value == -2)
+                {
+                    var currentEmployee = await _context.Employees
+                        .FirstOrDefaultAsync(e => e.IdUser == _currentUserId);
+
+                    if (currentEmployee == null)
+                        return new List<StatusDistributionDto>();
+
+                    List<int> departmentIds;
+
+                    if (employeeId.Value == -1)
+                    {
+                        departmentIds = await _context.Employees
+                            .Where(e => e.IdBoss == currentEmployee.IdEmployee && e.IsActive)
+                            .Select(e => e.IdEmployee)
+                            .ToListAsync();
+                        departmentIds.Add(currentEmployee.IdEmployee);
+                    }
+                    else
+                    {
+                        if (!currentEmployee.IdBoss.HasValue)
+                            return new List<StatusDistributionDto>();
+
+                        departmentIds = await _context.Employees
+                            .Where(e => e.IdBoss == currentEmployee.IdBoss && e.IsActive)
+                            .Select(e => e.IdEmployee)
+                            .ToListAsync();
+                    }
+
+                    query = query.Where(t => t.Executors.Any(e =>
+                        departmentIds.Contains(e.IdEmployee) && e.IsActive));
+                }
+                else if (employeeId.Value > 0)
+                {
+                    query = query.Where(t => t.Executors.Any(e =>
+                        e.IdEmployee == employeeId.Value && e.IsActive));
+                }
             }
 
             var distribution = await query
-                .GroupBy(t => new { t.IdStatus, t.Status.Name })
+                .GroupBy(t => new { t.IdStatus, t.IdStatusNavigation.Name })
                 .Select(g => new StatusDistributionDto
                 {
                     StatusName = g.Key.Name,
@@ -83,11 +172,97 @@ namespace AccountingEmployeesActivities.Services.Implementations
                 })
                 .ToListAsync();
 
+            System.Diagnostics.Debug.WriteLine($"Distribution count: {distribution.Count}");
+
             return distribution;
         }
+
+        public async Task<List<EmployeeTasksDto>> GetEmployeeTasksAsync(int? employeeId = null)
+        {
+            await InitializeStatusIdsAsync();
+
+            if (employeeId == -1 || employeeId == -2)
+            {
+                var currentEmployee = await _context.Employees
+                    .FirstOrDefaultAsync(e => e.IdUser == _currentUserId);
+
+                if (currentEmployee == null)
+                    return new List<EmployeeTasksDto>();
+
+                List<int> departmentIds;
+
+                if (employeeId == -1)
+                {
+                    departmentIds = await _context.Employees
+                        .Where(e => e.IdBoss == currentEmployee.IdEmployee && e.IsActive)
+                        .Select(e => e.IdEmployee)
+                        .ToListAsync();
+                    departmentIds.Add(currentEmployee.IdEmployee);
+                }
+                else
+                {
+                    if (!currentEmployee.IdBoss.HasValue)
+                        return new List<EmployeeTasksDto>();
+
+                    departmentIds = await _context.Employees
+                        .Where(e => e.IdBoss == currentEmployee.IdBoss && e.IsActive)
+                        .Select(e => e.IdEmployee)
+                        .ToListAsync();
+                }
+
+                var employeeTasks = await _context.Executors
+                    .Where(e => e.IsActive && departmentIds.Contains(e.IdEmployee))
+                    .Include(e => e.IdEmployeeNavigation)
+                    .Include(e => e.IdTaskNavigation)
+                        .ThenInclude(t => t.IdStatusNavigation)
+                    .GroupBy(e => new
+                    {
+                        e.IdEmployee,
+                        e.IdEmployeeNavigation.LastName,
+                        e.IdEmployeeNavigation.FirstName
+                    })
+                    .Select(g => new EmployeeTasksDto
+                    {
+                        EmployeeName = g.Key.LastName + " " + g.Key.FirstName.Substring(0, 1) + ".",
+                        TotalTasks = g.Count(),
+                        CompletedTasks = g.Count(e => e.IdTaskNavigation.IdStatus == _completedStatusId)
+                    })
+                    .OrderByDescending(e => e.TotalTasks)
+                    .ToListAsync();
+
+                return employeeTasks;
+            }
+            else if (employeeId.HasValue && employeeId > 0)
+            {
+                var tasks = await _context.Executors
+                    .Where(e => e.IsActive && e.IdEmployee == employeeId.Value)
+                    .Include(e => e.IdEmployeeNavigation)
+                    .Include(e => e.IdTaskNavigation)
+                        .ThenInclude(t => t.IdStatusNavigation)
+                    .GroupBy(e => new
+                    {
+                        e.IdEmployee,
+                        e.IdEmployeeNavigation.LastName,
+                        e.IdEmployeeNavigation.FirstName
+                    })
+                    .Select(g => new EmployeeTasksDto
+                    {
+                        EmployeeName = g.Key.LastName + " " + g.Key.FirstName.Substring(0, 1) + ".",
+                        TotalTasks = g.Count(),
+                        CompletedTasks = g.Count(e => e.IdTaskNavigation.IdStatus == _completedStatusId)
+                    })
+                    .ToListAsync();
+
+                return tasks;
+            }
+
+            return new List<EmployeeTasksDto>();
+        }
+
         public async Task<List<EmployeeFilterDto>> GetEmployeesForFilterAsync(int currentUserId)
         {
-            // Получить текущего сотрудника
+            _currentUserId = currentUserId;
+
             var currentEmployee = await _context.Employees
                 .Include(e => e.IdUserNavigation)
                     .ThenInclude(u => u.IdRoleNavigation)
@@ -107,7 +282,6 @@ namespace AccountingEmployeesActivities.Services.Implementations
 
             if (isManager)
             {
-                // Для руководителя: показать всех подчиненных + себя
                 var subordinates = await _context.Employees
                     .Where(e => e.IdBoss == currentEmployee.IdEmployee && e.IsActive)
                     .OrderBy(e => e.LastName)
@@ -122,14 +296,12 @@ namespace AccountingEmployeesActivities.Services.Implementations
 
                 employees.AddRange(subordinates);
 
-                // Добавить опцию "Весь отдел"
                 employees.Insert(0, new EmployeeFilterDto
                 {
                     Id = -1,
                     FullName = "Весь отдел"
                 });
 
-                // Добавить опцию "Только я"
                 employees.Insert(1, new EmployeeFilterDto
                 {
                     Id = currentEmployee.IdEmployee,
@@ -138,21 +310,17 @@ namespace AccountingEmployeesActivities.Services.Implementations
             }
             else
             {
-                // Для обычного сотрудника: только две опции
-
-                // 1. Только я
                 employees.Add(new EmployeeFilterDto
                 {
                     Id = currentEmployee.IdEmployee,
                     FullName = $"Только я ({currentEmployee.FirstName})"
                 });
 
-                // 2. Весь отдел (все сотрудники с тем же руководителем)
                 if (currentEmployee.IdBoss.HasValue)
                 {
                     employees.Add(new EmployeeFilterDto
                     {
-                        Id = -2,  // Специальный ID для "весь отдел"
+                        Id = -2,
                         FullName = "Весь отдел"
                     });
                 }
@@ -160,90 +328,17 @@ namespace AccountingEmployeesActivities.Services.Implementations
 
             return employees;
         }
-        public async Task<List<EmployeeTasksDto>> GetEmployeeTasksAsync(int? employeeId = null)
-        {
-            var query = _context.Executors
-                .Where(e => e.IsActive)
-                .Include(e => e.IdEmployeeNavigation)
-                .Include(e => e.IdTaskNavigation)
-                .ThenInclude(t => t.Status)
-                .AsQueryable();
-
-            if (employeeId.HasValue)
-            {
-                query = query.Where(e => e.IdEmployee == employeeId.Value);
-            }
-
-            var employeeTasks = await query
-                .GroupBy(e => new
-                {
-                    e.IdEmployee,
-                    FullName = e.IdEmployeeNavigation.LastName + " " +
-                               e.IdEmployeeNavigation.FirstName.Substring(0, 1) + "."
-                })
-                .Select(g => new EmployeeTasksDto
-                {
-                    EmployeeName = g.Key.FullName,
-                    TotalTasks = g.Count(),
-                    CompletedTasks = g.Count(e => e.IdTaskNavigation.IdStatus == GetCompletedStatusId())
-                })
-                .OrderByDescending(e => e.TotalTasks)
-                .Take(10) // Топ 10 сотрудников
-                .ToListAsync();
-
-            return employeeTasks;
-        }
-
-        // Вспомогательные методы
-        private int GetCompletedStatusId()
-        {
-            // Получить ID статуса "Решена" из БД или конфигурации
-            return _context.Statuses
-                .FirstOrDefault(s => s.Name == "Решена")?.IdStatus ?? 0;
-        }
-
-        private async Task<int> GetInProgressStatusIdAsync()
-        {
-            var status = await _context.Statuses
-                .FirstOrDefaultAsync(s => s.Name == "В работе");
-            return status?.IdStatus ?? 0;
-        }
-
-        private async Task<int> GetCompletedStatusIdAsync()
-        {
-            var status = await _context.Statuses
-                .FirstOrDefaultAsync(s => s.Name == "Решена");
-            return status?.IdStatus ?? 0;
-        }
 
         private string GetStatusColor(string statusName)
         {
             return statusName switch
             {
-                "Новая" => "#808080",      // Серый
-                "В работе" => "#4A90E2",   // Синий
-                "Ожидание" => "#F5A623",   // Оранжевый
-                "Решена" => "#7ED321",     // Зеленый
+                "Новая" => "#808080",
+                "В работе" => "#4A90E2",
+                "Ожидание" => "#F5A623",
+                "Решена" => "#7ED321",
                 _ => "#CCCCCC"
             };
-        }
-
-        private async Task<Employee> GetCurrentEmployeeAsync()
-        {
-            // Получить текущего сотрудника из контекста безопасности
-            // Это зависит от вашей реализации аутентификации
-            throw new NotImplementedException();
-        }
-
-        private async Task<List<int>> GetDepartmentEmployeesAsync(int? bossId)
-        {
-            if (!bossId.HasValue)
-                return new List<int>();
-
-            return await _context.Employees
-                .Where(e => e.IdBoss == bossId && e.IsActive)
-                .Select(e => e.IdEmployee)
-                .ToListAsync();
         }
     }
 }
