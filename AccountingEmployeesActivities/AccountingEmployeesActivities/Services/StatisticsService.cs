@@ -6,7 +6,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using SystemTask = System.Threading.Tasks.Task;
+
+// ✅ Используем алиас для Task из System.Threading.Tasks
+using Task = System.Threading.Tasks.Task;
 
 namespace AccountingEmployeesActivities.Services.Implementations
 {
@@ -15,7 +17,6 @@ namespace AccountingEmployeesActivities.Services.Implementations
         private readonly PostgresContext _context;
         private int _currentUserId;
 
-        // Кэш для ID статусов
         private int? _completedStatusId;
         private int? _inProgressStatusId;
 
@@ -24,8 +25,7 @@ namespace AccountingEmployeesActivities.Services.Implementations
             _context = context;
         }
 
-        //  Инициализация кэша статусов один раз
-        private async SystemTask InitializeStatusIdsAsync()
+        private async Task InitializeStatusIdsAsync()
         {
             if (_completedStatusId.HasValue && _inProgressStatusId.HasValue)
                 return;
@@ -33,23 +33,32 @@ namespace AccountingEmployeesActivities.Services.Implementations
             var statuses = await _context.Statuses.ToListAsync();
             _completedStatusId = statuses.FirstOrDefault(s => s.Name == "Решена")?.IdStatus ?? 0;
             _inProgressStatusId = statuses.FirstOrDefault(s => s.Name == "В работе")?.IdStatus ?? 0;
+
+            System.Diagnostics.Debug.WriteLine($"StatusIds loaded - Completed: {_completedStatusId}, InProgress: {_inProgressStatusId}");
         }
 
-        public async Task<StatisticsDto> GetStatisticsAsync(int? employeeId = null)
+        // ✅ Теперь Task<T> указывает на System.Threading.Tasks.Task<T>
+        public async Task<StatisticsDto> GetStatisticsAsync(int? employeeId = null, DateTime? startDate = null, DateTime? endDate = null)
         {
-            //  Инициализируем кэш в начале
             await InitializeStatusIdsAsync();
 
+            // ✅ Models.Task для модели
             var query = _context.Tasks
                 .Include(t => t.IdStatusNavigation)
                 .Include(t => t.Executors)
                 .AsQueryable();
 
+            // ✅ Правильное преобразование DateOnly в DateTime для сравнения
+            var actualStartDate = startDate?.Date ?? DateTime.Now.AddMonths(-1).Date;
+            var actualEndDate = (endDate?.Date ?? DateTime.Now.Date).AddDays(1).AddTicks(-1); // До конца дня
+
+            query = query.Where(t => t.CreationDate >= DateOnly.FromDateTime(actualStartDate) &&
+                                      t.CreationDate <= DateOnly.FromDateTime(actualEndDate));
+
             if (employeeId.HasValue)
             {
                 if (employeeId.Value == -1)
                 {
-                    // "Весь отдел" для РУКОВОДИТЕЛЯ
                     var currentEmployee = await _context.Employees
                         .FirstOrDefaultAsync(e => e.IdUser == _currentUserId);
 
@@ -64,11 +73,10 @@ namespace AccountingEmployeesActivities.Services.Implementations
                     subordinateIds.Add(currentEmployee.IdEmployee);
 
                     query = query.Where(t => t.Executors.Any(e =>
-                        subordinateIds.Contains(e.IdEmployee) && e.IsActive));
+                        subordinateIds.Contains(e.IdEmployee)));
                 }
                 else if (employeeId.Value == -2)
                 {
-                    // "Весь отдел" для ОБЫЧНОГО СОТРУДНИКА
                     var currentEmployee = await _context.Employees
                         .FirstOrDefaultAsync(e => e.IdUser == _currentUserId);
 
@@ -81,19 +89,17 @@ namespace AccountingEmployeesActivities.Services.Implementations
                         .ToListAsync();
 
                     query = query.Where(t => t.Executors.Any(e =>
-                        departmentIds.Contains(e.IdEmployee) && e.IsActive));
+                        departmentIds.Contains(e.IdEmployee)));
                 }
                 else if (employeeId.Value > 0)
                 {
-                    // Конкретный сотрудник
                     query = query.Where(t => t.Executors.Any(e =>
-                        e.IdEmployee == employeeId.Value && e.IsActive));
+                        e.IdEmployee == employeeId.Value));
                 }
             }
 
             var totalTasks = await query.CountAsync();
 
-            //  Используем закэшированные значения
             var completedTasks = await query.CountAsync(t => t.IdStatus == _completedStatusId);
             var inProgressTasks = await query.CountAsync(t => t.IdStatus == _inProgressStatusId);
 
@@ -101,7 +107,7 @@ namespace AccountingEmployeesActivities.Services.Implementations
                 ? (int)Math.Round((double)completedTasks / totalTasks * 100)
                 : 0;
 
-            System.Diagnostics.Debug.WriteLine($"Stats - Total: {totalTasks}, Completed: {completedTasks}, InProgress: {inProgressTasks}");
+            System.Diagnostics.Debug.WriteLine($"Stats - Total: {totalTasks}, Completed: {completedTasks}, InProgress: {inProgressTasks}, Progress: {progressPercentage}%");
 
             return new StatisticsDto
             {
@@ -112,7 +118,7 @@ namespace AccountingEmployeesActivities.Services.Implementations
             };
         }
 
-        public async Task<List<StatusDistributionDto>> GetStatusDistributionAsync(int? employeeId = null)
+        public async Task<List<StatusDistributionDto>> GetStatusDistributionAsync(int? employeeId = null, DateTime? startDate = null, DateTime? endDate = null)
         {
             await InitializeStatusIdsAsync();
 
@@ -120,6 +126,12 @@ namespace AccountingEmployeesActivities.Services.Implementations
                 .Include(t => t.IdStatusNavigation)
                 .Include(t => t.Executors)
                 .AsQueryable();
+
+            var actualStartDate = startDate?.Date ?? DateTime.Now.AddMonths(-1).Date;
+            var actualEndDate = (endDate?.Date ?? DateTime.Now.Date).AddDays(1).AddTicks(-1);
+
+            query = query.Where(t => t.CreationDate >= DateOnly.FromDateTime(actualStartDate) &&
+                                      t.CreationDate <= DateOnly.FromDateTime(actualEndDate));
 
             if (employeeId.HasValue)
             {
@@ -153,12 +165,12 @@ namespace AccountingEmployeesActivities.Services.Implementations
                     }
 
                     query = query.Where(t => t.Executors.Any(e =>
-                        departmentIds.Contains(e.IdEmployee) && e.IsActive));
+                        departmentIds.Contains(e.IdEmployee)));
                 }
                 else if (employeeId.Value > 0)
                 {
                     query = query.Where(t => t.Executors.Any(e =>
-                        e.IdEmployee == employeeId.Value && e.IsActive));
+                        e.IdEmployee == employeeId.Value));
                 }
             }
 
@@ -172,14 +184,17 @@ namespace AccountingEmployeesActivities.Services.Implementations
                 })
                 .ToListAsync();
 
-            System.Diagnostics.Debug.WriteLine($"Distribution count: {distribution.Count}");
+            System.Diagnostics.Debug.WriteLine($"Distribution - Total items: {distribution.Count}");
 
             return distribution;
         }
 
-        public async Task<List<EmployeeTasksDto>> GetEmployeeTasksAsync(int? employeeId = null)
+        public async Task<List<EmployeeTasksDto>> GetEmployeeTasksAsync(int? employeeId = null, DateTime? startDate = null, DateTime? endDate = null)
         {
             await InitializeStatusIdsAsync();
+
+            var actualStartDate = startDate?.Date ?? DateTime.Now.AddMonths(-1).Date;
+            var actualEndDate = (endDate?.Date ?? DateTime.Now.Date).AddDays(1).AddTicks(-1);
 
             if (employeeId == -1 || employeeId == -2)
             {
@@ -210,8 +225,13 @@ namespace AccountingEmployeesActivities.Services.Implementations
                         .ToListAsync();
                 }
 
+                var actualStartDateOnly = DateOnly.FromDateTime(actualStartDate);
+                var actualEndDateOnly = DateOnly.FromDateTime(actualEndDate);
+
                 var employeeTasks = await _context.Executors
-                    .Where(e => e.IsActive && departmentIds.Contains(e.IdEmployee))
+                    .Where(e => departmentIds.Contains(e.IdEmployee) &&
+                                e.IdTaskNavigation.CreationDate >= actualStartDateOnly &&
+                                e.IdTaskNavigation.CreationDate <= actualEndDateOnly)
                     .Include(e => e.IdEmployeeNavigation)
                     .Include(e => e.IdTaskNavigation)
                         .ThenInclude(t => t.IdStatusNavigation)
@@ -234,8 +254,13 @@ namespace AccountingEmployeesActivities.Services.Implementations
             }
             else if (employeeId.HasValue && employeeId > 0)
             {
+                var actualStartDateOnly = DateOnly.FromDateTime(actualStartDate);
+                var actualEndDateOnly = DateOnly.FromDateTime(actualEndDate);
+
                 var tasks = await _context.Executors
-                    .Where(e => e.IsActive && e.IdEmployee == employeeId.Value)
+                    .Where(e => e.IdEmployee == employeeId.Value &&
+                                e.IdTaskNavigation.CreationDate >= actualStartDateOnly &&
+                                e.IdTaskNavigation.CreationDate <= actualEndDateOnly)
                     .Include(e => e.IdEmployeeNavigation)
                     .Include(e => e.IdTaskNavigation)
                         .ThenInclude(t => t.IdStatusNavigation)

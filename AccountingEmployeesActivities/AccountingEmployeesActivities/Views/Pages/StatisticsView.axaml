@@ -29,7 +29,26 @@
                         </ComboBox.ItemTemplate>
                     </ComboBox>
                 </StackPanel>
+
             </Border>
+			<!-- ВТОРАЯ СТРОКА: ФИЛЬТР ПО ДАТЕ -->
+            <StackPanel Orientation="Horizontal" Spacing="12">
+                <TextBlock Text="Период:" VerticalAlignment="Center" FontWeight="Medium" Width="100"/>
+                        
+                <StackPanel Orientation="Horizontal" Spacing="5">
+                    <TextBlock Text="От:" VerticalAlignment="Center"/>
+                    <CalendarDatePicker SelectedDate="{Binding StartDate}" 
+                                        Width="150"
+                                        Watermark="Начало периода"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Spacing="5">
+                    <TextBlock Text="До:" VerticalAlignment="Center"/>
+                    <CalendarDatePicker SelectedDate="{Binding EndDate}" 
+                                        Width="150"
+                                        Watermark="Конец периода"/>
+                </StackPanel>
+            </StackPanel>
 			            
 			<!-- Индикатор загрузки -->
             <ProgressBar IsIndeterminate="True" 

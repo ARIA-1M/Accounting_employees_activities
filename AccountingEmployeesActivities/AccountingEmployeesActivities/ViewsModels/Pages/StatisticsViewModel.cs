@@ -1,16 +1,11 @@
-using AccountingEmployeesActivities.DTOs;
-using AccountingEmployeesActivities.DTOs;
-using AccountingEmployeesActivities.Models;
-using AccountingEmployeesActivities.Services.Interfaces;
-using AccountingEmployeesActivities.Services.Interfaces;
-using ReactiveUI;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Collections.ObjectModel;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Input;
+using AccountingEmployeesActivities.DTOs;
+using AccountingEmployeesActivities.Models;
+using AccountingEmployeesActivities.Services.Interfaces;
 using SystemTask = System.Threading.Tasks.Task;
 
 namespace AccountingEmployeesActivities.ViewModels.Pages
@@ -27,6 +22,29 @@ namespace AccountingEmployeesActivities.ViewModels.Pages
         {
             get => _title;
             set => SetProperty(ref _title, value);
+        }
+
+        // НОВЫЕ СВОЙСТВА ДЛЯ ФИЛЬТРА ПО ДАТЕ
+        private DateTime _startDate;
+        public DateTime StartDate
+        {
+            get => _startDate;
+            set
+            {
+                if (SetProperty(ref _startDate, value))
+                    _ = LoadStatisticsAsync();
+            }
+        }
+
+        private DateTime _endDate;
+        public DateTime EndDate
+        {
+            get => _endDate;
+            set
+            {
+                if (SetProperty(ref _endDate, value))
+                    _ = LoadStatisticsAsync();
+            }
         }
 
         private int _totalTasks;
@@ -57,7 +75,7 @@ namespace AccountingEmployeesActivities.ViewModels.Pages
             set => SetProperty(ref _progressPercentage, value);
         }
 
-        private ObservableCollection<EmployeeFilterDto> _employees;
+        private ObservableCollection<EmployeeFilterDto> _employees = new();
         public ObservableCollection<EmployeeFilterDto> Employees
         {
             get => _employees;
@@ -70,19 +88,19 @@ namespace AccountingEmployeesActivities.ViewModels.Pages
             get => _selectedEmployee;
             set
             {
-                SetProperty(ref _selectedEmployee, value);
-                _ = LoadStatisticsAsync();
+                if (SetProperty(ref _selectedEmployee, value))
+                    _ = LoadStatisticsAsync();
             }
         }
 
-        private ObservableCollection<StatusDistributionDto> _statusDistribution;
+        private ObservableCollection<StatusDistributionDto> _statusDistribution = new();
         public ObservableCollection<StatusDistributionDto> StatusDistribution
         {
             get => _statusDistribution;
             set => SetProperty(ref _statusDistribution, value);
         }
 
-        private ObservableCollection<EmployeeTasksDto> _employeeTasks;
+        private ObservableCollection<EmployeeTasksDto> _employeeTasks = new();
         public ObservableCollection<EmployeeTasksDto> EmployeeTasks
         {
             get => _employeeTasks;
@@ -98,10 +116,18 @@ namespace AccountingEmployeesActivities.ViewModels.Pages
 
         #endregion
 
+        public ICommand RefreshCommand { get; }
+
         public StatisticsViewModel(User currentUser, IStatisticsService statisticsService)
         {
             _currentUserId = currentUser.IdUser;
             _statisticsService = statisticsService;
+
+            RefreshCommand = new RelayCommand(_ => _ = RefreshAsync());
+
+            // ИНИЦИАЛИЗАЦИЯ ДАТ ПО УМОЛЧАНИЮ (ПОСЛЕДНИЙ МЕСЯЦ)
+            _endDate = DateTime.Now;
+            _startDate = DateTime.Now.AddMonths(-1);
 
             _ = InitializeAsync();
         }
@@ -109,16 +135,35 @@ namespace AccountingEmployeesActivities.ViewModels.Pages
         private async SystemTask InitializeAsync()
         {
             IsLoading = true;
-
             try
             {
-                // Загрузить список сотрудников для фильтра
-                var employees = await _statisticsService
-                    .GetEmployeesForFilterAsync(_currentUserId);
-                Employees = new ObservableCollection<EmployeeFilterDto>(employees);
+                var employees = await _statisticsService.GetEmployeesForFilterAsync(_currentUserId);
+                Employees = new ObservableCollection<EmployeeFilterDto>(employees ?? new());
                 SelectedEmployee = Employees.FirstOrDefault();
 
+                if (SelectedEmployee != null)
+                    await LoadStatisticsAsync();
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("Initialize error: " + ex.Message);
+            }
+            finally
+            {
+                IsLoading = false;
+            }
+        }
+
+        private async SystemTask RefreshAsync()
+        {
+            IsLoading = true;
+            try
+            {
                 await LoadStatisticsAsync();
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("Refresh error: " + ex.Message);
             }
             finally
             {
@@ -128,47 +173,35 @@ namespace AccountingEmployeesActivities.ViewModels.Pages
 
         private async SystemTask LoadStatisticsAsync()
         {
-            if (SelectedEmployee == null)
-                return;
+            if (SelectedEmployee == null) return;
 
             IsLoading = true;
 
             try
             {
-                int? employeeId = SelectedEmployee.Id == -1 || SelectedEmployee.Id == -2
-                    ? SelectedEmployee.Id
-                    : SelectedEmployee.Id;
+                int? filterId = SelectedEmployee.Id;
 
-                // 1. Загрузить основную статистику
-                var stats = await _statisticsService.GetStatisticsAsync(employeeId);
+                // ПЕРЕДАЕМ ДАТЫ В СЕРВИС
+                var stats = await _statisticsService.GetStatisticsAsync(filterId, _startDate, _endDate);
                 TotalTasks = stats.TotalTasks;
                 CompletedTasks = stats.CompletedTasks;
                 InProgressTasks = stats.InProgressTasks;
                 ProgressPercentage = stats.ProgressPercentage;
 
-                // 2. Загрузить распределение по статусам
-                var distribution = await _statisticsService
-                    .GetStatusDistributionAsync(employeeId);
-                StatusDistribution = new ObservableCollection<StatusDistributionDto>(
-                    distribution ?? new List<StatusDistributionDto>()
-                );
+                var distribution = await _statisticsService.GetStatusDistributionAsync(filterId, _startDate, _endDate);
+                StatusDistribution = new ObservableCollection<StatusDistributionDto>(distribution ?? new());
 
-                // 3. Загрузить задачи по сотрудникам
-                var empTasks = await _statisticsService
-                    .GetEmployeeTasksAsync(employeeId);
-                EmployeeTasks = new ObservableCollection<EmployeeTasksDto>(
-                    empTasks ?? new List<EmployeeTasksDto>()
-                );
+                var employeeTasks = await _statisticsService.GetEmployeeTasksAsync(filterId, _startDate, _endDate);
+                EmployeeTasks = new ObservableCollection<EmployeeTasksDto>(employeeTasks ?? new());
             }
             catch (Exception ex)
             {
-                System.Diagnostics.Debug.WriteLine($"Error loading statistics: {ex.Message}");
+                System.Diagnostics.Debug.WriteLine("LoadStatistics error: " + ex.Message);
             }
             finally
             {
                 IsLoading = false;
             }
         }
-
     }
 }
