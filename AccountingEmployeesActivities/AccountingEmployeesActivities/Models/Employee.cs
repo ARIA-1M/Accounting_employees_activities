@@ -17,7 +17,7 @@ public partial class Employee
 
     public int? IdBoss { get; set; }
 
-    public bool? IsActive { get; set; }
+    public bool IsActive { get; set; }
 
     public virtual ICollection<Executor> Executors { get; set; } = new List<Executor>();
 

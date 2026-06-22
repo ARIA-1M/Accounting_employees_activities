@@ -21,7 +21,6 @@ create table employee (
     first_name varchar(255) not null,
     last_name varchar(255) not null,
     middle_name varchar(255),
-    birth_date date,
     id_boss int default null,
     is_active boolean default true not null,
     foreign key (id_user) references "user"(id_user),
