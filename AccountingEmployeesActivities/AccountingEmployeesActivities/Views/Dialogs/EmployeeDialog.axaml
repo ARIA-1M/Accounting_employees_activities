@@ -72,6 +72,12 @@
                        HorizontalAlignment="Center"
                        IsVisible="{Binding !IsNewEmployee}"/>
 
+			<!-- Сообщение об ошибки -->	
+		   <TextBlock Text="{Binding ErrorMessage}"
+                   Foreground="Red"
+                   IsVisible="{Binding IsErrorVisible}"
+                   TextWrapping="Wrap"
+                   Margin="0,0,0,12"/>
 
 			<!-- Кнопки -->
 			<StackPanel Orientation="Horizontal"
@@ -84,13 +90,13 @@
 						BorderBrush="#E74C3C"
                         BorderThickness="1"
                         Padding="20,10"
-                        CornerRadius="6"
+                        CornerRadius="40"
                         Command="{Binding CancelCommand}"/>
 				<Button Content="Сохранить"
                        Background="#2196F3"
                        Foreground="White"
                        Padding="20,10"
-                       CornerRadius="6"
+                       CornerRadius="40"
                        Command="{Binding SaveCommand}"/>
 			</StackPanel>
 

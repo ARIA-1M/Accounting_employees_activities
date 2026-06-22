@@ -2,14 +2,12 @@ using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
 using AccountingEmployeesActivities.Models;
 
+
 namespace AccountingEmployeesActivities.Views.Pages
 {
     public partial class EmployeesView : UserControl
     {
-        public EmployeesView()
-        {
-            InitializeComponent();
-        }
+        public EmployeesView() { InitializeComponent(); } // пустой конструктор
         public EmployeesView(User currentUser)  
         {
             InitializeComponent();

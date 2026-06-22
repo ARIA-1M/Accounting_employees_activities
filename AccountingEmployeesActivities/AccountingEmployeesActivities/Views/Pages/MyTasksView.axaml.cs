@@ -8,9 +8,11 @@ namespace AccountingEmployeesActivities.Views.Pages
         public MyTasksView()
         {
             InitializeComponent();
-            DataContext = new ViewModels.Pages.MyTasksViewModel();
         }
 
-        private void InitializeComponent() => AvaloniaXamlLoader.Load(this);
+        private void InitializeComponent()
+        {
+            AvaloniaXamlLoader.Load(this);
+        }
     }
 }

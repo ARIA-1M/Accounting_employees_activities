@@ -126,9 +126,16 @@ namespace AccountingEmployeesActivities.ViewModels
                 return;
             }
 
+            if (user.Employee == null)
+            {
+                ErrorMessage = "Ошибка: профиль сотрудника не найден";
+                IsErrorVisible = true;
+                return;
+            }
+
             if (user.Employee.IsActive == false)
             {
-                ErrorMessage = "Учётная запись заблокирована. Обратитесь к администратору.";
+                ErrorMessage = "Учётная запись заблокирована. Обратитесь к администратору";
                 IsErrorVisible = true;
                 return;
             }

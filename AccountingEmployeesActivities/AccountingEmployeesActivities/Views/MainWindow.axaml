@@ -52,7 +52,7 @@
 						BorderBrush="#E74C3C"
 						BorderThickness="1"
 						Padding="12,6"
-						CornerRadius="4">
+						CornerRadius="40">
 						<Button.Styles>
 							<Style Selector="Button:pointerover">
 								<Setter Property="Background" Value="#E74C3C"/>
