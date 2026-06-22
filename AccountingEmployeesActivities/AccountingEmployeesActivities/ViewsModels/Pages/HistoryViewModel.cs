@@ -119,5 +119,6 @@ namespace AccountingEmployeesActivities.ViewModels.Pages
         public List<string> Files { get; set; } = new();
         public int CommentsCount { get; set; }
         public string Executors { get; set; } = "Не указан";
+
     }
 }

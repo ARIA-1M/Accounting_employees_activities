@@ -8,6 +8,8 @@ namespace AccountingEmployeesActivities.Views
 {
     public partial class MainWindow : Window
     {
+        public MainWindow() : this(null) { } // пустой конструктор для дизайнера
+
         public MainWindow(User user)
         {
             InitializeComponent();

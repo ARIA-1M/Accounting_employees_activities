@@ -1,5 +1,7 @@
 using AccountingEmployeesActivities.Models;
+using AccountingEmployeesActivities.Services.Interfaces;
 using AccountingEmployeesActivities.ViewModels.Pages;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -114,14 +116,14 @@ namespace AccountingEmployeesActivities.ViewModels
         {
             return pageType switch
             {
-                PageType.MyTasks => new MyTasksViewModel(),
+                PageType.MyTasks => new MyTasksViewModel(_currentUser),
                 PageType.History => new HistoryViewModel(_currentUser, _currentUser.IdRole == 1 || _currentUser.IdRole == 2),
                 PageType.Delegation => new DelegationViewModel(),
-                PageType.Statistics => new StatisticsViewModel(),
+                PageType.Statistics => new StatisticsViewModel(_currentUser, App.ServiceProvider.GetRequiredService<IStatisticsService>()),
                 PageType.Tasks => new TasksViewModel(),
-                PageType.Employees => new EmployeesViewModel(),
+                PageType.Employees => new EmployeesViewModel(_currentUser),
                 PageType.Settings => new SettingsViewModel(),
-                _ => new MyTasksViewModel()
+                _ => new MyTasksViewModel(_currentUser)
             };
         }
 

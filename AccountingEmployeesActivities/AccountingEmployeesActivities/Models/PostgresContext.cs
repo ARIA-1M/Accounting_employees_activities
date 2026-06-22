@@ -43,9 +43,7 @@ public partial class PostgresContext : DbContext
 
             entity.ToTable("comment", "accounting_task");
 
-            entity.Property(e => e.IdComment)
-                .ValueGeneratedNever()
-                .HasColumnName("id_comment");
+            entity.Property(e => e.IdComment).HasColumnName("id_comment");
             entity.Property(e => e.AddDate).HasColumnName("add_date");
             entity.Property(e => e.IdTask).HasColumnName("id_task");
             entity.Property(e => e.IdUser).HasColumnName("id_user");
@@ -70,15 +68,15 @@ public partial class PostgresContext : DbContext
 
             entity.HasIndex(e => e.IdUser, "employee_id_user_key").IsUnique();
 
-            entity.Property(e => e.IdEmployee)
-                .ValueGeneratedNever()
-                .HasColumnName("id_employee");
-            entity.Property(e => e.BirthDate).HasColumnName("birth_date");
+            entity.Property(e => e.IdEmployee).HasColumnName("id_employee");
             entity.Property(e => e.FirstName)
                 .HasMaxLength(255)
                 .HasColumnName("first_name");
             entity.Property(e => e.IdBoss).HasColumnName("id_boss");
             entity.Property(e => e.IdUser).HasColumnName("id_user");
+            entity.Property(e => e.IsActive)
+                .HasDefaultValue(true)
+                .HasColumnName("is_active");
             entity.Property(e => e.LastName)
                 .HasMaxLength(255)
                 .HasColumnName("last_name");
@@ -102,15 +100,13 @@ public partial class PostgresContext : DbContext
 
             entity.ToTable("executor", "accounting_task");
 
-            entity.Property(e => e.IdExecutor)
-                .ValueGeneratedNever()
-                .HasColumnName("id_executor");
+            entity.Property(e => e.IdExecutor).HasColumnName("id_executor");
             entity.Property(e => e.ChangeDate).HasColumnName("change_date");
             entity.Property(e => e.Comment).HasColumnName("comment");
             entity.Property(e => e.IdEmployee).HasColumnName("id_employee");
             entity.Property(e => e.IdTask).HasColumnName("id_task");
             entity.Property(e => e.IsActive)
-                .HasDefaultValue(true)
+                .HasDefaultValue(false)
                 .HasColumnName("is_active");
 
             entity.HasOne(d => d.IdEmployeeNavigation).WithMany(p => p.Executors)
@@ -130,17 +126,12 @@ public partial class PostgresContext : DbContext
 
             entity.ToTable("file", "accounting_task");
 
-            entity.Property(e => e.IdFile)
-                .ValueGeneratedNever()
-                .HasColumnName("id_file");
+            entity.Property(e => e.IdFile).HasColumnName("id_file");
             entity.Property(e => e.AddDate).HasColumnName("add_date");
             entity.Property(e => e.IdTask).HasColumnName("id_task");
             entity.Property(e => e.Name)
                 .HasMaxLength(255)
                 .HasColumnName("name");
-            entity.Property(e => e.Path)
-                .HasMaxLength(500)
-                .HasColumnName("path");
 
             entity.HasOne(d => d.IdTaskNavigation).WithMany(p => p.Files)
                 .HasForeignKey(d => d.IdTask)
@@ -154,9 +145,7 @@ public partial class PostgresContext : DbContext
 
             entity.ToTable("role", "accounting_task");
 
-            entity.Property(e => e.IdRole)
-                .ValueGeneratedNever()
-                .HasColumnName("id_role");
+            entity.Property(e => e.IdRole).HasColumnName("id_role");
             entity.Property(e => e.Description).HasColumnName("description");
             entity.Property(e => e.Name)
                 .HasMaxLength(255)
@@ -169,9 +158,7 @@ public partial class PostgresContext : DbContext
 
             entity.ToTable("status", "accounting_task");
 
-            entity.Property(e => e.IdStatus)
-                .ValueGeneratedNever()
-                .HasColumnName("id_status");
+            entity.Property(e => e.IdStatus).HasColumnName("id_status");
             entity.Property(e => e.Description).HasColumnName("description");
             entity.Property(e => e.Name)
                 .HasMaxLength(255)
@@ -184,9 +171,7 @@ public partial class PostgresContext : DbContext
 
             entity.ToTable("task", "accounting_task");
 
-            entity.Property(e => e.IdTask)
-                .ValueGeneratedNever()
-                .HasColumnName("id_task");
+            entity.Property(e => e.IdTask).HasColumnName("id_task");
             entity.Property(e => e.CompletionDate).HasColumnName("completion_date");
             entity.Property(e => e.CreationDate).HasColumnName("creation_date");
             entity.Property(e => e.Description).HasColumnName("description");
@@ -215,9 +200,7 @@ public partial class PostgresContext : DbContext
 
             entity.HasIndex(e => e.Login, "user_login_key").IsUnique();
 
-            entity.Property(e => e.IdUser)
-                .ValueGeneratedNever()
-                .HasColumnName("id_user");
+            entity.Property(e => e.IdUser).HasColumnName("id_user");
             entity.Property(e => e.IdRole).HasColumnName("id_role");
             entity.Property(e => e.Login)
                 .HasMaxLength(255)
