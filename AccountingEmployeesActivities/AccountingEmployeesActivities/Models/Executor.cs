@@ -11,7 +11,7 @@ public partial class Executor
 
     public int IdEmployee { get; set; }
 
-    public bool? IsActive { get; set; }
+    public bool IsActive { get; set; }
 
     public string? Comment { get; set; }
 

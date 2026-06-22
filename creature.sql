@@ -76,6 +76,7 @@ create table file (
     id_task int not null,
     name varchar(255) not null,
     add_date date not null,
+    data bytea,
     foreign key (id_task) references task(id_task)
 );
 
