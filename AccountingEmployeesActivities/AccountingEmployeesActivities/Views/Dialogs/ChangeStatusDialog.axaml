@@ -1,0 +1,104 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="clr-namespace:AccountingEmployeesActivities.ViewModels.Dialogs"
+        x:Class="AccountingEmployeesActivities.Views.Dialogs.ChangeStatusDialog"
+        Title="Изменение статуса задачи"
+        Width="420" Height="350"
+        WindowStartupLocation="CenterOwner"
+        CanResize="False"
+        x:CompileBindings="False"
+        Background="#F8FAFC">
+
+    <StackPanel Margin="24" Spacing="16" VerticalAlignment="Center">
+
+        <!-- Заголовок -->
+        <Border Background="#E2E8F0"
+                CornerRadius="12"
+                Padding="16"
+                Margin="0,0,0,16">
+            <TextBlock Text="Изменение статуса"
+                       FontSize="22"
+                       FontWeight="SemiBold"
+                       Foreground="#1E293B"
+                       HorizontalAlignment="Center"/>
+        </Border>
+
+        <!-- Выбор статуса -->
+        <TextBlock Text="Выберите новый статус"
+                   FontWeight="SemiBold"
+                   Foreground="#334155"
+                   FontSize="14"/>
+
+        <ComboBox ItemsSource="{Binding Statuses}"
+                  SelectedItem="{Binding SelectedStatus, Mode=TwoWay}"
+                  DisplayMemberBinding="{Binding Name}"
+                  CornerRadius="8"
+                  Height="40"
+                  Background="White"/>
+
+        <!-- Дата завершения (появляется только для "Решена") -->
+        <Border Background="#F0FDF4"
+                BorderBrush="#22C55E"
+                BorderThickness="1"
+                CornerRadius="8"
+                Padding="12"
+                IsVisible="{Binding IsCompleted}">
+            <StackPanel>
+                <TextBlock Text="Задача будет отмечена как выполненная"
+                           FontSize="12"
+                           Foreground="#16A34A"
+                           FontWeight="SemiBold"/>
+                <TextBlock Text="Дата завершения: сегодня"
+                           FontSize="12"
+                           Foreground="#475569"
+                           Margin="0,4,0,0"/>
+            </StackPanel>
+        </Border>
+
+        <Separator Margin="0,8,0,8" Background="#E2E8F0" Height="1"/>
+
+        <!-- Сообщение об ошибке -->
+        <TextBlock Text="{Binding ErrorMessage}"
+                   Foreground="#EF4444"
+                   IsVisible="{Binding IsErrorVisible}"
+                   TextWrapping="Wrap"
+                   FontSize="13"
+                   FontWeight="SemiBold"/>
+
+        <!-- Кнопки -->
+        <StackPanel Orientation="Horizontal"
+                    Spacing="12"
+                    HorizontalAlignment="Right"
+                    Margin="0,8,0,0">
+            <Button Content="Отмена"
+                    Background="Transparent"
+                    Foreground="#64748B"
+                    BorderBrush="#CBD5E1"
+                    BorderThickness="1.5"
+                    Padding="24,10"
+                    CornerRadius="30"
+                    FontWeight="SemiBold"
+                    Command="{Binding CancelCommand}">
+                <Button.Styles>
+                    <Style Selector="Button:pointerover">
+                        <Setter Property="Background" Value="#F1F5F9"/>
+                    </Style>
+                </Button.Styles>
+            </Button>
+            <Button Content="Сохранить"
+                    Background="#3B82F6"
+                    Foreground="White"
+                    Padding="24,10"
+                    CornerRadius="30"
+                    FontWeight="SemiBold"
+                    Command="{Binding SaveCommand}">
+                <Button.Styles>
+                    <Style Selector="Button:pointerover">
+                        <Setter Property="Background" Value="#2563EB"/>
+                    </Style>
+                </Button.Styles>
+            </Button>
+        </StackPanel>
+
+    </StackPanel>
+</Window>

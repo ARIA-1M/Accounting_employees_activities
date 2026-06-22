@@ -1,3 +1,5 @@
+using AccountingEmployeesActivities.Models;
+using AccountingEmployeesActivities.ViewModels.Pages;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
 
@@ -10,9 +12,16 @@ namespace AccountingEmployeesActivities.Views.Pages
             InitializeComponent();
         }
 
+        public MyTasksView(User currentUser)
+        {
+            InitializeComponent();
+            DataContext = new MyTasksViewModel(currentUser);
+        }
+
         private void InitializeComponent()
         {
             AvaloniaXamlLoader.Load(this);
         }
     }
 }
+

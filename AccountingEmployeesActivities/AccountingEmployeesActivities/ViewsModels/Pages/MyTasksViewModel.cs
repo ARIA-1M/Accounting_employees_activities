@@ -5,11 +5,16 @@ using System;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
+using AccountingEmployeesActivities.Views;
+using AccountingEmployeesActivities.ViewModels;
+
 
 namespace AccountingEmployeesActivities.ViewModels.Pages
 {
     public class MyTasksViewModel : ViewModelBase
     {
+
+        public string Title => "Мои задачи";
         private string _selectedStatus = "Все статусы";
         private string _dateFromText;
         private string _dateToText;
@@ -242,14 +247,46 @@ namespace AccountingEmployeesActivities.ViewModels.Pages
         // Открыть модальное окно создания задачи
         private void CreateTask()
         {
-            // TODO: Открыть модальное окно создания задачи
+
+            using var db = new PostgresContext();
+            var user = db.Users.FirstOrDefault(u => u.IdUser == _currentUserId);
+            bool isBoss = user?.IdRole == 2; 
+
+            var dialog = new AccountingEmployeesActivities.Views.Dialogs.CreateTaskDialog(
+                _currentUserId,
+                _currentEmployeeId,
+                isBoss
+            );
+            dialog.Show();
         }
+        
 
         //  Открыть окно изменения статуса
         private void ChangeStatus(TaskCardModel task)
         {
             if (task == null) return;
-            // TODO: Открыть окно изменения статуса
+
+            // Получаем ID статуса из модели
+            int currentStatusId = GetStatusIdByName(task.StatusText);
+
+            var dialog = new AccountingEmployeesActivities.Views.Dialogs.ChangeStatusDialog(
+                task.IdTask,
+                currentStatusId
+            );
+            dialog.Show();
+        }
+
+        private int GetStatusIdByName(string statusName)
+        {
+            return statusName switch
+            {
+                "Новая" => 1,
+                "В работе" => 2,
+                "Ожидание" => 3,
+                "Решена" => 4,
+                "Делегирование" => 5,
+                _ => 1
+            };
         }
 
         // Открыть окно делегирования
@@ -263,7 +300,9 @@ namespace AccountingEmployeesActivities.ViewModels.Pages
         private void OpenFiles(TaskCardModel task)
         {
             if (task == null) return;
-            // TODO: Открыть окно с файлами
+            var filesWindow = new FilesWindow();
+            filesWindow.DataContext = new FilesViewModel(task.IdTask);
+            filesWindow.Show();
         }
 
         // Окно с коментариями
