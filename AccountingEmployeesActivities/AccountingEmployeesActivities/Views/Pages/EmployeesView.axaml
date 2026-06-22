@@ -20,7 +20,7 @@
                     Foreground="White"
                     FontWeight="SemiBold"
                     Padding="16,10"
-                    CornerRadius="6"
+                    CornerRadius="40"
                     HorizontalAlignment="Right"
                     VerticalAlignment="Center"
                     Command="{Binding CreateEmployeeCommand}"/>
@@ -49,7 +49,7 @@
                             BorderBrush="#2196F3"
                             BorderThickness="2"
                             Padding="16,8"
-                            CornerRadius="6"
+                            CornerRadius="40"
                             Command="{Binding ApplyFiltersCommand}"/>
 				</Grid>
 			</StackPanel>
@@ -103,7 +103,7 @@
 										BorderBrush="#FF6F00"
 										BorderThickness="1"
 										Padding="12,8"
-										CornerRadius="6"
+										CornerRadius="40"
 										VerticalAlignment="Center"
 										Command="{Binding DataContext.EditEmployeeCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
 										CommandParameter="{Binding}"/>

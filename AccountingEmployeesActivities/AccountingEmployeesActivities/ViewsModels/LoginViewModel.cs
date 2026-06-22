@@ -133,7 +133,7 @@ namespace AccountingEmployeesActivities.ViewModels
                 return;
             }
 
-            if (user.Employee.IsActive == false )
+            if (user.Employee.IsActive == false)
             {
                 ErrorMessage = "Учётная запись заблокирована. Обратитесь к администратору";
                 IsErrorVisible = true;
