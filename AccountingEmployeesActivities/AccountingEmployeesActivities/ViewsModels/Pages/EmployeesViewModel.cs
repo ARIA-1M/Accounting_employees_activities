@@ -12,6 +12,7 @@ namespace AccountingEmployeesActivities.ViewModels.Pages
 {
     public class EmployeesViewModel : ViewModelBase
     {
+        public string Title => "Сотрудники";
         private string _searchText = string.Empty;
         private bool _hideFired = true;
         private ObservableCollection<Employee> _employees = new ObservableCollection<Employee>();

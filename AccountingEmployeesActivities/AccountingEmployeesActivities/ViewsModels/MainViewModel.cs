@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
+using System.Globalization;
 
 namespace AccountingEmployeesActivities.ViewModels
 {
@@ -64,23 +65,27 @@ namespace AccountingEmployeesActivities.ViewModels
                 if (!string.IsNullOrEmpty(_currentEmployee.MiddleName))
                     fullName += $" {_currentEmployee.MiddleName}";
 
-                // Получаем название роли
                 var role = db.Roles.FirstOrDefault(r => r.IdRole == _currentUser.IdRole);
                 var roleName = role?.Name ?? "Сотрудник";
-                // Переводим название роли в более читаемый вид (можно оставить как есть)
-                FullNameWithRole = $"{fullName} · {roleName}";
-                FirstNameOnly = _currentEmployee.FirstName;
+                FullNameWithRole = $"{ToTitleCase(fullName)} · {ToTitleCase(roleName)}"; // ФИО и роль – каждое слово с большой
+                FirstNameOnly = ToTitleCase(_currentEmployee.FirstName);
             }
             else
             {
-                FullNameWithRole = _currentUser.Login;
-                FirstNameOnly = _currentUser.Login;
+                FullNameWithRole = ToTitleCase(_currentUser.Login);
+                FirstNameOnly = ToTitleCase(_currentUser.Login);
             }
+        }
+
+        private string ToTitleCase(string str)
+        {
+            if (string.IsNullOrWhiteSpace(str)) return str;
+            return CultureInfo.CurrentCulture.TextInfo.ToTitleCase(str.ToLower());
         }
 
         private void BuildMenu()
         {
-            bool isBoss = _currentUser.IdRole == 1; // начальник
+            bool isBoss = _currentUser.IdRole == 1 || _currentUser.IdRole == 2; // администратор или руководитель
 
             if (isBoss)
             {
@@ -96,7 +101,6 @@ namespace AccountingEmployeesActivities.ViewModels
                 MenuItems.Add(new MenuItem { Header = "Делегирование", PageType = PageType.Delegation });
                 MenuItems.Add(new MenuItem { Header = "Статистика", PageType = PageType.Statistics });
             }
-            // Добавляем Настройки для всех
             MenuItems.Add(new MenuItem { Header = "Настройки", PageType = PageType.Settings });
         }
 
@@ -113,7 +117,7 @@ namespace AccountingEmployeesActivities.ViewModels
             return pageType switch
             {
                 PageType.MyTasks => new MyTasksViewModel(),
-                PageType.History => new HistoryViewModel(),
+                PageType.History => new HistoryViewModel(_currentUser, _currentUser.IdRole == 1 || _currentUser.IdRole == 2),
                 PageType.Delegation => new DelegationViewModel(),
                 PageType.Statistics => new StatisticsViewModel(_currentUser, App.ServiceProvider.GetRequiredService<IStatisticsService>()),
                 PageType.Tasks => new TasksViewModel(),
