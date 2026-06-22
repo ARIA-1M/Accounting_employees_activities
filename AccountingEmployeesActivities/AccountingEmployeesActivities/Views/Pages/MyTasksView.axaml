@@ -154,7 +154,7 @@
 												   FontWeight="SemiBold"
 												   Foreground="#0F172A"
 												   TextWrapping="Wrap"
-												   MaxWidth="200"/>
+												   MaxWidth="250"/>
 									</DockPanel>
 								</Border>
 
@@ -173,8 +173,13 @@
 												   FontSize="11"/>
 									</StackPanel>
 
-									<!-- Комментарии (иконка) -->
-									<StackPanel Orientation="Horizontal" Margin="0,0,0,8">
+									<!-- Комментарии (кнопка) -->
+									<Button Background="Transparent"
+											BorderThickness="0"
+											Padding="0"
+											Command="{Binding DataContext.OpenCommentsCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
+											CommandParameter="{Binding}"
+											Cursor="Hand">
 										<Border Background="#F1F5F9"
 												BorderBrush="#E2E8F0"
 												BorderThickness="1"
@@ -185,7 +190,7 @@
 													   FontWeight="500"
 													   Foreground="#3B82F6"/>
 										</Border>
-									</StackPanel>
+									</Button>
 
 									<!-- Последний комментарий (кратко) -->
 									<Border Background="#F8FAFC"

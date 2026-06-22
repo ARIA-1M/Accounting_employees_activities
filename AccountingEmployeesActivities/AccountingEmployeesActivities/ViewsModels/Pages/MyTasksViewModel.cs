@@ -232,39 +232,47 @@ namespace AccountingEmployeesActivities.ViewModels.Pages
             return statusId switch
             {
                 1 => "#475569", // Новая (серый)
-                2 => "#FF6F00", // Ожидание (оранжевый)
+                2 => "#475569", // Ожидание (желтый)
                 3 => "#3B82F6", // В работе (синий)
+                5 => "#FF6F00", // Делегирование (оранжевый)
                 _ => "#475569"  // По умолчанию серый
             };
         }
 
+        // Открыть модальное окно создания задачи
         private void CreateTask()
         {
             // TODO: Открыть модальное окно создания задачи
         }
 
+        //  Открыть окно изменения статуса
         private void ChangeStatus(TaskCardModel task)
         {
             if (task == null) return;
             // TODO: Открыть окно изменения статуса
         }
 
+        // Открыть окно делегирования
         private void DelegateTask(TaskCardModel task)
         {
             if (task == null) return;
             // TODO: Открыть окно делегирования
         }
 
+        // Открыть окно с файлами
         private void OpenFiles(TaskCardModel task)
         {
             if (task == null) return;
             // TODO: Открыть окно с файлами
         }
 
+        // Окно с коментариями
         private void OpenComments(TaskCardModel task)
         {
             if (task == null) return;
-            // TODO: Открыть окно с комментариями
+            var commentWindow = new AccountingEmployeesActivities.Views.CommentWindow();
+            commentWindow.DataContext = new AccountingEmployeesActivities.ViewModels.CommentViewModel(task.IdTask, _currentUserId);
+            commentWindow.Show();
         }
     }
 }
