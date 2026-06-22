@@ -31,8 +31,8 @@ namespace AccountingEmployeesActivities.Services.Implementations
                 return;
 
             var statuses = await _context.Statuses.ToListAsync();
-            _completedStatusId = statuses.FirstOrDefault(s => s.Name == "сделана")?.IdStatus ?? 0;
-            _inProgressStatusId = statuses.FirstOrDefault(s => s.Name == "в работе")?.IdStatus ?? 0;
+            _completedStatusId = statuses.FirstOrDefault(s => s.IdStatus == 4)?.IdStatus ?? 0;
+            _inProgressStatusId = statuses.FirstOrDefault(s => s.IdStatus == 3)?.IdStatus ?? 0;
 
             System.Diagnostics.Debug.WriteLine($"StatusIds loaded - Completed: {_completedStatusId}, InProgress: {_inProgressStatusId}");
         }

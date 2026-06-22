@@ -3,28 +3,32 @@
   "WorkspaceRootPath": "C:\\projeckt\\Accounting_employees_activities\\AccountingEmployeesActivities\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{920E438F-D739-64A0-ABC1-11AF4825BC37}|AccountingEmployeesActivities\\AccountingEmployeesActivities.csproj|c:\\projeckt\\accounting_employees_activities\\accountingemployeesactivities\\accountingemployeesactivities\\services\\statisticsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{920E438F-D739-64A0-ABC1-11AF4825BC37}|AccountingEmployeesActivities\\AccountingEmployeesActivities.csproj|solutionrelative:accountingemployeesactivities\\services\\statisticsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{920E438F-D739-64A0-ABC1-11AF4825BC37}|AccountingEmployeesActivities\\AccountingEmployeesActivities.csproj|c:\\projeckt\\accounting_employees_activities\\accountingemployeesactivities\\accountingemployeesactivities\\views\\pages\\delegationview.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{920E438F-D739-64A0-ABC1-11AF4825BC37}|AccountingEmployeesActivities\\AccountingEmployeesActivities.csproj|solutionrelative:accountingemployeesactivities\\views\\pages\\delegationview.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{920E438F-D739-64A0-ABC1-11AF4825BC37}|AccountingEmployeesActivities\\AccountingEmployeesActivities.csproj|c:\\projeckt\\accounting_employees_activities\\accountingemployeesactivities\\accountingemployeesactivities\\views\\pages\\statisticsview.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}",
-      "RelativeMoniker": "D:0:0:{920E438F-D739-64A0-ABC1-11AF4825BC37}|AccountingEmployeesActivities\\AccountingEmployeesActivities.csproj|solutionrelative:accountingemployeesactivities\\views\\pages\\statisticsview.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}"
+      "AbsoluteMoniker": "D:0:0:{920E438F-D739-64A0-ABC1-11AF4825BC37}|AccountingEmployeesActivities\\AccountingEmployeesActivities.csproj|c:\\projeckt\\accounting_employees_activities\\accountingemployeesactivities\\accountingemployeesactivities\\models\\postgrescontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{920E438F-D739-64A0-ABC1-11AF4825BC37}|AccountingEmployeesActivities\\AccountingEmployeesActivities.csproj|solutionrelative:accountingemployeesactivities\\models\\postgrescontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{920E438F-D739-64A0-ABC1-11AF4825BC37}|AccountingEmployeesActivities\\AccountingEmployeesActivities.csproj|c:\\projeckt\\accounting_employees_activities\\accountingemployeesactivities\\accountingemployeesactivities\\services\\delegationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{920E438F-D739-64A0-ABC1-11AF4825BC37}|AccountingEmployeesActivities\\AccountingEmployeesActivities.csproj|solutionrelative:accountingemployeesactivities\\services\\delegationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{920E438F-D739-64A0-ABC1-11AF4825BC37}|AccountingEmployeesActivities\\AccountingEmployeesActivities.csproj|c:\\projeckt\\accounting_employees_activities\\accountingemployeesactivities\\accountingemployeesactivities\\services\\statisticsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{920E438F-D739-64A0-ABC1-11AF4825BC37}|AccountingEmployeesActivities\\AccountingEmployeesActivities.csproj|solutionrelative:accountingemployeesactivities\\services\\statisticsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{920E438F-D739-64A0-ABC1-11AF4825BC37}|AccountingEmployeesActivities\\AccountingEmployeesActivities.csproj|c:\\projeckt\\accounting_employees_activities\\accountingemployeesactivities\\accountingemployeesactivities\\views\\pages\\statisticsview.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{920E438F-D739-64A0-ABC1-11AF4825BC37}|AccountingEmployeesActivities\\AccountingEmployeesActivities.csproj|solutionrelative:accountingemployeesactivities\\views\\pages\\statisticsview.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{920E438F-D739-64A0-ABC1-11AF4825BC37}|AccountingEmployeesActivities\\AccountingEmployeesActivities.csproj|c:\\projeckt\\accounting_employees_activities\\accountingemployeesactivities\\accountingemployeesactivities\\services\\settingsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{920E438F-D739-64A0-ABC1-11AF4825BC37}|AccountingEmployeesActivities\\AccountingEmployeesActivities.csproj|solutionrelative:accountingemployeesactivities\\services\\settingsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{920E438F-D739-64A0-ABC1-11AF4825BC37}|AccountingEmployeesActivities\\AccountingEmployeesActivities.csproj|c:\\projeckt\\accounting_employees_activities\\accountingemployeesactivities\\accountingemployeesactivities\\app.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{920E438F-D739-64A0-ABC1-11AF4825BC37}|AccountingEmployeesActivities\\AccountingEmployeesActivities.csproj|solutionrelative:accountingemployeesactivities\\app.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{920E438F-D739-64A0-ABC1-11AF4825BC37}|AccountingEmployeesActivities\\AccountingEmployeesActivities.csproj|c:\\projeckt\\accounting_employees_activities\\accountingemployeesactivities\\accountingemployeesactivities\\viewsmodels\\pages\\statisticsviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{920E438F-D739-64A0-ABC1-11AF4825BC37}|AccountingEmployeesActivities\\AccountingEmployeesActivities.csproj|solutionrelative:accountingemployeesactivities\\viewsmodels\\pages\\statisticsviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{920E438F-D739-64A0-ABC1-11AF4825BC37}|AccountingEmployeesActivities\\AccountingEmployeesActivities.csproj|c:\\projeckt\\accounting_employees_activities\\accountingemployeesactivities\\accountingemployeesactivities\\services\\settingsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{920E438F-D739-64A0-ABC1-11AF4825BC37}|AccountingEmployeesActivities\\AccountingEmployeesActivities.csproj|solutionrelative:accountingemployeesactivities\\services\\settingsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,7 +38,7 @@
       "DocumentGroups": [
         {
           "DockedHeight": 474,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -42,7 +46,44 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DelegationView.axaml.cs",
+              "DocumentMoniker": "C:\\projeckt\\Accounting_employees_activities\\AccountingEmployeesActivities\\AccountingEmployeesActivities\\Views\\Pages\\DelegationView.axaml.cs",
+              "RelativeDocumentMoniker": "AccountingEmployeesActivities\\Views\\Pages\\DelegationView.axaml.cs",
+              "ToolTip": "C:\\projeckt\\Accounting_employees_activities\\AccountingEmployeesActivities\\AccountingEmployeesActivities\\Views\\Pages\\DelegationView.axaml.cs",
+              "RelativeToolTip": "AccountingEmployeesActivities\\Views\\Pages\\DelegationView.axaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-22T11:58:45.535Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "DelegationService.cs",
+              "DocumentMoniker": "C:\\projeckt\\Accounting_employees_activities\\AccountingEmployeesActivities\\AccountingEmployeesActivities\\Services\\DelegationService.cs",
+              "RelativeDocumentMoniker": "AccountingEmployeesActivities\\Services\\DelegationService.cs",
+              "ToolTip": "C:\\projeckt\\Accounting_employees_activities\\AccountingEmployeesActivities\\AccountingEmployeesActivities\\Services\\DelegationService.cs",
+              "RelativeToolTip": "AccountingEmployeesActivities\\Services\\DelegationService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-22T11:58:22.973Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PostgresContext.cs",
+              "DocumentMoniker": "C:\\projeckt\\Accounting_employees_activities\\AccountingEmployeesActivities\\AccountingEmployeesActivities\\Models\\PostgresContext.cs",
+              "RelativeDocumentMoniker": "AccountingEmployeesActivities\\Models\\PostgresContext.cs",
+              "ToolTip": "C:\\projeckt\\Accounting_employees_activities\\AccountingEmployeesActivities\\AccountingEmployeesActivities\\Models\\PostgresContext.cs",
+              "RelativeToolTip": "AccountingEmployeesActivities\\Models\\PostgresContext.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAAgwCQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-22T11:47:05.457Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "StatisticsView.axaml.cs",
               "DocumentMoniker": "C:\\projeckt\\Accounting_employees_activities\\AccountingEmployeesActivities\\AccountingEmployeesActivities\\Views\\Pages\\StatisticsView.axaml.cs",
               "RelativeDocumentMoniker": "AccountingEmployeesActivities\\Views\\Pages\\StatisticsView.axaml.cs",
@@ -50,12 +91,11 @@
               "RelativeToolTip": "AccountingEmployeesActivities\\Views\\Pages\\StatisticsView.axaml.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-22T09:12:12.691Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-22T09:12:12.691Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "App.axaml.cs",
               "DocumentMoniker": "C:\\projeckt\\Accounting_employees_activities\\AccountingEmployeesActivities\\AccountingEmployeesActivities\\App.axaml.cs",
               "RelativeDocumentMoniker": "AccountingEmployeesActivities\\App.axaml.cs",
@@ -67,20 +107,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "StatisticsService.cs",
               "DocumentMoniker": "C:\\projeckt\\Accounting_employees_activities\\AccountingEmployeesActivities\\AccountingEmployeesActivities\\Services\\StatisticsService.cs",
               "RelativeDocumentMoniker": "AccountingEmployeesActivities\\Services\\StatisticsService.cs",
               "ToolTip": "C:\\projeckt\\Accounting_employees_activities\\AccountingEmployeesActivities\\AccountingEmployeesActivities\\Services\\StatisticsService.cs",
               "RelativeToolTip": "AccountingEmployeesActivities\\Services\\StatisticsService.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAAwCEAAABiAAAAAAAAAA==",
+              "ViewState": "AgIAABEAAAAAAAAAAAAAwB8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-20T11:33:14.619Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-20T11:33:14.619Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "SettingsService.cs",
               "DocumentMoniker": "C:\\projeckt\\Accounting_employees_activities\\AccountingEmployeesActivities\\AccountingEmployeesActivities\\Services\\SettingsService.cs",
               "RelativeDocumentMoniker": "AccountingEmployeesActivities\\Services\\SettingsService.cs",
@@ -89,30 +128,6 @@
               "ViewState": "AgIAABkAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-06-20T11:33:13.719Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "StatisticsViewModel.cs",
-              "DocumentMoniker": "C:\\projeckt\\Accounting_employees_activities\\AccountingEmployeesActivities\\AccountingEmployeesActivities\\ViewsModels\\Pages\\StatisticsViewModel.cs",
-              "RelativeDocumentMoniker": "AccountingEmployeesActivities\\ViewsModels\\Pages\\StatisticsViewModel.cs",
-              "ToolTip": "C:\\projeckt\\Accounting_employees_activities\\AccountingEmployeesActivities\\AccountingEmployeesActivities\\ViewsModels\\Pages\\StatisticsViewModel.cs",
-              "RelativeToolTip": "AccountingEmployeesActivities\\ViewsModels\\Pages\\StatisticsViewModel.cs",
-              "ViewState": "AgIAAH8AAAAAAAAAAAAawIsAAABTAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-20T10:27:45.383Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "StatisticsView.axaml",
-              "DocumentMoniker": "C:\\projeckt\\Accounting_employees_activities\\AccountingEmployeesActivities\\AccountingEmployeesActivities\\Views\\Pages\\StatisticsView.axaml",
-              "RelativeDocumentMoniker": "AccountingEmployeesActivities\\Views\\Pages\\StatisticsView.axaml",
-              "ToolTip": "C:\\projeckt\\Accounting_employees_activities\\AccountingEmployeesActivities\\AccountingEmployeesActivities\\Views\\Pages\\StatisticsView.axaml",
-              "RelativeToolTip": "AccountingEmployeesActivities\\Views\\Pages\\StatisticsView.axaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-06-19T14:27:32.997Z",
-              "EditorCaption": ""
             }
           ]
         },

@@ -34,6 +34,9 @@ build_property.EnableCodeStyleSeverity =
 [C:/projeckt/Accounting_employees_activities/AccountingEmployeesActivities/AccountingEmployeesActivities/App.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
+[C:/projeckt/Accounting_employees_activities/AccountingEmployeesActivities/AccountingEmployeesActivities/Views/CommentWindow.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
 [C:/projeckt/Accounting_employees_activities/AccountingEmployeesActivities/AccountingEmployeesActivities/Views/Dialogs/EmployeeDialog.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
