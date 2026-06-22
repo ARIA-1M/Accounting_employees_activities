@@ -95,7 +95,7 @@ namespace AccountingEmployeesActivities.ViewModels.Dialogs
                 LastName = employee.LastName,
                 MiddleName = employee.MiddleName,
                 IdRole = employee.IdUserNavigation?.IdRole ?? 3,
-                IsActive = employee.IsActive.GetValueOrDefault(true),
+                IsActive = employee.IsActive,
                 IdBoss = currentUserId
             };
 

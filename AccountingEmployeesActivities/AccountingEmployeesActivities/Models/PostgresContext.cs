@@ -80,7 +80,8 @@ public partial class PostgresContext : DbContext
             entity.Property(e => e.IdUser).HasColumnName("id_user");
             entity.Property(e => e.IsActive)
                 .HasDefaultValue(true)
-                .HasColumnName("is_active");
+                .HasColumnName("is_active")
+                .IsRequired();
             entity.Property(e => e.LastName)
                 .HasMaxLength(255)
                 .HasColumnName("last_name");
@@ -111,7 +112,10 @@ public partial class PostgresContext : DbContext
             entity.Property(e => e.Comment).HasColumnName("comment");
             entity.Property(e => e.IdEmployee).HasColumnName("id_employee");
             entity.Property(e => e.IdTask).HasColumnName("id_task");
-            entity.Property(e => e.IsActive).HasColumnName("is_active");
+            entity.Property(e => e.IsActive)
+                .HasDefaultValue(true)
+                .HasColumnName("is_active")
+                .IsRequired();
 
             entity.HasOne(d => d.IdEmployeeNavigation).WithMany(p => p.Executors)
                 .HasForeignKey(d => d.IdEmployee)
