@@ -105,9 +105,7 @@ public partial class PostgresContext : DbContext
             entity.Property(e => e.Comment).HasColumnName("comment");
             entity.Property(e => e.IdEmployee).HasColumnName("id_employee");
             entity.Property(e => e.IdTask).HasColumnName("id_task");
-            entity.Property(e => e.IsActive)
-                .HasDefaultValue(false)
-                .HasColumnName("is_active");
+            entity.Property(e => e.IsActive).HasColumnName("is_active");
 
             entity.HasOne(d => d.IdEmployeeNavigation).WithMany(p => p.Executors)
                 .HasForeignKey(d => d.IdEmployee)
@@ -128,6 +126,7 @@ public partial class PostgresContext : DbContext
 
             entity.Property(e => e.IdFile).HasColumnName("id_file");
             entity.Property(e => e.AddDate).HasColumnName("add_date");
+            entity.Property(e => e.Data).HasColumnName("data");
             entity.Property(e => e.IdTask).HasColumnName("id_task");
             entity.Property(e => e.Name)
                 .HasMaxLength(255)

@@ -5,6 +5,8 @@ using System;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
+using AccountingEmployeesActivities.Views;
+using AccountingEmployeesActivities.ViewModels;
 
 
 namespace AccountingEmployeesActivities.ViewModels.Pages
@@ -266,7 +268,9 @@ namespace AccountingEmployeesActivities.ViewModels.Pages
         private void OpenFiles(TaskCardModel task)
         {
             if (task == null) return;
-            // TODO: Открыть окно с файлами
+            var filesWindow = new FilesWindow();
+            filesWindow.DataContext = new FilesViewModel(task.IdTask);
+            filesWindow.Show();
         }
 
         // Окно с коментариями
