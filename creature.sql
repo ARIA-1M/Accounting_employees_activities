@@ -52,7 +52,7 @@ create table executor (
     id_executor serial primary key,
     id_task int not null,
     id_employee int not null,
-    is_active boolean default false,
+    is_active bool DEFAULT false NOT NULL,
     comment text,
     change_date date,
     foreign key (id_task) references task(id_task),
