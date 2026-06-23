@@ -47,6 +47,7 @@ namespace AccountingEmployeesActivities
             services.AddScoped<IStatisticsService, StatisticsService>();
             services.AddTransient<StatisticsViewModel>();
             services.AddTransient<StatisticsView>();
+            services.AddSingleton<IExportService, ExportService>();
         }
     }
 }
