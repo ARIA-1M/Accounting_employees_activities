@@ -180,7 +180,7 @@ namespace AccountingEmployeesActivities.Services.Implementations
                 {
                     StatusName = g.Key.Name,
                     Count = g.Count(),
-                    Color = GetStatusColor(g.Key.Name)
+                    Color = GetStatusColor(g.Key.IdStatus)
                 })
                 .ToListAsync();
 
@@ -354,14 +354,14 @@ namespace AccountingEmployeesActivities.Services.Implementations
             return employees;
         }
 
-        private static string GetStatusColor(string statusName)
+        private static string GetStatusColor(int idStatus)
         {
-            return statusName switch
+            return idStatus switch
             {
-                "Новая" => "#808080",
-                "В работе" => "#4A90E2",
-                "Ожидание" => "#F5A623",
-                "Решена" => "#7ED321",
+                1 => "#808080",
+                2 => "#F5A623",                
+                3 => "#4A90E2",
+                4 => "#7ED321",
                 _ => "#CCCCCC"
             };
         }
