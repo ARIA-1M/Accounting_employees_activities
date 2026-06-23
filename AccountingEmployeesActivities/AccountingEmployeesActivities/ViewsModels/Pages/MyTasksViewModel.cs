@@ -236,8 +236,8 @@ namespace AccountingEmployeesActivities.ViewModels.Pages
         {
             return statusId switch
             {
-                1 => "#475569", // Новая (серый)
-                2 => "#475569", // Ожидание (желтый)
+                1 => "#22C55E", // Новая (серый)
+                2 => "#FBBF24", // Ожидание (желтый)
                 3 => "#3B82F6", // В работе (синий)
                 5 => "#FF6F00", // Делегирование (оранжевый)
                 _ => "#475569"  // По умолчанию серый
@@ -247,14 +247,46 @@ namespace AccountingEmployeesActivities.ViewModels.Pages
         // Открыть модальное окно создания задачи
         private void CreateTask()
         {
-            // TODO: Открыть модальное окно создания задачи
+
+            using var db = new PostgresContext();
+            var user = db.Users.FirstOrDefault(u => u.IdUser == _currentUserId);
+            bool isBoss = user?.IdRole == 2; 
+
+            var dialog = new AccountingEmployeesActivities.Views.Dialogs.CreateTaskDialog(
+                _currentUserId,
+                _currentEmployeeId,
+                isBoss
+            );
+            dialog.Show();
         }
+        
 
         //  Открыть окно изменения статуса
         private void ChangeStatus(TaskCardModel task)
         {
             if (task == null) return;
-            // TODO: Открыть окно изменения статуса
+
+            // Получаем ID статуса из модели
+            int currentStatusId = GetStatusIdByName(task.StatusText);
+
+            var dialog = new AccountingEmployeesActivities.Views.Dialogs.ChangeStatusDialog(
+                task.IdTask,
+                currentStatusId
+            );
+            dialog.Show();
+        }
+
+        private int GetStatusIdByName(string statusName)
+        {
+            return statusName switch
+            {
+                "Новая" => 1,
+                "В работе" => 2,
+                "Ожидание" => 3,
+                "Решена" => 4,
+                "Делегирование" => 5,
+                _ => 1
+            };
         }
 
         // Открыть окно делегирования

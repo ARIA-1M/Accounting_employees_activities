@@ -41,7 +41,7 @@ namespace AccountingEmployeesActivities.ViewModels
                 {
                     IdFile = file.IdFile,
                     Name = file.Name,
-                    Data = file.Data ?? Array.Empty<byte>()
+                    //Data = file.Data ?? Array.Empty<byte>()
                 });
             }
         }

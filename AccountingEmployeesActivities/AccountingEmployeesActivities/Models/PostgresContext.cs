@@ -33,7 +33,7 @@ public partial class PostgresContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseNpgsql("Host=localhost;Port=5433;Database=postgres;Username=postgres;Password=123");
+        => optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=postgres;Username=postgres;Password=123");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -105,7 +105,9 @@ public partial class PostgresContext : DbContext
             entity.Property(e => e.Comment).HasColumnName("comment");
             entity.Property(e => e.IdEmployee).HasColumnName("id_employee");
             entity.Property(e => e.IdTask).HasColumnName("id_task");
-            entity.Property(e => e.IsActive).HasColumnName("is_active");
+            entity.Property(e => e.IsActive)
+                .HasDefaultValue(false)
+                .HasColumnName("is_active");
 
             entity.HasOne(d => d.IdEmployeeNavigation).WithMany(p => p.Executors)
                 .HasForeignKey(d => d.IdEmployee)
@@ -126,7 +128,6 @@ public partial class PostgresContext : DbContext
 
             entity.Property(e => e.IdFile).HasColumnName("id_file");
             entity.Property(e => e.AddDate).HasColumnName("add_date");
-            entity.Property(e => e.Data).HasColumnName("data");
             entity.Property(e => e.IdTask).HasColumnName("id_task");
             entity.Property(e => e.Name)
                 .HasMaxLength(255)

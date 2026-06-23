@@ -120,7 +120,7 @@ namespace AccountingEmployeesActivities.ViewModels
                 PageType.History => new HistoryViewModel(_currentUser, _currentUser.IdRole == 1 || _currentUser.IdRole == 2),
                 PageType.Delegation => new DelegationViewModel(),
                 PageType.Statistics => new StatisticsViewModel(_currentUser, App.ServiceProvider.GetRequiredService<IStatisticsService>()),
-                PageType.Tasks => new TasksViewModel(),
+                PageType.Tasks => new TasksViewModel(_currentUser),
                 PageType.Employees => new EmployeesViewModel(_currentUser),
                 PageType.Settings => new SettingsViewModel(),
                 _ => new MyTasksViewModel(_currentUser)

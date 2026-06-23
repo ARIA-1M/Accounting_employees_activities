@@ -5010,23 +5010,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\zybin\\.nuget\\packages\\": {},
+    "C:\\Users\\Пользователь\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\zybin\\OneDrive\\Desktop\\PP\\Accounting_employees_activities\\AccountingEmployeesActivities\\AccountingEmployeesActivities\\AccountingEmployeesActivities.csproj",
+      "projectUniqueName": "C:\\Users\\Пользователь\\Desktop\\3к_2\\производственная практика\\Accounting_employees_activities\\AccountingEmployeesActivities\\AccountingEmployeesActivities\\AccountingEmployeesActivities.csproj",
       "projectName": "AccountingEmployeesActivities",
-      "projectPath": "C:\\Users\\zybin\\OneDrive\\Desktop\\PP\\Accounting_employees_activities\\AccountingEmployeesActivities\\AccountingEmployeesActivities\\AccountingEmployeesActivities.csproj",
-      "packagesPath": "C:\\Users\\zybin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\zybin\\OneDrive\\Desktop\\PP\\Accounting_employees_activities\\AccountingEmployeesActivities\\AccountingEmployeesActivities\\obj\\",
+      "projectPath": "C:\\Users\\Пользователь\\Desktop\\3к_2\\производственная практика\\Accounting_employees_activities\\AccountingEmployeesActivities\\AccountingEmployeesActivities\\AccountingEmployeesActivities.csproj",
+      "packagesPath": "C:\\Users\\Пользователь\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Пользователь\\Desktop\\3к_2\\производственная практика\\Accounting_employees_activities\\AccountingEmployeesActivities\\AccountingEmployeesActivities\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\zybin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Пользователь\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -5036,7 +5036,8 @@
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "C:\\Program Files\\dotnet\\library-packs": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "https://api.nuget.org/v3/index.json": {},
+        "https://nuget.pkg.github.com/ARIA-1M/index.json": {}
       },
       "frameworks": {
         "net10.0": {
