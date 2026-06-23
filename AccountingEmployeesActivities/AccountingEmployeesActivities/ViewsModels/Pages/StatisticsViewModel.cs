@@ -1,15 +1,23 @@
 using AccountingEmployeesActivities.DTOs;
 using AccountingEmployeesActivities.Models;
+using AccountingEmployeesActivities.Services;
 using AccountingEmployeesActivities.Services.Interfaces;
+using Avalonia.Controls.ApplicationLifetimes;
+using ClosedXML.Excel;
 using LiveChartsCore;
 using LiveChartsCore.SkiaSharpView;
 using LiveChartsCore.SkiaSharpView.Painting;
+using QuestPDF.Infrastructure;
 using SkiaSharp;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Input;
+using Microsoft.Win32;
+using Avalonia.Controls;
+using Avalonia.Platform.Storage;
 using SystemTask = System.Threading.Tasks.Task;
 
 namespace AccountingEmployeesActivities.ViewModels.Pages
@@ -27,6 +35,10 @@ namespace AccountingEmployeesActivities.ViewModels.Pages
             get => _title;
             set => SetProperty(ref _title, value);
         }
+        // Для выгрузки файлом
+        private readonly IExportService _exportService;
+        public ICommand ExportToExcelCommand { get; }
+        public ICommand ExportToPdfCommand { get; }
 
         // Для графиков
         private ISeries[] _statusChartSeries = Array.Empty<ISeries>();
@@ -151,10 +163,11 @@ namespace AccountingEmployeesActivities.ViewModels.Pages
 
         public ICommand RefreshCommand { get; }
 
-        public StatisticsViewModel(User currentUser, IStatisticsService statisticsService)
+        public StatisticsViewModel(User currentUser, IStatisticsService statisticsService, IExportService exportService)
         {
             _currentUserId = currentUser.IdUser;
             _statisticsService = statisticsService;
+            _exportService = exportService;
 
             RefreshCommand = new RelayCommand(_ => _ = RefreshAsync());
 
@@ -385,6 +398,76 @@ namespace AccountingEmployeesActivities.ViewModels.Pages
 
                 _ => SKColor.Parse("#BDBDBD")                // цвет по умолчанию
             };
+        }
+        public async SystemTask ExportExcelAsync(string filePath)
+        {
+            if (SelectedEmployee == null) return;
+
+            try
+            {
+                IsLoading = true;
+
+                var stats = new StatisticsDto
+                {
+                    TotalTasks = this.TotalTasks,
+                    CompletedTasks = this.CompletedTasks,
+                    InProgressTasks = this.InProgressTasks,
+                    ProgressPercentage = this.ProgressPercentage
+                };
+
+                var distribution = StatusDistribution.ToList();
+                var employeeTasksList = EmployeeTasks.ToList();
+                var employeeName = SelectedEmployee.FullName;
+                var dateRange = $"{StartDate:dd.MM.yyyy} — {EndDate:dd.MM.yyyy}";
+
+                // Вызываем сервис
+                await _exportService.ExportToExcelAsync(
+                    filePath, stats, distribution,
+                    employeeTasksList, employeeName, dateRange);
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("Excel export error: " + ex);
+            }
+            finally
+            {
+                IsLoading = false;
+            }
+        }
+
+        public async SystemTask ExportPdfAsync(string filePath)
+        {
+            if (SelectedEmployee == null) return;
+
+            try
+            {
+                IsLoading = true;
+
+                var stats = new StatisticsDto
+                {
+                    TotalTasks = this.TotalTasks,
+                    CompletedTasks = this.CompletedTasks,
+                    InProgressTasks = this.InProgressTasks,
+                    ProgressPercentage = this.ProgressPercentage
+                };
+
+                var distribution = StatusDistribution.ToList();
+                var employeeTasksList = EmployeeTasks.ToList();
+                var employeeName = SelectedEmployee.FullName;
+                var dateRange = $"{StartDate:dd.MM.yyyy} — {EndDate:dd.MM.yyyy}";
+
+                await _exportService.ExportToPdfAsync(
+                    filePath, stats, distribution,
+                    employeeTasksList, employeeName, dateRange);
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("PDF export error: " + ex);
+            }
+            finally
+            {
+                IsLoading = false;
+            }
         }
     }
 }

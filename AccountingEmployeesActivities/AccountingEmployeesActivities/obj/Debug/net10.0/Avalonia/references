@@ -23,7 +23,12 @@ C:\Users\Mary\.nuget\packages\avalonia.win32\12.0.0\lib\net10.0\Avalonia.Win32.d
 C:\Users\Mary\.nuget\packages\avalonia.x11\12.0.0\lib\net10.0\Avalonia.X11.dll
 C:\Users\Mary\.nuget\packages\avaloniaui.diagnosticssupport\2.2.0\lib\net10.0\AvaloniaUI.DiagnosticsSupport.Avalonia.dll
 C:\Users\Mary\.nuget\packages\bcrypt.net-next\4.2.0\lib\net10.0\BCrypt-Net-Next.dll
+C:\Users\Mary\.nuget\packages\closedxml\0.105.0\lib\netstandard2.1\ClosedXML.dll
+C:\Users\Mary\.nuget\packages\closedxml.parser\2.0.0\lib\netstandard2.1\ClosedXML.Parser.dll
+C:\Users\Mary\.nuget\packages\documentformat.openxml\3.1.1\lib\net8.0\DocumentFormat.OpenXml.dll
+C:\Users\Mary\.nuget\packages\documentformat.openxml.framework\3.1.1\lib\net8.0\DocumentFormat.OpenXml.Framework.dll
 C:\Users\Mary\.nuget\packages\dynamicdata\9.4.31\lib\net10.0\DynamicData.dll
+C:\Users\Mary\.nuget\packages\excelnumberformat\1.1.0\lib\netstandard2.0\ExcelNumberFormat.dll
 C:\Users\Mary\.nuget\packages\harfbuzzsharp\8.3.1.3\lib\net8.0\HarfBuzzSharp.dll
 C:\Users\Mary\.nuget\packages\livechartscore\2.1.0-dev-570\lib\net8.0\LiveChartsCore.dll
 C:\Users\Mary\.nuget\packages\livechartscore.skiasharpview.avalonia\2.1.0-dev-570\lib\net10.0\LiveChartsCore.SkiaSharpView.Avalonia.dll
@@ -57,8 +62,11 @@ C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\10.0.5\ref\net10.0\mscor
 C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\10.0.5\ref\net10.0\netstandard.dll
 C:\Users\Mary\.nuget\packages\npgsql\10.0.3\lib\net10.0\Npgsql.dll
 C:\Users\Mary\.nuget\packages\npgsql.entityframeworkcore.postgresql\10.0.2\lib\net10.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+C:\Users\Mary\.nuget\packages\questpdf\2026.6.0\lib\net10.0\QuestPDF.dll
+C:\Users\Mary\.nuget\packages\rbush.signed\4.0.0\lib\net8.0\RBush.dll
 C:\Users\Mary\.nuget\packages\reactiveui\23.2.28\lib\net10.0\ReactiveUI.dll
 C:\Users\Mary\.nuget\packages\reactiveui.fody\19.5.41\lib\net8.0\ReactiveUI.Fody.Helpers.dll
+C:\Users\Mary\.nuget\packages\sixlabors.fonts\1.0.0\lib\netcoreapp3.1\SixLabors.Fonts.dll
 C:\Users\Mary\.nuget\packages\skiasharp\3.119.3-preview.1.1\ref\net8.0\SkiaSharp.dll
 C:\Users\Mary\.nuget\packages\skiasharp.harfbuzz\2.88.9\lib\net6.0\SkiaSharp.HarfBuzz.dll
 C:\Users\Mary\.nuget\packages\splat.builder\19.4.1\lib\net10.0\Splat.Builder.dll
@@ -115,6 +123,7 @@ C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\10.0.5\ref\net10.0\Syste
 C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\10.0.5\ref\net10.0\System.IO.FileSystem.Watcher.dll
 C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\10.0.5\ref\net10.0\System.IO.IsolatedStorage.dll
 C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\10.0.5\ref\net10.0\System.IO.MemoryMappedFiles.dll
+C:\Users\Mary\.nuget\packages\system.io.packaging\8.0.1\lib\net8.0\System.IO.Packaging.dll
 C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\10.0.5\ref\net10.0\System.IO.Pipelines.dll
 C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\10.0.5\ref\net10.0\System.IO.Pipes.AccessControl.dll
 C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\10.0.5\ref\net10.0\System.IO.Pipes.dll
