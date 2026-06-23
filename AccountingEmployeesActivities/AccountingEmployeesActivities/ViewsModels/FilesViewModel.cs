@@ -12,12 +12,19 @@ namespace AccountingEmployeesActivities.ViewModels
     {
         private readonly int _taskId;
         private string _taskTitle = string.Empty;
+        private IStorageProvider _storageProvider;
+
         public ObservableCollection<FileItem> Files { get; }
         public ICommand DownloadFileCommand { get; }
         public string TaskTitle
         {
             get => _taskTitle;
             set => SetProperty(ref _taskTitle, value);
+        }
+
+        public void SetStorageProvider(IStorageProvider provider)
+        {
+            _storageProvider = provider;
         }
 
         public FilesViewModel(int taskId)
@@ -48,10 +55,9 @@ namespace AccountingEmployeesActivities.ViewModels
 
         private async void DownloadFile(object parameter)
         {
-            // Проверяем, что параметр - FileItem
-            if (parameter is not FileItem fileItem)
-                return;
+            if (parameter is not FileItem fileItem) return;
 
+            // Если данных нет, создаём заглушку
             if (fileItem.Data == null || fileItem.Data.Length == 0)
             {
                 var tempData = System.Text.Encoding.UTF8.GetBytes($"Файл {fileItem.Name} (содержимое отсутствует)");
@@ -64,11 +70,9 @@ namespace AccountingEmployeesActivities.ViewModels
 
         private async System.Threading.Tasks.Task SaveFile(string fileName, byte[] data)
         {
-            var storageProvider = Avalonia.Application.Current?.ApplicationLifetime?
-                .GetType().GetProperty("StorageProvider")?.GetValue(null) as IStorageProvider;
-            if (storageProvider == null) return;
+            if (_storageProvider == null) return;
 
-            var file = await storageProvider.SaveFilePickerAsync(new FilePickerSaveOptions
+            var file = await _storageProvider.SaveFilePickerAsync(new FilePickerSaveOptions
             {
                 Title = "Сохранить файл",
                 SuggestedFileName = fileName
