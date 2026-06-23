@@ -274,11 +274,14 @@ namespace AccountingEmployeesActivities.ViewModels.Pages
 
                     Values = new[] { (double)item.Count },
 
-                    Fill = new SolidColorPaint(colors[index % colors.Length]),
+                    Fill = new SolidColorPaint(GetStatusColor(item.StatusName)),
                     Stroke = new SolidColorPaint(SKColors.White) { StrokeThickness = 2 },
 
-                    DataLabelsSize = 14,
+                    DataLabelsSize = 20,
                     DataLabelsPaint = new SolidColorPaint(SKColors.White)
+                    {
+                        SKTypeface = SKTypeface.FromFamilyName(null, SKFontStyle.Bold)
+                    }
                 })
                 .ToArray();
         }
@@ -296,49 +299,91 @@ namespace AccountingEmployeesActivities.ViewModels.Pages
                 .Select(x => x.EmployeeName)
                 .ToArray();
 
-            var values = EmployeeTasks
-                .Select(x => (double)x.TotalTasks)
+            var completedValues = EmployeeTasks
+                .Select(x => (double)x.CompletedTasks)
                 .ToArray();
 
-            EmployeeTasksChartSeries = new ISeries[]
+            var remainingValues = EmployeeTasks
+                .Select(x => (double)Math.Max(0, x.TotalTasks - x.CompletedTasks))
+                .ToArray();
+
+            EmployeeTasksChartSeries =
+            [
+                new StackedColumnSeries<double>
+        {
+            Name = "Выполнено",
+            Values = completedValues,
+
+            Fill = new SolidColorPaint(SKColor.Parse("#3b82f6")),
+            Stroke = new SolidColorPaint(SKColors.White) { StrokeThickness = 1 },
+
+            DataLabelsSize = 20,
+            DataLabelsPaint = new SolidColorPaint(SKColors.White)
             {
-                new ColumnSeries<double>
-                {
-                    Name = "Количество задач",
-                    Values = values,
+                 SKTypeface = SKTypeface.FromFamilyName(null, SKFontStyle.Bold)
+            },
+            DataLabelsFormatter = point =>
+                point.Coordinate.PrimaryValue == 0
+                    ? string.Empty
+                    : point.Coordinate.PrimaryValue.ToString("0"),
+            MaxBarWidth = 55
+        },
 
-                    Fill = new SolidColorPaint(SKColor.Parse("#3F51B5")),
-                    Stroke = null,
+        new StackedColumnSeries<double>
+        {
+            Name = "Осталось",
+            Values = remainingValues,
 
-                    DataLabelsSize = 13,
-                    DataLabelsPaint = new SolidColorPaint(SKColors.White),
+            Fill = new SolidColorPaint(SKColor.Parse("#BDBDBD")),
+            Stroke = new SolidColorPaint(SKColors.White) { StrokeThickness = 1 },
 
-                    MaxBarWidth = 45
-                }
-            };
-
-            EmployeeTasksXAxes = new Axis[]
+            DataLabelsSize = 20,
+            DataLabelsPaint = new SolidColorPaint(SKColors.White)
             {
+                 SKTypeface = SKTypeface.FromFamilyName(null, SKFontStyle.Bold)
+            },
+            DataLabelsFormatter = point =>
+                point.Coordinate.PrimaryValue == 0
+                    ? string.Empty
+                    : point.Coordinate.PrimaryValue.ToString("0"),
+            MaxBarWidth = 55
+        }
+            ];
+
+            EmployeeTasksXAxes =
+            [
                 new Axis
-                {
-                    Labels = labels,
-                    LabelsRotation = 15,
-                    TextSize = 12,
-                    LabelsPaint = new SolidColorPaint(SKColor.Parse("#333333")),
-                    SeparatorsPaint = new SolidColorPaint(SKColor.Parse("#EEEEEE"))
-                }
-            };
+        {
+            Labels = labels,
+            LabelsRotation = 15,
+            TextSize = 12,
+            LabelsPaint = new SolidColorPaint(SKColor.Parse("#333333")),
+            SeparatorsPaint = new SolidColorPaint(SKColor.Parse("#EEEEEE"))
+        }
+            ];
 
-            EmployeeTasksYAxes = new Axis[]
-            {
+            EmployeeTasksYAxes =
+            [
                 new Axis
-                {
-                    MinLimit = 0,
-                    TextSize = 12,
-                    LabelsPaint = new SolidColorPaint(SKColor.Parse("#333333")),
-                    SeparatorsPaint = new SolidColorPaint(SKColor.Parse("#DDDDDD")),
-                    Labeler = value => value.ToString("0")
-                }
+        {
+            MinLimit = 0,
+            TextSize = 12,
+            LabelsPaint = new SolidColorPaint(SKColor.Parse("#333333")),
+            SeparatorsPaint = new SolidColorPaint(SKColor.Parse("#DDDDDD")),
+            Labeler = value => value.ToString("0")
+        }
+            ];
+        }
+        private static SKColor GetStatusColor(string statusName)
+        {
+            return statusName?.Trim().ToLower() switch
+            {
+                "создание" => SKColor.Parse("#64748b"),       
+                "в ожидании" => SKColor.Parse("#f49e0b"),     
+                "в работе" => SKColor.Parse("#3b82f6"),     
+                "сделана" => SKColor.Parse("#23c55e"),      
+
+                _ => SKColor.Parse("#BDBDBD")                // цвет по умолчанию
             };
         }
     }

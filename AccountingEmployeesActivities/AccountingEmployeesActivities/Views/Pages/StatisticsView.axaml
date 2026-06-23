@@ -154,42 +154,14 @@
 						BoxShadow="0 2 8 0 #10000000">
 					<StackPanel Spacing="15">
 						<TextBlock Text="Распределение по статусам" 
-								   FontSize="16" 
+								   FontSize="18" 
 								   FontWeight="SemiBold"/>
 						
 						<!-- Круговая диаграмма -->
 						<StackPanel Spacing="12">
-							<TextBlock Text="Распределение задач по статусам"
-										FontSize="18"
-										FontWeight="SemiBold"
-										Foreground="#222222" />
-
 							<lvc:PieChart Series="{Binding StatusChartSeries}"
 											LegendPosition="Right"
 											Height="300" />
-						</StackPanel>
-
-
-						<!-- Легенда -->
-						<StackPanel Orientation="Horizontal" 
-									HorizontalAlignment="Center" 
-									Spacing="15">
-							<StackPanel Orientation="Horizontal" Spacing="5">
-								<Border Width="12" Height="12" Background="Gray" CornerRadius="2"/>
-								<TextBlock Text="Новая" FontSize="12"/>
-							</StackPanel>
-							<StackPanel Orientation="Horizontal" Spacing="5">
-								<Border Width="12" Height="12" Background="#4A90E2" CornerRadius="2"/>
-								<TextBlock Text="В работе" FontSize="12"/>
-							</StackPanel>
-							<StackPanel Orientation="Horizontal" Spacing="5">
-								<Border Width="12" Height="12" Background="#F5A623" CornerRadius="2"/>
-								<TextBlock Text="Ожидание" FontSize="12"/>
-							</StackPanel>
-							<StackPanel Orientation="Horizontal" Spacing="5">
-								<Border Width="12" Height="12" Background="#7ED321" CornerRadius="2"/>
-								<TextBlock Text="Решена" FontSize="12"/>
-							</StackPanel>
 						</StackPanel>
 					</StackPanel>
 				</Border>
@@ -202,35 +174,16 @@
 						BoxShadow="0 2 8 0 #10000000">
 					<StackPanel Spacing="15">
 						<TextBlock Text="Задачи по сотрудникам" 
-								   FontSize="16" 
+								   FontSize="18" 
 								   FontWeight="SemiBold"/>
 						
 						<!-- Столбчатая диаграмма -->
 						<StackPanel Spacing="12">
-							<TextBlock Text="Задачи по сотрудникам"
-										FontSize="18"
-										FontWeight="SemiBold"
-										Foreground="#222222" />
-
 							<lvc:CartesianChart Series="{Binding EmployeeTasksChartSeries}"
 												XAxes="{Binding EmployeeTasksXAxes}"
 												YAxes="{Binding EmployeeTasksYAxes}"
-												LegendPosition="Hidden"
+												LegendPosition="Bottom"
 												Height="300" />
-						</StackPanel>
-
-						<!-- Легенда -->
-						<StackPanel Orientation="Horizontal" 
-									HorizontalAlignment="Center" 
-									Spacing="15">
-							<StackPanel Orientation="Horizontal" Spacing="5">
-								<Border Width="12" Height="12" Background="#4A90E2" CornerRadius="2"/>
-								<TextBlock Text="Всего задач" FontSize="12"/>
-							</StackPanel>
-							<StackPanel Orientation="Horizontal" Spacing="5">
-								<Border Width="12" Height="12" Background="#7ED321" CornerRadius="2"/>
-								<TextBlock Text="Выполнено" FontSize="12"/>
-							</StackPanel>
 						</StackPanel>
 					</StackPanel>
 				</Border>
