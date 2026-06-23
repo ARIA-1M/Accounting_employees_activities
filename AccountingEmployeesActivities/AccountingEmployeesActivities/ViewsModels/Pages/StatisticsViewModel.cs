@@ -327,7 +327,7 @@ namespace AccountingEmployeesActivities.ViewModels.Pages
             Name = "Выполнено",
             Values = completedValues,
 
-            Fill = new SolidColorPaint(SKColor.Parse("#3b82f6")),
+            Fill = new SolidColorPaint(SKColor.Parse("#23c55e")),
             Stroke = new SolidColorPaint(SKColors.White) { StrokeThickness = 1 },
 
             DataLabelsSize = 20,
