@@ -1,12 +1,13 @@
 ﻿using AccountingEmployeesActivities.DTOs;
 using AccountingEmployeesActivities.Models;
 using AccountingEmployeesActivities.Services.Interfaces;
+using LiveChartsCore;
+using LiveChartsCore.SkiaSharpView;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-
 // ✅ Используем алиас для Task из System.Threading.Tasks
 using Task = System.Threading.Tasks.Task;
 
@@ -354,7 +355,7 @@ namespace AccountingEmployeesActivities.Services.Implementations
             return employees;
         }
 
-        private string GetStatusColor(string statusName)
+        private static string GetStatusColor(string statusName)
         {
             return statusName switch
             {

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "LSb1P0mF42U=",
+  "dgSpecHash": "VgEiCEOyT8Y=",
   "success": true,
   "projectFilePath": "C:\\projeckt\\Accounting_employees_activities\\AccountingEmployeesActivities\\AccountingEmployeesActivities\\AccountingEmployeesActivities.csproj",
   "expectedPackageFiles": [
@@ -28,9 +28,9 @@
     "C:\\Users\\Mary\\.nuget\\packages\\harfbuzzsharp.nativeassets.webassembly\\8.3.1.3\\harfbuzzsharp.nativeassets.webassembly.8.3.1.3.nupkg.sha512",
     "C:\\Users\\Mary\\.nuget\\packages\\harfbuzzsharp.nativeassets.win32\\8.3.1.3\\harfbuzzsharp.nativeassets.win32.8.3.1.3.nupkg.sha512",
     "C:\\Users\\Mary\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
-    "C:\\Users\\Mary\\.nuget\\packages\\livechartscore\\2.0.5\\livechartscore.2.0.5.nupkg.sha512",
-    "C:\\Users\\Mary\\.nuget\\packages\\livechartscore.skiasharpview\\2.0.5\\livechartscore.skiasharpview.2.0.5.nupkg.sha512",
-    "C:\\Users\\Mary\\.nuget\\packages\\livechartscore.skiasharpview.avalonia\\2.0.5\\livechartscore.skiasharpview.avalonia.2.0.5.nupkg.sha512",
+    "C:\\Users\\Mary\\.nuget\\packages\\livechartscore\\2.1.0-dev-570\\livechartscore.2.1.0-dev-570.nupkg.sha512",
+    "C:\\Users\\Mary\\.nuget\\packages\\livechartscore.skiasharpview\\2.1.0-dev-570\\livechartscore.skiasharpview.2.1.0-dev-570.nupkg.sha512",
+    "C:\\Users\\Mary\\.nuget\\packages\\livechartscore.skiasharpview.avalonia\\2.1.0-dev-570\\livechartscore.skiasharpview.avalonia.2.1.0-dev-570.nupkg.sha512",
     "C:\\Users\\Mary\\.nuget\\packages\\microcom.runtime\\0.11.4\\microcom.runtime.0.11.4.nupkg.sha512",
     "C:\\Users\\Mary\\.nuget\\packages\\microsoft.build.framework\\18.0.2\\microsoft.build.framework.18.0.2.nupkg.sha512",
     "C:\\Users\\Mary\\.nuget\\packages\\microsoft.codeanalysis.analyzers\\3.11.0\\microsoft.codeanalysis.analyzers.3.11.0.nupkg.sha512",

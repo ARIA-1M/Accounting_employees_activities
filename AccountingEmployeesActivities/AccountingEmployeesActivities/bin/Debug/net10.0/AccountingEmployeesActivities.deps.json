@@ -14,7 +14,7 @@
           "Avalonia.Themes.Fluent": "12.0.0",
           "AvaloniaUI.DiagnosticsSupport": "2.2.0",
           "BCrypt.Net-Next": "4.2.0",
-          "LiveChartsCore.SkiaSharpView.Avalonia": "2.0.5",
+          "LiveChartsCore.SkiaSharpView.Avalonia": "2.1.0-dev-570",
           "Microsoft.EntityFrameworkCore.Design": "10.0.9",
           "Microsoft.Extensions.Configuration.Json": "10.0.9",
           "Microsoft.Extensions.DependencyInjection": "10.0.9",
@@ -396,37 +396,37 @@
           }
         }
       },
-      "LiveChartsCore/2.0.5": {
+      "LiveChartsCore/2.1.0-dev-570": {
         "runtime": {
           "lib/net8.0/LiveChartsCore.dll": {
-            "assemblyVersion": "2.0.5.0",
-            "fileVersion": "2.0.5.0"
+            "assemblyVersion": "2.1.0.0",
+            "fileVersion": "2.1.0.0"
           }
         }
       },
-      "LiveChartsCore.SkiaSharpView/2.0.5": {
+      "LiveChartsCore.SkiaSharpView/2.1.0-dev-570": {
         "dependencies": {
-          "LiveChartsCore": "2.0.5",
+          "LiveChartsCore": "2.1.0-dev-570",
           "SkiaSharp": "3.119.3-preview.1.1",
           "SkiaSharp.HarfBuzz": "2.88.9"
         },
         "runtime": {
           "lib/net8.0/LiveChartsCore.SkiaSharpView.dll": {
-            "assemblyVersion": "2.0.5.0",
-            "fileVersion": "2.0.5.0"
+            "assemblyVersion": "2.1.0.0",
+            "fileVersion": "2.1.0.0"
           }
         }
       },
-      "LiveChartsCore.SkiaSharpView.Avalonia/2.0.5": {
+      "LiveChartsCore.SkiaSharpView.Avalonia/2.1.0-dev-570": {
         "dependencies": {
           "Avalonia": "12.0.0",
           "Avalonia.Skia": "12.0.0",
-          "LiveChartsCore.SkiaSharpView": "2.0.5"
+          "LiveChartsCore.SkiaSharpView": "2.1.0-dev-570"
         },
         "runtime": {
-          "lib/net8.0/LiveChartsCore.SkiaSharpView.Avalonia.dll": {
-            "assemblyVersion": "2.0.5.0",
-            "fileVersion": "2.0.5.0"
+          "lib/net10.0/LiveChartsCore.SkiaSharpView.Avalonia.dll": {
+            "assemblyVersion": "2.1.0.0",
+            "fileVersion": "2.1.0.0"
           }
         }
       },
@@ -1459,26 +1459,26 @@
       "path": "humanizer.core/2.14.1",
       "hashPath": "humanizer.core.2.14.1.nupkg.sha512"
     },
-    "LiveChartsCore/2.0.5": {
+    "LiveChartsCore/2.1.0-dev-570": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-cbGiOyGxO+fsWLvrQ4R6Rd8QHfkRGyhxyD6nBSk8/ZwKKtU+vWSqlC4ESgwKSUbrzvK8ooU/yfFJpjHXzPd+vA==",
-      "path": "livechartscore/2.0.5",
-      "hashPath": "livechartscore.2.0.5.nupkg.sha512"
+      "sha512": "sha512-RSj4NB3puTxQB/KnL5lY4FXdvBU+vdjpXeq5INLW+P7rqtHy4BpW9G4N60OzVPkiXrMG+KZ5Duba62gBYwRXbg==",
+      "path": "livechartscore/2.1.0-dev-570",
+      "hashPath": "livechartscore.2.1.0-dev-570.nupkg.sha512"
     },
-    "LiveChartsCore.SkiaSharpView/2.0.5": {
+    "LiveChartsCore.SkiaSharpView/2.1.0-dev-570": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-YgRhisuVev2RocHqq7d9juSBGBlMLKYQA5ijEuD/sWeV39dCBInBK4RSfqBYTuNNWs5Fe+NA+F0TCIWJ2t1Cew==",
-      "path": "livechartscore.skiasharpview/2.0.5",
-      "hashPath": "livechartscore.skiasharpview.2.0.5.nupkg.sha512"
+      "sha512": "sha512-AYuYd3ch5kiiYbyLbZUnXWd9v+EJD48TVgs57Q8q92qWY9ktBg0yo9FYrkv9mS+fN3WIhmqDH2SBwGKXTT8vSg==",
+      "path": "livechartscore.skiasharpview/2.1.0-dev-570",
+      "hashPath": "livechartscore.skiasharpview.2.1.0-dev-570.nupkg.sha512"
     },
-    "LiveChartsCore.SkiaSharpView.Avalonia/2.0.5": {
+    "LiveChartsCore.SkiaSharpView.Avalonia/2.1.0-dev-570": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-gwqV/H5EWhk8KIwc8/4sdPVjsdJ5RpOC5Pfmd1lKIYltCntJQeZTcn1kC4mKykN+eU+BlT0W/grA3xioXdP7iA==",
-      "path": "livechartscore.skiasharpview.avalonia/2.0.5",
-      "hashPath": "livechartscore.skiasharpview.avalonia.2.0.5.nupkg.sha512"
+      "sha512": "sha512-pT+n+lXK25ga4yuO37HY/NIy2yX/UdWmEhggzTqiB3ILNT9PS3yrKrVtTbHGkE4evUlGOi3xI2Yk2qx8JwGfww==",
+      "path": "livechartscore.skiasharpview.avalonia/2.1.0-dev-570",
+      "hashPath": "livechartscore.skiasharpview.avalonia.2.1.0-dev-570.nupkg.sha512"
     },
     "MicroCom.Runtime/0.11.4": {
       "type": "package",

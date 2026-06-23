@@ -1,11 +1,15 @@
+using AccountingEmployeesActivities.DTOs;
+using AccountingEmployeesActivities.Models;
+using AccountingEmployeesActivities.Services.Interfaces;
+using LiveChartsCore;
+using LiveChartsCore.SkiaSharpView;
+using LiveChartsCore.SkiaSharpView.Painting;
+using SkiaSharp;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
-using AccountingEmployeesActivities.DTOs;
-using AccountingEmployeesActivities.Models;
-using AccountingEmployeesActivities.Services.Interfaces;
 using SystemTask = System.Threading.Tasks.Task;
 
 namespace AccountingEmployeesActivities.ViewModels.Pages
@@ -22,6 +26,35 @@ namespace AccountingEmployeesActivities.ViewModels.Pages
         {
             get => _title;
             set => SetProperty(ref _title, value);
+        }
+
+        // Для графиков
+        private ISeries[] _statusChartSeries = Array.Empty<ISeries>();
+        public ISeries[] StatusChartSeries
+        {
+            get => _statusChartSeries;
+            set => SetProperty(ref _statusChartSeries, value);
+        }
+
+        private ISeries[] _employeeTasksChartSeries = Array.Empty<ISeries>();
+        public ISeries[] EmployeeTasksChartSeries
+        {
+            get => _employeeTasksChartSeries;
+            set => SetProperty(ref _employeeTasksChartSeries, value);
+        }
+
+        private Axis[] _employeeTasksXAxes = Array.Empty<Axis>();
+        public Axis[] EmployeeTasksXAxes
+        {
+            get => _employeeTasksXAxes;
+            set => SetProperty(ref _employeeTasksXAxes, value);
+        }
+
+        private Axis[] _employeeTasksYAxes = Array.Empty<Axis>();
+        public Axis[] EmployeeTasksYAxes
+        {
+            get => _employeeTasksYAxes;
+            set => SetProperty(ref _employeeTasksYAxes, value);
         }
 
         // НОВЫЕ СВОЙСТВА ДЛЯ ФИЛЬТРА ПО ДАТЕ
@@ -193,15 +226,120 @@ namespace AccountingEmployeesActivities.ViewModels.Pages
 
                 var employeeTasks = await _statisticsService.GetEmployeeTasksAsync(filterId, _startDate, _endDate);
                 EmployeeTasks = new ObservableCollection<EmployeeTasksDto>(employeeTasks ?? new());
+
+                System.Diagnostics.Debug.WriteLine($"StatusDistribution count: {StatusDistribution.Count}");
+                System.Diagnostics.Debug.WriteLine($"EmployeeTasks count: {EmployeeTasks.Count}");
+                BuildCharts();
+
+                System.Diagnostics.Debug.WriteLine($"StatusChartSeries count: {StatusChartSeries.Length}");
+                System.Diagnostics.Debug.WriteLine($"EmployeeTasksChartSeries count: {EmployeeTasksChartSeries.Length}");
             }
             catch (Exception ex)
             {
-                System.Diagnostics.Debug.WriteLine("LoadStatistics error: " + ex.Message);
+                System.Diagnostics.Debug.WriteLine("LoadStatistics error:");
+                System.Diagnostics.Debug.WriteLine(ex.ToString());
             }
             finally
             {
                 IsLoading = false;
             }
+        }
+        private void BuildCharts()
+        {
+            BuildStatusChart();
+            BuildEmployeeTasksChart();
+        }
+        private void BuildStatusChart()
+        {
+            if (StatusDistribution == null || StatusDistribution.Count == 0)
+            {
+                StatusChartSeries = Array.Empty<ISeries>();
+                return;
+            }
+
+            var colors = new[]
+            {
+                SKColor.Parse("#4CAF50"), // зелёный
+                SKColor.Parse("#2196F3"), // синий
+                SKColor.Parse("#FFC107"), // жёлтый
+                SKColor.Parse("#F44336"), // красный
+                SKColor.Parse("#9C27B0"), // фиолетовый
+                SKColor.Parse("#00BCD4")  // голубой
+            };
+
+            StatusChartSeries = StatusDistribution
+                .Select((item, index) => new PieSeries<double>
+                {
+                    Name = item.StatusName,
+
+                    Values = new[] { (double)item.Count },
+
+                    Fill = new SolidColorPaint(colors[index % colors.Length]),
+                    Stroke = new SolidColorPaint(SKColors.White) { StrokeThickness = 2 },
+
+                    DataLabelsSize = 14,
+                    DataLabelsPaint = new SolidColorPaint(SKColors.White)
+                })
+                .ToArray();
+        }
+        private void BuildEmployeeTasksChart()
+        {
+            if (EmployeeTasks == null || EmployeeTasks.Count == 0)
+            {
+                EmployeeTasksChartSeries = Array.Empty<ISeries>();
+                EmployeeTasksXAxes = Array.Empty<Axis>();
+                EmployeeTasksYAxes = Array.Empty<Axis>();
+                return;
+            }
+
+            var labels = EmployeeTasks
+                .Select(x => x.EmployeeName)
+                .ToArray();
+
+            var values = EmployeeTasks
+                .Select(x => (double)x.TotalTasks)
+                .ToArray();
+
+            EmployeeTasksChartSeries = new ISeries[]
+            {
+                new ColumnSeries<double>
+                {
+                    Name = "Количество задач",
+                    Values = values,
+
+                    Fill = new SolidColorPaint(SKColor.Parse("#3F51B5")),
+                    Stroke = null,
+
+                    DataLabelsSize = 13,
+                    DataLabelsPaint = new SolidColorPaint(SKColors.White),
+
+                    MaxBarWidth = 45
+                }
+            };
+
+            EmployeeTasksXAxes = new Axis[]
+            {
+                new Axis
+                {
+                    Labels = labels,
+                    LabelsRotation = 15,
+                    TextSize = 12,
+                    LabelsPaint = new SolidColorPaint(SKColor.Parse("#333333")),
+                    SeparatorsPaint = new SolidColorPaint(SKColor.Parse("#EEEEEE"))
+                }
+            };
+
+            EmployeeTasksYAxes = new Axis[]
+            {
+                new Axis
+                {
+                    MinLimit = 0,
+                    TextSize = 12,
+                    LabelsPaint = new SolidColorPaint(SKColor.Parse("#333333")),
+                    SeparatorsPaint = new SolidColorPaint(SKColor.Parse("#DDDDDD")),
+                    Labeler = value => value.ToString("0")
+                }
+            };
         }
     }
 }

@@ -1,7 +1,8 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              x:Class="AccountingEmployeesActivities.Views.Pages.StatisticsView"
-			 x:CompileBindings="False">
+			 x:CompileBindings="False"
+			 xmlns:lvc="using:LiveChartsCore.SkiaSharpView.Avalonia">
 <ScrollViewer>
 		<StackPanel Margin="20" Spacing="16">
 			<!-- Заголовок и фильтр -->
@@ -156,13 +157,18 @@
 								   FontSize="16" 
 								   FontWeight="SemiBold"/>
 						
-						<!-- Здесь должна быть круговая диаграмма -->
-						<Border Height="250" Background="#F5F7FA" CornerRadius="4">
-							<TextBlock Text="[Круговая диаграмма]" 
-									   HorizontalAlignment="Center" 
-									   VerticalAlignment="Center"
-									   Foreground="Gray"/>
-						</Border>
+						<!-- Круговая диаграмма -->
+						<StackPanel Spacing="12">
+							<TextBlock Text="Распределение задач по статусам"
+										FontSize="18"
+										FontWeight="SemiBold"
+										Foreground="#222222" />
+
+							<lvc:PieChart Series="{Binding StatusChartSeries}"
+											LegendPosition="Right"
+											Height="300" />
+						</StackPanel>
+
 
 						<!-- Легенда -->
 						<StackPanel Orientation="Horizontal" 
@@ -199,13 +205,19 @@
 								   FontSize="16" 
 								   FontWeight="SemiBold"/>
 						
-						<!-- Здесь должна быть столбчатая диаграмма -->
-						<Border Height="250" Background="#F5F7FA" CornerRadius="4">
-							<TextBlock Text="[Столбчатая диаграмма]" 
-									   HorizontalAlignment="Center" 
-									   VerticalAlignment="Center"
-									   Foreground="Gray"/>
-						</Border>
+						<!-- Столбчатая диаграмма -->
+						<StackPanel Spacing="12">
+							<TextBlock Text="Задачи по сотрудникам"
+										FontSize="18"
+										FontWeight="SemiBold"
+										Foreground="#222222" />
+
+							<lvc:CartesianChart Series="{Binding EmployeeTasksChartSeries}"
+												XAxes="{Binding EmployeeTasksXAxes}"
+												YAxes="{Binding EmployeeTasksYAxes}"
+												LegendPosition="Hidden"
+												Height="300" />
+						</StackPanel>
 
 						<!-- Легенда -->
 						<StackPanel Orientation="Horizontal" 
