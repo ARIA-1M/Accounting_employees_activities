@@ -23,18 +23,21 @@
                        HorizontalAlignment="Center"/>
         </Border>
 
-        <!-- Выбор статуса -->
-        <TextBlock Text="Выберите новый статус"
+       <!-- Выбор статуса -->
+        <TextBlock Text="Выберите статус"
                    FontWeight="SemiBold"
                    Foreground="#334155"
-                   FontSize="14"/>
+                   FontSize="14"
+                   HorizontalAlignment="Center"/>
 
         <ComboBox ItemsSource="{Binding Statuses}"
-                  SelectedItem="{Binding SelectedStatus, Mode=TwoWay}"
-                  DisplayMemberBinding="{Binding Name}"
-                  CornerRadius="8"
-                  Height="40"
-                  Background="White"/>
+              SelectedItem="{Binding SelectedStatus, Mode=TwoWay}"
+              DisplayMemberBinding="{Binding Name}"
+              CornerRadius="8"
+              Height="40"
+              Width="200"
+              HorizontalAlignment="Center"
+              Background="White"/>
 
         <!-- Дата завершения (появляется только для "Решена") -->
         <Border Background="#F0FDF4"
