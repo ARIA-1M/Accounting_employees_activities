@@ -3,97 +3,164 @@
         xmlns:vm="clr-namespace:AccountingEmployeesActivities.ViewModels.Dialogs"
         x:Class="AccountingEmployeesActivities.Views.Dialogs.EmployeeDialog"
         Title="{Binding DialogTitle}"
-        Width="500" Height="650"
+        Width="520" Height="680"
         WindowStartupLocation="CenterOwner"
         CanResize="False"
-        x:CompileBindings="False">
+        x:CompileBindings="False"
+        Background="#F8FAFC">
 
-	<ScrollViewer VerticalScrollBarVisibility="Auto">
-		<StackPanel Margin="20" Spacing="12">
+	<ScrollViewer VerticalScrollBarVisibility="Auto" Background="#F8FAFC">
+		<StackPanel Margin="24" Spacing="16">
 
 			<!-- Заголовок -->
-			<TextBlock Text="{Binding DialogTitle}"
-                       FontSize="20"
-                       FontWeight="Bold"
-                       HorizontalAlignment="Center"
-                       Margin="0,0,0,12"/>
+			<Border Background="#E2E8F0"
+                    CornerRadius="12"
+                    Padding="16"
+                    Margin="0,0,0,16">
+				<TextBlock Text="{Binding DialogTitle}"
+                           FontSize="22"
+                           FontWeight="SemiBold"
+                           Foreground="#1E293B"
+                           HorizontalAlignment="Center"/>
+			</Border>
 
-			
-			<TextBlock Text="Логин" FontWeight="SemiBold"/>
+			<!-- Логин -->
+			<TextBlock Text="Логин"
+                       FontWeight="SemiBold"
+                       Foreground="#334155"
+                       FontSize="13"/>
 			<TextBox Text="{Binding EmployeeForm.Login}"
-                     Watermark="Введите логин"/>
+                     Watermark="Введите логин"
+                     CornerRadius="8"
+                     Height="38"
+                     Background="White"/>
 
 			<!-- Пароль: виден ТОЛЬКО при создании -->
 			<TextBlock Text="Пароль" FontWeight="SemiBold"
-                       IsVisible="{Binding IsNewEmployee}"/>
+					   IsVisible="{Binding IsNewEmployee}"/>
 			<TextBox Text="{Binding EmployeeForm.Password}"
-                     Watermark="Введите пароль"
-                     PasswordChar="*"
-                     IsVisible="{Binding IsNewEmployee}"/>
+					 Watermark="Введите пароль"
+					 PasswordChar="*"
+					 IsVisible="{Binding IsNewEmployee}"/>
 
 			<!-- При редактировании показываем заглушку -->
 			<TextBlock Text="Пароль (оставьте пустым, если не менять)"
-                       FontWeight="SemiBold"
-                       FontSize="12"
-                       Foreground="#888888"
-                       IsVisible="{Binding !IsNewEmployee}"/>
+					   FontWeight="SemiBold"
+					   FontSize="12"
+					   Foreground="#888888"
+					   IsVisible="{Binding !IsNewEmployee}"/>
 			<TextBox Text="{Binding EmployeeForm.Password}"
-                     Watermark="Введите новый пароль"
-                     PasswordChar="*"
-                     IsVisible="{Binding !IsNewEmployee}"/>
+					 Watermark="Введите новый пароль"
+					 PasswordChar="*"
+					 IsVisible="{Binding !IsNewEmployee}"/>
 
-			<TextBlock Text="Роль" FontWeight="SemiBold"/>
+			<!-- Роль -->
+			<TextBlock Text="Роль"
+                       FontWeight="SemiBold"
+                       Foreground="#334155"
+                       FontSize="13"/>
 			<ComboBox ItemsSource="{Binding Roles}"
-                  SelectedItem="{Binding SelectedRole, Mode=TwoWay}"
-                  DisplayMemberBinding="{Binding Name}"/>
+                      SelectedItem="{Binding SelectedRole, Mode=TwoWay}"
+                      DisplayMemberBinding="{Binding Name}"
+                      CornerRadius="8"
+                      Height="38"
+                      Background="White"/>
 
+			<Separator Margin="0,8,0,8" Background="#E2E8F0" Height="1"/>
 
-			<TextBlock Text="Фамилия" FontWeight="SemiBold"/>
+			<!-- Фамилия -->
+			<TextBlock Text="Фамилия"
+                       FontWeight="SemiBold"
+                       Foreground="#334155"
+                       FontSize="13"/>
 			<TextBox Text="{Binding EmployeeForm.LastName}"
-                     Watermark="Введите фамилию"/>
+                     Watermark="Введите фамилию"
+                     CornerRadius="8"
+                     Height="38"
+                     Background="White"/>
 
-			<TextBlock Text="Имя" FontWeight="SemiBold"/>
+			<!-- Имя -->
+			<TextBlock Text="Имя"
+                       FontWeight="SemiBold"
+                       Foreground="#334155"
+                       FontSize="13"/>
 			<TextBox Text="{Binding EmployeeForm.FirstName}"
-                     Watermark="Введите имя"/>
+                     Watermark="Введите имя"
+                     CornerRadius="8"
+                     Height="38"
+                     Background="White"/>
 
-			<TextBlock Text="Отчество" FontWeight="SemiBold"/>
+			<!-- Отчество -->
+			<TextBlock Text="Отчество"
+                       FontWeight="SemiBold"
+                       Foreground="#334155"
+                       FontSize="13"/>
 			<TextBox Text="{Binding EmployeeForm.MiddleName}"
-                     Watermark="Введите отчество"/>
+                     Watermark="Введите отчество"
+                     CornerRadius="8"
+                     Height="38"
+                     Background="White"/>
 
 			<!-- Статус активности -->
 			<CheckBox Content="Активен"
                       IsChecked="{Binding EmployeeForm.IsActive}"
+                      Foreground="#334155"
+                      FontWeight="SemiBold"
                       Margin="0,8,0,0"/>
 
 			<!-- При редактировании показываем ID -->
 			<TextBlock Text="{Binding EmployeeIdInfo}"
-                       FontSize="11"
-                       Foreground="#888888"
+                       FontSize="12"
+                       Foreground="#94A3B8"
                        HorizontalAlignment="Center"
-                       IsVisible="{Binding !IsNewEmployee}"/>
+                       IsVisible="{Binding IsEditMode}"/>
 
+			<!-- Сообщение об ошибке -->
+			<TextBlock Text="{Binding ErrorMessage}"
+                       Foreground="#EF4444"
+                       IsVisible="{Binding IsErrorVisible}"
+                       TextWrapping="Wrap"
+                       FontSize="13"
+                       FontWeight="SemiBold"
+                       Margin="0,0,0,12"/>
 
 			<!-- Кнопки -->
 			<StackPanel Orientation="Horizontal"
                         Spacing="12"
                         HorizontalAlignment="Right"
-                        Margin="0,8,0,0">
+                        Margin="0,12,0,0">
 				<Button Content="Отмена"
                         Background="Transparent"
-						Foreground="#E74C3C"
-						BorderBrush="#E74C3C"
-                        BorderThickness="1"
-                        Padding="20,10"
-                        CornerRadius="6"
-                        Command="{Binding CancelCommand}"/>
+                        Foreground="#64748B"
+                        BorderBrush="#CBD5E1"
+                        BorderThickness="1.5"
+                        Padding="24,10"
+                        CornerRadius="30"
+                        FontWeight="SemiBold"
+                        Command="{Binding CancelCommand}">
+					<Button.Styles>
+						<Style Selector="Button:pointerover">
+							<Setter Property="Background" Value="#F1F5F9"/>
+						</Style>
+					</Button.Styles>
+				</Button>
 				<Button Content="Сохранить"
-                       Background="#2196F3"
-                       Foreground="White"
-                       Padding="20,10"
-                       CornerRadius="6"
-                       Command="{Binding SaveCommand}"/>
+                        Background="#3B82F6"
+                        Foreground="White"
+                        Padding="24,10"
+                        CornerRadius="30"
+                        FontWeight="SemiBold"
+                        Command="{Binding SaveCommand}">
+					<Button.Styles>
+						<Style Selector="Button:pointerover">
+							<Setter Property="Background" Value="#2563EB"/>
+						</Style>
+					</Button.Styles>
+				</Button>
 			</StackPanel>
 
 		</StackPanel>
 	</ScrollViewer>
 </Window>
+
+

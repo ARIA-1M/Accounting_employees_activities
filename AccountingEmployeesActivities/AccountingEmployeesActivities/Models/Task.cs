@@ -18,8 +18,6 @@ public partial class Task
     public DateOnly CreationDate { get; set; }
 
     public DateOnly? CompletionDate { get; set; }
-    public virtual Status Status { get; set; }
-    public virtual Employee Creator { get; set; }
 
     public virtual ICollection<Comment> Comments { get; set; } = new List<Comment>();
 

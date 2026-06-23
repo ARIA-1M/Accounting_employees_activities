@@ -8,7 +8,6 @@ using System.Linq;
 using System.Windows.Input;
 using Microsoft.EntityFrameworkCore;
 
-
 namespace AccountingEmployeesActivities.ViewModels.Pages
 {
     public class HistoryViewModel : ViewModelBase
@@ -120,7 +119,6 @@ namespace AccountingEmployeesActivities.ViewModels.Pages
         public List<string> Files { get; set; } = new();
         public int CommentsCount { get; set; }
         public string Executors { get; set; } = "Не указан";
-
 
     }
 }

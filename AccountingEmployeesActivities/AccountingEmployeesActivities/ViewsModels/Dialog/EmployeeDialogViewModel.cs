@@ -14,6 +14,9 @@ namespace AccountingEmployeesActivities.ViewModels.Dialogs
         private bool _isNewEmployee;
         private string _employeeIdInfo;
         private Role _selectedRole;
+        private string _errorMessage;
+        private bool _isErrorVisible;
+
 
         public EmployeeFormModel EmployeeForm
         {
@@ -43,6 +46,17 @@ namespace AccountingEmployeesActivities.ViewModels.Dialogs
         {
             get => _employeeIdInfo;
             set => SetProperty(ref _employeeIdInfo, value);
+        }
+        public string ErrorMessage
+        {
+            get => _errorMessage;
+            set => SetProperty(ref _errorMessage, value);
+        }
+
+        public bool IsErrorVisible
+        {
+            get => _isErrorVisible;
+            set => SetProperty(ref _isErrorVisible, value);
         }
 
         public ICommand SaveCommand { get; private set; }
@@ -120,6 +134,8 @@ namespace AccountingEmployeesActivities.ViewModels.Dialogs
 
         private void Save()
         {
+
+            HideError();
             if (string.IsNullOrWhiteSpace(EmployeeForm.Login))
             {
                 ShowError("Введите логин");
@@ -144,9 +160,33 @@ namespace AccountingEmployeesActivities.ViewModels.Dialogs
                 return;
             }
 
-            
+            if (!IsLoginUnique(EmployeeForm.Login, IsNewEmployee ? null : EmployeeForm.IdEmployee))
+            {
+                ShowError("Пользователь с таким логином уже существует. Введите другой логин.");
+                return;
+            }
 
             EmployeeSaved?.Invoke(this, EmployeeForm);
+        }
+
+        private bool IsLoginUnique(string login, int? excludeEmployeeId = null)
+        {
+            using var db = new PostgresContext();
+            var query = db.Users.Where(u => u.Login == login);
+
+            
+            if (excludeEmployeeId.HasValue)
+            {
+                
+                var employee = db.Employees
+                    .FirstOrDefault(e => e.IdEmployee == excludeEmployeeId.Value);
+
+                if (employee != null)
+                {
+                    query = query.Where(u => u.IdUser != employee.IdUser);
+                }
+            }
+            return !query.Any();
         }
 
         private void Cancel()
@@ -156,7 +196,16 @@ namespace AccountingEmployeesActivities.ViewModels.Dialogs
 
         private void ShowError(string message)
         {
-            System.Diagnostics.Debug.WriteLine($"Ошибка: {message}");
+            
+
+            ErrorMessage = message;      
+            IsErrorVisible = true;
+        }
+
+        private void HideError()
+        {
+            ErrorMessage = string.Empty;
+            IsErrorVisible = false;
         }
     }
 }

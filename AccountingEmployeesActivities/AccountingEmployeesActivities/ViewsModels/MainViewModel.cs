@@ -117,14 +117,14 @@ namespace AccountingEmployeesActivities.ViewModels
         {
             return pageType switch
             {
-                PageType.MyTasks => new MyTasksViewModel(),
+                PageType.MyTasks => new MyTasksViewModel(_currentUser),
                 PageType.History => new HistoryViewModel(_currentUser, _currentUser.IdRole == 1 || _currentUser.IdRole == 2),
                 PageType.Delegation => new DelegationViewModel(),
-                PageType.Statistics => new StatisticsViewModel(_currentUser, App.ServiceProvider.GetRequiredService<IStatisticsService>(), App.ServiceProvider.GetRequiredService<IExportService>()),
-                PageType.Tasks => new TasksViewModel(),
+                PageType.Statistics => new StatisticsViewModel(_currentUser, App.ServiceProvider.GetRequiredService<IStatisticsService>()),
+                PageType.Tasks => new TasksViewModel(_currentUser),
                 PageType.Employees => new EmployeesViewModel(_currentUser),
                 PageType.Settings => new SettingsViewModel(),
-                _ => new MyTasksViewModel()
+                _ => new MyTasksViewModel(_currentUser)
             };
         }
 
