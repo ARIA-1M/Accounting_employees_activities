@@ -1,0 +1,52 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="AccountingEmployeesActivities.Views.Dialogs.DelegateTaskDialog"        
+        Width="420"
+        Height="320">
+
+	<StackPanel Margin="20" Spacing="12">
+
+		<TextBlock Text="Делегирование задачи"
+                   FontSize="20"
+                   FontWeight="Bold"/>
+
+		<TextBlock Text="Выберите сотрудника:"
+                   FontSize="13"
+                   FontWeight="SemiBold"/>
+
+		<ComboBox ItemsSource="{Binding Colleagues}"
+                  SelectedItem="{Binding SelectedColleague}"
+                  DisplayMemberBinding="{Binding FullName}"
+                  Height="34"/>
+
+		<TextBlock Text="Комментарий (обязательно):"
+                   FontSize="13"
+                   FontWeight="SemiBold"/>
+
+		<TextBox Text="{Binding Comment}"
+                 AcceptsReturn="True"
+                 TextWrapping="Wrap"
+                 Height="100"/>
+
+		<TextBlock Text="{Binding ErrorMessage}"
+                   Foreground="Red"
+                   FontSize="12"
+                   IsVisible="{Binding ErrorMessage}"/>
+
+		<StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Right"
+                    Spacing="10"
+                    Margin="0,10,0,0">
+			<Button Content="Отмена"
+                    Command="{Binding CancelCommand}"
+                    Padding="16,8"/>
+
+			<Button Content="Сохранить"
+                    Command="{Binding SaveCommand}"
+                    Background="#8B5CF6"
+                    Foreground="White"
+                    Padding="16,8"/>
+		</StackPanel>
+
+	</StackPanel>
+</Window>
