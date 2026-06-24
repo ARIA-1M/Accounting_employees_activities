@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\projeckt\\Accounting_employees_activities\\AccountingEmployeesActivities\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{920E438F-D739-64A0-ABC1-11AF4825BC37}|AccountingEmployeesActivities\\AccountingEmployeesActivities.csproj|c:\\projeckt\\accounting_employees_activities\\accountingemployeesactivities\\accountingemployeesactivities\\viewsmodels\\mainviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{920E438F-D739-64A0-ABC1-11AF4825BC37}|AccountingEmployeesActivities\\AccountingEmployeesActivities.csproj|solutionrelative:accountingemployeesactivities\\viewsmodels\\mainviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{920E438F-D739-64A0-ABC1-11AF4825BC37}|AccountingEmployeesActivities\\AccountingEmployeesActivities.csproj|c:\\projeckt\\accounting_employees_activities\\accountingemployeesactivities\\accountingemployeesactivities\\views\\pages\\delegationview.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}",
       "RelativeMoniker": "D:0:0:{920E438F-D739-64A0-ABC1-11AF4825BC37}|AccountingEmployeesActivities\\AccountingEmployeesActivities.csproj|solutionrelative:accountingemployeesactivities\\views\\pages\\delegationview.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}"
     },
@@ -36,7 +40,7 @@
         },
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -44,7 +48,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
+              "Title": "MainViewModel.cs",
+              "DocumentMoniker": "C:\\projeckt\\Accounting_employees_activities\\AccountingEmployeesActivities\\AccountingEmployeesActivities\\ViewsModels\\MainViewModel.cs",
+              "RelativeDocumentMoniker": "AccountingEmployeesActivities\\ViewsModels\\MainViewModel.cs",
+              "ToolTip": "C:\\projeckt\\Accounting_employees_activities\\AccountingEmployeesActivities\\AccountingEmployeesActivities\\ViewsModels\\MainViewModel.cs",
+              "RelativeToolTip": "AccountingEmployeesActivities\\ViewsModels\\MainViewModel.cs",
+              "ViewState": "AgIAAGwAAAAAAAAAAAD4v4EAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-24T11:59:05.621Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "MyTasksViewModel.cs",
               "DocumentMoniker": "C:\\projeckt\\Accounting_employees_activities\\AccountingEmployeesActivities\\AccountingEmployeesActivities\\ViewsModels\\Pages\\MyTasksViewModel.cs",
               "RelativeDocumentMoniker": "AccountingEmployeesActivities\\ViewsModels\\Pages\\MyTasksViewModel.cs",
@@ -52,36 +69,34 @@
               "RelativeToolTip": "AccountingEmployeesActivities\\ViewsModels\\Pages\\MyTasksViewModel.cs",
               "ViewState": "AgIAADIAAAAAAAAAAAAuwDsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-24T11:49:23.426Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-24T11:58:54.547Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "MyTasksView.axaml",
               "DocumentMoniker": "C:\\projeckt\\Accounting_employees_activities\\AccountingEmployeesActivities\\AccountingEmployeesActivities\\Views\\Pages\\MyTasksView.axaml",
               "RelativeDocumentMoniker": "AccountingEmployeesActivities\\Views\\Pages\\MyTasksView.axaml",
               "ToolTip": "C:\\projeckt\\Accounting_employees_activities\\AccountingEmployeesActivities\\AccountingEmployeesActivities\\Views\\Pages\\MyTasksView.axaml",
               "RelativeToolTip": "AccountingEmployeesActivities\\Views\\Pages\\MyTasksView.axaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-06-24T11:49:04.823Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-24T11:58:54.566Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "DelegationView.axaml",
               "DocumentMoniker": "C:\\projeckt\\Accounting_employees_activities\\AccountingEmployeesActivities\\AccountingEmployeesActivities\\Views\\Pages\\DelegationView.axaml",
               "RelativeDocumentMoniker": "AccountingEmployeesActivities\\Views\\Pages\\DelegationView.axaml",
               "ToolTip": "C:\\projeckt\\Accounting_employees_activities\\AccountingEmployeesActivities\\AccountingEmployeesActivities\\Views\\Pages\\DelegationView.axaml",
               "RelativeToolTip": "AccountingEmployeesActivities\\Views\\Pages\\DelegationView.axaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-06-23T19:29:04.877Z",
+              "WhenOpened": "2026-06-24T11:58:54.567Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "DelegationViewModel.cs",
               "DocumentMoniker": "C:\\projeckt\\Accounting_employees_activities\\AccountingEmployeesActivities\\AccountingEmployeesActivities\\ViewsModels\\Pages\\DelegationViewModel.cs",
               "RelativeDocumentMoniker": "AccountingEmployeesActivities\\ViewsModels\\Pages\\DelegationViewModel.cs",
@@ -89,8 +104,7 @@
               "RelativeToolTip": "AccountingEmployeesActivities\\ViewsModels\\Pages\\DelegationViewModel.cs",
               "ViewState": "AgIAABYAAAAAAAAAAAAQwCEAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-23T19:27:50.888Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-24T11:58:54.572Z"
             }
           ]
         }
