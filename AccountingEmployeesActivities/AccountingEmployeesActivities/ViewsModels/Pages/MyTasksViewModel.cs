@@ -72,7 +72,11 @@ namespace AccountingEmployeesActivities.ViewModels.Pages
 
             Statuses = new ObservableCollection<string>();
             Statuses.Add("Все статусы");
-            var statusList = db.Statuses.OrderBy(s => s.IdStatus).Select(s => s.Name).ToList();
+            var statusList = db.Statuses
+                .Where(s => s.IdStatus != 5)
+                .OrderBy(s => s.IdStatus)
+                .Select(s => s.Name)
+                .ToList();
             foreach (var status in statusList)
             {
                 Statuses.Add(status);
@@ -132,7 +136,8 @@ namespace AccountingEmployeesActivities.ViewModels.Pages
                         join executor in db.Executors on task.IdTask equals executor.IdTask
                         where executor.IdEmployee == _currentEmployeeId
                               && executor.IsActive == true
-                              && task.IdStatus != 4  
+                              && task.IdStatus != 4
+                              && task.IdStatus != 5
                         select task;
 
             // Фильтр по статусу

@@ -82,7 +82,7 @@ namespace AccountingEmployeesActivities.ViewModels.Dialogs
 
             // Получаем все статусы (кроме "Создание" - id=1)
             var statusList = db.Statuses
-                .Where(s => s.IdStatus != 1) // исключаем "Создание"
+                .Where(s => s.IdStatus != 1 && s.IdStatus != 5) // исключаем "Создание"
                 .OrderBy(s => s.IdStatus)
                 .ToList();
 
