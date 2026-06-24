@@ -1,13 +1,13 @@
 ﻿using AccountingEmployeesActivities.DTOs;
 using AccountingEmployeesActivities.Models;
 using AccountingEmployeesActivities.Services.Interfaces;
+using LiveChartsCore;
+using LiveChartsCore.SkiaSharpView;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-
-// ✅ Используем алиас для Task из System.Threading.Tasks
 using Task = System.Threading.Tasks.Task;
 
 namespace AccountingEmployeesActivities.Services.Implementations
@@ -31,24 +31,24 @@ namespace AccountingEmployeesActivities.Services.Implementations
                 return;
 
             var statuses = await _context.Statuses.ToListAsync();
-            _completedStatusId = statuses.FirstOrDefault(s => s.Name == "сделана")?.IdStatus ?? 0;
-            _inProgressStatusId = statuses.FirstOrDefault(s => s.Name == "в работе")?.IdStatus ?? 0;
+            _completedStatusId = statuses.FirstOrDefault(s => s.IdStatus == 4)?.IdStatus ?? 0;
+            _inProgressStatusId = statuses.FirstOrDefault(s => s.IdStatus == 3)?.IdStatus ?? 0;
 
             System.Diagnostics.Debug.WriteLine($"StatusIds loaded - Completed: {_completedStatusId}, InProgress: {_inProgressStatusId}");
         }
 
-        // ✅ Теперь Task<T> указывает на System.Threading.Tasks.Task<T>
+        //  Теперь Task<T> указывает на System.Threading.Tasks.Task<T>
         public async Task<StatisticsDto> GetStatisticsAsync(int? employeeId = null, DateTime? startDate = null, DateTime? endDate = null)
         {
             await InitializeStatusIdsAsync();
 
-            // ✅ Models.Task для модели
+            //  Models.Task для модели
             var query = _context.Tasks
                 .Include(t => t.IdStatusNavigation)
                 .Include(t => t.Executors)
                 .AsQueryable();
 
-            // ✅ Правильное преобразование DateOnly в DateTime для сравнения
+            //  Правильное преобразование DateOnly в DateTime для сравнения
             var actualStartDate = startDate?.Date ?? DateTime.Now.AddMonths(-1).Date;
             var actualEndDate = (endDate?.Date ?? DateTime.Now.Date).AddDays(1).AddTicks(-1); // До конца дня
 
@@ -180,7 +180,7 @@ namespace AccountingEmployeesActivities.Services.Implementations
                 {
                     StatusName = g.Key.Name,
                     Count = g.Count(),
-                    Color = GetStatusColor(g.Key.Name)
+                    Color = GetStatusColor(g.Key.IdStatus)
                 })
                 .ToListAsync();
 
@@ -354,14 +354,15 @@ namespace AccountingEmployeesActivities.Services.Implementations
             return employees;
         }
 
-        private string GetStatusColor(string statusName)
+        private static string GetStatusColor(int idStatus)
         {
-            return statusName switch
+            return idStatus switch
             {
-                "Новая" => "#808080",
-                "В работе" => "#4A90E2",
-                "Ожидание" => "#F5A623",
-                "Решена" => "#7ED321",
+                1 => "#808080",
+                2 => "#F5A623",                
+                3 => "#4A90E2",
+                4 => "#7ED321",
+                5 => "OK",
                 _ => "#CCCCCC"
             };
         }

@@ -137,6 +137,8 @@ public partial class PostgresContext : DbContext
                 .HasForeignKey(d => d.IdTask)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("file_id_task_fkey");
+
+            entity.Property(e => e.Data).HasColumnName("data");
         });
 
         modelBuilder.Entity<Role>(entity =>

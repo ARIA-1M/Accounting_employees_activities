@@ -1,13 +1,14 @@
 using AccountingEmployeesActivities.Models;
+using AccountingEmployeesActivities.Services;
 using AccountingEmployeesActivities.Services.Interfaces;
 using AccountingEmployeesActivities.ViewModels.Pages;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Globalization;
 using System.Linq;
 using System.Windows.Input;
-using System.Globalization;
 
 namespace AccountingEmployeesActivities.ViewModels
 {
@@ -118,8 +119,8 @@ namespace AccountingEmployeesActivities.ViewModels
             {
                 PageType.MyTasks => new MyTasksViewModel(_currentUser),
                 PageType.History => new HistoryViewModel(_currentUser, _currentUser.IdRole == 1 || _currentUser.IdRole == 2),
-                PageType.Delegation => new DelegationViewModel(),
-                PageType.Statistics => new StatisticsViewModel(_currentUser, App.ServiceProvider.GetRequiredService<IStatisticsService>()),
+                PageType.Delegation => new DelegatedViewModel(_currentUser),
+                PageType.Statistics => new StatisticsViewModel(_currentUser, App.ServiceProvider.GetRequiredService<IStatisticsService>(), App.ServiceProvider.GetRequiredService<IExportService>()),
                 PageType.Tasks => new TasksViewModel(_currentUser),
                 PageType.Employees => new EmployeesViewModel(_currentUser),
                 PageType.Settings => new SettingsViewModel(),

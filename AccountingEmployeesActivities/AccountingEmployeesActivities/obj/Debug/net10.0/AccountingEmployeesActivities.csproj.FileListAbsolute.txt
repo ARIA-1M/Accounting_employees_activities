@@ -196,8 +196,6 @@ C:\projeckt\Accounting_employees_activities\AccountingEmployeesActivities\Accoun
 C:\projeckt\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\LiveChartsCore.SkiaSharpView.dll
 C:\projeckt\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\LiveChartsCore.SkiaSharpView.Avalonia.dll
 C:\projeckt\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\SkiaSharp.HarfBuzz.dll
-C:\projeckt\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\obj\Debug\net10.0\AccountingEmployeesActivities.csproj.Fody.CopyLocal.cache
-C:\projeckt\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\obj\Debug\net10.0\AccountingEmployeesActivities.csproj.Fody.RuntimeCopyLocal.cache
 C:\projeckt\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\DynamicData.dll
 C:\projeckt\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\ReactiveUI.dll
 C:\projeckt\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\ReactiveUI.Fody.Helpers.dll
@@ -206,17 +204,71 @@ C:\projeckt\Accounting_employees_activities\AccountingEmployeesActivities\Accoun
 C:\projeckt\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\Splat.Core.dll
 C:\projeckt\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\Splat.Logging.dll
 C:\projeckt\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\System.Reactive.dll
-C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\obj\Debug\net10.0\AccountingEmployeesActivities.csproj.AssemblyReference.cache
-C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\obj\Debug\net10.0\Avalonia\Resources.Inputs.cache
-C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\obj\Debug\net10.0\Avalonia\resources
-C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\obj\Debug\net10.0\AccountingEmployeesActivities.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\obj\Debug\net10.0\AccountingEmployeesActivities.AssemblyInfoInputs.cache
-C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\obj\Debug\net10.0\AccountingEmployeesActivities.AssemblyInfo.cs
-C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\obj\Debug\net10.0\AccountingEmployeesActivities.csproj.CoreCompileInputs.cache
-C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\obj\Debug\net10.0\AccountingEmployeesActivities.sourcelink.json
-C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\obj\Debug\net10.0\AccountingEmployeesActivities.dll
-C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\obj\Debug\net10.0\refint\AccountingEmployeesActivities.dll
-C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\obj\Debug\net10.0\AccountingEmployeesActivities.pdb
+C:\projeckt\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\LatoFont\Lato-Black.ttf
+C:\projeckt\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\LatoFont\Lato-BlackItalic.ttf
+C:\projeckt\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\LatoFont\Lato-Bold.ttf
+C:\projeckt\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\LatoFont\Lato-BoldItalic.ttf
+C:\projeckt\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\LatoFont\Lato-ExtraBold.ttf
+C:\projeckt\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\LatoFont\Lato-ExtraBoldItalic.ttf
+C:\projeckt\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\LatoFont\Lato-ExtraLight.ttf
+C:\projeckt\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\LatoFont\Lato-ExtraLightItalic.ttf
+C:\projeckt\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\LatoFont\Lato-Italic.ttf
+C:\projeckt\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\LatoFont\Lato-Light.ttf
+C:\projeckt\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\LatoFont\Lato-LightItalic.ttf
+C:\projeckt\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\LatoFont\Lato-Medium.ttf
+C:\projeckt\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\LatoFont\Lato-MediumItalic.ttf
+C:\projeckt\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\LatoFont\Lato-Regular.ttf
+C:\projeckt\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\LatoFont\Lato-SemiBold.ttf
+C:\projeckt\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\LatoFont\Lato-SemiBoldItalic.ttf
+C:\projeckt\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\LatoFont\Lato-Thin.ttf
+C:\projeckt\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\LatoFont\Lato-ThinItalic.ttf
+C:\projeckt\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\LatoFont\OFL.txt
+C:\projeckt\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\ClosedXML.dll
+C:\projeckt\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\ClosedXML.Parser.dll
+C:\projeckt\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\DocumentFormat.OpenXml.dll
+C:\projeckt\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\DocumentFormat.OpenXml.Framework.dll
+C:\projeckt\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\ExcelNumberFormat.dll
+C:\projeckt\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\QuestPDF.dll
+C:\projeckt\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\RBush.dll
+C:\projeckt\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\SixLabors.Fonts.dll
+C:\projeckt\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\System.IO.Packaging.dll
+C:\projeckt\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\runtimes\linux-arm64\native\libQuestPdfSkia.so
+C:\projeckt\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\runtimes\linux-arm64\native\libqpdf.so
+C:\projeckt\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\runtimes\linux-musl-x64\native\libQuestPdfSkia.so
+C:\projeckt\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\runtimes\linux-musl-x64\native\libqpdf.so
+C:\projeckt\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\runtimes\linux-x64\native\libQuestPdfSkia.so
+C:\projeckt\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\runtimes\linux-x64\native\libqpdf.so
+C:\projeckt\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\runtimes\osx-arm64\native\libQuestPdfSkia.dylib
+C:\projeckt\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\runtimes\osx-arm64\native\libqpdf.dylib
+C:\projeckt\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\runtimes\osx-x64\native\libQuestPdfSkia.dylib
+C:\projeckt\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\runtimes\osx-x64\native\libqpdf.dylib
+C:\projeckt\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\runtimes\win-arm64\native\QuestPdfSkia.dll
+C:\projeckt\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\runtimes\win-arm64\native\qpdf.dll
+C:\projeckt\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\runtimes\win-x64\native\QuestPdfSkia.dll
+C:\projeckt\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\runtimes\win-x64\native\qpdf.dll
+C:\projeckt\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\runtimes\win-x86\native\QuestPdfSkia.dll
+C:\projeckt\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\runtimes\win-x86\native\qpdf.dll
+C:\projeckt\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\obj\Debug\net10.0\AccountingEmployeesActivities.csproj.Fody.CopyLocal.cache
+C:\projeckt\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\obj\Debug\net10.0\AccountingEmployeesActivities.csproj.Fody.RuntimeCopyLocal.cache
+C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\LatoFont\Lato-Black.ttf
+C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\LatoFont\Lato-BlackItalic.ttf
+C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\LatoFont\Lato-Bold.ttf
+C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\LatoFont\Lato-BoldItalic.ttf
+C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\LatoFont\Lato-ExtraBold.ttf
+C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\LatoFont\Lato-ExtraBoldItalic.ttf
+C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\LatoFont\Lato-ExtraLight.ttf
+C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\LatoFont\Lato-ExtraLightItalic.ttf
+C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\LatoFont\Lato-Italic.ttf
+C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\LatoFont\Lato-Light.ttf
+C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\LatoFont\Lato-LightItalic.ttf
+C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\LatoFont\Lato-Medium.ttf
+C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\LatoFont\Lato-MediumItalic.ttf
+C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\LatoFont\Lato-Regular.ttf
+C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\LatoFont\Lato-SemiBold.ttf
+C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\LatoFont\Lato-SemiBoldItalic.ttf
+C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\LatoFont\Lato-Thin.ttf
+C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\LatoFont\Lato-ThinItalic.ttf
+C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\LatoFont\OFL.txt
 C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\AccountingEmployeesActivities.exe
 C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\AccountingEmployeesActivities.deps.json
 C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\AccountingEmployeesActivities.runtimeconfig.json
@@ -247,7 +299,12 @@ C:\Users\Пользователь\Desktop\3к_2\производственная
 C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\Avalonia.X11.dll
 C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\AvaloniaUI.DiagnosticsSupport.Avalonia.dll
 C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\BCrypt-Net-Next.dll
+C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\ClosedXML.dll
+C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\ClosedXML.Parser.dll
+C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\DocumentFormat.OpenXml.dll
+C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\DocumentFormat.OpenXml.Framework.dll
 C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\DynamicData.dll
+C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\ExcelNumberFormat.dll
 C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\HarfBuzzSharp.dll
 C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\Humanizer.dll
 C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\LiveChartsCore.dll
@@ -287,8 +344,11 @@ C:\Users\Пользователь\Desktop\3к_2\производственная
 C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\Newtonsoft.Json.dll
 C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\Npgsql.dll
 C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\QuestPDF.dll
+C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\RBush.dll
 C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\ReactiveUI.dll
 C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\ReactiveUI.Fody.Helpers.dll
+C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\SixLabors.Fonts.dll
 C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\SkiaSharp.dll
 C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\SkiaSharp.HarfBuzz.dll
 C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\Splat.dll
@@ -301,6 +361,7 @@ C:\Users\Пользователь\Desktop\3к_2\производственная
 C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\System.Composition.Hosting.dll
 C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\System.Composition.Runtime.dll
 C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\System.Composition.TypedParts.dll
+C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\System.IO.Packaging.dll
 C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\System.Reactive.dll
 C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\Tmds.DBus.Protocol.dll
@@ -391,6 +452,22 @@ C:\Users\Пользователь\Desktop\3к_2\производственная
 C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\runtimes\win-x64\native\libHarfBuzzSharp.pdb
 C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\runtimes\win-x86\native\libHarfBuzzSharp.dll
 C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\runtimes\win-x86\native\libHarfBuzzSharp.pdb
+C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\runtimes\linux-arm64\native\libQuestPdfSkia.so
+C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\runtimes\linux-arm64\native\libqpdf.so
+C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\runtimes\linux-musl-x64\native\libQuestPdfSkia.so
+C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\runtimes\linux-musl-x64\native\libqpdf.so
+C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\runtimes\linux-x64\native\libQuestPdfSkia.so
+C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\runtimes\linux-x64\native\libqpdf.so
+C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\runtimes\osx-arm64\native\libQuestPdfSkia.dylib
+C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\runtimes\osx-arm64\native\libqpdf.dylib
+C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\runtimes\osx-x64\native\libQuestPdfSkia.dylib
+C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\runtimes\osx-x64\native\libqpdf.dylib
+C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\runtimes\win-arm64\native\QuestPdfSkia.dll
+C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\runtimes\win-arm64\native\qpdf.dll
+C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\runtimes\win-x64\native\QuestPdfSkia.dll
+C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\runtimes\win-x64\native\qpdf.dll
+C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\runtimes\win-x86\native\QuestPdfSkia.dll
+C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\runtimes\win-x86\native\qpdf.dll
 C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\runtimes\linux-arm\native\libSkiaSharp.so
 C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\runtimes\linux-arm64\native\libSkiaSharp.so
 C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\runtimes\linux-loongarch64\native\libSkiaSharp.so
@@ -409,216 +486,19 @@ C:\Users\Пользователь\Desktop\3к_2\производственная
 C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\runtimes\win-x64\native\libSkiaSharp.pdb
 C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\runtimes\win-x86\native\libSkiaSharp.dll
 C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\runtimes\win-x86\native\libSkiaSharp.pdb
+C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\obj\Debug\net10.0\AccountingEmployeesActivities.csproj.AssemblyReference.cache
+C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\obj\Debug\net10.0\Avalonia\Resources.Inputs.cache
+C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\obj\Debug\net10.0\Avalonia\resources
+C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\obj\Debug\net10.0\AccountingEmployeesActivities.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\obj\Debug\net10.0\AccountingEmployeesActivities.AssemblyInfoInputs.cache
+C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\obj\Debug\net10.0\AccountingEmployeesActivities.AssemblyInfo.cs
+C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\obj\Debug\net10.0\AccountingEmployeesActivities.csproj.CoreCompileInputs.cache
+C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\obj\Debug\net10.0\AccountingEmployeesActivities.sourcelink.json
 C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\obj\Debug\net10.0\AccountingEmployeesActivities.csproj.Fody.CopyLocal.cache
 C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\obj\Debug\net10.0\AccountingEmployeesActivities.csproj.Fody.RuntimeCopyLocal.cache
 C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\obj\Debug\net10.0\Accounti.655B4FD7.Up2Date
+C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\obj\Debug\net10.0\AccountingEmployeesActivities.dll
+C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\obj\Debug\net10.0\refint\AccountingEmployeesActivities.dll
+C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\obj\Debug\net10.0\AccountingEmployeesActivities.pdb
 C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\obj\Debug\net10.0\AccountingEmployeesActivities.genruntimeconfig.cache
 C:\Users\Пользователь\Desktop\3к_2\производственная практика\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\obj\Debug\net10.0\ref\AccountingEmployeesActivities.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\obj\Debug\net10.0\AccountingEmployeesActivities.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\obj\Debug\net10.0\refint\AccountingEmployeesActivities.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\obj\Debug\net10.0\AccountingEmployeesActivities.pdb
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\AccountingEmployeesActivities.exe
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\AccountingEmployeesActivities.deps.json
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\AccountingEmployeesActivities.runtimeconfig.json
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\AccountingEmployeesActivities.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\AccountingEmployeesActivities.pdb
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\Avalonia.Base.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\Avalonia.Controls.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\Avalonia.DesignerSupport.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\Avalonia.Dialogs.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\Avalonia.Markup.Xaml.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\Avalonia.Markup.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\Avalonia.Metal.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\Avalonia.MicroCom.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\Avalonia.OpenGL.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\Avalonia.Vulkan.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\Avalonia.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\Avalonia.Desktop.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\Avalonia.Fonts.Inter.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\Avalonia.FreeDesktop.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\Avalonia.FreeDesktop.AtSpi.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\Avalonia.HarfBuzz.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\Avalonia.Native.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\Avalonia.Remote.Protocol.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\Avalonia.Skia.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\Avalonia.Themes.Fluent.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\Avalonia.Win32.Automation.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\Avalonia.Win32.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\Avalonia.X11.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\AvaloniaUI.DiagnosticsSupport.Avalonia.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\BCrypt-Net-Next.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\DynamicData.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\HarfBuzzSharp.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\Humanizer.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\LiveChartsCore.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\LiveChartsCore.SkiaSharpView.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\LiveChartsCore.SkiaSharpView.Avalonia.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\MicroCom.Runtime.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\Microsoft.Build.Framework.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\Microsoft.CodeAnalysis.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\Microsoft.CodeAnalysis.CSharp.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\Microsoft.CodeAnalysis.Workspaces.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\Microsoft.CodeAnalysis.ExternalAccess.RazorCompiler.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\Microsoft.CodeAnalysis.Workspaces.MSBuild.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Abstractions.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Design.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Relational.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\Microsoft.Extensions.Caching.Abstractions.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\Microsoft.Extensions.Caching.Memory.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\Microsoft.Extensions.Configuration.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\Microsoft.Extensions.Configuration.Abstractions.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\Microsoft.Extensions.Configuration.FileExtensions.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\Microsoft.Extensions.Configuration.Json.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\Microsoft.Extensions.DependencyInjection.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\Microsoft.Extensions.DependencyModel.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\Microsoft.Extensions.FileProviders.Abstractions.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\Microsoft.Extensions.FileProviders.Physical.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\Microsoft.Extensions.FileSystemGlobbing.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\Microsoft.Extensions.Logging.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\Microsoft.Extensions.Logging.Abstractions.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\Microsoft.Extensions.Options.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\Microsoft.Extensions.Primitives.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\Microsoft.IO.RecyclableMemoryStream.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\Microsoft.VisualStudio.SolutionPersistence.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\Mono.TextTemplating.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\Newtonsoft.Json.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\Npgsql.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\ReactiveUI.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\ReactiveUI.Fody.Helpers.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\SkiaSharp.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\SkiaSharp.HarfBuzz.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\Splat.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\Splat.Builder.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\Splat.Core.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\Splat.Logging.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\System.CodeDom.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\System.Composition.AttributedModel.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\System.Composition.Convention.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\System.Composition.Hosting.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\System.Composition.Runtime.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\System.Composition.TypedParts.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\System.Reactive.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\Tmds.DBus.Protocol.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\cs\Microsoft.CodeAnalysis.resources.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\de\Microsoft.CodeAnalysis.resources.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\es\Microsoft.CodeAnalysis.resources.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\fr\Microsoft.CodeAnalysis.resources.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\it\Microsoft.CodeAnalysis.resources.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\ja\Microsoft.CodeAnalysis.resources.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\ko\Microsoft.CodeAnalysis.resources.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\pl\Microsoft.CodeAnalysis.resources.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\ru\Microsoft.CodeAnalysis.resources.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.resources.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\cs\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\de\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\es\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\fr\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\it\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\ja\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\ko\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\pl\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\ru\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\runtimes\win-arm64\native\av_libglesv2.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\runtimes\win-x64\native\av_libglesv2.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\runtimes\win-x86\native\av_libglesv2.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\runtimes\osx\native\libAvaloniaNative.dylib
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\runtimes\linux-arm\native\libHarfBuzzSharp.so
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\runtimes\linux-arm64\native\libHarfBuzzSharp.so
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\runtimes\linux-loongarch64\native\libHarfBuzzSharp.so
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\runtimes\linux-musl-arm\native\libHarfBuzzSharp.so
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\runtimes\linux-musl-arm64\native\libHarfBuzzSharp.so
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\runtimes\linux-musl-loongarch64\native\libHarfBuzzSharp.so
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\runtimes\linux-musl-riscv64\native\libHarfBuzzSharp.so
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\runtimes\linux-musl-x64\native\libHarfBuzzSharp.so
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\runtimes\linux-riscv64\native\libHarfBuzzSharp.so
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\runtimes\linux-x64\native\libHarfBuzzSharp.so
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\runtimes\linux-x86\native\libHarfBuzzSharp.so
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\runtimes\osx\native\libHarfBuzzSharp.dylib
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\runtimes\win-arm64\native\libHarfBuzzSharp.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\runtimes\win-arm64\native\libHarfBuzzSharp.pdb
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\runtimes\win-x64\native\libHarfBuzzSharp.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\runtimes\win-x64\native\libHarfBuzzSharp.pdb
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\runtimes\win-x86\native\libHarfBuzzSharp.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\runtimes\win-x86\native\libHarfBuzzSharp.pdb
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\runtimes\linux-arm\native\libSkiaSharp.so
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\runtimes\linux-arm64\native\libSkiaSharp.so
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\runtimes\linux-loongarch64\native\libSkiaSharp.so
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\runtimes\linux-musl-arm\native\libSkiaSharp.so
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\runtimes\linux-musl-arm64\native\libSkiaSharp.so
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\runtimes\linux-musl-loongarch64\native\libSkiaSharp.so
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\runtimes\linux-musl-riscv64\native\libSkiaSharp.so
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\runtimes\linux-musl-x64\native\libSkiaSharp.so
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\runtimes\linux-riscv64\native\libSkiaSharp.so
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\runtimes\linux-x64\native\libSkiaSharp.so
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\runtimes\linux-x86\native\libSkiaSharp.so
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\runtimes\osx\native\libSkiaSharp.dylib
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\runtimes\win-arm64\native\libSkiaSharp.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\runtimes\win-arm64\native\libSkiaSharp.pdb
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\runtimes\win-x64\native\libSkiaSharp.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\runtimes\win-x64\native\libSkiaSharp.pdb
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\runtimes\win-x86\native\libSkiaSharp.dll
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\runtimes\win-x86\native\libSkiaSharp.pdb
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\obj\Debug\net10.0\AccountingEmployeesActivities.csproj.AssemblyReference.cache
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\obj\Debug\net10.0\Avalonia\Resources.Inputs.cache
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\obj\Debug\net10.0\Avalonia\resources
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\obj\Debug\net10.0\AccountingEmployeesActivities.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\obj\Debug\net10.0\AccountingEmployeesActivities.AssemblyInfoInputs.cache
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\obj\Debug\net10.0\AccountingEmployeesActivities.AssemblyInfo.cs
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\obj\Debug\net10.0\AccountingEmployeesActivities.csproj.CoreCompileInputs.cache
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\obj\Debug\net10.0\AccountingEmployeesActivities.sourcelink.json
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\obj\Debug\net10.0\AccountingEmployeesActivities.csproj.Fody.CopyLocal.cache
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\obj\Debug\net10.0\AccountingEmployeesActivities.csproj.Fody.RuntimeCopyLocal.cache
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\obj\Debug\net10.0\Accounti.655B4FD7.Up2Date
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\obj\Debug\net10.0\AccountingEmployeesActivities.genruntimeconfig.cache
-C:\Users\zybin\OneDrive\Desktop\PP\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\obj\Debug\net10.0\ref\AccountingEmployeesActivities.dll

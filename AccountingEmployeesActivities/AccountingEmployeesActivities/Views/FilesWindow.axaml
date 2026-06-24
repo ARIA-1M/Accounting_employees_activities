@@ -9,17 +9,28 @@
         WindowStartupLocation="CenterOwner"
         Background="White" CornerRadius="16">
 	<DockPanel Margin="16">
-		<!-- Заголовок с разделителем -->
-		<StackPanel DockPanel.Dock="Top" Margin="0,0,0,12">
-			<TextBlock FontSize="20" FontWeight="Bold">
+		<!-- Заголовок с плюсом -->
+		<DockPanel DockPanel.Dock="Top" Margin="0,0,0,12">
+			<TextBlock FontSize="20" FontWeight="Bold" DockPanel.Dock="Left">
 				<TextBlock.Text>
 					<MultiBinding StringFormat="Файлы: {0}">
 						<Binding Path="TaskTitle"/>
 					</MultiBinding>
 				</TextBlock.Text>
 			</TextBlock>
-			<Border Height="1" Background="#E2E8F0" Margin="0,8,0,0"/>
-		</StackPanel>
+			<Button Content="+"
+                    Command="{Binding AddFileCommand}"
+                    Background="Transparent"
+                    BorderThickness="0"
+                    FontSize="20"
+					FontWeight="Bold"
+                    Foreground="Black"
+                    DockPanel.Dock="Right"
+                    Cursor="Hand"
+                    Padding="4,0"
+                    ToolTip.Tip="Добавить файл"/>
+			<Border Height="1" Background="#E2E8F0" Grid.ColumnSpan="2" Margin="0,8,0,0" DockPanel.Dock="Bottom"/>
+		</DockPanel>
 
 		<!-- Список файлов -->
 		<ListBox ItemsSource="{Binding Files}"

@@ -9,7 +9,7 @@
 		<!-- Верхняя панель -->
 		<Grid ColumnDefinitions="*, Auto">
 			<TextBlock Grid.Column="0"
-                       Text="Мои задачи"
+                       Text="Задачи"
                        FontSize="24"
                        FontWeight="Bold"
                        VerticalAlignment="Center"/>

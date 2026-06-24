@@ -1,6 +1,6 @@
+using AccountingEmployeesActivities.DTOs;
 using AccountingEmployeesActivities.Models;
 using AccountingEmployeesActivities.Views;
-using AccountingEmployeesActivities.ViewsModels.Pages;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -285,6 +285,7 @@ namespace AccountingEmployeesActivities.ViewModels.Pages
                 2 => "#3B82F6", // В работе (синий)
                 3 => "#FACC15", // Ожидание (жёлтый)
                 4 => "#16A34A", // Решена (тёмно-зелёный)
+                5 => "#FF6F00", // Делегирование (оранжевый)
                 _ => "#475569"  // По умолчанию серый
             };
         }

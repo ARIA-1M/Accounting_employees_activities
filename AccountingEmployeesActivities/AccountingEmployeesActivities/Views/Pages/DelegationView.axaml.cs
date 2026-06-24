@@ -1,3 +1,4 @@
+using AccountingEmployeesActivities.Models;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
 
@@ -8,7 +9,11 @@ namespace AccountingEmployeesActivities.Views.Pages
         public DelegationView()
         {
             InitializeComponent();
-            DataContext = new ViewModels.Pages.DelegationViewModel();
+        }
+        public DelegationView(User currentUser)
+        {
+            InitializeComponent();
+            DataContext = new ViewModels.Pages.DelegatedViewModel(currentUser);
         }
         private void InitializeComponent() => AvaloniaXamlLoader.Load(this);
     }

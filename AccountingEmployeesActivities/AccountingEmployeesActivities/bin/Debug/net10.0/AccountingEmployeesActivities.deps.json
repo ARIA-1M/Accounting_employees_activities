@@ -14,11 +14,13 @@
           "Avalonia.Themes.Fluent": "12.0.0",
           "AvaloniaUI.DiagnosticsSupport": "2.2.0",
           "BCrypt.Net-Next": "4.2.0",
-          "LiveChartsCore.SkiaSharpView.Avalonia": "2.0.5",
+          "ClosedXML": "0.105.0",
+          "LiveChartsCore.SkiaSharpView.Avalonia": "2.1.0-dev-570",
           "Microsoft.EntityFrameworkCore.Design": "10.0.9",
           "Microsoft.Extensions.Configuration.Json": "10.0.9",
           "Microsoft.Extensions.DependencyInjection": "10.0.9",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "10.0.2",
+          "QuestPDF": "2026.6.0",
           "ReactiveUI": "23.2.28",
           "ReactiveUI.Fody": "19.5.41",
           "System.Security.Cryptography.ProtectedData": "10.0.9"
@@ -263,6 +265,51 @@
           }
         }
       },
+      "ClosedXML/0.105.0": {
+        "dependencies": {
+          "ClosedXML.Parser": "2.0.0",
+          "DocumentFormat.OpenXml": "3.1.1",
+          "ExcelNumberFormat": "1.1.0",
+          "RBush.Signed": "4.0.0",
+          "SixLabors.Fonts": "1.0.0"
+        },
+        "runtime": {
+          "lib/netstandard2.1/ClosedXML.dll": {
+            "assemblyVersion": "0.105.0.0",
+            "fileVersion": "0.105.0.0"
+          }
+        }
+      },
+      "ClosedXML.Parser/2.0.0": {
+        "runtime": {
+          "lib/netstandard2.1/ClosedXML.Parser.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "DocumentFormat.OpenXml/3.1.1": {
+        "dependencies": {
+          "DocumentFormat.OpenXml.Framework": "3.1.1"
+        },
+        "runtime": {
+          "lib/net8.0/DocumentFormat.OpenXml.dll": {
+            "assemblyVersion": "3.1.1.0",
+            "fileVersion": "3.1.1.0"
+          }
+        }
+      },
+      "DocumentFormat.OpenXml.Framework/3.1.1": {
+        "dependencies": {
+          "System.IO.Packaging": "8.0.1"
+        },
+        "runtime": {
+          "lib/net8.0/DocumentFormat.OpenXml.Framework.dll": {
+            "assemblyVersion": "3.1.1.0",
+            "fileVersion": "3.1.1.0"
+          }
+        }
+      },
       "DynamicData/9.4.31": {
         "dependencies": {
           "System.Reactive": "6.1.0"
@@ -271,6 +318,14 @@
           "lib/net10.0/DynamicData.dll": {
             "assemblyVersion": "9.4.0.0",
             "fileVersion": "9.4.31.36276"
+          }
+        }
+      },
+      "ExcelNumberFormat/1.1.0": {
+        "runtime": {
+          "lib/netstandard2.0/ExcelNumberFormat.dll": {
+            "assemblyVersion": "1.1.0.0",
+            "fileVersion": "1.1.0.0"
           }
         }
       },
@@ -396,37 +451,37 @@
           }
         }
       },
-      "LiveChartsCore/2.0.5": {
+      "LiveChartsCore/2.1.0-dev-570": {
         "runtime": {
           "lib/net8.0/LiveChartsCore.dll": {
-            "assemblyVersion": "2.0.5.0",
-            "fileVersion": "2.0.5.0"
+            "assemblyVersion": "2.1.0.0",
+            "fileVersion": "2.1.0.0"
           }
         }
       },
-      "LiveChartsCore.SkiaSharpView/2.0.5": {
+      "LiveChartsCore.SkiaSharpView/2.1.0-dev-570": {
         "dependencies": {
-          "LiveChartsCore": "2.0.5",
+          "LiveChartsCore": "2.1.0-dev-570",
           "SkiaSharp": "3.119.3-preview.1.1",
           "SkiaSharp.HarfBuzz": "2.88.9"
         },
         "runtime": {
           "lib/net8.0/LiveChartsCore.SkiaSharpView.dll": {
-            "assemblyVersion": "2.0.5.0",
-            "fileVersion": "2.0.5.0"
+            "assemblyVersion": "2.1.0.0",
+            "fileVersion": "2.1.0.0"
           }
         }
       },
-      "LiveChartsCore.SkiaSharpView.Avalonia/2.0.5": {
+      "LiveChartsCore.SkiaSharpView.Avalonia/2.1.0-dev-570": {
         "dependencies": {
           "Avalonia": "12.0.0",
           "Avalonia.Skia": "12.0.0",
-          "LiveChartsCore.SkiaSharpView": "2.0.5"
+          "LiveChartsCore.SkiaSharpView": "2.1.0-dev-570"
         },
         "runtime": {
-          "lib/net8.0/LiveChartsCore.SkiaSharpView.Avalonia.dll": {
-            "assemblyVersion": "2.0.5.0",
-            "fileVersion": "2.0.5.0"
+          "lib/net10.0/LiveChartsCore.SkiaSharpView.Avalonia.dll": {
+            "assemblyVersion": "2.1.0.0",
+            "fileVersion": "2.1.0.0"
           }
         }
       },
@@ -1020,6 +1075,104 @@
           }
         }
       },
+      "QuestPDF/2026.6.0": {
+        "runtime": {
+          "lib/net10.0/QuestPDF.dll": {
+            "assemblyVersion": "2026.6.0.0",
+            "fileVersion": "2026.6.0.0"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/linux-arm64/native/libQuestPdfSkia.so": {
+            "rid": "linux-arm64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-arm64/native/libqpdf.so": {
+            "rid": "linux-arm64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-musl-x64/native/libQuestPdfSkia.so": {
+            "rid": "linux-musl-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-musl-x64/native/libqpdf.so": {
+            "rid": "linux-musl-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-x64/native/libQuestPdfSkia.so": {
+            "rid": "linux-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-x64/native/libqpdf.so": {
+            "rid": "linux-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/osx-arm64/native/libQuestPdfSkia.dylib": {
+            "rid": "osx-arm64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/osx-arm64/native/libqpdf.dylib": {
+            "rid": "osx-arm64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/osx-x64/native/libQuestPdfSkia.dylib": {
+            "rid": "osx-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/osx-x64/native/libqpdf.dylib": {
+            "rid": "osx-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-arm64/native/QuestPdfSkia.dll": {
+            "rid": "win-arm64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-arm64/native/qpdf.dll": {
+            "rid": "win-arm64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-x64/native/QuestPdfSkia.dll": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-x64/native/qpdf.dll": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-x86/native/QuestPdfSkia.dll": {
+            "rid": "win-x86",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-x86/native/qpdf.dll": {
+            "rid": "win-x86",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
+      "RBush.Signed/4.0.0": {
+        "runtime": {
+          "lib/net8.0/RBush.dll": {
+            "assemblyVersion": "4.0.0.0",
+            "fileVersion": "4.0.0.0"
+          }
+        }
+      },
       "ReactiveUI/23.2.28": {
         "dependencies": {
           "DynamicData": "9.4.31",
@@ -1041,6 +1194,14 @@
           "lib/net8.0/ReactiveUI.Fody.Helpers.dll": {
             "assemblyVersion": "19.5.0.0",
             "fileVersion": "19.5.41.25387"
+          }
+        }
+      },
+      "SixLabors.Fonts/1.0.0": {
+        "runtime": {
+          "lib/netcoreapp3.1/SixLabors.Fonts.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
           }
         }
       },
@@ -1280,6 +1441,14 @@
           }
         }
       },
+      "System.IO.Packaging/8.0.1": {
+        "runtime": {
+          "lib/net8.0/System.IO.Packaging.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.0.1024.46610"
+          }
+        }
+      },
       "System.Reactive/6.1.0": {
         "runtime": {
           "lib/net6.0/System.Reactive.dll": {
@@ -1417,12 +1586,47 @@
       "path": "bcrypt.net-next/4.2.0",
       "hashPath": "bcrypt.net-next.4.2.0.nupkg.sha512"
     },
+    "ClosedXML/0.105.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-U0hAdnYyPvF7TqHMFloxrS7pmozab79tFFF4c/bgPtqeelUs7ILpUd3r3c7C0a/DXsUZb3k1n4Pf7Q2LMyMQOg==",
+      "path": "closedxml/0.105.0",
+      "hashPath": "closedxml.0.105.0.nupkg.sha512"
+    },
+    "ClosedXML.Parser/2.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ngTqjYreDYNytG1W5d3ewHsw0ukmmrgV7EKnS4/40rXoYZGt07jrBvo+N+GxT49rcageUMUiprV0jYT4nwVBHQ==",
+      "path": "closedxml.parser/2.0.0",
+      "hashPath": "closedxml.parser.2.0.0.nupkg.sha512"
+    },
+    "DocumentFormat.OpenXml/3.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-2z9QBzeTLNNKWM9SaOSDMegfQk/7hDuElOsmF77pKZMkFRP/GHA/W/4yOAQD9kn15N/FsFxHn3QVYkatuZghiA==",
+      "path": "documentformat.openxml/3.1.1",
+      "hashPath": "documentformat.openxml.3.1.1.nupkg.sha512"
+    },
+    "DocumentFormat.OpenXml.Framework/3.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-6APEp/ElZV58S/4v8mf4Ke3ONEDORs64MqdD64Z7wWpcHANB9oovQsGIwtqjnKihulOj7T0a6IxHIHOfMqKOng==",
+      "path": "documentformat.openxml.framework/3.1.1",
+      "hashPath": "documentformat.openxml.framework.3.1.1.nupkg.sha512"
+    },
     "DynamicData/9.4.31": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-w2bT92Z5ADtnmtKiC9mzk21h7MtXtZEQKWFyytuHqhPBo7rKPWnvFk/xy1M/VA6XQTbCjRWMNV795w+RizFn4g==",
       "path": "dynamicdata/9.4.31",
       "hashPath": "dynamicdata.9.4.31.nupkg.sha512"
+    },
+    "ExcelNumberFormat/1.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-R3BVHPs9O+RkExbZYTGT0+9HLbi8ZrNij1Yziyw6znd3J7P3uoIR07uwTLGOogtz1p6+0sna66eBoXu7tBiVQA==",
+      "path": "excelnumberformat/1.1.0",
+      "hashPath": "excelnumberformat.1.1.0.nupkg.sha512"
     },
     "HarfBuzzSharp/8.3.1.3": {
       "type": "package",
@@ -1459,26 +1663,26 @@
       "path": "humanizer.core/2.14.1",
       "hashPath": "humanizer.core.2.14.1.nupkg.sha512"
     },
-    "LiveChartsCore/2.0.5": {
+    "LiveChartsCore/2.1.0-dev-570": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-cbGiOyGxO+fsWLvrQ4R6Rd8QHfkRGyhxyD6nBSk8/ZwKKtU+vWSqlC4ESgwKSUbrzvK8ooU/yfFJpjHXzPd+vA==",
-      "path": "livechartscore/2.0.5",
-      "hashPath": "livechartscore.2.0.5.nupkg.sha512"
+      "sha512": "sha512-RSj4NB3puTxQB/KnL5lY4FXdvBU+vdjpXeq5INLW+P7rqtHy4BpW9G4N60OzVPkiXrMG+KZ5Duba62gBYwRXbg==",
+      "path": "livechartscore/2.1.0-dev-570",
+      "hashPath": "livechartscore.2.1.0-dev-570.nupkg.sha512"
     },
-    "LiveChartsCore.SkiaSharpView/2.0.5": {
+    "LiveChartsCore.SkiaSharpView/2.1.0-dev-570": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-YgRhisuVev2RocHqq7d9juSBGBlMLKYQA5ijEuD/sWeV39dCBInBK4RSfqBYTuNNWs5Fe+NA+F0TCIWJ2t1Cew==",
-      "path": "livechartscore.skiasharpview/2.0.5",
-      "hashPath": "livechartscore.skiasharpview.2.0.5.nupkg.sha512"
+      "sha512": "sha512-AYuYd3ch5kiiYbyLbZUnXWd9v+EJD48TVgs57Q8q92qWY9ktBg0yo9FYrkv9mS+fN3WIhmqDH2SBwGKXTT8vSg==",
+      "path": "livechartscore.skiasharpview/2.1.0-dev-570",
+      "hashPath": "livechartscore.skiasharpview.2.1.0-dev-570.nupkg.sha512"
     },
-    "LiveChartsCore.SkiaSharpView.Avalonia/2.0.5": {
+    "LiveChartsCore.SkiaSharpView.Avalonia/2.1.0-dev-570": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-gwqV/H5EWhk8KIwc8/4sdPVjsdJ5RpOC5Pfmd1lKIYltCntJQeZTcn1kC4mKykN+eU+BlT0W/grA3xioXdP7iA==",
-      "path": "livechartscore.skiasharpview.avalonia/2.0.5",
-      "hashPath": "livechartscore.skiasharpview.avalonia.2.0.5.nupkg.sha512"
+      "sha512": "sha512-pT+n+lXK25ga4yuO37HY/NIy2yX/UdWmEhggzTqiB3ILNT9PS3yrKrVtTbHGkE4evUlGOi3xI2Yk2qx8JwGfww==",
+      "path": "livechartscore.skiasharpview.avalonia/2.1.0-dev-570",
+      "hashPath": "livechartscore.skiasharpview.avalonia.2.1.0-dev-570.nupkg.sha512"
     },
     "MicroCom.Runtime/0.11.4": {
       "type": "package",
@@ -1711,6 +1915,20 @@
       "path": "npgsql.entityframeworkcore.postgresql/10.0.2",
       "hashPath": "npgsql.entityframeworkcore.postgresql.10.0.2.nupkg.sha512"
     },
+    "QuestPDF/2026.6.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-0DQY6bGXcFLdj10vXmdMMZqgShQGuy0XvPtkkfntlOmSrtIZTBmlLFQilg3OK/V9c6hlyqus+g6PKm5YexEZ0A==",
+      "path": "questpdf/2026.6.0",
+      "hashPath": "questpdf.2026.6.0.nupkg.sha512"
+    },
+    "RBush.Signed/4.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-aP5KQxL5RnFNGW1f0euYVBfCatkLw5iEzMRJcXKq8LWWP4Cp3+qoSq1tDDL2vvJ2rM0ychmVMa2VaEKLS6uX4w==",
+      "path": "rbush.signed/4.0.0",
+      "hashPath": "rbush.signed.4.0.0.nupkg.sha512"
+    },
     "ReactiveUI/23.2.28": {
       "type": "package",
       "serviceable": true,
@@ -1724,6 +1942,13 @@
       "sha512": "sha512-bh6OH1WsSHf/ryUVaPnI6LWl1+lrCvq4L/AoHpzPXCKxtR4p0ogPVONnkq0jYgSQ55x7YNCVkthBKeb6uUSbpg==",
       "path": "reactiveui.fody/19.5.41",
       "hashPath": "reactiveui.fody.19.5.41.nupkg.sha512"
+    },
+    "SixLabors.Fonts/1.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-LFQsCZlV0xlUyXAOMUo5kkSl+8zAQXXbbdwWchtk0B4o7zotZhQsQOcJUELGHdfPfm/xDAsz6hONAuV25bJaAg==",
+      "path": "sixlabors.fonts/1.0.0",
+      "hashPath": "sixlabors.fonts.1.0.0.nupkg.sha512"
     },
     "SkiaSharp/3.119.3-preview.1.1": {
       "type": "package",
@@ -1836,6 +2061,13 @@
       "sha512": "sha512-aRZlojCCGEHDKqh43jaDgaVpYETsgd7Nx4g1zwLKMtv4iTo0627715ajEFNpEEBTgLmvZuv8K0EVxc3sM4NWJA==",
       "path": "system.composition.typedparts/9.0.0",
       "hashPath": "system.composition.typedparts.9.0.0.nupkg.sha512"
+    },
+    "System.IO.Packaging/8.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-KYkIOAvPexQOLDxPO2g0BVoWInnQhPpkFzRqvNrNrMhVT6kqhVr0zEb6KCHlptLFukxnZrjuMVAnxK7pOGUYrw==",
+      "path": "system.io.packaging/8.0.1",
+      "hashPath": "system.io.packaging.8.0.1.nupkg.sha512"
     },
     "System.Reactive/6.1.0": {
       "type": "package",

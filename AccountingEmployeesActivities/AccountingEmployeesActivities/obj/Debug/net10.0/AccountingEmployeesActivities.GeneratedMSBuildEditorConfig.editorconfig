@@ -44,6 +44,9 @@ build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 [C:/Users/Пользователь/Desktop/3к_2/производственная практика/Accounting_employees_activities/AccountingEmployeesActivities/AccountingEmployeesActivities/Views/Dialogs/CreateTaskDialog.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
+[C:/Users/Пользователь/Desktop/3к_2/производственная практика/Accounting_employees_activities/AccountingEmployeesActivities/AccountingEmployeesActivities/Views/Dialogs/DelegateTaskDialog.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
 [C:/Users/Пользователь/Desktop/3к_2/производственная практика/Accounting_employees_activities/AccountingEmployeesActivities/AccountingEmployeesActivities/Views/Dialogs/EmployeeDialog.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
