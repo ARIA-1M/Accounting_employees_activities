@@ -1,3 +1,4 @@
 <Solution>
   <Project Path="AccountingEmployeesActivities/AccountingEmployeesActivities.csproj" />
+  <Project Path="AccountingEmployeesTest/AccountingEmployeesTest.csproj" Id="462d2016-e097-4b25-9604-84acc7726ea5" />
 </Solution>
