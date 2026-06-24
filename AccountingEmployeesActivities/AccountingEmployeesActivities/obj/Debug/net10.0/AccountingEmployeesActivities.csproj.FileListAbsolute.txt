@@ -196,8 +196,6 @@ C:\projeckt\Accounting_employees_activities\AccountingEmployeesActivities\Accoun
 C:\projeckt\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\LiveChartsCore.SkiaSharpView.dll
 C:\projeckt\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\LiveChartsCore.SkiaSharpView.Avalonia.dll
 C:\projeckt\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\SkiaSharp.HarfBuzz.dll
-C:\projeckt\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\obj\Debug\net10.0\AccountingEmployeesActivities.csproj.Fody.CopyLocal.cache
-C:\projeckt\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\obj\Debug\net10.0\AccountingEmployeesActivities.csproj.Fody.RuntimeCopyLocal.cache
 C:\projeckt\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\DynamicData.dll
 C:\projeckt\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\ReactiveUI.dll
 C:\projeckt\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\ReactiveUI.Fody.Helpers.dll
@@ -250,3 +248,5 @@ C:\projeckt\Accounting_employees_activities\AccountingEmployeesActivities\Accoun
 C:\projeckt\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\runtimes\win-x64\native\qpdf.dll
 C:\projeckt\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\runtimes\win-x86\native\QuestPdfSkia.dll
 C:\projeckt\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\bin\Debug\net10.0\runtimes\win-x86\native\qpdf.dll
+C:\projeckt\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\obj\Debug\net10.0\AccountingEmployeesActivities.csproj.Fody.CopyLocal.cache
+C:\projeckt\Accounting_employees_activities\AccountingEmployeesActivities\AccountingEmployeesActivities\obj\Debug\net10.0\AccountingEmployeesActivities.csproj.Fody.RuntimeCopyLocal.cache

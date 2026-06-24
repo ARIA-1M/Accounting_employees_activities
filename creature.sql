@@ -82,4 +82,4 @@ create table file (
 
 
 
-
+--SELECT setval(('accounting_task.employee_id_employee_seq'::regclass), 1, false);

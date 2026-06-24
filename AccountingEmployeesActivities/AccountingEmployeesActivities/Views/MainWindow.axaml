@@ -16,7 +16,7 @@
 		<DataTemplate DataType="{x:Type pagesVm:HistoryViewModel}">
 			<pages:HistoryView />
 		</DataTemplate>
-		<DataTemplate DataType="{x:Type pagesVm:DelegationViewModel}">
+		<DataTemplate DataType="{x:Type pagesVm:DelegatedViewModel}">
 			<pages:DelegationView />
 		</DataTemplate>
 		<DataTemplate DataType="{x:Type pagesVm:StatisticsViewModel}">
