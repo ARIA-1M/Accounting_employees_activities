@@ -32,6 +32,7 @@ namespace AccountingEmployeesActivities.ViewModels.Pages
         public ICommand OpenFilesCommand { get; }
         public ICommand OpenCommentsCommand { get; }
         public ICommand RefreshCommand { get; }
+        public ICommand ChangeStatusCommand { get; }
 
         public DelegatedViewModel(User currentUser)
         {
@@ -49,6 +50,10 @@ namespace AccountingEmployeesActivities.ViewModels.Pages
             OpenCommentsCommand = new RelayCommand(parameter =>
             {
                 if (parameter is TaskCardModel task) OpenComments(task);
+            });
+            ChangeStatusCommand = new RelayCommand(parameter =>
+            {
+                if (parameter is TaskCardModel task) ChangeStatus(task);
             });
 
             RefreshCommand = new RelayCommand(_ => LoadDelegatedTasks());
@@ -161,6 +166,33 @@ namespace AccountingEmployeesActivities.ViewModels.Pages
             var commentWindow = new AccountingEmployeesActivities.Views.CommentWindow();
             commentWindow.DataContext = new AccountingEmployeesActivities.ViewModels.CommentViewModel(task.IdTask, _currentUserId);
             commentWindow.Show();
+        }
+
+        //  Открыть окно изменения статуса
+        private void ChangeStatus(TaskCardModel task)
+        {
+            if (task == null) return;
+
+            // Получаем ID статуса из модели
+            int currentStatusId = GetStatusIdByName(task.StatusText);
+
+            var dialog = new AccountingEmployeesActivities.Views.Dialogs.ChangeStatusDialog(
+                task.IdTask,
+                currentStatusId
+            );
+            dialog.Show();
+        }
+        private int GetStatusIdByName(string statusName)
+        {
+            return statusName switch
+            {
+                "Новая" => 1,
+                "В работе" => 2,
+                "Ожидание" => 3,
+                "Решена" => 4,
+                "Делегирование" => 5,
+                _ => 1
+            };
         }
     }
 
