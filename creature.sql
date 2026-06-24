@@ -1,7 +1,7 @@
 -- таблица ролей
 create table role (
     id_role serial primary key,
-    name varchar(255) not null,
+    name varchar(255) not null unique,
     description text
 );
 
@@ -30,7 +30,7 @@ create table employee (
 -- таблица статусов
 create table status (
     id_status serial primary key,
-    name varchar(255) not null,
+    name varchar(255) not null unique,
     description text
 );
 
@@ -52,9 +52,9 @@ create table executor (
     id_executor serial primary key,
     id_task int not null,
     id_employee int not null,
-    is_active bool DEFAULT false NOT NULL,
+    is_active boolean default true not null,
     comment text,
-    change_date date,
+    change_date date not null,
     foreign key (id_task) references task(id_task),
     foreign key (id_employee) references employee(id_employee)
 );
@@ -82,4 +82,4 @@ create table file (
 
 
 
---SELECT setval(('accounting_task.employee_id_employee_seq'::regclass), 1, false);
+
