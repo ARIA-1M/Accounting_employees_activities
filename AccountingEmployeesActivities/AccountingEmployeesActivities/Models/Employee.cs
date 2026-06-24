@@ -19,6 +19,8 @@ public partial class Employee
 
     public bool IsActive { get; set; }
 
+    public string FullName => $"{LastName} {FirstName} {MiddleName}".Trim();
+
     public virtual ICollection<Executor> Executors { get; set; } = new List<Executor>();
 
     public virtual Employee? IdBossNavigation { get; set; }

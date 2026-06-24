@@ -1,6 +1,6 @@
+using AccountingEmployeesActivities.DTOs;
 using AccountingEmployeesActivities.Models;
 using AccountingEmployeesActivities.Views;
-using AccountingEmployeesActivities.ViewsModels.Pages;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;

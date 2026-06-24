@@ -362,6 +362,7 @@ namespace AccountingEmployeesActivities.Services.Implementations
                 2 => "#F5A623",                
                 3 => "#4A90E2",
                 4 => "#7ED321",
+                5 => "OK",
                 _ => "#CCCCCC"
             };
         }

@@ -1,5 +1,4 @@
 using AccountingEmployeesActivities.Models;
-using AccountingEmployeesActivities.ViewsModels.Pages;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.ObjectModel;
@@ -7,6 +6,7 @@ using System.Linq;
 using System.Windows.Input;
 using AccountingEmployeesActivities.Views;
 using AccountingEmployeesActivities.ViewModels;
+using AccountingEmployeesActivities.DTOs;
 
 
 namespace AccountingEmployeesActivities.ViewModels.Pages
@@ -86,7 +86,7 @@ namespace AccountingEmployeesActivities.ViewModels.Pages
             });
             DelegateTaskCommand = new RelayCommand(parameter =>
             {
-                if (parameter is TaskCardModel task) DelegateTask(task);
+                if (parameter is TaskCardModel task) OpenDelegateDialog(task);
             });
             OpenFilesCommand = new RelayCommand(parameter =>
             {
@@ -312,6 +312,14 @@ namespace AccountingEmployeesActivities.ViewModels.Pages
             var commentWindow = new AccountingEmployeesActivities.Views.CommentWindow();
             commentWindow.DataContext = new AccountingEmployeesActivities.ViewModels.CommentViewModel(task.IdTask, _currentUserId);
             commentWindow.Show();
+        }
+        private void OpenDelegateDialog(TaskCardModel task)
+        {
+            if (task == null) return;
+
+            var dialog = new AccountingEmployeesActivities.Views.Dialogs.DelegateTaskDialog(task.IdTask, _currentEmployeeId);
+            //dialog.Closed += (_, _) => RefreshData();
+            dialog.Show();
         }
     }
 }
