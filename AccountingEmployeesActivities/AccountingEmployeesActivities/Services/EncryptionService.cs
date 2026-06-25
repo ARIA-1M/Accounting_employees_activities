@@ -16,6 +16,7 @@ namespace AccountingEmployeesActivities.Services
             byte[] plainBytes = Encoding.UTF8.GetBytes(plainText);
             byte[] encryptedBytes = ProtectedData.Protect(plainBytes, null, DataProtectionScope.CurrentUser);
             return Convert.ToBase64String(encryptedBytes);
+            
         }
 
         //Расшифровка

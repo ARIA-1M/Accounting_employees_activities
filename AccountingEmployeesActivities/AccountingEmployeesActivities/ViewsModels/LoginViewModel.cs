@@ -10,6 +10,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading;
 using Task = System.Threading.Tasks.Task;
+using BCrypt;
 
 // Обработка логики для авторизации
 
@@ -33,6 +34,7 @@ namespace AccountingEmployeesActivities.ViewModels
             get => _login;
             set { _login = value; OnPropertyChanged(); }
         }
+
 
         public string Password
         {
@@ -102,6 +104,9 @@ namespace AccountingEmployeesActivities.ViewModels
                 return;
             }
 
+            string password = "adminMMM07";
+            string hash = BCrypt.Net.BCrypt.HashPassword(password, workFactor: 10);
+            Console.WriteLine(hash);
 
             using var db = new PostgresContext();
 

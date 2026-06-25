@@ -6,7 +6,7 @@ INSERT INTO role (id_role, name, description) VALUES
 
 -- Данные для таблицы user (пользователи)
 INSERT INTO "user" (id_user, id_role, login, password) VALUES
-(1, 1, 'admin', '$2a$10$SzEA9ilW1hnue6W6hnht9OAWfvNvV836WuKTvQrV7IxXWvTiTXIni'),
+(1, 1, 'admin', '$2a$10$dmkV/QFsRrzXt.RA67YWq.eeqB/vDGM9t7RrCWd4dgQcG/91F5i9S'),
 (2, 2, 'ivanov', '$2a$10$JfOILPGRm0SWpdxv4ytBwe5efpE8191g.VaRwEyOGq3ebtboTiVxu'),
 (3, 2, 'petrov', '$2a$10$LHPpey80wtUN.x0xkueOD.5xX8py2QqRjrDbiO8.7v9XSy8t2dtLC'),
 (4, 3, 'sidorov', 'pass123'),

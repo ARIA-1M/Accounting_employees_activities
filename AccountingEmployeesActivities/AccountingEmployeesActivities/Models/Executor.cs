@@ -11,11 +11,11 @@ public partial class Executor
 
     public int IdEmployee { get; set; }
 
-    public bool? IsActive { get; set; }
+    public bool IsActive { get; set; }
 
     public string? Comment { get; set; }
 
-    public DateOnly? ChangeDate { get; set; }
+    public DateOnly ChangeDate { get; set; }
 
     public virtual Employee IdEmployeeNavigation { get; set; } = null!;
 
