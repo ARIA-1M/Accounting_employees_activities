@@ -121,8 +121,10 @@ namespace AccountingEmployeesActivities.ViewModels
                 return;
             }
 
-            bool isPasswordValid = BCrypt.Net.BCrypt.Verify(Password, user.Password);
 
+            bool isPasswordValid = BCrypt.Net.BCrypt.Verify(Password, user.Password);
+            bool isPasswordValid1 = BCrypt.Net.BCrypt.Verify(password, hash);
+            Console.WriteLine("Результат проверки: " + isPasswordValid);
 
             if (!isPasswordValid)
             {
