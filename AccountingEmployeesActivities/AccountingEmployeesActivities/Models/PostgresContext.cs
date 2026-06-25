@@ -33,7 +33,7 @@ public partial class PostgresContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=postgres;Username=postgres;Password=123");
+        => optionsBuilder.UseNpgsql("Host=10.10.130.6;Port=5432;Database=accounting_activities;Username=gmn;Password=MiSha2004");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -41,7 +41,7 @@ public partial class PostgresContext : DbContext
         {
             entity.HasKey(e => e.IdComment).HasName("comment_pkey");
 
-            entity.ToTable("comment", "accounting_task");
+            entity.ToTable("comment");
 
             entity.Property(e => e.IdComment).HasColumnName("id_comment");
             entity.Property(e => e.AddDate).HasColumnName("add_date");
@@ -64,7 +64,7 @@ public partial class PostgresContext : DbContext
         {
             entity.HasKey(e => e.IdEmployee).HasName("employee_pkey");
 
-            entity.ToTable("employee", "accounting_task");
+            entity.ToTable("employee");
 
             entity.HasIndex(e => e.IdUser, "employee_id_user_key").IsUnique();
 
@@ -98,7 +98,7 @@ public partial class PostgresContext : DbContext
         {
             entity.HasKey(e => e.IdExecutor).HasName("executor_pkey");
 
-            entity.ToTable("executor", "accounting_task");
+            entity.ToTable("executor");
 
             entity.Property(e => e.IdExecutor).HasColumnName("id_executor");
             entity.Property(e => e.ChangeDate).HasColumnName("change_date");
@@ -106,7 +106,7 @@ public partial class PostgresContext : DbContext
             entity.Property(e => e.IdEmployee).HasColumnName("id_employee");
             entity.Property(e => e.IdTask).HasColumnName("id_task");
             entity.Property(e => e.IsActive)
-                .HasDefaultValue(false)
+                .HasDefaultValue(true)
                 .HasColumnName("is_active");
 
             entity.HasOne(d => d.IdEmployeeNavigation).WithMany(p => p.Executors)
@@ -124,10 +124,11 @@ public partial class PostgresContext : DbContext
         {
             entity.HasKey(e => e.IdFile).HasName("file_pkey");
 
-            entity.ToTable("file", "accounting_task");
+            entity.ToTable("file");
 
             entity.Property(e => e.IdFile).HasColumnName("id_file");
             entity.Property(e => e.AddDate).HasColumnName("add_date");
+            entity.Property(e => e.Data).HasColumnName("data");
             entity.Property(e => e.IdTask).HasColumnName("id_task");
             entity.Property(e => e.Name)
                 .HasMaxLength(255)
@@ -137,15 +138,15 @@ public partial class PostgresContext : DbContext
                 .HasForeignKey(d => d.IdTask)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("file_id_task_fkey");
-
-            entity.Property(e => e.Data).HasColumnName("data");
         });
 
         modelBuilder.Entity<Role>(entity =>
         {
             entity.HasKey(e => e.IdRole).HasName("role_pkey");
 
-            entity.ToTable("role", "accounting_task");
+            entity.ToTable("role");
+
+            entity.HasIndex(e => e.Name, "role_name_key").IsUnique();
 
             entity.Property(e => e.IdRole).HasColumnName("id_role");
             entity.Property(e => e.Description).HasColumnName("description");
@@ -158,7 +159,9 @@ public partial class PostgresContext : DbContext
         {
             entity.HasKey(e => e.IdStatus).HasName("status_pkey");
 
-            entity.ToTable("status", "accounting_task");
+            entity.ToTable("status");
+
+            entity.HasIndex(e => e.Name, "status_name_key").IsUnique();
 
             entity.Property(e => e.IdStatus).HasColumnName("id_status");
             entity.Property(e => e.Description).HasColumnName("description");
@@ -171,7 +174,7 @@ public partial class PostgresContext : DbContext
         {
             entity.HasKey(e => e.IdTask).HasName("task_pkey");
 
-            entity.ToTable("task", "accounting_task");
+            entity.ToTable("task");
 
             entity.Property(e => e.IdTask).HasColumnName("id_task");
             entity.Property(e => e.CompletionDate).HasColumnName("completion_date");
@@ -198,7 +201,7 @@ public partial class PostgresContext : DbContext
         {
             entity.HasKey(e => e.IdUser).HasName("user_pkey");
 
-            entity.ToTable("user", "accounting_task");
+            entity.ToTable("user");
 
             entity.HasIndex(e => e.Login, "user_login_key").IsUnique();
 

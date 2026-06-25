@@ -104,10 +104,6 @@ namespace AccountingEmployeesActivities.ViewModels
                 return;
             }
 
-            string password = "adminMMM07";
-            string hash = BCrypt.Net.BCrypt.HashPassword(password, workFactor: 10);
-            Console.WriteLine(hash);
-
             using var db = new PostgresContext();
 
             var user = await db.Users
@@ -123,8 +119,6 @@ namespace AccountingEmployeesActivities.ViewModels
 
 
             bool isPasswordValid = BCrypt.Net.BCrypt.Verify(Password, user.Password);
-            bool isPasswordValid1 = BCrypt.Net.BCrypt.Verify(password, hash);
-            Console.WriteLine("Результат проверки: " + isPasswordValid);
 
             if (!isPasswordValid)
             {
