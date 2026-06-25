@@ -3,12 +3,12 @@ using Avalonia.Markup.Xaml;
 
 namespace AccountingEmployeesActivities.Views.Pages
 {
-    public partial class SettingsView : UserControl
+    public partial class StatisticGLPIView : UserControl
     {
-        public SettingsView()
+        public StatisticGLPIView()
         {
             InitializeComponent();
-            DataContext = new ViewModels.Pages.SettingsViewModel();
+            DataContext = new ViewModels.Pages.StatisticGLPIViewModel();
         }
         private void InitializeComponent() => AvaloniaXamlLoader.Load(this);
     }

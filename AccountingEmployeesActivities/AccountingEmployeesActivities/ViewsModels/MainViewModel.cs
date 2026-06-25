@@ -20,7 +20,7 @@ namespace AccountingEmployeesActivities.ViewModels
         Statistics,
         Tasks,
         Employees,
-        Settings   // новый пункт
+        StatisticGLPI   // новый пункт
     }
 
     public class MainViewModel : ViewModelBase
@@ -102,7 +102,7 @@ namespace AccountingEmployeesActivities.ViewModels
                 MenuItems.Add(new MenuItem { Header = "Делегирование", PageType = PageType.Delegation });
                 MenuItems.Add(new MenuItem { Header = "Статистика", PageType = PageType.Statistics });
             }
-            MenuItems.Add(new MenuItem { Header = "Настройки", PageType = PageType.Settings });
+            MenuItems.Add(new MenuItem { Header = "Статистика GLPI", PageType = PageType.StatisticGLPI });
         }
 
         private void Navigate(object parameter)
@@ -123,7 +123,7 @@ namespace AccountingEmployeesActivities.ViewModels
                 PageType.Statistics => new StatisticsViewModel(_currentUser, App.ServiceProvider.GetRequiredService<IStatisticsService>(), App.ServiceProvider.GetRequiredService<IExportService>()),
                 PageType.Tasks => new TasksViewModel(_currentUser),
                 PageType.Employees => new EmployeesViewModel(_currentUser),
-                PageType.Settings => new SettingsViewModel(),
+                PageType.StatisticGLPI => new StatisticGLPIViewModel(),
                 _ => new MyTasksViewModel(_currentUser)
             };
         }

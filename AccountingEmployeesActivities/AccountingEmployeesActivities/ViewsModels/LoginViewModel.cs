@@ -25,7 +25,7 @@ namespace AccountingEmployeesActivities.ViewModels
         private bool _isLoggedIn;
         private User _currentUser;
         private bool _rememberMe;
-        private readonly SettingsService _settingsService;
+        private readonly StatisticGLPIService _settingsService;
 
         public event EventHandler<User> LoginSuccess;
 
@@ -76,7 +76,7 @@ namespace AccountingEmployeesActivities.ViewModels
 
         public LoginViewModel()
         {
-            _settingsService = new SettingsService();
+            _settingsService = new StatisticGLPIService();
             LoginCommand = new AsyncRelayCommand(LoginAsync);
             IsLoggedIn = false;
 

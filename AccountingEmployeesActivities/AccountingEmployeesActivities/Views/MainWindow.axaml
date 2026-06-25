@@ -28,8 +28,8 @@
 		<DataTemplate DataType="{x:Type pagesVm:EmployeesViewModel}">
 			<pages:EmployeesView />
 		</DataTemplate>
-		<DataTemplate DataType="{x:Type pagesVm:SettingsViewModel}">
-			<pages:SettingsView />
+		<DataTemplate DataType="{x:Type pagesVm:StatisticGLPIViewModel}">
+			<pages:StatisticGLPIView />
 		</DataTemplate>
 	</Window.DataTemplates>
 

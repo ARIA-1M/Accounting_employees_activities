@@ -8,12 +8,12 @@ using System.Text.Json;
 
 namespace AccountingEmployeesActivities.Services
 {
-    public class SettingsService
+    public class StatisticGLPIService
     {
-        private readonly string _settingsPath;
+        private readonly string _statisticGLPIPath;
         private readonly EncryptionService _encryptionService;
 
-        public SettingsService()
+        public StatisticGLPIService()
         {
             _encryptionService = new EncryptionService();
 
@@ -25,39 +25,39 @@ namespace AccountingEmployeesActivities.Services
                 Directory.CreateDirectory(appFolder);
             }
 
-            _settingsPath = Path.Combine(appFolder, "settings.json");
+            _statisticGLPIPath = Path.Combine(appFolder, "statisticGLPI.json");
         }
 
         public void SaveCredentials(string login, string password)
         {
-            var settings = new UserSettings
+            var statisticGLPI = new UserSettings
             {
                 Login = login,
                 Password = _encryptionService.Encrypt(password)  
             };
 
-            string json = JsonSerializer.Serialize(settings);
-            File.WriteAllText(_settingsPath, json);
+            string json = JsonSerializer.Serialize(statisticGLPI);
+            File.WriteAllText(_statisticGLPIPath, json);
         }
 
         public UserSettings LoadCredentials()
         {
-            if (!File.Exists(_settingsPath))
+            if (!File.Exists(_statisticGLPIPath))
             {
                 return new UserSettings { Login = "", Password = "" };
             }
 
             try
             {
-                string json = File.ReadAllText(_settingsPath);
-                var settings = JsonSerializer.Deserialize<UserSettings>(json);
+                string json = File.ReadAllText(_statisticGLPIPath);
+                var statisticGLPI = JsonSerializer.Deserialize<UserSettings>(json);
 
-                if (settings != null && !string.IsNullOrEmpty(settings.Password))
+                if (statisticGLPI != null && !string.IsNullOrEmpty(statisticGLPI.Password))
                 {
-                    settings.Password = _encryptionService.Decrypt(settings.Password); 
+                    statisticGLPI.Password = _encryptionService.Decrypt(statisticGLPI.Password); 
                 }
 
-                return settings ?? new UserSettings();
+                return statisticGLPI ?? new UserSettings();
             }
             catch
             {
