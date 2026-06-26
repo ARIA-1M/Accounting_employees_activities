@@ -108,6 +108,18 @@
                       FontWeight="SemiBold"
                       Margin="0,8,0,0"/>
 
+			<!-- Поле для id GLPI-->
+			<TextBlock Text="ID GLPI"
+                   FontWeight="SemiBold"
+                   Foreground="#334155"
+                   FontSize="13"
+                   Margin="0,8,0,0"/>
+			<TextBox Text="{Binding EmployeeForm.IdGlpi}"
+					 Watermark="Введите ID GLPI (если есть)"
+					 CornerRadius="8"
+					 Height="38"
+					 Background="White"/>
+
 			<!-- При редактировании показываем ID -->
 			<TextBlock Text="{Binding EmployeeIdInfo}"
                        FontSize="12"

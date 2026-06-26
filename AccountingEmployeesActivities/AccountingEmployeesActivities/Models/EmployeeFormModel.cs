@@ -20,5 +20,7 @@ namespace AccountingEmployeesActivities.Models
         public int IdRole { get; set; }
         public bool IsActive { get; set; } = true;
         public int IdBoss { get; set; }
+
+        public int? IdGlpi { get; set; }
     }
 }

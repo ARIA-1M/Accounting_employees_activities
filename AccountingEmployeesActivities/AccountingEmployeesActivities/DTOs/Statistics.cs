@@ -30,5 +30,7 @@ namespace AccountingEmployeesActivities.DTOs
     {
         public int Id { get; set; }
         public string FullName { get; set; }
+        public int? IdGlpi { get; set; }     // ID в GLPI (из User)
+
     }
 }

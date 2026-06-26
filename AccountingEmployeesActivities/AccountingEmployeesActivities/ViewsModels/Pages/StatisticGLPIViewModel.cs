@@ -8,8 +8,8 @@ using LiveChartsCore.SkiaSharpView.Painting;
 using SkiaSharp;
 using System;
 using System.Collections.ObjectModel;
-using System.Windows.Input;
 using System.Linq;
+using System.Windows.Input;
 using SystemTask = System.Threading.Tasks.Task;
 
 namespace AccountingEmployeesActivities.ViewModels.Pages
@@ -18,6 +18,7 @@ namespace AccountingEmployeesActivities.ViewModels.Pages
     {
         private readonly IStatisticsService _statisticsService;
         private readonly int _currentUserId;
+        private readonly int _currentEmployeeId;
 
         #region Properties
 
@@ -27,12 +28,11 @@ namespace AccountingEmployeesActivities.ViewModels.Pages
             get => _title;
             set => SetProperty(ref _title, value);
         }
-        // Для выгрузки файлом
+
         private readonly IExportService _exportService;
         public ICommand ExportToExcelCommand { get; }
         public ICommand ExportToPdfCommand { get; }
 
-        // Для графиков
         private ISeries[] _statusChartSeries = Array.Empty<ISeries>();
         public ISeries[] StatusChartSeries
         {
@@ -61,7 +61,6 @@ namespace AccountingEmployeesActivities.ViewModels.Pages
             set => SetProperty(ref _employeeTasksYAxes, value);
         }
 
-        // НОВЫЕ СВОЙСТВА ДЛЯ ФИЛЬТРА ПО ДАТЕ
         private DateTime _startDate;
         public DateTime StartDate
         {
@@ -158,6 +157,11 @@ namespace AccountingEmployeesActivities.ViewModels.Pages
         public StatisticsGLPIViewModel(User currentUser, IStatisticsService statisticsService, IExportService exportService)
         {
             _currentUserId = currentUser.IdUser;
+
+            using var db = new PostgresContext();
+            var employee = db.Employees.FirstOrDefault(e => e.IdUser == _currentUserId);
+            _currentEmployeeId = employee?.IdEmployee ?? 0;
+
             _statisticsService = statisticsService;
             _exportService = exportService;
 
@@ -175,7 +179,7 @@ namespace AccountingEmployeesActivities.ViewModels.Pages
             IsLoading = true;
             try
             {
-                var employees = await _statisticsService.GetEmployeesForFilterAsync(_currentUserId);
+                var employees = await _statisticsService.GetEmployeesForFilterAsync(_currentEmployeeId);
                 Employees = new ObservableCollection<EmployeeFilterDto>(employees ?? new());
                 SelectedEmployee = Employees.FirstOrDefault();
 
@@ -211,49 +215,60 @@ namespace AccountingEmployeesActivities.ViewModels.Pages
 
         private async SystemTask LoadStatisticsAsync()
         {
-            if (SelectedEmployee == null) return;
+            System.Diagnostics.Debug.WriteLine($"LoadStatisticsAsync START");
+
+            if (SelectedEmployee == null)
+            {
+                System.Diagnostics.Debug.WriteLine($"   SelectedEmployee is NULL!");
+                return;
+            }
 
             IsLoading = true;
 
             try
             {
-                int? filterId = SelectedEmployee.Id;
+                int? filterId = SelectedEmployee.Id == 0 ? null : SelectedEmployee.Id;
+                System.Diagnostics.Debug.WriteLine($"Фильтр по сотруднику: {filterId?.ToString() ?? "Все"}");
 
-                // ПЕРЕДАЕМ ДАТЫ В СЕРВИС
                 var stats = await _statisticsService.GetStatisticsAsync(filterId, _startDate, _endDate);
+                System.Diagnostics.Debug.WriteLine($"Stats получены: Total={stats.TotalTasks}, Completed={stats.CompletedTasks}");
+
                 TotalTasks = stats.TotalTasks;
                 CompletedTasks = stats.CompletedTasks;
                 InProgressTasks = stats.InProgressTasks;
                 ProgressPercentage = stats.ProgressPercentage;
 
                 var distribution = await _statisticsService.GetStatusDistributionAsync(filterId, _startDate, _endDate);
+                System.Diagnostics.Debug.WriteLine($"Distribution получена: {distribution?.Count ?? 0} записей");
+
                 StatusDistribution = new ObservableCollection<StatusDistributionDto>(distribution ?? new());
 
                 var employeeTasks = await _statisticsService.GetEmployeeTasksAsync(filterId, _startDate, _endDate);
+                System.Diagnostics.Debug.WriteLine($"EmployeeTasks получены: {employeeTasks?.Count ?? 0} записей");
+
                 EmployeeTasks = new ObservableCollection<EmployeeTasksDto>(employeeTasks ?? new());
 
-                System.Diagnostics.Debug.WriteLine($"StatusDistribution count: {StatusDistribution.Count}");
-                System.Diagnostics.Debug.WriteLine($"EmployeeTasks count: {EmployeeTasks.Count}");
                 BuildCharts();
-
-                System.Diagnostics.Debug.WriteLine($"StatusChartSeries count: {StatusChartSeries.Length}");
-                System.Diagnostics.Debug.WriteLine($"EmployeeTasksChartSeries count: {EmployeeTasksChartSeries.Length}");
+                System.Diagnostics.Debug.WriteLine($"Диаграммы построены");
             }
             catch (Exception ex)
             {
-                System.Diagnostics.Debug.WriteLine("LoadStatistics error:");
-                System.Diagnostics.Debug.WriteLine(ex.ToString());
+                System.Diagnostics.Debug.WriteLine($"ОШИБКА: {ex.Message}");
+                System.Diagnostics.Debug.WriteLine($"Стек: {ex.StackTrace}");
             }
             finally
             {
                 IsLoading = false;
+                System.Diagnostics.Debug.WriteLine($"LoadStatisticsAsync END");
             }
         }
+
         private void BuildCharts()
         {
             BuildStatusChart();
             BuildEmployeeTasksChart();
         }
+
         private void BuildStatusChart()
         {
             if (StatusDistribution == null || StatusDistribution.Count == 0)
@@ -262,26 +277,13 @@ namespace AccountingEmployeesActivities.ViewModels.Pages
                 return;
             }
 
-            var colors = new[]
-            {
-                SKColor.Parse("#4CAF50"), // зелёный
-                SKColor.Parse("#2196F3"), // синий
-                SKColor.Parse("#FFC107"), // жёлтый
-                SKColor.Parse("#F44336"), // красный
-                SKColor.Parse("#9C27B0"), // фиолетовый
-                SKColor.Parse("#00BCD4")  // голубой
-            };
-
             StatusChartSeries = StatusDistribution
                 .Select((item, index) => new PieSeries<double>
                 {
                     Name = item.StatusName,
-
                     Values = new[] { (double)item.Count },
-
                     Fill = new SolidColorPaint(GetStatusColor(item.StatusName)),
                     Stroke = new SolidColorPaint(SKColors.White) { StrokeThickness = 2 },
-
                     DataLabelsSize = 20,
                     DataLabelsPaint = new SolidColorPaint(SKColors.White)
                     {
@@ -290,6 +292,7 @@ namespace AccountingEmployeesActivities.ViewModels.Pages
                 })
                 .ToArray();
         }
+
         private void BuildEmployeeTasksChart()
         {
             if (EmployeeTasks == null || EmployeeTasks.Count == 0)
@@ -315,82 +318,75 @@ namespace AccountingEmployeesActivities.ViewModels.Pages
             EmployeeTasksChartSeries =
             [
                 new StackedColumnSeries<double>
-        {
-            Name = "Выполнено",
-            Values = completedValues,
-
-            Fill = new SolidColorPaint(SKColor.Parse("#23c55e")),
-            Stroke = new SolidColorPaint(SKColors.White) { StrokeThickness = 1 },
-
-            DataLabelsSize = 20,
-            DataLabelsPaint = new SolidColorPaint(SKColors.White)
-            {
-                 SKTypeface = SKTypeface.FromFamilyName(null, SKFontStyle.Bold)
-            },
-            DataLabelsFormatter = point =>
-                point.Coordinate.PrimaryValue == 0
-                    ? string.Empty
-                    : point.Coordinate.PrimaryValue.ToString("0"),
-            MaxBarWidth = 55
-        },
-
-        new StackedColumnSeries<double>
-        {
-            Name = "Осталось",
-            Values = remainingValues,
-
-            Fill = new SolidColorPaint(SKColor.Parse("#BDBDBD")),
-            Stroke = new SolidColorPaint(SKColors.White) { StrokeThickness = 1 },
-
-            DataLabelsSize = 20,
-            DataLabelsPaint = new SolidColorPaint(SKColors.White)
-            {
-                 SKTypeface = SKTypeface.FromFamilyName(null, SKFontStyle.Bold)
-            },
-            DataLabelsFormatter = point =>
-                point.Coordinate.PrimaryValue == 0
-                    ? string.Empty
-                    : point.Coordinate.PrimaryValue.ToString("0"),
-            MaxBarWidth = 55
-        }
+                {
+                    Name = "Выполнено",
+                    Values = completedValues,
+                    Fill = new SolidColorPaint(SKColor.Parse("#23c55e")),
+                    Stroke = new SolidColorPaint(SKColors.White) { StrokeThickness = 1 },
+                    DataLabelsSize = 20,
+                    DataLabelsPaint = new SolidColorPaint(SKColors.White)
+                    {
+                        SKTypeface = SKTypeface.FromFamilyName(null, SKFontStyle.Bold)
+                    },
+                    DataLabelsFormatter = point =>
+                        point.Coordinate.PrimaryValue == 0 ? string.Empty : point.Coordinate.PrimaryValue.ToString("0"),
+                    MaxBarWidth = 55
+                },
+                new StackedColumnSeries<double>
+                {
+                    Name = "Осталось",
+                    Values = remainingValues,
+                    Fill = new SolidColorPaint(SKColor.Parse("#BDBDBD")),
+                    Stroke = new SolidColorPaint(SKColors.White) { StrokeThickness = 1 },
+                    DataLabelsSize = 20,
+                    DataLabelsPaint = new SolidColorPaint(SKColors.White)
+                    {
+                        SKTypeface = SKTypeface.FromFamilyName(null, SKFontStyle.Bold)
+                    },
+                    DataLabelsFormatter = point =>
+                        point.Coordinate.PrimaryValue == 0 ? string.Empty : point.Coordinate.PrimaryValue.ToString("0"),
+                    MaxBarWidth = 55
+                }
             ];
 
             EmployeeTasksXAxes =
             [
                 new Axis
-        {
-            Labels = labels,
-            LabelsRotation = 15,
-            TextSize = 12,
-            LabelsPaint = new SolidColorPaint(SKColor.Parse("#333333")),
-            SeparatorsPaint = new SolidColorPaint(SKColor.Parse("#EEEEEE"))
-        }
+                {
+                    Labels = labels,
+                    LabelsRotation = 15,
+                    TextSize = 12,
+                    LabelsPaint = new SolidColorPaint(SKColor.Parse("#333333")),
+                    SeparatorsPaint = new SolidColorPaint(SKColor.Parse("#EEEEEE"))
+                }
             ];
 
             EmployeeTasksYAxes =
             [
                 new Axis
-        {
-            MinLimit = 0,
-            TextSize = 12,
-            LabelsPaint = new SolidColorPaint(SKColor.Parse("#333333")),
-            SeparatorsPaint = new SolidColorPaint(SKColor.Parse("#DDDDDD")),
-            Labeler = value => value.ToString("0")
-        }
+                {
+                    MinLimit = 0,
+                    TextSize = 12,
+                    LabelsPaint = new SolidColorPaint(SKColor.Parse("#333333")),
+                    SeparatorsPaint = new SolidColorPaint(SKColor.Parse("#DDDDDD")),
+                    Labeler = value => value.ToString("0")
+                }
             ];
         }
+
         private static SKColor GetStatusColor(string statusName)
         {
             return statusName?.Trim().ToLower() switch
             {
-                "создание" => SKColor.Parse("#64748b"),
-                "в ожидании" => SKColor.Parse("#f49e0b"),
+                "н" => SKColor.Parse("#64748b"),
                 "в работе" => SKColor.Parse("#3b82f6"),
-                "сделана" => SKColor.Parse("#23c55e"),
-
-                _ => SKColor.Parse("#BDBDBD")                // цвет по умолчанию
+                "в ожидании" => SKColor.Parse("#f49e0b"),
+                "решена" => SKColor.Parse("#23c55e"),
+                "закрыта" => SKColor.Parse("#9C27B0"),
+                _ => SKColor.Parse("#BDBDBD")
             };
         }
+
         public async SystemTask ExportExcelAsync(string filePath)
         {
             if (SelectedEmployee == null) return;
@@ -412,7 +408,6 @@ namespace AccountingEmployeesActivities.ViewModels.Pages
                 var employeeName = SelectedEmployee.FullName;
                 var dateRange = $"{StartDate:dd.MM.yyyy} — {EndDate:dd.MM.yyyy}";
 
-                // Вызываем сервис
                 await _exportService.ExportToExcelAsync(
                     filePath, stats, distribution,
                     employeeTasksList, employeeName, dateRange);

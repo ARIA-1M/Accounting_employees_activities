@@ -64,6 +64,7 @@ namespace AccountingEmployeesActivities.ViewModels.Dialogs
 
         public event EventHandler<EmployeeFormModel> EmployeeSaved;
 
+        // Конструктор для создания нового сотрудника
         public EmployeeDialogViewModel(int currentUserId)
         {
             DialogTitle = "Создание сотрудника";
@@ -73,7 +74,8 @@ namespace AccountingEmployeesActivities.ViewModels.Dialogs
             {
                 IdBoss = currentUserId,
                 IsActive = true,
-                Password = string.Empty
+                Password = string.Empty,
+                IdGlpi = null  // ID GLPI изначально пустой
             };
 
             LoadRoles();
@@ -93,6 +95,7 @@ namespace AccountingEmployeesActivities.ViewModels.Dialogs
             }
         }
 
+        // Конструктор для редактирования существующего сотрудника
         public EmployeeDialogViewModel(Employee employee, int currentUserId)
         {
             DialogTitle = "Редактирование сотрудника";
@@ -110,7 +113,8 @@ namespace AccountingEmployeesActivities.ViewModels.Dialogs
                 MiddleName = employee.MiddleName,
                 IdRole = employee.IdUserNavigation?.IdRole ?? 3,
                 IsActive = employee.IsActive,
-                IdBoss = currentUserId
+                IdBoss = currentUserId,
+                IdGlpi = employee.IdUserNavigation?.IdGlpi  // ID GLPI из пользователя
             };
 
             EmployeeIdInfo = $"ID сотрудника: {employee.IdEmployee}";
@@ -121,7 +125,7 @@ namespace AccountingEmployeesActivities.ViewModels.Dialogs
 
         private void InitCommands()
         {
-          
+
             SaveCommand = new RelayCommand(_ => Save());
             CancelCommand = new RelayCommand(_ => Cancel());
         }
@@ -136,30 +140,35 @@ namespace AccountingEmployeesActivities.ViewModels.Dialogs
         {
 
             HideError();
+            // Проверка: логин не пустой
             if (string.IsNullOrWhiteSpace(EmployeeForm.Login))
             {
                 ShowError("Введите логин");
                 return;
             }
 
+            // Проверка: пароль не пустой (только при создании)
             if (IsNewEmployee && string.IsNullOrWhiteSpace(EmployeeForm.Password))
             {
                 ShowError("Введите пароль");
                 return;
             }
 
+            // Проверка: фамилия не пустая
             if (string.IsNullOrWhiteSpace(EmployeeForm.LastName))
             {
                 ShowError("Введите фамилию");
                 return;
             }
 
+            // Проверка: имя не пустое
             if (string.IsNullOrWhiteSpace(EmployeeForm.FirstName))
             {
                 ShowError("Введите имя");
                 return;
             }
 
+            // Проверка на уникальность логина
             if (!IsLoginUnique(EmployeeForm.Login, IsNewEmployee ? null : EmployeeForm.IdEmployee))
             {
                 ShowError("Пользователь с таким логином уже существует. Введите другой логин.");
@@ -169,15 +178,16 @@ namespace AccountingEmployeesActivities.ViewModels.Dialogs
             EmployeeSaved?.Invoke(this, EmployeeForm);
         }
 
+        // Проверка уникальности логина
         private bool IsLoginUnique(string login, int? excludeEmployeeId = null)
         {
             using var db = new PostgresContext();
             var query = db.Users.Where(u => u.Login == login);
 
-            
+
             if (excludeEmployeeId.HasValue)
             {
-                
+
                 var employee = db.Employees
                     .FirstOrDefault(e => e.IdEmployee == excludeEmployeeId.Value);
 
@@ -196,9 +206,9 @@ namespace AccountingEmployeesActivities.ViewModels.Dialogs
 
         private void ShowError(string message)
         {
-            
 
-            ErrorMessage = message;      
+
+            ErrorMessage = message;
             IsErrorVisible = true;
         }
 

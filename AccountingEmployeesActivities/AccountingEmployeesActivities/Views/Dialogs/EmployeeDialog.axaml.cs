@@ -59,13 +59,12 @@ namespace AccountingEmployeesActivities.Views.Dialogs
                 {
                     Login = form.Login,
                     Password = BCrypt.Net.BCrypt.HashPassword(form.Password, workFactor: 10),
-                    IdRole = form.IdRole
+                    IdRole = form.IdRole,
+                    IdGlpi = form.IdGlpi
                 };
                 user.IdUser = db.Users.Any() ? db.Users.Max(u => u.IdUser) + 1 : 1;
                 db.Users.Add(user);
                 db.SaveChanges();
-
-                
 
                 var employee = new Employee
                 {
@@ -92,8 +91,8 @@ namespace AccountingEmployeesActivities.Views.Dialogs
                 employee.FirstName = form.FirstName;
                 employee.LastName = form.LastName;
                 employee.MiddleName = form.MiddleName;
-
                 employee.IsActive = form.IsActive;
+                
 
                 if (employee.IdUserNavigation != null)
                 {
@@ -103,6 +102,7 @@ namespace AccountingEmployeesActivities.Views.Dialogs
                         employee.IdUserNavigation.Password = BCrypt.Net.BCrypt.HashPassword(form.Password, workFactor: 10);
                     }
                     employee.IdUserNavigation.IdRole = form.IdRole;
+                    employee.IdUserNavigation.IdGlpi = form.IdGlpi;
                 }
 
                 db.SaveChanges();

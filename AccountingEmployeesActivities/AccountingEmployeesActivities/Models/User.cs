@@ -13,6 +13,8 @@ public partial class User
 
     public string Password { get; set; } = null!;
 
+    public int? IdGlpi { get; set; }
+
     public virtual ICollection<Comment> Comments { get; set; } = new List<Comment>();
 
     public virtual Employee? Employee { get; set; }

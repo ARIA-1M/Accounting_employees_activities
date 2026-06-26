@@ -206,6 +206,7 @@ public partial class AccountingActivitiesContext : DbContext
             entity.HasIndex(e => e.Login, "user_login_key").IsUnique();
 
             entity.Property(e => e.IdUser).HasColumnName("id_user");
+            entity.Property(e => e.IdGlpi).HasColumnName("id_glpi");
             entity.Property(e => e.IdRole).HasColumnName("id_role");
             entity.Property(e => e.Login)
                 .HasMaxLength(255)
