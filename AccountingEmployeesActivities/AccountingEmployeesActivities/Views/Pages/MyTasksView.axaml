@@ -177,6 +177,7 @@
 									<Button Background="Transparent"
 											BorderThickness="0"
 											Padding="0"
+											Margin="0,0,0,8"
 											Command="{Binding DataContext.OpenCommentsCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
 											CommandParameter="{Binding}"
 											Cursor="Hand">

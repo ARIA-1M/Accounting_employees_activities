@@ -17,6 +17,7 @@ namespace AccountingEmployeesActivities.ViewModels.Dialogs
         private string _errorMessage;
         private bool _isErrorVisible;
 
+
         public EmployeeFormModel EmployeeForm
         {
             get => _employeeForm;
@@ -46,7 +47,6 @@ namespace AccountingEmployeesActivities.ViewModels.Dialogs
             get => _employeeIdInfo;
             set => SetProperty(ref _employeeIdInfo, value);
         }
-
         public string ErrorMessage
         {
             get => _errorMessage;
@@ -109,7 +109,7 @@ namespace AccountingEmployeesActivities.ViewModels.Dialogs
                 LastName = employee.LastName,
                 MiddleName = employee.MiddleName,
                 IdRole = employee.IdUserNavigation?.IdRole ?? 3,
-                IsActive = employee.IsActive.GetValueOrDefault(true),
+                IsActive = employee.IsActive,
                 IdBoss = currentUserId
             };
 
@@ -134,8 +134,8 @@ namespace AccountingEmployeesActivities.ViewModels.Dialogs
 
         private void Save()
         {
-            HideError();
 
+            HideError();
             if (string.IsNullOrWhiteSpace(EmployeeForm.Login))
             {
                 ShowError("Введите логин");
@@ -196,6 +196,8 @@ namespace AccountingEmployeesActivities.ViewModels.Dialogs
 
         private void ShowError(string message)
         {
+            
+
             ErrorMessage = message;      
             IsErrorVisible = true;
         }

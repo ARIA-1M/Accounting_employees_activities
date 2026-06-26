@@ -13,5 +13,7 @@ public partial class File
 
     public DateOnly AddDate { get; set; }
 
+    public byte[]? Data { get; set; }
+
     public virtual Task IdTaskNavigation { get; set; } = null!;
 }

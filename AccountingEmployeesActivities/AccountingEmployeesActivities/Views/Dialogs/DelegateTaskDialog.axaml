@@ -1,0 +1,77 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="AccountingEmployeesActivities.Views.Dialogs.DelegateTaskDialog"
+        WindowStartupLocation="CenterOwner"
+        Width="420"
+        Height="420">
+
+	<StackPanel Margin="20" Spacing="12">
+                <!-- Заголовок -->
+        <Border Background="#E2E8F0"
+                CornerRadius="12"
+                Padding="16"
+                Margin="0,0,0,16">
+		    <TextBlock Text="Делегирование задачи"
+                        FontSize="22"
+                        FontWeight="SemiBold"
+                        Foreground="#1E293B"
+                        HorizontalAlignment="Center"/>
+        </Border>
+
+		<TextBlock Text="Выберите сотрудника:"
+                   FontWeight="SemiBold"
+                   Foreground="#334155"
+                   FontSize="14"
+                   HorizontalAlignment="Center"/>
+
+		<ComboBox ItemsSource="{Binding Colleagues}"
+                  SelectedItem="{Binding SelectedColleague}"
+                  DisplayMemberBinding="{Binding FullName}"
+                 CornerRadius="8"
+                  Height="40"
+                  Width="200"
+                  HorizontalAlignment="Center"
+                  Background="White"/>
+
+		<TextBlock Text="Комментарий (обязательно):"
+                   FontWeight="SemiBold"
+                   Foreground="#334155"
+                   FontSize="14"/>
+
+		<TextBox Text="{Binding Comment}"
+                 AcceptsReturn="True"
+                 TextWrapping="Wrap"
+                 Height="100"                 
+                 CornerRadius="8"
+                 Background="White"/>
+
+		<TextBlock Text="{Binding ErrorMessage}"
+                   Foreground="Red"
+                   FontSize="12"
+                   IsVisible="{Binding ErrorMessage}"/>
+
+		<StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Right"
+                    Spacing="10"
+                    Margin="0,10,0,0">
+			<Button Content="Отмена"
+                    Background="Transparent"
+                    Foreground="#64748B"
+                    BorderBrush="#CBD5E1"
+                    BorderThickness="1.5"
+                    Padding="24,10"
+                    CornerRadius="30"
+                    FontWeight="SemiBold"
+                    Command="{Binding CancelCommand}"/>
+
+			<Button Content="Сохранить"
+                    Command="{Binding SaveCommand}"
+                    Background="#3B82F6"
+                    Foreground="White"
+                    Padding="24,10"
+                    CornerRadius="30"
+                    FontWeight="SemiBold"/>
+		</StackPanel>
+
+	</StackPanel>
+</Window>

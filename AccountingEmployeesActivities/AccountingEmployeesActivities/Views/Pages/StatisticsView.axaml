@@ -1,9 +1,219 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              x:Class="AccountingEmployeesActivities.Views.Pages.StatisticsView"
-			 x:CompileBindings="False">
-	<StackPanel Margin="20">
-		<TextBlock Text="{Binding Title}" FontSize="24" FontWeight="Bold" Margin="0,0,0,20"/>
-		<TextBlock Text="Настройки приложения." FontSize="16"/>
-	</StackPanel>
+			 x:CompileBindings="False"
+			 xmlns:lvc="using:LiveChartsCore.SkiaSharpView.Avalonia">
+<ScrollViewer>
+		<StackPanel Margin="20" Spacing="16">
+			<!-- Заголовок и фильтр -->
+			<Grid RowDefinitions="Auto,Auto" ColumnDefinitions="*,Auto">
+				<TextBlock Text="Статистика сотрудников" 
+						   FontSize="24" 
+						   FontWeight="Bold"/>
+
+			</Grid>
+
+			<!-- Фильтр -->
+            <Border Background="White" 
+					CornerRadius="8" 
+					Padding="20"
+					BoxShadow="0 2 8 0 #10000000">
+                <StackPanel Orientation="Horizontal" Spacing="10">
+                    <TextBlock Text="Сотрудник:" VerticalAlignment="Center"/>
+                    <ComboBox Width="250" 
+                              ItemsSource="{Binding Employees}"
+                              SelectedItem="{Binding SelectedEmployee}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding FullName}"/>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+					<!-- Кнопка Excel -->
+					<Button Padding="14,8"
+							CornerRadius="6"
+							Tag="xlsx"
+							Background="#BDBDBD"
+							Click="OnExportClick">
+						<StackPanel Orientation="Horizontal" Spacing="6">
+							<!-- Иконка Excel (можно использовать Path или SymbolIcon) -->
+							<PathIcon Data="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20M9.5,14L7,18H8.5L10,15.5L11.5,18H13L10.5,14H9.5Z"
+									  Width="18" Height="18"/>
+							<TextBlock Text="Excel" FontWeight="SemiBold" Foreground="White"/>
+						</StackPanel>
+					</Button>
+
+					<!-- Кнопка PDF -->
+					<Button Padding="14,8"
+							CornerRadius="6"
+							Background="#3b82f6"
+							Tag="pdf"
+							Click="OnExportClick">
+						<StackPanel Orientation="Horizontal" Spacing="6">
+							<PathIcon Data="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20M11.2,13H9V16.5H10V14.7L11.1,16.5H11.8L10.7,14.6H11.2V13M15,13H13V16.5H14.2V15.3H15.3C16,15.3 16.4,14.9 16.4,14.3C16.4,13.7 16,13.3 15.3,13.3H15V13M15.2,14.1H14.2V14.5H15.2C15.4,14.5 15.6,14.4 15.6,14.3C15.6,14.2 15.4,14.1 15.2,14.1Z"
+									  Width="18" Height="18"/>
+							<TextBlock Text="PDF" FontWeight="SemiBold" Foreground="White"/>
+						</StackPanel>
+					</Button>
+                </StackPanel>
+
+            </Border>
+			<!-- ВТОРАЯ СТРОКА: ФИЛЬТР ПО ДАТЕ -->
+            <StackPanel Orientation="Horizontal" Spacing="12">
+                <TextBlock Text="Период:" VerticalAlignment="Center" FontWeight="Medium" Width="100"/>
+                        
+                <StackPanel Orientation="Horizontal" Spacing="5">
+                    <TextBlock Text="От:" VerticalAlignment="Center"/>
+                    <CalendarDatePicker SelectedDate="{Binding StartDate}" 
+                                        Width="150"
+                                        Watermark="Начало периода"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Spacing="5">
+                    <TextBlock Text="До:" VerticalAlignment="Center"/>
+                    <CalendarDatePicker SelectedDate="{Binding EndDate}" 
+                                        Width="150"
+                                        Watermark="Конец периода"/>
+                </StackPanel>
+            </StackPanel>
+			            
+			<!-- Индикатор загрузки -->
+            <ProgressBar IsIndeterminate="True" 
+                         IsVisible="{Binding IsLoading}"
+                         Height="4"/>
+
+			<!-- Карточки статистики -->
+            <Grid ColumnDefinitions="*,*,*,*" ColumnSpacing="15">
+				<!-- Всего задач -->
+                <Border Grid.Column="0" 
+						Background="White" 
+						CornerRadius="8" 
+						Padding="30"
+						BoxShadow="0 2 8 0 #10000000"
+						Classes="StatCard">
+                    <StackPanel HorizontalAlignment="Center" Spacing="10">
+                        <TextBlock Text="{Binding TotalTasks}" 
+								   Classes="StatNumber"
+								   FontSize="36" 
+								   FontWeight="Bold" 
+								   HorizontalAlignment="Center"/>
+                        <TextBlock Text="Всего задач" 
+								   Classes="StatLabel"
+								   FontSize="14" 
+								   Foreground="Gray"
+								   HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Border>
+
+				<!-- Выполнено -->
+                <Border Grid.Column="1" 
+						Classes="StatCard"
+						Background="White" 
+						CornerRadius="8" 
+						Padding="30"
+						BoxShadow="0 2 8 0 #10000000">
+                    <StackPanel HorizontalAlignment="Center" Spacing="10">
+                        <TextBlock Text="{Binding CompletedTasks}" 
+								   Classes="StatNumber"
+								   FontSize="36" 
+								   FontWeight="Bold" 
+								   HorizontalAlignment="Center"/>
+                        <TextBlock Text="Выполнено" 
+								   Classes="StatLabel"
+								   FontSize="14" 
+								   Foreground="Gray"
+								   HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Border>
+
+				<!-- В работе -->
+                <Border Grid.Column="2"
+						Background="White" 
+						CornerRadius="8" 
+						Padding="30"
+						BoxShadow="0 2 8 0 #10000000"
+						Classes="StatCard">
+                    <StackPanel HorizontalAlignment="Center" Spacing="10">
+                        <TextBlock Text="{Binding InProgressTasks}" 
+								   Classes="StatNumber"
+								   FontSize="36" 
+								   FontWeight="Bold" 
+								   HorizontalAlignment="Center"/>
+                        <TextBlock Text="В работе" 
+								   Classes="StatLabel"
+								   FontSize="14" 
+								   Foreground="Gray"
+								   HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Border>
+
+				<!-- Прогресс -->
+                <Border Grid.Column="3" 
+						Background="White" 
+						CornerRadius="8" 
+						Padding="30"
+						BoxShadow="0 2 8 0 #10000000"
+						Classes="StatCard">
+                    <StackPanel HorizontalAlignment="Center" Spacing="10">
+                        <TextBlock Text="{Binding ProgressPercentage, 
+								   StringFormat='{}{0}%'}" 
+                                   Classes="StatNumber"
+								   FontSize="36" 
+								   FontWeight="Bold" 
+								   HorizontalAlignment="Center"/>
+                        <TextBlock Text="Прогресс" 
+								   Classes="StatLabel"
+								   FontSize="14" 
+								   Foreground="Gray"
+								   HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Border>
+            </Grid>
+
+			<!-- Графики -->
+			<Grid ColumnDefinitions="*,*" ColumnSpacing="15">
+				<!-- Распределение по статусам -->
+				<Border Grid.Column="0" 
+						Background="White" 
+						CornerRadius="8" 
+						Padding="20"
+						BoxShadow="0 2 8 0 #10000000">
+					<StackPanel Spacing="15">
+						<TextBlock Text="Распределение по статусам" 
+								   FontSize="18" 
+								   FontWeight="SemiBold"/>
+						
+						<!-- Круговая диаграмма -->
+						<StackPanel Spacing="12">
+							<lvc:PieChart Series="{Binding StatusChartSeries}"
+											LegendPosition="Right"
+											Height="300" />
+						</StackPanel>
+					</StackPanel>
+				</Border>
+
+				<!-- Задачи по сотрудникам -->
+				<Border Grid.Column="1" 
+						Background="White" 
+						CornerRadius="8" 
+						Padding="20"
+						BoxShadow="0 2 8 0 #10000000">
+					<StackPanel Spacing="15">
+						<TextBlock Text="Задачи по сотрудникам" 
+								   FontSize="18" 
+								   FontWeight="SemiBold"/>
+						
+						<!-- Столбчатая диаграмма -->
+						<StackPanel Spacing="12">
+							<lvc:CartesianChart Series="{Binding EmployeeTasksChartSeries}"
+												XAxes="{Binding EmployeeTasksXAxes}"
+												YAxes="{Binding EmployeeTasksYAxes}"
+												LegendPosition="Bottom"
+												Height="300" />
+						</StackPanel>
+					</StackPanel>
+				</Border>
+			</Grid>
+		</StackPanel>
+	</ScrollViewer>
 </UserControl>

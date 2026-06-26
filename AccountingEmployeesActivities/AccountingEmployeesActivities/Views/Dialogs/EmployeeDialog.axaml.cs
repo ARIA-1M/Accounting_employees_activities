@@ -93,9 +93,6 @@ namespace AccountingEmployeesActivities.Views.Dialogs
                 employee.LastName = form.LastName;
                 employee.MiddleName = form.MiddleName;
 
-                
-                
-
                 employee.IsActive = form.IsActive;
 
                 if (employee.IdUserNavigation != null)
