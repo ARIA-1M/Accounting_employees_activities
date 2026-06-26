@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\\u041F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044C\\Desktop\\3\u043A_2\\\u043F\u0440\u043E\u0438\u0437\u0432\u043E\u0434\u0441\u0442\u0432\u0435\u043D\u043D\u0430\u044F \u043F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\Accounting_employees_activities\\AccountingEmployeesActivities\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{920E438F-D739-64A0-ABC1-11AF4825BC37}|AccountingEmployeesActivities\\AccountingEmployeesActivities.csproj|c:\\users\\\u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044C\\desktop\\3\u043A_2\\\u043F\u0440\u043E\u0438\u0437\u0432\u043E\u0434\u0441\u0442\u0432\u0435\u043D\u043D\u0430\u044F \u043F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\accounting_employees_activities\\accountingemployeesactivities\\accountingemployeesactivities\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{920E438F-D739-64A0-ABC1-11AF4825BC37}|AccountingEmployeesActivities\\AccountingEmployeesActivities.csproj|solutionrelative:accountingemployeesactivities\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{920E438F-D739-64A0-ABC1-11AF4825BC37}|AccountingEmployeesActivities\\AccountingEmployeesActivities.csproj|c:\\users\\\u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044C\\desktop\\3\u043A_2\\\u043F\u0440\u043E\u0438\u0437\u0432\u043E\u0434\u0441\u0442\u0432\u0435\u043D\u043D\u0430\u044F \u043F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\accounting_employees_activities\\accountingemployeesactivities\\accountingemployeesactivities\\services\\statisticsglpiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{920E438F-D739-64A0-ABC1-11AF4825BC37}|AccountingEmployeesActivities\\AccountingEmployeesActivities.csproj|solutionrelative:accountingemployeesactivities\\services\\statisticsglpiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -47,10 +51,6 @@
       "RelativeMoniker": "D:0:0:{920E438F-D739-64A0-ABC1-11AF4825BC37}|AccountingEmployeesActivities\\AccountingEmployeesActivities.csproj|solutionrelative:accountingemployeesactivities\\models\\postgrescontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{920E438F-D739-64A0-ABC1-11AF4825BC37}|AccountingEmployeesActivities\\AccountingEmployeesActivities.csproj|c:\\users\\\u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044C\\desktop\\3\u043A_2\\\u043F\u0440\u043E\u0438\u0437\u0432\u043E\u0434\u0441\u0442\u0432\u0435\u043D\u043D\u0430\u044F \u043F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\accounting_employees_activities\\accountingemployeesactivities\\accountingemployeesactivities\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{920E438F-D739-64A0-ABC1-11AF4825BC37}|AccountingEmployeesActivities\\AccountingEmployeesActivities.csproj|solutionrelative:accountingemployeesactivities\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{920E438F-D739-64A0-ABC1-11AF4825BC37}|AccountingEmployeesActivities\\AccountingEmployeesActivities.csproj|c:\\users\\\u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044C\\desktop\\3\u043A_2\\\u043F\u0440\u043E\u0438\u0437\u0432\u043E\u0434\u0441\u0442\u0432\u0435\u043D\u043D\u0430\u044F \u043F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\accounting_employees_activities\\accountingemployeesactivities\\accountingemployeesactivities\\viewsmodels\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{920E438F-D739-64A0-ABC1-11AF4825BC37}|AccountingEmployeesActivities\\AccountingEmployeesActivities.csproj|solutionrelative:accountingemployeesactivities\\viewsmodels\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -78,7 +78,7 @@
       "DocumentGroups": [
         {
           "DockedHeight": 474,
-          "SelectedChildIndex": 13,
+          "SelectedChildIndex": 20,
           "Children": [
             {
               "$type": "Bookmark",
@@ -118,7 +118,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "IStatisticsService.cs",
               "DocumentMoniker": "C:\\Users\\\u041F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044C\\Desktop\\3\u043A_2\\\u043F\u0440\u043E\u0438\u0437\u0432\u043E\u0434\u0441\u0442\u0432\u0435\u043D\u043D\u0430\u044F \u043F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\Accounting_employees_activities\\AccountingEmployeesActivities\\AccountingEmployeesActivities\\Services\\IStatisticsService.cs",
               "RelativeDocumentMoniker": "AccountingEmployeesActivities\\Services\\IStatisticsService.cs",
@@ -126,12 +126,11 @@
               "RelativeToolTip": "AccountingEmployeesActivities\\Services\\IStatisticsService.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAABQAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-25T12:14:52.274Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-25T12:14:52.274Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "Statistics.cs",
               "DocumentMoniker": "C:\\Users\\\u041F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044C\\Desktop\\3\u043A_2\\\u043F\u0440\u043E\u0438\u0437\u0432\u043E\u0434\u0441\u0442\u0432\u0435\u043D\u043D\u0430\u044F \u043F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\Accounting_employees_activities\\AccountingEmployeesActivities\\AccountingEmployeesActivities\\DTOs\\Statistics.cs",
               "RelativeDocumentMoniker": "AccountingEmployeesActivities\\DTOs\\Statistics.cs",
@@ -139,12 +138,11 @@
               "RelativeToolTip": "AccountingEmployeesActivities\\DTOs\\Statistics.cs",
               "ViewState": "AgIAABEAAAAAAAAAAAA+wCEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-25T11:57:53.005Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-25T11:57:53.005Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "StatisticsService.cs",
               "DocumentMoniker": "C:\\Users\\\u041F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044C\\Desktop\\3\u043A_2\\\u043F\u0440\u043E\u0438\u0437\u0432\u043E\u0434\u0441\u0442\u0432\u0435\u043D\u043D\u0430\u044F \u043F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\Accounting_employees_activities\\AccountingEmployeesActivities\\AccountingEmployeesActivities\\Services\\StatisticsService.cs",
               "RelativeDocumentMoniker": "AccountingEmployeesActivities\\Services\\StatisticsService.cs",
@@ -152,12 +150,11 @@
               "RelativeToolTip": "AccountingEmployeesActivities\\Services\\StatisticsService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-25T12:12:30.601Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-25T12:12:30.601Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "App.axaml.cs",
               "DocumentMoniker": "C:\\Users\\\u041F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044C\\Desktop\\3\u043A_2\\\u043F\u0440\u043E\u0438\u0437\u0432\u043E\u0434\u0441\u0442\u0432\u0435\u043D\u043D\u0430\u044F \u043F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\Accounting_employees_activities\\AccountingEmployeesActivities\\AccountingEmployeesActivities\\App.axaml.cs",
               "RelativeDocumentMoniker": "AccountingEmployeesActivities\\App.axaml.cs",
@@ -165,25 +162,24 @@
               "RelativeToolTip": "AccountingEmployeesActivities\\App.axaml.cs",
               "ViewState": "AgIAACAAAAAAAAAAAAAgwDAAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-25T11:59:36.924Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-25T11:59:36.924Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "StatisticsGlpiService.cs",
               "DocumentMoniker": "C:\\Users\\\u041F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044C\\Desktop\\3\u043A_2\\\u043F\u0440\u043E\u0438\u0437\u0432\u043E\u0434\u0441\u0442\u0432\u0435\u043D\u043D\u0430\u044F \u043F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\Accounting_employees_activities\\AccountingEmployeesActivities\\AccountingEmployeesActivities\\Services\\StatisticsGlpiService.cs",
               "RelativeDocumentMoniker": "AccountingEmployeesActivities\\Services\\StatisticsGlpiService.cs",
               "ToolTip": "C:\\Users\\\u041F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044C\\Desktop\\3\u043A_2\\\u043F\u0440\u043E\u0438\u0437\u0432\u043E\u0434\u0441\u0442\u0432\u0435\u043D\u043D\u0430\u044F \u043F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\Accounting_employees_activities\\AccountingEmployeesActivities\\AccountingEmployeesActivities\\Services\\StatisticsGlpiService.cs",
               "RelativeToolTip": "AccountingEmployeesActivities\\Services\\StatisticsGlpiService.cs",
-              "ViewState": "AgIAAI4AAAAAAAAAAAAkwJkAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAALMAAAAAAAAAAAAAAJkAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-06-25T11:57:17.699Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "GlpiService.cs",
               "DocumentMoniker": "C:\\Users\\\u041F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044C\\Desktop\\3\u043A_2\\\u043F\u0440\u043E\u0438\u0437\u0432\u043E\u0434\u0441\u0442\u0432\u0435\u043D\u043D\u0430\u044F \u043F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\Accounting_employees_activities\\AccountingEmployeesActivities\\AccountingEmployeesActivities\\Services\\GlpiService.cs",
               "RelativeDocumentMoniker": "AccountingEmployeesActivities\\Services\\GlpiService.cs",
@@ -191,12 +187,11 @@
               "RelativeToolTip": "AccountingEmployeesActivities\\Services\\GlpiService.cs",
               "ViewState": "AgIAAHcAAAAAAAAAAAApwJAAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-25T11:56:20.331Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-25T11:56:20.331Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "IGlpiService.cs",
               "DocumentMoniker": "C:\\Users\\\u041F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044C\\Desktop\\3\u043A_2\\\u043F\u0440\u043E\u0438\u0437\u0432\u043E\u0434\u0441\u0442\u0432\u0435\u043D\u043D\u0430\u044F \u043F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\Accounting_employees_activities\\AccountingEmployeesActivities\\AccountingEmployeesActivities\\Services\\IGlpiService.cs",
               "RelativeDocumentMoniker": "AccountingEmployeesActivities\\Services\\IGlpiService.cs",
@@ -204,12 +199,11 @@
               "RelativeToolTip": "AccountingEmployeesActivities\\Services\\IGlpiService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-25T11:55:28.413Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-25T11:55:28.413Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "GlpiModels.cs",
               "DocumentMoniker": "C:\\Users\\\u041F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044C\\Desktop\\3\u043A_2\\\u043F\u0440\u043E\u0438\u0437\u0432\u043E\u0434\u0441\u0442\u0432\u0435\u043D\u043D\u0430\u044F \u043F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\Accounting_employees_activities\\AccountingEmployeesActivities\\AccountingEmployeesActivities\\DTOs\\GlpiModels.cs",
               "RelativeDocumentMoniker": "AccountingEmployeesActivities\\DTOs\\GlpiModels.cs",
@@ -217,12 +211,11 @@
               "RelativeToolTip": "AccountingEmployeesActivities\\DTOs\\GlpiModels.cs",
               "ViewState": "AgIAABgAAAAAAAAAAAA7wCUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-25T11:54:18.179Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-25T11:54:18.179Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "StatisticGLPIViewModel.cs",
               "DocumentMoniker": "C:\\Users\\\u041F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044C\\Desktop\\3\u043A_2\\\u043F\u0440\u043E\u0438\u0437\u0432\u043E\u0434\u0441\u0442\u0432\u0435\u043D\u043D\u0430\u044F \u043F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\Accounting_employees_activities\\AccountingEmployeesActivities\\AccountingEmployeesActivities\\ViewsModels\\Pages\\StatisticGLPIViewModel.cs",
               "RelativeDocumentMoniker": "AccountingEmployeesActivities\\ViewsModels\\Pages\\StatisticGLPIViewModel.cs",
@@ -230,12 +223,11 @@
               "RelativeToolTip": "AccountingEmployeesActivities\\ViewsModels\\Pages\\StatisticGLPIViewModel.cs",
               "ViewState": "AgIAANoAAAAAAAAAAAAAAOEAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-25T11:53:26.145Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-25T11:53:26.145Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "PostgresContext.cs",
               "DocumentMoniker": "C:\\Users\\\u041F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044C\\Desktop\\3\u043A_2\\\u043F\u0440\u043E\u0438\u0437\u0432\u043E\u0434\u0441\u0442\u0432\u0435\u043D\u043D\u0430\u044F \u043F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\Accounting_employees_activities\\AccountingEmployeesActivities\\AccountingEmployeesActivities\\Models\\PostgresContext.cs",
               "RelativeDocumentMoniker": "AccountingEmployeesActivities\\Models\\PostgresContext.cs",
@@ -243,8 +235,7 @@
               "RelativeToolTip": "AccountingEmployeesActivities\\Models\\PostgresContext.cs",
               "ViewState": "AgIAAMYAAAAAAAAAAAAiwB8AAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-25T11:42:57.378Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-25T11:42:57.378Z"
             },
             {
               "$type": "Document",
@@ -256,18 +247,17 @@
               "RelativeToolTip": "AccountingEmployeesActivities\\ViewsModels\\LoginViewModel.cs",
               "ViewState": "AgIAAF8AAAAAAAAAAAArwGwAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-25T11:36:22.499Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-25T11:36:22.499Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 0,
               "Title": "User.cs",
               "DocumentMoniker": "C:\\Users\\\u041F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044C\\Desktop\\3\u043A_2\\\u043F\u0440\u043E\u0438\u0437\u0432\u043E\u0434\u0441\u0442\u0432\u0435\u043D\u043D\u0430\u044F \u043F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\Accounting_employees_activities\\AccountingEmployeesActivities\\AccountingEmployeesActivities\\Models\\User.cs",
               "RelativeDocumentMoniker": "AccountingEmployeesActivities\\Models\\User.cs",
               "ToolTip": "C:\\Users\\\u041F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044C\\Desktop\\3\u043A_2\\\u043F\u0440\u043E\u0438\u0437\u0432\u043E\u0434\u0441\u0442\u0432\u0435\u043D\u043D\u0430\u044F \u043F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\Accounting_employees_activities\\AccountingEmployeesActivities\\AccountingEmployeesActivities\\Models\\User.cs",
               "RelativeToolTip": "AccountingEmployeesActivities\\Models\\User.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAAA1wA8AAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-06-25T11:36:02.055Z",
               "EditorCaption": ""
@@ -282,8 +272,7 @@
               "RelativeToolTip": "AccountingEmployeesActivities\\ViewsModels\\Dialog\\EmployeeDialogViewModel.cs",
               "ViewState": "AgIAANAAAAAAAAAAAAAQwNwAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-25T11:18:13.644Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-25T11:18:13.644Z"
             },
             {
               "$type": "Document",
@@ -295,8 +284,7 @@
               "RelativeToolTip": "AccountingEmployeesActivities\\Models\\Employee.cs",
               "ViewState": "AgIAAA0AAAAAAAAAAAA5wAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-25T11:26:40.913Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-25T11:26:40.913Z"
             },
             {
               "$type": "Document",
@@ -308,8 +296,7 @@
               "RelativeToolTip": "AccountingEmployeesActivities\\Models\\EmployeeFormModel.cs",
               "ViewState": "AgIAAA4AAAAAAAAAAAAgwBcAAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-25T11:22:35.374Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-25T11:22:35.374Z"
             },
             {
               "$type": "Document",
@@ -321,12 +308,11 @@
               "RelativeToolTip": "AccountingEmployeesActivities\\Views\\Dialogs\\EmployeeDialog.axaml.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAG8AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-25T11:21:27.227Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-25T11:21:27.227Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "EmployeeDialog.axaml",
               "DocumentMoniker": "C:\\Users\\\u041F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044C\\Desktop\\3\u043A_2\\\u043F\u0440\u043E\u0438\u0437\u0432\u043E\u0434\u0441\u0442\u0432\u0435\u043D\u043D\u0430\u044F \u043F\u0440\u0430\u043A\u0442\u0438\u043A\u0430\\Accounting_employees_activities\\AccountingEmployeesActivities\\AccountingEmployeesActivities\\Views\\Dialogs\\EmployeeDialog.axaml",
               "RelativeDocumentMoniker": "AccountingEmployeesActivities\\Views\\Dialogs\\EmployeeDialog.axaml",
@@ -334,8 +320,7 @@
               "RelativeToolTip": "AccountingEmployeesActivities\\Views\\Dialogs\\EmployeeDialog.axaml",
               "ViewState": "AgIAAF4AAAAAAAAAAAAkwG4AAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2026-06-25T11:19:58.946Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-25T11:19:58.946Z"
             }
           ]
         },
