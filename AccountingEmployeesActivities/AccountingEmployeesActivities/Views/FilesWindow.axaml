@@ -23,7 +23,7 @@
                     Background="Transparent"
                     BorderThickness="0"
                     FontSize="20"
-					FontWeight="Bold"
+                    FontWeight="Bold"
                     Foreground="Black"
                     DockPanel.Dock="Right"
                     Cursor="Hand"
@@ -41,21 +41,46 @@
                  BorderThickness="0">
 			<ListBox.ItemTemplate>
 				<DataTemplate>
-					<Button Command="{Binding DataContext.DownloadFileCommand, RelativeSource={RelativeSource AncestorType=Window}}"
-                            CommandParameter="{Binding}"
-                            Background="Transparent" BorderThickness="0" Padding="8,6"
-                            HorizontalContentAlignment="Left"
-                            Cursor="Hand">
-						<Button.Styles>
-							<Style Selector="Button:pointerover">
-								<Setter Property="Background" Value="#F1F5F9"/>
-							</Style>
-						</Button.Styles>
+					<!-- Контейнер для файла -->
+					<Border Background="Transparent" Padding="8,6" CornerRadius="8">
 						<DockPanel>
-							<TextBlock Text="📄" FontSize="20" DockPanel.Dock="Left" Margin="0,0,12,0"/>
-							<TextBlock Text="{Binding Name}" FontSize="14" VerticalAlignment="Center"/>
+							<!-- Кнопка удаления (справа) -->
+							<Button Content="✕"
+                                    Command="{Binding DataContext.DeleteFileCommand, RelativeSource={RelativeSource AncestorType=Window}}"
+                                    CommandParameter="{Binding}"
+                                    Background="Transparent"
+                                    Foreground="#E53E3E"
+                                    BorderThickness="0"
+                                    FontSize="14"
+                                    Cursor="Hand"
+                                    DockPanel.Dock="Right"
+                                    Margin="8,0,0,0"
+                                    ToolTip.Tip="Удалить файл">
+								<Button.Styles>
+									<Style Selector="Button:pointerover">
+										<Setter Property="Foreground" Value="#C53030"/>
+										<Setter Property="Background" Value="#FED7D7"/>
+									</Style>
+								</Button.Styles>
+							</Button>
+							<!-- Остальная часть (скачивание) -->
+							<Button Command="{Binding DataContext.DownloadFileCommand, RelativeSource={RelativeSource AncestorType=Window}}"
+                                    CommandParameter="{Binding}"
+                                    Background="Transparent" BorderThickness="0" Padding="0"
+                                    HorizontalContentAlignment="Left"
+                                    Cursor="Hand">
+								<Button.Styles>
+									<Style Selector="Button:pointerover">
+										<Setter Property="Background" Value="#F1F5F9"/>
+									</Style>
+								</Button.Styles>
+								<DockPanel>
+									<TextBlock Text="📄" FontSize="20" DockPanel.Dock="Left" Margin="0,0,10,0"/>
+									<TextBlock Text="{Binding Name}" FontSize="14" VerticalAlignment="Center"/>
+								</DockPanel>
+							</Button>
 						</DockPanel>
-					</Button>
+					</Border>
 				</DataTemplate>
 			</ListBox.ItemTemplate>
 			<ListBox.Styles>

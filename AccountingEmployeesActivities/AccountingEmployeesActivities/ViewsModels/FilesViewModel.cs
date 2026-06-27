@@ -14,10 +14,13 @@ namespace AccountingEmployeesActivities.ViewModels
         private readonly int _taskId;
         private string _taskTitle = string.Empty;
         private IStorageProvider _storageProvider;
+        private readonly PostgresContext _context;
 
         public ObservableCollection<FileItem> Files { get; }
         public ICommand DownloadFileCommand { get; }
         public ICommand AddFileCommand { get; }
+        public ICommand DeleteFileCommand { get; } // новая команда
+
         public string TaskTitle
         {
             get => _taskTitle;
@@ -29,22 +32,23 @@ namespace AccountingEmployeesActivities.ViewModels
             _storageProvider = provider;
         }
 
-        public FilesViewModel(int taskId)
+        public FilesViewModel(int taskId, PostgresContext context = null)
         {
+            _context = context ?? new PostgresContext();
             _taskId = taskId;
             Files = new ObservableCollection<FileItem>();
             DownloadFileCommand = new RelayCommand(DownloadFile);
             AddFileCommand = new RelayCommand(_ => AddFileAsync());
+            DeleteFileCommand = new RelayCommand(DeleteFile); // инициализация
             LoadFiles();
         }
 
         private void LoadFiles()
         {
-            using var db = new PostgresContext();
-            var task = db.Tasks.FirstOrDefault(t => t.IdTask == _taskId);
+            var task = _context.Tasks.FirstOrDefault(t => t.IdTask == _taskId);
             TaskTitle = task?.Name ?? "Задача";
 
-            var fileEntities = db.Files.Where(f => f.IdTask == _taskId).ToList();
+            var fileEntities = _context.Files.Where(f => f.IdTask == _taskId).ToList();
             Files.Clear();
             foreach (var file in fileEntities)
             {
@@ -110,10 +114,7 @@ namespace AccountingEmployeesActivities.ViewModels
                 fileData = memoryStream.ToArray();
             }
 
-            using var db = new PostgresContext();
-            int maxId = db.Files.Any() ? db.Files.Max(f => f.IdFile) : 0;
-
-            // Явно указываем пространство имён для модели File
+            int maxId = _context.Files.Any() ? _context.Files.Max(f => f.IdFile) : 0;
             var newFile = new AccountingEmployeesActivities.Models.File
             {
                 IdFile = maxId + 1,
@@ -122,8 +123,8 @@ namespace AccountingEmployeesActivities.ViewModels
                 AddDate = DateOnly.FromDateTime(DateTime.Now),
                 Data = fileData
             };
-            db.Files.Add(newFile);
-            await db.SaveChangesAsync();
+            _context.Files.Add(newFile);
+            await _context.SaveChangesAsync();
 
             Files.Add(new FileItem
             {
@@ -131,6 +132,21 @@ namespace AccountingEmployeesActivities.ViewModels
                 Name = newFile.Name,
                 Data = newFile.Data
             });
+        }
+
+        // Новый метод удаления
+        private void DeleteFile(object parameter)
+        {
+            if (parameter is not FileItem fileItem) return;
+
+            // Находим файл в БД
+            var file = _context.Files.FirstOrDefault(f => f.IdFile == fileItem.IdFile);
+            if (file != null)
+            {
+                _context.Files.Remove(file);
+                _context.SaveChanges();
+                Files.Remove(fileItem); // удаляем из коллекции
+            }
         }
 
         protected void SetProperty<T>(ref T field, T value, [System.Runtime.CompilerServices.CallerMemberName] string propertyName = null)
