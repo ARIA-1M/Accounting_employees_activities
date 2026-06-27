@@ -23,18 +23,27 @@ namespace AccountingEmployeesActivities.ViewModels
             set { _newComment = value; OnPropertyChanged(); }
         }
 
+        public CommentViewModel(int taskId, int currentUserId, PostgresContext db)
+        {
+            _taskId = taskId;
+            _currentUserId = currentUserId;
+            Comments = new ObservableCollection<CommentItem>();
+            SendCommentCommand = new RelayCommand(_ => SendComment());
+            LoadComments(db);
+        }
         public CommentViewModel(int taskId, int currentUserId)
         {
             _taskId = taskId;
             _currentUserId = currentUserId;
             Comments = new ObservableCollection<CommentItem>();
             SendCommentCommand = new RelayCommand(_ => SendComment());
-            LoadComments();
+            using var db = new PostgresContext();
+            LoadComments(db);
         }
 
-        private void LoadComments()
+        private void LoadComments(PostgresContext db)
         {
-            using var db = new PostgresContext();
+  
             // 1. Загружаем данные из БД
             var rawComments = db.Comments
                 .Where(c => c.IdTask == _taskId)

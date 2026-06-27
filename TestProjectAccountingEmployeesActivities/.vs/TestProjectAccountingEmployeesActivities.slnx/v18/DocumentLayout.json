@@ -1,0 +1,135 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\projeckt\\Accounting_employees_activities\\TestProjectAccountingEmployeesActivities\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{3F4B9FA1-096C-41AB-9285-F39A46143796}|TestProjectAccountingEmployeesActivities.csproj|c:\\projeckt\\accounting_employees_activities\\testprojectaccountingemployeesactivities\\mainviewmodeltests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3F4B9FA1-096C-41AB-9285-F39A46143796}|TestProjectAccountingEmployeesActivities.csproj|solutionrelative:mainviewmodeltests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3F4B9FA1-096C-41AB-9285-F39A46143796}|TestProjectAccountingEmployeesActivities.csproj|c:\\projeckt\\accounting_employees_activities\\testprojectaccountingemployeesactivities\\commentviewmodeltests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3F4B9FA1-096C-41AB-9285-F39A46143796}|TestProjectAccountingEmployeesActivities.csproj|solutionrelative:commentviewmodeltests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3F4B9FA1-096C-41AB-9285-F39A46143796}|TestProjectAccountingEmployeesActivities.csproj|c:\\projeckt\\accounting_employees_activities\\testprojectaccountingemployeesactivities\\testbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3F4B9FA1-096C-41AB-9285-F39A46143796}|TestProjectAccountingEmployeesActivities.csproj|solutionrelative:testbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3F4B9FA1-096C-41AB-9285-F39A46143796}|TestProjectAccountingEmployeesActivities.csproj|c:\\projeckt\\accounting_employees_activities\\testprojectaccountingemployeesactivities\\historyviewmodeltests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3F4B9FA1-096C-41AB-9285-F39A46143796}|TestProjectAccountingEmployeesActivities.csproj|solutionrelative:historyviewmodeltests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C9D0106E-201D-E0EC-02FF-AC6DD67E5A24}|..\\AccountingEmployeesActivities\\AccountingEmployeesActivities\\AccountingEmployeesActivities.csproj|c:\\projeckt\\accounting_employees_activities\\accountingemployeesactivities\\accountingemployeesactivities\\viewsmodels\\viewmodelbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3F4B9FA1-096C-41AB-9285-F39A46143796}|TestProjectAccountingEmployeesActivities.csproj|c:\\projeckt\\accounting_employees_activities\\testprojectaccountingemployeesactivities\\filesviewmodeltests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3F4B9FA1-096C-41AB-9285-F39A46143796}|TestProjectAccountingEmployeesActivities.csproj|solutionrelative:filesviewmodeltests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 217,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ViewModelBase.cs",
+              "DocumentMoniker": "C:\\projeckt\\Accounting_employees_activities\\AccountingEmployeesActivities\\AccountingEmployeesActivities\\ViewsModels\\ViewModelBase.cs",
+              "RelativeDocumentMoniker": "..\\AccountingEmployeesActivities\\AccountingEmployeesActivities\\ViewsModels\\ViewModelBase.cs",
+              "ToolTip": "C:\\projeckt\\Accounting_employees_activities\\AccountingEmployeesActivities\\AccountingEmployeesActivities\\ViewsModels\\ViewModelBase.cs",
+              "RelativeToolTip": "..\\AccountingEmployeesActivities\\AccountingEmployeesActivities\\ViewsModels\\ViewModelBase.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-24T16:35:08.888Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CommentViewModelTests.cs",
+              "DocumentMoniker": "C:\\projeckt\\Accounting_employees_activities\\TestProjectAccountingEmployeesActivities\\CommentViewModelTests.cs",
+              "RelativeDocumentMoniker": "CommentViewModelTests.cs",
+              "ToolTip": "C:\\projeckt\\Accounting_employees_activities\\TestProjectAccountingEmployeesActivities\\CommentViewModelTests.cs",
+              "RelativeToolTip": "CommentViewModelTests.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAhwDcAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-24T15:08:43.117Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "FilesViewModelTests.cs",
+              "DocumentMoniker": "C:\\projeckt\\Accounting_employees_activities\\TestProjectAccountingEmployeesActivities\\FilesViewModelTests.cs",
+              "RelativeDocumentMoniker": "FilesViewModelTests.cs",
+              "ToolTip": "C:\\projeckt\\Accounting_employees_activities\\TestProjectAccountingEmployeesActivities\\FilesViewModelTests.cs",
+              "RelativeToolTip": "FilesViewModelTests.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAxwA8AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-24T14:28:17.894Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "HistoryViewModelTests.cs",
+              "DocumentMoniker": "C:\\projeckt\\Accounting_employees_activities\\TestProjectAccountingEmployeesActivities\\HistoryViewModelTests.cs",
+              "RelativeDocumentMoniker": "HistoryViewModelTests.cs",
+              "ToolTip": "C:\\projeckt\\Accounting_employees_activities\\TestProjectAccountingEmployeesActivities\\HistoryViewModelTests.cs",
+              "RelativeToolTip": "HistoryViewModelTests.cs",
+              "ViewState": "AgIAACUAAAAAAAAAAAAcwDQAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-24T14:21:10.294Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainViewModelTests.cs",
+              "DocumentMoniker": "C:\\projeckt\\Accounting_employees_activities\\TestProjectAccountingEmployeesActivities\\MainViewModelTests.cs",
+              "RelativeDocumentMoniker": "MainViewModelTests.cs",
+              "ToolTip": "C:\\projeckt\\Accounting_employees_activities\\TestProjectAccountingEmployeesActivities\\MainViewModelTests.cs",
+              "RelativeToolTip": "MainViewModelTests.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAUwA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-24T14:20:46.361Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "TestBase.cs",
+              "DocumentMoniker": "C:\\projeckt\\Accounting_employees_activities\\TestProjectAccountingEmployeesActivities\\TestBase.cs",
+              "RelativeDocumentMoniker": "TestBase.cs",
+              "ToolTip": "C:\\projeckt\\Accounting_employees_activities\\TestProjectAccountingEmployeesActivities\\TestBase.cs",
+              "RelativeToolTip": "TestBase.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAhwCQAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-24T14:10:33.956Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

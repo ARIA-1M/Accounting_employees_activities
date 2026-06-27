@@ -28,6 +28,14 @@ namespace AccountingEmployeesActivities.ViewModels
         {
             _storageProvider = provider;
         }
+        public FilesViewModel(int taskId, PostgresContext db)
+        {
+            _taskId = taskId;
+            Files = new ObservableCollection<FileItem>();
+            DownloadFileCommand = new RelayCommand(DownloadFile);
+            AddFileCommand = new RelayCommand(_ => AddFileAsync());
+            LoadFiles(db);
+        }
 
         public FilesViewModel(int taskId)
         {
@@ -35,12 +43,13 @@ namespace AccountingEmployeesActivities.ViewModels
             Files = new ObservableCollection<FileItem>();
             DownloadFileCommand = new RelayCommand(DownloadFile);
             AddFileCommand = new RelayCommand(_ => AddFileAsync());
-            LoadFiles();
+            using var db = new PostgresContext();            
+            LoadFiles(db);
         }
 
-        private void LoadFiles()
+        private void LoadFiles(PostgresContext db)
         {
-            using var db = new PostgresContext();
+
             var task = db.Tasks.FirstOrDefault(t => t.IdTask == _taskId);
             TaskTitle = task?.Name ?? "Задача";
 

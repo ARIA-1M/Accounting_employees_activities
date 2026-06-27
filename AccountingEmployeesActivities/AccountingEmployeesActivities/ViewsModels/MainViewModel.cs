@@ -42,6 +42,18 @@ namespace AccountingEmployeesActivities.ViewModels
         // Для верхней панели
         public string FullNameWithRole { get; private set; } = string.Empty;
         public string FirstNameOnly { get; private set; } = string.Empty;
+        public MainViewModel(User user, PostgresContext db)
+        {
+            _currentUser = user;
+            MenuItems = new ObservableCollection<MenuItem>();
+            NavigateCommand = new RelayCommand(Navigate);
+            LogoutCommand = new RelayCommand(Logout);
+
+            LoadEmployeeData(db);
+            BuildMenu();
+            if (MenuItems.Count > 0)
+                Navigate(MenuItems[0].PageType);
+        }
 
         public MainViewModel(User user)
         {
@@ -49,16 +61,17 @@ namespace AccountingEmployeesActivities.ViewModels
             MenuItems = new ObservableCollection<MenuItem>();
             NavigateCommand = new RelayCommand(Navigate);
             LogoutCommand = new RelayCommand(Logout);
+            using var db = new PostgresContext();
 
-            LoadEmployeeData();
+            LoadEmployeeData(db);
             BuildMenu();
             if (MenuItems.Count > 0)
                 Navigate(MenuItems[0].PageType);
         }
 
-        private void LoadEmployeeData()
+        private void LoadEmployeeData(PostgresContext db)
         {
-            using var db = new PostgresContext();
+            
             _currentEmployee = db.Employees.FirstOrDefault(e => e.IdUser == _currentUser.IdUser);
             if (_currentEmployee != null)
             {

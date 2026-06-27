@@ -17,6 +17,14 @@ namespace AccountingEmployeesActivities.ViewModels.Pages
         public ICommand OpenCommentsCommand { get; }
         public bool IsBoss { get; }
         private readonly User _currentUser;
+        public HistoryViewModel(User currentUser, PostgresContext db, bool isBoss = false)
+        {
+            _currentUser = currentUser;
+            IsBoss = isBoss;
+            CompletedTasks = new ObservableCollection<CompletedTask>();
+            OpenCommentsCommand = new RelayCommand(OpenComments);
+            LoadCompletedTasks(db);
+        }
 
         public HistoryViewModel(User currentUser, bool isBoss = false)
         {
@@ -24,7 +32,8 @@ namespace AccountingEmployeesActivities.ViewModels.Pages
             IsBoss = isBoss;
             CompletedTasks = new ObservableCollection<CompletedTask>();
             OpenCommentsCommand = new RelayCommand(OpenComments);
-            LoadCompletedTasks();
+            using var db = new PostgresContext();
+            LoadCompletedTasks(db);
         }
 
         private void OpenComments(object parameter)
@@ -37,9 +46,8 @@ namespace AccountingEmployeesActivities.ViewModels.Pages
             }
         }
 
-        private void LoadCompletedTasks()
+        private void LoadCompletedTasks(PostgresContext db)
         {
-            using var db = new PostgresContext();
             var doneStatusId = 4;
             var employee = db.Employees.FirstOrDefault(e => e.IdUser == _currentUser.IdUser);
             if (employee == null) return;
