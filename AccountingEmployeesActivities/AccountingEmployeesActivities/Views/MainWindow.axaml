@@ -28,9 +28,6 @@
 		<DataTemplate DataType="{x:Type pagesVm:EmployeesViewModel}">
 			<pages:EmployeesView />
 		</DataTemplate>
-		<DataTemplate DataType="{x:Type pagesVm:SettingsViewModel}">
-			<pages:SettingsView />
-		</DataTemplate>
 	</Window.DataTemplates>
 
 	<DockPanel>
