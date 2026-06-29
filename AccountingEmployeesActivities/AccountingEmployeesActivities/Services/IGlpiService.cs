@@ -11,6 +11,7 @@ namespace AccountingEmployeesActivities.Services.Interfaces
         Task<string> GetSessionToken();
         Task<List<GlpiTicket>> GetTicketsAsync(DateTime startDate, DateTime endDate, int? employeeId = null);
         Task<GlpiSearchResponse> SearchTicketsAsync(DateTime startDate, DateTime endDate, int? employeeId = null);
+        Task<int> GetTicketCountAsync(DateTime startDate, DateTime endDate, int? employeeId = null);
         Task<List<GlpiTicket>> GetTicketsByEmployeeAsync(int employeeId, DateTime startDate, DateTime endDate);
     }
 }

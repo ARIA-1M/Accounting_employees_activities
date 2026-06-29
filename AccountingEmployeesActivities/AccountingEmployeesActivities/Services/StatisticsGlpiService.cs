@@ -15,77 +15,53 @@ namespace AccountingEmployeesActivities.Services.Implementations
     public class StatisticsGlpiService : IStatisticsService
     {
         private readonly IGlpiService _glpiService;
-
-        public StatisticsGlpiService(IGlpiService glpiService)
+        private readonly PostgresContext _db;
+        public StatisticsGlpiService(IGlpiService glpiService, PostgresContext db)
         {
             _glpiService = glpiService;
+            _db = db;
         }
 
         /// <summary>
         /// Получение сводной статистики по задачам
         /// </summary>
-        public async Task<StatisticsDto> GetStatisticsAsync(
-            int? employeeId,
-            DateTime? startDate,
-            DateTime? endDate)
+        public async Task<StatisticsDto> GetStatisticsAsync(int? employeeId = null, DateTime? startDate = null, DateTime? endDate = null)
         {
-            // Если employeeId == 0 или null -> "Все сотрудники", не передаём фильтр
-            int? glpiUserId = employeeId.HasValue && employeeId.Value > 0
-                ? await GetGlpiUserIdByEmployeeId(employeeId.Value)
-                : null;
+            var actualStart = startDate ?? DateTime.Now.AddMonths(-1);
+            var actualEnd = endDate ?? DateTime.Now;
 
-            var start = startDate ?? DateTime.Now.AddMonths(-1);
-            var end = endDate ?? DateTime.Now;
+            // Вызываем GLPI
+            var total = await _glpiService.GetTicketCountAsync(actualStart, actualEnd, employeeId);
 
-            var tickets = await _glpiService.GetTicketsAsync(start, end, glpiUserId);
-
-            var total = tickets.Count;
-            var completed = tickets.Count(t => t.Status == 5);
-            var inProgress = tickets.Count(t => t.Status == 2 || t.Status == 3);
-
-            var progress = total > 0 ? (int)Math.Round((double)completed / total * 100) : 0;
+            //var total = tickets.Count;
+            //var completed = tickets.Count(t => t.Status == 5 || t.Status == 54); // пример закрытых
+            //var inProgress = tickets.Count(t => t.Status == 2 || t.Status == 3);
 
             return new StatisticsDto
             {
                 TotalTasks = total,
-                CompletedTasks = completed,
-                InProgressTasks = inProgress,
-                ProgressPercentage = progress
+                CompletedTasks = 0,  // если не парсим, то ставим 0
+                InProgressTasks = total,
+                ProgressPercentage = 0
             };
         }
 
         /// <summary>
         /// Получение распределения задач по статусам
         /// </summary>
-        public async Task<List<StatusDistributionDto>> GetStatusDistributionAsync(
-            int? employeeId,
-            DateTime? startDate,
-            DateTime? endDate)
+        public async Task<List<StatusDistributionDto>> GetStatusDistributionAsync(int? employeeId = null, DateTime? startDate = null, DateTime? endDate = null)
         {
-            int? glpiUserId = employeeId.HasValue && employeeId.Value > 0
-                ? await GetGlpiUserIdByEmployeeId(employeeId.Value)
-                : null;
 
-            var start = startDate ?? DateTime.Now.AddMonths(-1);
-            var end = endDate ?? DateTime.Now;
+            var actualStartDate = startDate?.Date ?? DateTime.Now.AddMonths(-1).Date;
+            var actualEndDate = (endDate?.Date ?? DateTime.Now.Date).AddDays(1).AddTicks(-1);
 
-            var tickets = await _glpiService.GetTicketsAsync(start, end, glpiUserId);
-
-            var statusMap = new Dictionary<int, string>
-            {
-                { 1, "Новая" },
-                { 2, "В работе" },
-                { 3, "В ожидании" },
-                { 4, "Отложена" },
-                { 5, "Решена" },
-                { 6, "Закрыта" }
-            };
+            var tickets = await _glpiService.GetTicketsAsync(actualStartDate, actualEndDate, employeeId);
 
             return tickets
-                .GroupBy(t => t.Status)
+                .GroupBy(t => t.StatusName)
                 .Select(g => new StatusDistributionDto
                 {
-                    StatusName = statusMap.ContainsKey(g.Key) ? statusMap[g.Key] : $"Статус {g.Key}",
+                    StatusName = g.Key,
                     Count = g.Count()
                 })
                 .ToList();
@@ -94,87 +70,77 @@ namespace AccountingEmployeesActivities.Services.Implementations
         /// <summary>
         /// Получение количества задач по сотрудникам
         /// </summary>
-        public async Task<List<EmployeeTasksDto>> GetEmployeeTasksAsync(
-            int? employeeId,
-            DateTime? startDate,
-            DateTime? endDate)
+        public async Task<List<EmployeeTasksDto>> GetEmployeeTasksAsync(int? employeeId = null, DateTime? startDate = null, DateTime? endDate = null)
         {
-            int? glpiUserId = employeeId.HasValue && employeeId.Value > 0
-                ? await GetGlpiUserIdByEmployeeId(employeeId.Value)
-                : null;
-
-            var start = startDate ?? DateTime.Now.AddMonths(-1);
-            var end = endDate ?? DateTime.Now;
-
-            var tickets = await _glpiService.GetTicketsAsync(start, end, glpiUserId);
-
-            if (tickets == null || !tickets.Any())
+            var actualStartDate = startDate?.Date ?? DateTime.Now.AddMonths(-1).Date;
+            var actualEndDate = (endDate?.Date ?? DateTime.Now.Date).AddDays(1).AddTicks(-1);
+            // Если фильтр по конкретному сотруднику – показываем только его задачи (или всех?)
+            // Здесь возвращаем разбивку по всем сотрудникам, если не задан фильтр
+            List<GlpiTicket> tickets;
+            if (employeeId.HasValue)
             {
-                return new List<EmployeeTasksDto>();
-            }
-
-            // Группируем по исполнителю (поле 5 - users_id_assign)
-            return tickets
-                .Where(t => t.UsersIdAssign.HasValue && t.UsersIdAssign.Value > 0)
-                .GroupBy(t => t.UsersIdAssign.Value)
-                .Select(g => new EmployeeTasksDto
+                tickets = await _glpiService.GetTicketsByEmployeeAsync(employeeId.Value, actualStartDate, actualEndDate);
+                // Группируем по сотруднику (но у нас только один)
+                var employeeName = await GetEmployeeName(employeeId.Value);
+                return new List<EmployeeTasksDto>
                 {
-                    EmployeeName = GetEmployeeNameByGlpiId(g.Key),
-                    TotalTasks = g.Count(),
-                    CompletedTasks = g.Count(t => t.Status == 5)
-                })
-                .ToList();
+                    new EmployeeTasksDto
+                    {
+                        EmployeeName = employeeName,
+                        TotalTasks = tickets.Count,
+                        CompletedTasks = tickets.Count(t => t.Status == 5 || t.Status == 54)
+                    }
+                };
+            }
+            else
+            {
+                // Получаем все тикеты и группируем по RequesterId
+                tickets = await _glpiService.GetTicketsAsync(actualStartDate, actualEndDate, null);
+                var grouped = tickets.GroupBy(t => t.RequesterId);
+                var result = new List<EmployeeTasksDto>();
+                foreach (var group in grouped)
+                {
+                    var name = await GetEmployeeName(group.Key);
+                    result.Add(new EmployeeTasksDto
+                    {
+                        EmployeeName = name,
+                        TotalTasks = group.Count(),
+                        CompletedTasks = group.Count(t => t.Status == 5 || t.Status == 54)
+                    });
+                }
+                return result;
+            }
         }
 
         /// <summary>
         /// Получение списка сотрудников для фильтра
         /// </summary>
-        public async Task<List<EmployeeFilterDto>> GetEmployeesForFilterAsync(int currentUserId)
+        public async Task<List<EmployeeFilterDto>> GetEmployeesForFilterAsync(int currentEmployeeId)
         {
-            using var db = new PostgresContext();
-
-            // Загружаем подчинённых текущего пользователя
-            var employees = db.Employees
-                .Include(e => e.IdUserNavigation)
-                .Where(e => e.IdBoss == currentUserId)
+            // Берём сотрудников из локальной БД (Postgres)
+            var employees = await _db.Employees
+                .Where(e => e.IdUser == currentEmployeeId || e.IsActive == true) // своя логика
                 .Select(e => new EmployeeFilterDto
                 {
-                    Id = e.IdEmployee,
-                    FullName = $"{e.LastName} {e.FirstName}".Trim(),
-                    IdGlpi = e.IdUserNavigation != null ? e.IdUserNavigation.IdGlpi : null
+                    Id = e.IdEmployee,               // Предполагаем, что этот ID совпадает с ID в GLPI
+                    FullName = e.FirstName
                 })
-                .ToList();
+                .ToListAsync();
 
-            if (employees.Any())
-            {
-                employees.Insert(0, new EmployeeFilterDto { Id = 0, FullName = "Все сотрудники", IdGlpi = null });
-            }
-
-            return await SystemTask.FromResult(employees);
+            // Добавляем пункт "Все"
+            employees.Insert(0, new EmployeeFilterDto { Id = 0, FullName = "Все сотрудники" });
+            return employees;
         }
 
-        // ========== ВСПОМОГАТЕЛЬНЫЕ МЕТОДЫ ==========
-
-        private async Task<int?> GetGlpiUserIdByEmployeeId(int employeeId)
+        private async Task<string> GetEmployeeName(int glpiUserId)
         {
-            using var db = new PostgresContext();
-            var employee = await db.Employees
-                .Include(e => e.IdUserNavigation)
-                .FirstOrDefaultAsync(e => e.IdEmployee == employeeId);
-
-            return employee?.IdUserNavigation?.IdGlpi;
+            // Ищем в локальной БД по ID (если совпадает)
+            var emp = await _db.Employees.FirstOrDefaultAsync(e => e.IdEmployee == glpiUserId);
+            return emp?.FirstName ?? $"Пользователь {glpiUserId}";
         }
 
-        private string GetEmployeeNameByGlpiId(int glpiId)
-        {
-            using var db = new PostgresContext();
-            var employee = db.Employees
-                .Include(e => e.IdUserNavigation)
-                .FirstOrDefault(e => e.IdUserNavigation != null && e.IdUserNavigation.IdGlpi == glpiId);
 
-            return employee != null
-                ? $"{employee.LastName} {employee.FirstName}".Trim()
-                : $"Сотрудник GLPI (ID {glpiId})";
-        }
+
+
     }
 }

@@ -154,7 +154,7 @@ namespace AccountingEmployeesActivities.ViewModels.Pages
 
         public ICommand RefreshCommand { get; }
 
-        public StatisticsGLPIViewModel(User currentUser, IStatisticsService statisticsService, IExportService exportService)
+        public StatisticsGLPIViewModel(User currentUser, IStatisticsService statisticsService)
         {
             _currentUserId = currentUser.IdUser;
 
@@ -163,9 +163,7 @@ namespace AccountingEmployeesActivities.ViewModels.Pages
             _currentEmployeeId = employee?.IdEmployee ?? 0;
 
             _statisticsService = statisticsService;
-            _exportService = exportService;
-
-            RefreshCommand = new RelayCommand(_ => _ = RefreshAsync());
+            RefreshCommand = new RelayCommand(_ =>_ = RefreshAsync());
 
             // ИНИЦИАЛИЗАЦИЯ ДАТ ПО УМОЛЧАНИЮ (ПОСЛЕДНИЙ МЕСЯЦ)
             _endDate = DateTime.Now;
@@ -179,6 +177,7 @@ namespace AccountingEmployeesActivities.ViewModels.Pages
             IsLoading = true;
             try
             {
+
                 var employees = await _statisticsService.GetEmployeesForFilterAsync(_currentEmployeeId);
                 Employees = new ObservableCollection<EmployeeFilterDto>(employees ?? new());
                 SelectedEmployee = Employees.FirstOrDefault();

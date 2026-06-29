@@ -38,85 +38,85 @@ namespace AccountingEmployeesActivities.Services.Implementations
         }
 
         //  Теперь Task<T> указывает на System.Threading.Tasks.Task<T>
-        public async Task<StatisticsDto> GetStatisticsAsync(int? employeeId = null, DateTime? startDate = null, DateTime? endDate = null)
-        {
-            await InitializeStatusIdsAsync();
-
-            //  Models.Task для модели
-            var query = _context.Tasks
-                .Include(t => t.IdStatusNavigation)
-                .Include(t => t.Executors)
-                .AsQueryable();
-
-            //  Правильное преобразование DateOnly в DateTime для сравнения
-            var actualStartDate = startDate?.Date ?? DateTime.Now.AddMonths(-1).Date;
-            var actualEndDate = (endDate?.Date ?? DateTime.Now.Date).AddDays(1).AddTicks(-1); // До конца дня
-
-            query = query.Where(t => t.CreationDate >= DateOnly.FromDateTime(actualStartDate) &&
-                                      t.CreationDate <= DateOnly.FromDateTime(actualEndDate));
-
-            if (employeeId.HasValue)
+            public async Task<StatisticsDto> GetStatisticsAsync(int? employeeId = null, DateTime? startDate = null, DateTime? endDate = null)
             {
-                if (employeeId.Value == -1)
+                await InitializeStatusIdsAsync();
+
+                //  Models.Task для модели
+                var query = _context.Tasks
+                    .Include(t => t.IdStatusNavigation)
+                    .Include(t => t.Executors)
+                    .AsQueryable();
+
+                //  Правильное преобразование DateOnly в DateTime для сравнения
+                var actualStartDate = startDate?.Date ?? DateTime.Now.AddMonths(-1).Date;
+                var actualEndDate = (endDate?.Date ?? DateTime.Now.Date).AddDays(1).AddTicks(-1); // До конца дня
+
+                query = query.Where(t => t.CreationDate >= DateOnly.FromDateTime(actualStartDate) &&
+                                          t.CreationDate <= DateOnly.FromDateTime(actualEndDate));
+
+                if (employeeId.HasValue)
                 {
-                    var currentEmployee = await _context.Employees
-                        .FirstOrDefaultAsync(e => e.IdUser == _currentUserId);
+                    if (employeeId.Value == -1)
+                    {
+                        var currentEmployee = await _context.Employees
+                            .FirstOrDefaultAsync(e => e.IdUser == _currentUserId);
 
-                    if (currentEmployee == null)
-                        return new StatisticsDto();
+                        if (currentEmployee == null)
+                            return new StatisticsDto();
 
-                    var subordinateIds = await _context.Employees
-                        .Where(e => e.IdBoss == currentEmployee.IdEmployee && e.IsActive)
-                        .Select(e => e.IdEmployee)
-                        .ToListAsync();
+                        var subordinateIds = await _context.Employees
+                            .Where(e => e.IdBoss == currentEmployee.IdEmployee && e.IsActive)
+                            .Select(e => e.IdEmployee)
+                            .ToListAsync();
 
-                    subordinateIds.Add(currentEmployee.IdEmployee);
+                        subordinateIds.Add(currentEmployee.IdEmployee);
 
-                    query = query.Where(t => t.Executors.Any(e =>
-                        subordinateIds.Contains(e.IdEmployee)));
+                        query = query.Where(t => t.Executors.Any(e =>
+                            subordinateIds.Contains(e.IdEmployee)));
+                    }
+                    else if (employeeId.Value == -2)
+                    {
+                        var currentEmployee = await _context.Employees
+                            .FirstOrDefaultAsync(e => e.IdUser == _currentUserId);
+
+                        if (currentEmployee == null || !currentEmployee.IdBoss.HasValue)
+                            return new StatisticsDto();
+
+                        var departmentIds = await _context.Employees
+                            .Where(e => e.IdBoss == currentEmployee.IdBoss && e.IsActive)
+                            .Select(e => e.IdEmployee)
+                            .ToListAsync();
+
+                        query = query.Where(t => t.Executors.Any(e =>
+                            departmentIds.Contains(e.IdEmployee)));
+                    }
+                    else if (employeeId.Value > 0)
+                    {
+                        query = query.Where(t => t.Executors.Any(e =>
+                            e.IdEmployee == employeeId.Value));
+                    }
                 }
-                else if (employeeId.Value == -2)
+
+                var totalTasks = await query.CountAsync();
+
+                var completedTasks = await query.CountAsync(t => t.IdStatus == _completedStatusId);
+                var inProgressTasks = await query.CountAsync(t => t.IdStatus == _inProgressStatusId);
+
+                var progressPercentage = totalTasks > 0
+                    ? (int)Math.Round((double)completedTasks / totalTasks * 100)
+                    : 0;
+
+                System.Diagnostics.Debug.WriteLine($"Stats - Total: {totalTasks}, Completed: {completedTasks}, InProgress: {inProgressTasks}, Progress: {progressPercentage}%");
+
+                return new StatisticsDto
                 {
-                    var currentEmployee = await _context.Employees
-                        .FirstOrDefaultAsync(e => e.IdUser == _currentUserId);
-
-                    if (currentEmployee == null || !currentEmployee.IdBoss.HasValue)
-                        return new StatisticsDto();
-
-                    var departmentIds = await _context.Employees
-                        .Where(e => e.IdBoss == currentEmployee.IdBoss && e.IsActive)
-                        .Select(e => e.IdEmployee)
-                        .ToListAsync();
-
-                    query = query.Where(t => t.Executors.Any(e =>
-                        departmentIds.Contains(e.IdEmployee)));
-                }
-                else if (employeeId.Value > 0)
-                {
-                    query = query.Where(t => t.Executors.Any(e =>
-                        e.IdEmployee == employeeId.Value));
-                }
+                    TotalTasks = totalTasks,
+                    CompletedTasks = completedTasks,
+                    InProgressTasks = inProgressTasks,
+                    ProgressPercentage = progressPercentage
+                };
             }
-
-            var totalTasks = await query.CountAsync();
-
-            var completedTasks = await query.CountAsync(t => t.IdStatus == _completedStatusId);
-            var inProgressTasks = await query.CountAsync(t => t.IdStatus == _inProgressStatusId);
-
-            var progressPercentage = totalTasks > 0
-                ? (int)Math.Round((double)completedTasks / totalTasks * 100)
-                : 0;
-
-            System.Diagnostics.Debug.WriteLine($"Stats - Total: {totalTasks}, Completed: {completedTasks}, InProgress: {inProgressTasks}, Progress: {progressPercentage}%");
-
-            return new StatisticsDto
-            {
-                TotalTasks = totalTasks,
-                CompletedTasks = completedTasks,
-                InProgressTasks = inProgressTasks,
-                ProgressPercentage = progressPercentage
-            };
-        }
 
         public async Task<List<StatusDistributionDto>> GetStatusDistributionAsync(int? employeeId = null, DateTime? startDate = null, DateTime? endDate = null)
         {

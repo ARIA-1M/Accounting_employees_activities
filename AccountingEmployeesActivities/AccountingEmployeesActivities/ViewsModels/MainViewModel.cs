@@ -123,7 +123,8 @@ namespace AccountingEmployeesActivities.ViewModels
                 PageType.Statistics => new StatisticsViewModel(_currentUser, App.ServiceProvider.GetRequiredService<IStatisticsService>(), App.ServiceProvider.GetRequiredService<IExportService>()),
                 PageType.Tasks => new TasksViewModel(_currentUser),
                 PageType.Employees => new EmployeesViewModel(_currentUser),
-                PageType.StatisticGLPI => new StatisticsGLPIViewModel(_currentUser, App.ServiceProvider.GetRequiredService<IStatisticsService>(), App.ServiceProvider.GetRequiredService<IExportService>()),
+
+                PageType.StatisticGLPI => new StatisticsGLPIViewModel(_currentUser, App.ServiceProvider.GetRequiredService<IStatisticsService>()),
                 _ => new MyTasksViewModel(_currentUser)
             };
         }

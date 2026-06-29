@@ -18,38 +18,20 @@ namespace AccountingEmployeesActivities.Services.Models
     // Задача из GLPI
     public class GlpiTicket
     {
-        [JsonPropertyName("id")]
         public int Id { get; set; }
-
-        [JsonPropertyName("name")]
         public string Name { get; set; }
-
-        [JsonPropertyName("status")]
-        public int Status { get; set; }
-
-        [JsonPropertyName("users_id_assign")]
-        public int? UsersIdAssign { get; set; }
-
-        [JsonPropertyName("content")]
-        public string Content { get; set; }
-
-        [JsonPropertyName("date")]
-        public DateTime Date { get; set; }
-
-        [JsonPropertyName("closedate")]
+        public int Status { get; set; }          // числовой ID статуса
+        public string StatusName { get; set; }   // расшифровка
+        public int RequesterId { get; set; }     // ID заявителя (поле 12)
+        public int AssignedToId { get; set; }    // ID исполнителя (если нужно)
+        public DateTime CreationDate { get; set; } // поле 19
         public DateTime? CloseDate { get; set; }
-
-        [JsonPropertyName("users_id_recipient")]
-        public int? UsersIdRecipient { get; set; }
     }
 
     // Ответ на поиск задач
     public class GlpiSearchResponse
     {
-        [JsonPropertyName("data")]
         public List<GlpiTicket> Data { get; set; }
-
-        [JsonPropertyName("totalcount")]
         public int TotalCount { get; set; }
     }
 }

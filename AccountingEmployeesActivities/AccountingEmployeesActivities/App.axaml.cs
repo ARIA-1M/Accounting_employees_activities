@@ -10,6 +10,7 @@ using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using System;
 
 namespace AccountingEmployeesActivities
 {
@@ -51,6 +52,11 @@ namespace AccountingEmployeesActivities
             services.AddScoped<IGlpiService, GlpiService>();
             services.AddScoped<IStatisticsService, StatisticsGlpiService>();
             services.AddScoped<IExportService, ExportService>();
+            services.AddHttpClient<IGlpiService, GlpiService>(client =>
+            {
+
+                client.BaseAddress = new Uri("http://10.10.129.9/apirest.php/");
+            });
         }
     }
 }
